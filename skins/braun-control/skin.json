@@ -1,0 +1,17 @@
+{
+  "slug": "braun-control",
+  "name": "Braun Control",
+  "tagline": "Less interface. More intention.",
+  "description": "A quiet, functional skin shaped by warm greys, an eight-pixel grid and one precise signal orange.",
+  "author": {
+    "name": "Ailln",
+    "url": "https://github.com/ailln"
+  },
+  "version": "0.1.1",
+  "status": "Available",
+  "license": "MIT",
+  "compatibility": "@deepseek-ai/dsh 0.1.0-rc.6",
+  "style": ["Industrial", "Warm grey", "Low radius"],
+  "colors": ["#F7F7F7", "#1A1A1A", "#E8500A"],
+  "featured": true
+}

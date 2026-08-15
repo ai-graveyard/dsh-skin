@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Braun Control — DSH Skin Preview</title>
+  <style>
+    :root {
+      --u: 8px;
+      --bg: #f7f7f7;
+      --surface: #ffffff;
+      --layer: #efefef;
+      --layer-2: #ececec;
+      --ink: #1a1a1a;
+      --muted: #686868;
+      --gray: #808080;
+      --line: #c9c9c9;
+      --accent: #e8500a;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+      --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { min-height: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 14px/1.55 var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+    button, input, textarea { font: inherit; }
+    button { color: inherit; }
+    a { color: inherit; text-decoration: none; }
+    :focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+    .eyebrow,
+    .technical,
+    button,
+    .session-time,
+    .status,
+    summary,
+    code { font-family: var(--mono); }
+
+    .eyebrow {
+      color: var(--gray);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .app {
+      display: grid;
+      grid-template-columns: 264px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      display: flex;
+      min-width: 0;
+      min-height: 100vh;
+      flex-direction: column;
+      background: var(--layer);
+      border-right: 1px solid var(--line);
+    }
+
+    .brand {
+      display: flex;
+      height: 64px;
+      align-items: center;
+      gap: 12px;
+      padding: 0 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 24px;
+      height: 24px;
+      place-items: center;
+      border: 1px solid var(--ink);
+      font: 700 9px/1 var(--mono);
+      letter-spacing: -.04em;
+    }
+
+    .brand-name {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .16em;
+    }
+
+    .new-session {
+      min-height: 44px;
+      margin: 24px 16px 16px;
+      border: 1px solid var(--ink);
+      border-radius: 3px;
+      background: var(--ink);
+      color: white;
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .new-session:hover { background: #333; }
+    .new-session:active { transform: translateY(1px); }
+
+    .side-section { padding: 16px; }
+    .side-section + .side-section { border-top: 1px solid var(--line); }
+    .side-heading { padding: 0 8px 8px; }
+
+    .session-list { display: grid; gap: 2px; }
+    .session {
+      display: grid;
+      min-width: 0;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 8px;
+      padding: 10px 8px 10px 12px;
+      border-left: 2px solid transparent;
+      border-radius: 2px;
+      color: var(--muted);
+    }
+    .session:hover { background: #e7e7e7; color: var(--ink); }
+    .session.active {
+      border-left-color: var(--ink);
+      background: #e2e2e2;
+      color: var(--ink);
+    }
+    .session-title {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .session-time { color: var(--gray); font-size: 9px; }
+
+    .side-footer {
+      display: grid;
+      gap: 2px;
+      margin-top: auto;
+      padding: 16px;
+      border-top: 1px solid var(--line);
+    }
+    .side-action {
+      display: flex;
+      min-height: 40px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 8px;
+      border-radius: 2px;
+      color: var(--muted);
+      font: 11px var(--mono);
+    }
+    .side-action:hover { background: #e7e7e7; color: var(--ink); }
+
+    .workspace {
+      display: grid;
+      min-width: 0;
+      min-height: 100vh;
+      grid-template-rows: 64px minmax(0, 1fr);
+    }
+
+    .topbar {
+      display: grid;
+      min-width: 0;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 24px;
+      padding: 0 32px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--line);
+    }
+    .workspace-title { min-width: 0; }
+    .workspace-name {
+      overflow: hidden;
+      font-size: 14px;
+      font-weight: 600;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .workspace-path {
+      overflow: hidden;
+      color: var(--gray);
+      font: 10px var(--mono);
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .top-meta { display: flex; align-items: center; gap: 16px; }
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border: 1px solid var(--ink);
+      border-radius: 50%;
+      background: var(--surface);
+    }
+    .model-button {
+      min-height: 36px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      background: var(--surface);
+      cursor: pointer;
+      font-size: 10px;
+    }
+    .model-button:hover { background: var(--layer-2); }
+
+    .conversation {
+      display: grid;
+      min-width: 0;
+      grid-template-rows: minmax(0, 1fr) auto;
+    }
+
+    .transcript {
+      width: min(100%, 880px);
+      margin: 0 auto;
+      padding: 48px 32px 32px;
+    }
+
+    .session-head {
+      display: grid;
+      grid-template-columns: 40px minmax(0, 1fr);
+      gap: 16px;
+      margin-bottom: 48px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+    .session-index {
+      display: grid;
+      width: 40px;
+      height: 40px;
+      place-items: center;
+      border: 1px solid var(--ink);
+      font: 11px var(--mono);
+    }
+    .session-head h1 {
+      margin: 0;
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 600;
+      letter-spacing: -.02em;
+      line-height: 1.2;
+    }
+    .session-head p {
+      max-width: 58ch;
+      margin: 8px 0 0;
+      color: var(--muted);
+    }
+
+    .message {
+      display: grid;
+      grid-template-columns: 104px minmax(0, 1fr);
+      gap: 24px;
+      padding: 24px 0;
+      border-top: 1px solid var(--line);
+    }
+    .message:first-of-type { border-top: 0; }
+    .message-meta { padding-top: 2px; }
+    .message-role {
+      font: 700 10px var(--mono);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .message-time { margin-top: 4px; color: var(--gray); font: 9px var(--mono); }
+    .message-body { min-width: 0; }
+    .message-body p { margin: 0 0 12px; }
+    .message-body p:last-child { margin-bottom: 0; }
+
+    .request {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      background: var(--surface);
+    }
+
+    .tool {
+      margin-top: 16px;
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      background: var(--layer);
+    }
+    .tool summary {
+      display: grid;
+      min-height: 44px;
+      grid-template-columns: 16px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 12px;
+      padding: 0 16px;
+      cursor: pointer;
+      font-size: 10px;
+      list-style: none;
+    }
+    .tool summary::-webkit-details-marker { display: none; }
+    .tool-marker { width: 8px; height: 8px; border: 1px solid var(--ink); }
+    .tool-state { color: var(--gray); }
+    .tool pre {
+      overflow: auto;
+      margin: 0;
+      padding: 16px;
+      border-top: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--muted);
+      font: 11px/1.6 var(--mono);
+    }
+
+    .plan {
+      display: grid;
+      margin-top: 16px;
+      border-top: 1px solid var(--line);
+    }
+    .plan-row {
+      display: grid;
+      grid-template-columns: 32px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 8px;
+      min-height: 40px;
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
+    }
+    .plan-no, .plan-state { color: var(--gray); font: 9px var(--mono); }
+
+    .composer-shell {
+      position: sticky;
+      bottom: 0;
+      padding: 16px 32px 24px;
+      background: linear-gradient(to bottom, rgba(247,247,247,0), var(--bg) 24px);
+    }
+    .composer {
+      display: grid;
+      width: min(100%, 880px);
+      min-height: 112px;
+      margin: 0 auto;
+      grid-template-rows: minmax(0, 1fr) auto;
+      padding: 16px;
+      border: 1px solid var(--ink);
+      border-radius: 4px;
+      background: var(--surface);
+      box-shadow: 0 8px 24px rgba(0,0,0,.06);
+    }
+    .composer textarea {
+      width: 100%;
+      min-height: 44px;
+      resize: none;
+      border: 0;
+      border-radius: 2px;
+      outline: 0;
+      background: transparent;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+    .composer textarea::placeholder { color: var(--gray); }
+    .composer-row { display: flex; align-items: end; justify-content: space-between; gap: 16px; }
+    .composer-tools { display: flex; gap: 8px; }
+    .utility {
+      min-width: 36px;
+      min-height: 36px;
+      padding: 0 10px;
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      background: var(--bg);
+      cursor: pointer;
+      font-size: 10px;
+    }
+    .utility:hover { border-color: var(--ink); }
+
+    .send-dial {
+      position: relative;
+      width: 48px;
+      height: 48px;
+      flex: 0 0 auto;
+      border: 0;
+      border-radius: 50%;
+      background: var(--accent);
+      color: white;
+      cursor: pointer;
+      font: 700 11px var(--mono);
+      box-shadow: 0 0 0 1px rgba(0,0,0,.12), 0 2px 3px rgba(0,0,0,.2);
+    }
+    .send-dial::before {
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: 50%;
+      width: 2px;
+      height: 9px;
+      margin-left: -1px;
+      border-radius: 1px;
+      background: white;
+    }
+    .send-dial:hover { transform: rotate(8deg); }
+    .send-dial:active { transform: rotate(8deg) translateY(1px); }
+
+    .preview-note {
+      position: fixed;
+      right: 16px;
+      bottom: 8px;
+      color: var(--gray);
+      font: 9px var(--mono);
+      pointer-events: none;
+    }
+
+    @media (max-width: 800px) {
+      .app { grid-template-columns: 72px minmax(0, 1fr); }
+      .sidebar { align-items: stretch; }
+      .brand { justify-content: center; padding: 0; }
+      .brand-name, .side-section, .side-action span:first-child { display: none; }
+      .new-session { margin: 16px 12px; padding: 0; font-size: 0; }
+      .new-session::after { content: "+"; font-size: 18px; }
+      .side-footer { align-items: center; }
+      .side-action { justify-content: center; }
+      .topbar { padding: 0 16px; }
+      .top-meta .status { display: none; }
+      .transcript { padding: 32px 24px 24px; }
+      .message { grid-template-columns: 72px minmax(0, 1fr); gap: 16px; }
+      .composer-shell { padding-right: 16px; padding-left: 16px; }
+      .preview-note { display: none; }
+    }
+
+    @media (max-width: 520px) {
+      .app { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+      .topbar { grid-template-columns: minmax(0, 1fr) auto; }
+      .model-button { max-width: 112px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .transcript { padding: 24px 16px; }
+      .session-head { grid-template-columns: 32px minmax(0, 1fr); gap: 12px; margin-bottom: 32px; }
+      .session-index { width: 32px; height: 32px; }
+      .message { grid-template-columns: 1fr; gap: 8px; }
+      .message-time { display: none; }
+      .composer-tools .utility:nth-child(n+2) { display: none; }
+    }
+
+    @media (hover: hover) {
+      .session, .side-action, .model-button, .utility, .send-dial { transition: background 120ms linear, color 120ms linear, border-color 120ms linear, transform 120ms linear; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" aria-label="会话导航">
+      <a class="brand" href="#main">
+        <span class="brand-mark">DSH</span>
+        <span class="brand-name">HARNESS</span>
+      </a>
+
+      <button class="new-session" type="button">+ New session</button>
+
+      <section class="side-section">
+        <div class="side-heading eyebrow">Today / 03</div>
+        <nav class="session-list" aria-label="今日会话">
+          <a class="session active" href="#main"><span class="session-title">Design Braun harness skin</span><span class="session-time">17:24</span></a>
+          <a class="session" href="#main"><span class="session-title">Audit plugin manifest</span><span class="session-time">16:58</span></a>
+          <a class="session" href="#main"><span class="session-title">Review workspace layout</span><span class="session-time">15:42</span></a>
+        </nav>
+      </section>
+
+      <section class="side-section">
+        <div class="side-heading eyebrow">Yesterday / 02</div>
+        <nav class="session-list" aria-label="昨日会话">
+          <a class="session" href="#main"><span class="session-title">Harness setup notes</span><span class="session-time">22:10</span></a>
+          <a class="session" href="#main"><span class="session-title">Inspect web profile</span><span class="session-time">20:36</span></a>
+        </nav>
+      </section>
+
+      <div class="side-footer">
+        <a class="side-action" href="#main"><span>Plugins</span><span>12</span></a>
+        <a class="side-action" href="#main"><span>Settings</span><span>⌘,</span></a>
+      </div>
+    </aside>
+
+    <section class="workspace">
+      <header class="topbar">
+        <div class="workspace-title">
+          <div class="workspace-name">dsh-skin</div>
+          <div class="workspace-path">~/Workspace/github/ai-graveyard/dsh-skin</div>
+        </div>
+        <div class="top-meta">
+          <span class="status"><i class="status-dot"></i>Ready</span>
+          <button class="model-button" type="button">DEEPSEEK · V4 PRO</button>
+        </div>
+      </header>
+
+      <main class="conversation" id="main">
+        <div class="transcript">
+          <div class="session-head">
+            <div class="session-index">01</div>
+            <div>
+              <div class="eyebrow">Active session / Design system</div>
+              <h1>Build a Braun-style Harness skin.</h1>
+              <p>每一个控件只承担一个动作。界面以信息层级为骨架，不用装饰弥补结构问题。</p>
+            </div>
+          </div>
+
+          <article class="message">
+            <div class="message-meta">
+              <div class="message-role">You</div>
+              <div class="message-time">17:24:08</div>
+            </div>
+            <div class="message-body">
+              <div class="request">做成迪特·拉姆斯 / Braun 风格。严格网格，浅暖灰为主，只留一处焦橙色给功能控件。</div>
+            </div>
+          </article>
+
+          <article class="message">
+            <div class="message-meta">
+              <div class="message-role">Harness</div>
+              <div class="message-time">17:24:11</div>
+            </div>
+            <div class="message-body">
+              <p>已确认官方 Web UI 提供主题 token 覆盖层。皮肤会作为独立 bundle 装入 profile，不改 Harness 源码或主题偏好。</p>
+
+              <details class="tool" open>
+                <summary><i class="tool-marker"></i><span>inspect_theme_contract</span><span class="tool-state">DONE · 0.8s</span></summary>
+                <pre><code>theme.overrideTokens("dsh-skin-braun-control", {
+  "--dsw-alias-bg-base": {
+    light: "#F7F7F7", dark: "#F7F7F7"
+  }
+})</code></pre>
+              </details>
+
+              <div class="plan" aria-label="执行计划">
+                <div class="plan-row"><span class="plan-no">01</span><span>Override semantic theme tokens</span><span class="plan-state">DONE</span></div>
+                <div class="plan-row"><span class="plan-no">02</span><span>Apply grid, type and control geometry</span><span class="plan-state">DONE</span></div>
+                <div class="plan-row"><span class="plan-no">03</span><span>Verify install and responsive preview</span><span class="plan-state">RUN</span></div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="composer-shell">
+          <form class="composer">
+            <textarea aria-label="消息" placeholder="Ask Harness to work in this workspace…"></textarea>
+            <div class="composer-row">
+              <div class="composer-tools">
+                <button class="utility" type="button">+ FILE</button>
+                <button class="utility" type="button">STANDARD</button>
+                <button class="utility" type="button">ASK</button>
+              </div>
+              <button class="send-dial" type="submit" aria-label="发送">RUN</button>
+            </div>
+          </form>
+        </div>
+      </main>
+    </section>
+  </div>
+  <div class="preview-note">BRAUN CONTROL · STATIC PREVIEW · 8PT GRID</div>
+</body>
+</html>

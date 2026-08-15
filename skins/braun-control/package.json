@@ -1,0 +1,50 @@
+{
+  "name": "dsh-skin-braun-control",
+  "version": "0.1.1",
+  "description": "A Dieter Rams / Braun-inspired functional theme for DeepSeek Harness Web UI",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "build.mjs",
+    "index.js",
+    "client.js",
+    "skin.css",
+    "preview.html",
+    "cordis.patch.yml"
+  ],
+  "keywords": [
+    "deepseek-harness",
+    "dsh-plugin",
+    "theme",
+    "dieter-rams",
+    "braun"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-theme"
+      ],
+      "platform": "web",
+      "immediately": true
+    }
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "check": "node build.mjs --check",
+    "prepack": "node build.mjs --check"
+  }
+}

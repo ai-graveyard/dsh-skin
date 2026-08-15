@@ -1,0 +1,14 @@
+.DS_Store
+node_modules/
+.pnpm-store/
+.next/
+out/
+*.tsbuildinfo
+*.tgz
+screenshots/
+.playwright-cli/
+.env
+.env.*
+!.env.example
+coverage/
+*.log

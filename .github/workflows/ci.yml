@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version:
+          - 22.19.0
+          - 24.x
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node-version }}
+          package-manager-cache: false
+
+      - name: Enable pnpm
+        run: corepack enable
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Validate generated bundle and lifecycle
+        run: pnpm run check
+
+      - name: Build static site
+        run: pnpm run build
+
+      - name: Inspect npm package contents
+        env:
+          npm_config_cache: ${{ runner.temp }}/npm-cache
+        run: npm pack --dry-run --json ./skins/braun-control

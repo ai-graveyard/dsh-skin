@@ -1,0 +1,225 @@
+:root {
+  --u: 8px;
+  --bg: #f7f7f7;
+  --layer: #efefef;
+  --layer-2: #ececec;
+  --panel: #ffffff;
+  --ink: #1a1a1a;
+  --gray: #808080;
+  --line: #c9c9c9;
+  --metal-hi: #f6f6f6;
+  --metal-lo: #dcdcdc;
+  --accent: #e8500a;
+  --mono: ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+
+body[data-dsh-skin="braun-control"] {
+  --dsh-skin-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+  --dsh-skin-mono: var(--mono);
+  color-scheme: light;
+  background: #f7f7f7;
+  color: var(--ink);
+  font-family: var(--dsh-skin-sans);
+  letter-spacing: 0;
+}
+
+body[data-dsh-skin="braun-control"] :where(button, input, textarea, select, [role="button"], [role="dialog"], [role="menu"], [role="menuitem"], pre, code) {
+  border-radius: 3px !important;
+}
+
+body[data-dsh-skin="braun-control"] :where(button, [role="button"], [role="tab"], label, legend, dt, code, pre, kbd, samp) {
+  font-family: var(--dsh-skin-mono);
+}
+
+body[data-dsh-skin="braun-control"] :where(button, [role="button"], [role="tab"], label, legend, dt) {
+  letter-spacing: 0.035em;
+}
+
+body[data-dsh-skin="braun-control"] :where(h1, h2, h3, h4, strong, b) {
+  font-weight: 600;
+}
+
+body[data-dsh-skin="braun-control"] :where(button, [role="button"], input, textarea, select) {
+  box-shadow: none !important;
+}
+
+body[data-dsh-skin="braun-control"] :where(button, [role="button"], input, textarea, select):focus-visible {
+  outline: 2px solid var(--accent) !important;
+  outline-offset: 2px;
+}
+
+body[data-dsh-skin="braun-control"] :where(button[type="submit"], form button:last-of-type:not([type="button"])) {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: #ffffff !important;
+}
+
+body[data-dsh-skin="braun-control"] :where(button[type="submit"], form button:last-of-type:not([type="button"])):hover {
+  background: #c84308 !important;
+  border-color: #c84308 !important;
+}
+
+body[data-dsh-skin="braun-control"] :where(hr) {
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+
+body[data-dsh-skin="braun-control"] :where(pre) {
+  border: 1px solid var(--line);
+  background: #f1f1f1 !important;
+}
+
+body[data-dsh-skin="braun-control"] :where(blockquote) {
+  border-left: 2px solid var(--ink);
+}
+
+body[data-dsh-skin="braun-control"] :where([aria-pressed="true"], [aria-selected="true"], [data-state="checked"]) {
+  border-color: var(--ink) !important;
+}
+
+/*
+ * Harness uses CSS modules, so the stable part of a component class is its
+ * semantic suffix (for example `_sidebarCol` or `_composerStack`). Keep all
+ * selectors below scoped to the skin marker and those suffixes: this gives the
+ * real application the same control geometry as the static preview without
+ * coupling the bundle to a generated module hash.
+ */
+body[data-dsh-skin="braun-control"] :where([class*="_sidebarCol"]) {
+  background: var(--layer) !important;
+  border-right: 1px solid var(--ink);
+}
+
+body[data-dsh-skin="braun-control"] :where([class*="_sidebarCol"] button[class*="_brand"]) {
+  min-height: 48px;
+  border-bottom: 1px solid var(--line) !important;
+}
+
+body[data-dsh-skin="braun-control"] :where([class*="_sidebarCol"] button[class*="_newSession"]) {
+  border: 1px solid var(--ink) !important;
+  border-left: 4px solid var(--accent) !important;
+  background: var(--ink) !important;
+  color: #ffffff !important;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+body[data-dsh-skin="braun-control"] :where([class*="_sidebarCol"] button[class*="_newSession"]:hover) {
+  background: #333333 !important;
+}
+
+body[data-dsh-skin="braun-control"] :where([class*="_sidebarCol"] [class*="_sectionHeader"]) {
+  border-top: 1px solid var(--line);
+  color: var(--gray) !important;
+  font-family: var(--dsh-skin-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+body[data-dsh-skin="braun-control"] :where([class*="_sidebarCol"] [role="treeitem"]) {
+  border-left: 2px solid transparent;
+}
+
+body[data-dsh-skin="braun-control"] :where([class*="_sidebarCol"] [role="treeitem"][aria-selected="true"]) {
+  border-left-color: var(--ink) !important;
+  background: #e2e2e2 !important;
+}
+
+body[data-dsh-skin="braun-control"] :where([class*="_sidebarCol"] button[class*="_trigger"]) {
+  border-top: 1px solid var(--line) !important;
+}
+
+body[data-dsh-skin="braun-control"] :where([class*="_composerSeat"]) {
+  background: none !important;
+}
+
+body[data-dsh-skin="braun-control"] :where([class*="_composerStack"]) {
+  position: relative;
+}
+
+body[data-dsh-skin="braun-control"] :where([class*="_composerStack"])::before {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  color: var(--gray);
+  content: "BRAUN CONTROL / ACTIVE";
+  font: 700 9px/1 var(--dsh-skin-mono);
+  letter-spacing: 0.14em;
+  pointer-events: none;
+}
+
+body[data-dsh-skin="braun-control"] :where([class*="_heroGlow"]) {
+  display: none !important;
+}
+
+body[data-dsh-skin="braun-control"] :where([class*="_heroWorkspaceRow"]) {
+  border-top: 1px solid var(--line);
+  padding-top: 8px;
+}
+
+body[data-dsh-skin="braun-control"] :where([class*="_composerStack"] [class*="_root"][class*="_hero"]) {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+body[data-dsh-skin="braun-control"] :where([class*="_composerStack"] [class*="_card"]) {
+  border: 1px solid var(--ink) !important;
+  border-radius: 4px !important;
+  background: var(--panel) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;
+}
+
+body[data-dsh-skin="braun-control"] :where([class*="_composerStack"] textarea[class*="_input"]) {
+  color: var(--ink) !important;
+  font-family: var(--dsh-skin-sans);
+}
+
+body[data-dsh-skin="braun-control"] :where([class*="_composerStack"] button[class*="_add"]) {
+  border: 1px solid var(--line) !important;
+  background: var(--bg) !important;
+}
+
+body[data-dsh-skin="braun-control"] :where([class*="_composerStack"] button[class*="_primary"]) {
+  width: 38px;
+  height: 38px;
+  border: 1px solid #c84308 !important;
+  border-radius: 50% !important;
+  background: var(--accent) !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2) !important;
+}
+
+body[data-dsh-skin="braun-control"] :where([class*="_composerStack"] button[class*="_primary"]:hover) {
+  background: #c84308 !important;
+  transform: rotate(8deg);
+}
+
+body[data-dsh-skin="braun-control"] :where([class*="_detailsCol"] > [class*="_root"]) {
+  border-left: 1px solid var(--ink);
+  background: var(--bg) !important;
+}
+
+body[data-dsh-skin="braun-control"] :where([role="dialog"]) {
+  border: 1px solid var(--ink) !important;
+  background: var(--panel) !important;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12) !important;
+}
+
+body[data-dsh-skin="braun-control"] *,
+body[data-dsh-skin="braun-control"] *::before,
+body[data-dsh-skin="braun-control"] *::after {
+  transition-duration: 120ms !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body[data-dsh-skin="braun-control"] *,
+  body[data-dsh-skin="braun-control"] *::before,
+  body[data-dsh-skin="braun-control"] *::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}

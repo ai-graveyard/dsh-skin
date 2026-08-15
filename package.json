@@ -1,0 +1,29 @@
+{
+  "name": "dsh-skin-collection",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Independent visual skins for the DeepSeek Harness Web UI",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "pnpm run build:skins && next build",
+    "build:skins": "node skins/braun-control/build.mjs",
+    "check": "node skins/braun-control/build.mjs --check && node scripts/validate.mjs && tsc --noEmit",
+    "pack:braun": "npm pack ./skins/braun-control"
+  },
+  "dependencies": {
+    "next": "16.3.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.9.0"
+  },
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  }
+}
