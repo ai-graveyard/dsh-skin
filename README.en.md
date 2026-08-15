@@ -61,15 +61,15 @@ pnpm run check
 
 The static export is written to `out/` and can be hosted by any static file server. The repository commits the generated `client.js`. A contribution that changes its source must include the regenerated bundle. CI checks the site build, generated output, plugin cleanup, and package manifest on Node.js 22.19 and 24.
 
-After every `main` build passes, CI deploys the static site over SSH. The server must have a checkout of this repository, Node.js, Corepack, and `rsync`, and the deployment user must be able to write to the static site directory. Configure these GitHub Actions secrets:
+After every `main` build passes, CI deploys the static site over SSH. The server must have a checkout of this repository, Node.js, Corepack, and `rsync`, and the deployment user must be able to write to the static site directory.
 
-| Secret | Purpose |
-| --- | --- |
-| `EC2_HOST` / `EC2_PORT` / `EC2_USER` | SSH server connection |
-| `EC2_SSH_KEY` / `EC2_KNOWN_HOSTS` | SSH private key and server host key |
-| `DEPLOY_PATH` | Repository checkout on the server |
-| `DEPLOY_DIR` | Static directory served by Nginx, for example `/var/www/dsh-skin` |
-| `SITE_ORIGIN` | Public URL for the post-deploy smoke check; the check is skipped when unset |
+| Setting | Level | Purpose |
+| --- | --- | --- |
+| `EC2_HOST` / `EC2_PORT` / `EC2_USER` | Organization secrets | SSH connection shared with WeMatch; grant this repository access in the organization settings |
+| `EC2_SSH_KEY` / `EC2_KNOWN_HOSTS` | Organization secrets | SSH private key and server host key shared with WeMatch |
+| `DEPLOY_PATH` | Repository secret | Checkout for this project on the server |
+| `DEPLOY_DIR` | Optional repository variable | Nginx static directory; defaults to `/var/www/dsh-skin` |
+| `SITE_ORIGIN` | Optional repository variable | Smoke-check URL; defaults to `https://dshskin.com` |
 
 The server runs `make deploy DEPLOY_DIR=...`, which fast-forwards to `origin/main`, builds `out/`, verifies the home page, and syncs the result into the static directory. To prevent an incorrect `rsync --delete-delay` target from removing unrelated files, the first deployment only accepts a missing or empty `DEPLOY_DIR`; it then creates a `.dsh-skin-deploy-root` marker.
 

@@ -66,15 +66,15 @@ pnpm run check
 
 静态文件输出到 `out/`，可直接部署到任意静态托管平台。`client.js` 是提交到仓库的生成文件。贡献者需要同时提交源文件和重新生成后的 bundle。CI 会在 Node.js 22.19 与 24 上检查站点构建、生成结果、插件生命周期和发布包清单。
 
-`main` 分支的 CI 全部通过后，会通过 SSH 自动部署静态站点。服务器需要预先克隆本仓库、安装 Node.js、Corepack 与 `rsync`，并让部署用户拥有静态目录的写权限。GitHub Actions 需要配置以下 secrets：
+`main` 分支的 CI 全部通过后，会通过 SSH 自动部署静态站点。服务器需要预先克隆本仓库、安装 Node.js、Corepack 与 `rsync`，并让部署用户拥有静态目录的写权限。
 
-| Secret | 用途 |
-| --- | --- |
-| `EC2_HOST` / `EC2_PORT` / `EC2_USER` | SSH 服务器连接信息 |
-| `EC2_SSH_KEY` / `EC2_KNOWN_HOSTS` | SSH 私钥与服务器 host key |
-| `DEPLOY_PATH` | 服务器上的仓库 checkout 目录 |
-| `DEPLOY_DIR` | Nginx 实际读取的静态目录，例如 `/var/www/dsh-skin` |
-| `SITE_ORIGIN` | 部署后 smoke check 的公开站点地址；未配置时跳过公网检查 |
+| 配置 | 级别 | 用途 |
+| --- | --- | --- |
+| `EC2_HOST` / `EC2_PORT` / `EC2_USER` | 组织级 Secrets | 与 WeMatch 共用的 SSH 连接信息；组织设置中需允许本仓库使用 |
+| `EC2_SSH_KEY` / `EC2_KNOWN_HOSTS` | 组织级 Secrets | 与 WeMatch 共用的 SSH 私钥与服务器 host key |
+| `DEPLOY_PATH` | 仓库级 Secret | 服务器上的本项目 checkout 目录 |
+| `DEPLOY_DIR` | 可选仓库 Variable | Nginx 静态目录，默认 `/var/www/dsh-skin` |
+| `SITE_ORIGIN` | 可选仓库 Variable | smoke check 地址，默认 `https://dshskin.com` |
 
 服务器端实际执行 `make deploy DEPLOY_DIR=...`：以 fast-forward 方式拉取 `origin/main`，构建 `out/`，确认首页产物存在，再同步到静态目录。为防止 `rsync --delete-delay` 因路径误配而清理其他文件，首次部署只接受不存在或为空的 `DEPLOY_DIR`；成功接管后会写入 `.dsh-skin-deploy-root` 标记。
 

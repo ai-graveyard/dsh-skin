@@ -58,42 +58,52 @@ jobs:
 
     steps:
       - name: Configure SSH
+        env:
+          SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.EC2_KNOWN_HOSTS }}
         run: |
+          if [ -z "${SSH_KEY}" ] || [ -z "${SSH_KNOWN_HOSTS}" ]; then
+            echo "Organization-level EC2 SSH secrets are not available to this repository"
+            exit 1
+          fi
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
-          printf '%s\n' "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/deploy_key
+          printf '%s\n' "${SSH_KEY}" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-          printf '%s\n' "${{ secrets.EC2_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+          printf '%s\n' "${SSH_KNOWN_HOSTS}" > ~/.ssh/known_hosts
 
-      # DEPLOY_PATH 是服务器上的仓库 checkout；DEPLOY_DIR 是 Nginx 实际读取的
-      # 静态目录。make deploy 会拉取 main、构建 out/，再同步到 DEPLOY_DIR。
+      # DEPLOY_PATH 是项目独立的仓库 checkout；EC2_* 复用组织级 Secrets。
+      # 公开路径使用仓库 Variables，未配置时采用 dsh-skin 的生产默认值。
       - name: Deploy on server
         env:
           REPOSITORY_PATH: ${{ secrets.DEPLOY_PATH }}
-          STATIC_SITE_PATH: ${{ secrets.DEPLOY_DIR }}
+          STATIC_SITE_PATH: ${{ vars.DEPLOY_DIR || '/var/www/dsh-skin' }}
+          SSH_HOST: ${{ secrets.EC2_HOST }}
+          SSH_PORT: ${{ secrets.EC2_PORT }}
+          SSH_USER: ${{ secrets.EC2_USER }}
         run: |
-          if [ -z "${REPOSITORY_PATH}" ] || [ -z "${STATIC_SITE_PATH}" ]; then
-            echo "DEPLOY_PATH and DEPLOY_DIR must both be configured"
+          if [ -z "${REPOSITORY_PATH}" ]; then
+            echo "Repository-level DEPLOY_PATH must be configured"
+            exit 1
+          fi
+          if [ -z "${SSH_HOST}" ] || [ -z "${SSH_PORT}" ] || [ -z "${SSH_USER}" ]; then
+            echo "Organization-level EC2 connection secrets are not available to this repository"
             exit 1
           fi
           printf -v repository_path_q '%q' "${REPOSITORY_PATH}"
           printf -v static_site_path_q '%q' "${STATIC_SITE_PATH}"
-          ssh -p "${{ secrets.EC2_PORT }}" \
+          ssh -p "${SSH_PORT}" \
             -i ~/.ssh/deploy_key \
             -o BatchMode=yes \
             -o ConnectTimeout=15 \
             -o StrictHostKeyChecking=yes \
-            "${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}" \
+            "${SSH_USER}@${SSH_HOST}" \
             "cd ${repository_path_q} && make deploy DEPLOY_DIR=${static_site_path_q}"
 
       - name: Post-deploy smoke check
         env:
-          SMOKE_URL: ${{ secrets.SITE_ORIGIN }}
+          SMOKE_URL: ${{ vars.SITE_ORIGIN || 'https://dshskin.com' }}
         run: |
-          if [ -z "${SMOKE_URL}" ]; then
-            echo "SITE_ORIGIN is not configured; skipping the public smoke check"
-            exit 0
-          fi
           for attempt in 1 2 3 4 5; do
             if curl -fsS --max-time 15 "${SMOKE_URL%/}/" > /dev/null; then
               echo "Public site smoke check passed"
