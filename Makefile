@@ -3,38 +3,50 @@ SHELL := /bin/bash
 .ONESHELL:
 .DEFAULT_GOAL := help
 
-DEPLOY_DIR ?=
+IMAGE := ai-graveyard/dsh-skin
+VERSION := latest
+PRUNE_LABEL := com.ai-graveyard.project=dsh-skin
+APP_PORT ?= 8092
+export APP_PORT
 
-.PHONY: deploy help
+.PHONY: dev build start stop restart logs deploy help
+
+dev:
+	pnpm dev
+
+build:
+	docker build -t "$(IMAGE):$(VERSION)" .
+
+start:
+	docker compose up -d --wait --wait-timeout 90
+
+stop:
+	docker compose down
+
+restart:
+	docker compose up -d --wait --wait-timeout 90
+
+logs:
+	docker compose logs -f
 
 deploy:
-	test -n "$(DEPLOY_DIR)" || { echo "DEPLOY_DIR is required"; exit 1; }
-	case "$(DEPLOY_DIR)" in \
-		/*) ;; \
-		*) echo "DEPLOY_DIR must be an absolute path"; exit 1 ;; \
-	esac
-	test "$(DEPLOY_DIR)" != / || { echo "Refusing unsafe DEPLOY_DIR=/"; exit 1; }
-	command -v rsync >/dev/null || { echo "rsync is required on the server"; exit 1; }
-
 	echo "Pulling the latest main branch..."
 	git pull --ff-only origin main
-
-	echo "Installing dependencies and building the static export..."
-	corepack pnpm install --frozen-lockfile
-	corepack pnpm run build
-	test -f out/index.html || { echo "Static export is missing out/index.html"; exit 1; }
-
-	echo "Publishing out/ to $(DEPLOY_DIR)..."
-	if [ -d "$(DEPLOY_DIR)" ] \
-		&& [ ! -f "$(DEPLOY_DIR)/.dsh-skin-deploy-root" ] \
-		&& [ -n "$$(find "$(DEPLOY_DIR)" -mindepth 1 -maxdepth 1 -print -quit)" ]; then
-		echo "Refusing to replace a non-empty directory without .dsh-skin-deploy-root"
+	echo "Building and starting $(IMAGE):$(VERSION) on port $(APP_PORT)..."
+	if ! docker compose up -d --build --wait --wait-timeout 90; then
+		docker compose ps || true
+		docker compose logs --tail=200 dsh-skin || true
 		exit 1
 	fi
-	install -d "$(DEPLOY_DIR)"
-	touch "$(DEPLOY_DIR)/.dsh-skin-deploy-root"
-	rsync -rlt --delete-delay --exclude .dsh-skin-deploy-root out/ "$(DEPLOY_DIR)/"
+	docker image prune -f --filter "label=$(PRUNE_LABEL)"
+	docker compose ps
 
 help:
-	echo "Available targets:"
-	echo "  make deploy DEPLOY_DIR=/var/www/dsh-skin  Pull main, build, and publish the static site"
+	echo "Targets:"
+	echo "  make dev      - Start the local Next.js development server"
+	echo "  make build    - Build the production Docker image"
+	echo "  make start    - Start the container on APP_PORT (default: 8092)"
+	echo "  make stop     - Stop and remove the container"
+	echo "  make restart  - Recreate the container and wait for health"
+	echo "  make logs     - Follow container logs"
+	echo "  make deploy   - Pull main, build, start, verify, and prune project images"

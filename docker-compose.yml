@@ -1,0 +1,8 @@
+services:
+  dsh-skin:
+    build: .
+    image: ai-graveyard/dsh-skin:latest
+    container_name: dsh-skin
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT:-8092}:80"

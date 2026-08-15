@@ -1,0 +1,13 @@
+.git
+.github
+.next
+.DS_Store
+.env
+.env.*
+node_modules
+out
+screenshots
+.playwright-cli
+*.log
+*.tgz
+coverage

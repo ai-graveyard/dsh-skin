@@ -61,17 +61,16 @@ pnpm run check
 
 The static export is written to `out/` and can be hosted by any static file server. The repository commits the generated `client.js`. A contribution that changes its source must include the regenerated bundle. CI checks the site build, generated output, plugin cleanup, and package manifest on Node.js 22.19 and 24.
 
-After every `main` build passes, CI deploys the static site over SSH. The server must have a checkout of this repository, Node.js, Corepack, and `rsync`, and the deployment user must be able to write to the static site directory.
+After every `main` build passes, CI starts a containerized deployment over SSH. The server only needs a checkout of this repository plus Docker Engine and Docker Compose; Node.js, pnpm, the static build, and Nginx are contained in the image.
 
 | Setting | Level | Purpose |
 | --- | --- | --- |
 | `EC2_HOST` / `EC2_PORT` / `EC2_USER` | Organization secrets | SSH connection shared with WeMatch; grant this repository access in the organization settings |
 | `EC2_SSH_KEY` / `EC2_KNOWN_HOSTS` | Organization secrets | SSH private key and server host key shared with WeMatch |
 | `DEPLOY_PATH` | Repository secret | Checkout for this project on the server |
-| `DEPLOY_DIR` | Optional repository variable | Nginx static directory; defaults to `/var/www/dsh-skin` |
 | `SITE_ORIGIN` | Optional repository variable | Smoke-check URL; defaults to `https://dshskin.com` |
 
-The server runs `make deploy DEPLOY_DIR=...`, which fast-forwards to `origin/main`, builds `out/`, verifies the home page, and syncs the result into the static directory. To prevent an incorrect `rsync --delete-delay` target from removing unrelated files, the first deployment only accepts a missing or empty `DEPLOY_DIR`; it then creates a `.dsh-skin-deploy-root` marker.
+The server runs `make deploy`, which fast-forwards to `origin/main`, builds a two-stage Docker image, recreates the Compose service, and waits for its health check. The production container maps host port `8092` to Nginx port `80` by default; use `APP_PORT=<port> make deploy` for a temporary override. Image cleanup is limited to this project's label and does not prune unrelated images on the shared server.
 
 ## Repository layout
 
@@ -83,6 +82,11 @@ skins/
   braun-control/   Complete publishable skin bundle
 scripts/
   validate.mjs     Manifest, CSS, token, and cleanup checks
+deploy/
+  nginx.conf       Static routing, caching, and 404 handling in the container
+Dockerfile         Two-stage Node build and Nginx runtime image
+docker-compose.yml Production service and default port 8092 mapping
+Makefile           Local container commands and server deployment entrypoint
 .github/           CI, issue, and pull request templates
 ```
 

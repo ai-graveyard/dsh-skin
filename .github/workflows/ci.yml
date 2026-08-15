@@ -73,11 +73,10 @@ jobs:
           printf '%s\n' "${SSH_KNOWN_HOSTS}" > ~/.ssh/known_hosts
 
       # DEPLOY_PATH 是项目独立的仓库 checkout；EC2_* 复用组织级 Secrets。
-      # 公开路径使用仓库 Variables，未配置时采用 dsh-skin 的生产默认值。
+      # 服务器执行容器化部署，Compose 默认映射宿主机 8092 到容器 80。
       - name: Deploy on server
         env:
           REPOSITORY_PATH: ${{ secrets.DEPLOY_PATH }}
-          STATIC_SITE_PATH: ${{ vars.DEPLOY_DIR || '/var/www/dsh-skin' }}
           SSH_HOST: ${{ secrets.EC2_HOST }}
           SSH_PORT: ${{ secrets.EC2_PORT }}
           SSH_USER: ${{ secrets.EC2_USER }}
@@ -91,14 +90,13 @@ jobs:
             exit 1
           fi
           printf -v repository_path_q '%q' "${REPOSITORY_PATH}"
-          printf -v static_site_path_q '%q' "${STATIC_SITE_PATH}"
           ssh -p "${SSH_PORT}" \
             -i ~/.ssh/deploy_key \
             -o BatchMode=yes \
             -o ConnectTimeout=15 \
             -o StrictHostKeyChecking=yes \
             "${SSH_USER}@${SSH_HOST}" \
-            "cd ${repository_path_q} && make deploy DEPLOY_DIR=${static_site_path_q}"
+            "cd ${repository_path_q} && make deploy"
 
       - name: Post-deploy smoke check
         env:
