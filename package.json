@@ -2,6 +2,7 @@
   "name": "dsh-skin-collection",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@11.20.0",
   "description": "Independent visual skins for the DeepSeek Harness Web UI",
   "license": "MIT",
   "type": "module",

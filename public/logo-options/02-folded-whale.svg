@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 213 40" role="img" aria-labelledby="title description">
+  <title id="title">DSH Skin logo option 2</title>
+  <desc id="description">An angular whale assembled from folded skin planes.</desc>
+  <path fill="#e8500a" d="M14 18 3 12V4l14 10L25 5l-1 10-7 5-3-2Z" />
+  <path fill="#161616" d="M12 15h14c7.8 0 12 4.2 12 10 0 6.7-5.4 11-14.6 11C13.9 36 7.6 31.8 5 24c4.6 1.1 8.6-.2 12-4l-5-5Z" />
+  <path fill="#e8500a" d="m14 15 13-3 9 7-17 2-5-6Z" />
+  <path fill="#f2f0e9" d="m19 21 17-2-14 7-3-5Z" />
+  <rect x="31" y="22" width="3" height="3" fill="#f2f0e9" />
+  <path fill="#161616" fill-rule="evenodd" d="M56 8h9c7 0 11 4.6 11 12s-4 12-11 12h-9V8Zm5 5v14h4c3.8 0 6-2.3 6-7s-2.2-7-6-7h-4Z" />
+  <path fill="#161616" d="M87 8h12v5H87c-1.3 0-2 .8-2 2.2 0 1.5.7 2.3 2 2.3h6.4c4.7 0 7.1 2.4 7.1 7.1 0 4.9-2.7 7.4-8 7.4H80v-5h12.5c2 0 3-.8 3-2.4 0-1.4-.7-2.1-2.1-2.1H87c-4.7 0-7-2.5-7-7.3C80 10.4 82.3 8 87 8ZM105 8h5v9.5h8V8h5v24h-5v-9.5h-8V32h-5V8Z" />
+  <path fill="#e8500a" d="M132 8h2v24h-2z" />
+  <path fill="#161616" d="M146 8h11v5h-11c-1.3 0-2 .8-2 2.2 0 1.5.7 2.3 2 2.3h5.4c4.7 0 7.1 2.4 7.1 7.1 0 4.9-2.7 7.4-8 7.4H139v-5h11.5c2 0 3-.8 3-2.4 0-1.4-.7-2.1-2.1-2.1H146c-4.7 0-7-2.5-7-7.3 0-4.8 2.3-7.2 7-7.2ZM163 8h5v9.5h2L176 8h6l-8 11.7 8.5 12.3h-6.2l-6.3-9.5h-2V32h-5V8ZM185 8h5v24h-5zM195 8h5l8 14V8h5v24h-5l-8-14v14h-5V8Z" />
+</svg>
