@@ -96,7 +96,7 @@ jobs:
             -o ConnectTimeout=15 \
             -o StrictHostKeyChecking=yes \
             "${SSH_USER}@${SSH_HOST}" \
-            "cd ${repository_path_q} && make deploy"
+            "cd ${repository_path_q} && git pull --ff-only origin main && make deploy"
 
       - name: Post-deploy smoke check
         env:
