@@ -8,12 +8,17 @@ type SkinPreviewProps = {
 export function SkinPreview({ skin, compact = false }: SkinPreviewProps) {
   return (
     <div
-      className={`skin-preview${compact ? " skin-preview-compact" : ""}`}
+      className={`skin-preview skin-preview-${skin.slug}${compact ? " skin-preview-compact" : ""}`}
       style={{
         "--preview-bg": skin.colors[0],
         "--preview-ink": skin.colors[1],
         "--preview-accent": skin.colors[2],
+        "--preview-surface": skin.preview.surface,
+        "--preview-layer": skin.preview.layer,
+        "--preview-line": skin.preview.line,
+        "--preview-muted": skin.preview.muted,
       } as React.CSSProperties}
+      role="img"
       aria-label={`${skin.name} interface preview`}
     >
       <div className="preview-rail">
@@ -46,7 +51,7 @@ export function SkinPreview({ skin, compact = false }: SkinPreviewProps) {
         </div>
         <div className="preview-content">
           <div className="preview-heading">
-            <span>01</span>
+            <span>{String(skin.order).padStart(2, "0")}</span>
             <div>
               <p>DESIGN TASK</p>
               <h3>Build with less, but better.</h3>
@@ -63,11 +68,11 @@ export function SkinPreview({ skin, compact = false }: SkinPreviewProps) {
         </div>
         <div className="preview-composer">
           <span>Ask DSH to build something…</span>
-          <button aria-label="Send example message">↑</button>
+          <span className="preview-send" aria-hidden="true">↑</span>
         </div>
       </div>
 
-      <div className="preview-active">BRAUN CONTROL / ACTIVE</div>
+      <div className="preview-active">{skin.preview.label}</div>
     </div>
   );
 }

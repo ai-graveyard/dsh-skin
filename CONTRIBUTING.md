@@ -15,16 +15,16 @@ pnpm install
 pnpm run check
 ```
 
-## Changing Braun Control
+## Changing a skin
 
-Edit `skins/braun-control/skin.css` for structural styles and `build.mjs` for theme tokens or client lifecycle code. Regenerate `client.js` before committing:
+Edit `skins/<skin-id>/skin.css` for structural styles and its `build.mjs` for theme tokens or client lifecycle code. Regenerate every `client.js` before committing:
 
 ```bash
 pnpm run build
 pnpm run check
 ```
 
-Use selectors scoped under `body[data-dsh-skin="braun-control"]`. DSH CSS module hashes change between builds, so target semantic class suffixes such as `_sidebarCol` and `_composerStack` instead of full generated class names.
+Use selectors scoped under `body[data-dsh-skin="<skin-id>"]`. DSH CSS module hashes change between builds, so target semantic class suffixes such as `_sidebarCol` and `_composerStack` instead of full generated class names.
 
 Check the empty-session screen, an existing conversation, settings dialogs, narrow layouts, keyboard focus, and reduced-motion behavior. Confirm that removal disposes both the token layer and the injected style tag.
 
@@ -39,7 +39,9 @@ Create a new directory under `skins/` and give it unique identifiers in:
 
 Include a manifest, Cordis patch, browser bundle, CSS source, static preview, README, and license. Keep runtime code inside the skin directory.
 
-Add a `skin.json` listing in the same directory. The Next.js site reads these files at build time to generate the collection and detail routes. Keep its `slug`, package version, license, compatibility, colors, and author credit in sync with the bundle.
+Add a `skin.json` listing in the same directory. The Next.js site reads these files at build time to generate the collection and detail routes. Keep its `slug`, `packageName`, unique `order`, package version, license, compatibility, verification date and states, preview palette, screenshots, and author credit in sync with the bundle.
+
+Root commands discover every skin automatically. Do not add skin-specific commands to the root `package.json` or CI workflow.
 
 ## Pull request checklist
 
@@ -48,7 +50,7 @@ Add a `skin.json` listing in the same directory. The Next.js site reads these fi
 - Commit the regenerated `client.js`.
 - Run `pnpm run check`.
 - Run `pnpm run build` and inspect the generated static site in `out/`.
-- Inspect `npm pack --dry-run --json ./skins/<skin-id>`.
+- Run `pnpm run pack:skins` and inspect the package contents.
 - Avoid credentials, local absolute paths, telemetry, and remote assets.
 
 By submitting a contribution, you agree to license it under the repository's MIT License.

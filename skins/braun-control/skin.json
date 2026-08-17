@@ -1,5 +1,7 @@
 {
   "slug": "braun-control",
+  "packageName": "dsh-skin-braun-control",
+  "order": 1,
   "name": "Braun Control",
   "tagline": "Less interface. More intention.",
   "description": "A quiet, functional skin shaped by warm greys, an eight-pixel grid and one precise signal orange.",
@@ -11,7 +13,16 @@
   "status": "Available",
   "license": "MIT",
   "compatibility": "@deepseek-ai/dsh 0.1.0-rc.6",
+  "verifiedAt": "2026-08-15",
+  "verifiedStates": ["Empty session", "Existing conversation", "Settings", "Reload"],
   "style": ["Industrial", "Warm grey", "Low radius"],
   "colors": ["#F7F7F7", "#1A1A1A", "#E8500A"],
+  "preview": {
+    "label": "BRAUN CONTROL / ACTIVE",
+    "surface": "#FFFFFF",
+    "layer": "#EFEFEF",
+    "line": "#C9C9C9",
+    "muted": "#686868"
+  },
   "featured": true
 }

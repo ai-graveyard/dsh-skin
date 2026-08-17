@@ -9,9 +9,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "pnpm run build:skins && next build",
-    "build:skins": "node skins/braun-control/build.mjs",
-    "check": "node skins/braun-control/build.mjs --check && node scripts/validate.mjs && tsc --noEmit",
-    "pack:braun": "npm pack ./skins/braun-control"
+    "build:skins": "node scripts/run-skins.mjs build",
+    "check": "node scripts/run-skins.mjs check && node scripts/validate.mjs && tsc --noEmit",
+    "pack:skins": "node scripts/run-skins.mjs pack",
+    "release:assets": "node scripts/package-release.mjs"
   },
   "dependencies": {
     "next": "16.3.0",

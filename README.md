@@ -11,8 +11,9 @@ DeepSeek Harness Web UI 的独立皮肤集合，也是 [dshskin.com](https://dsh
 | 皮肤 | 风格 | 版本 | 状态 |
 | --- | --- | --- | --- |
 | [Braun Control](./skins/braun-control) | 暖灰网格、低圆角、单一焦橙功能色 | `0.1.1` | 可安装 |
+| [Night Signal](./skins/night-signal) | 近黑分层、紧凑布局、薄荷绿信号色 | `0.1.0` | 可安装 |
 
-Braun Control 已在本机的 `@deepseek-ai/dsh 0.1.0-rc.6` 上验证。DeepSeek Harness 仍处于 Developer Preview，后续版本可能调整插件接口或 CSS 模块结构。
+Braun Control 与 Night Signal 均已在本机的 `@deepseek-ai/dsh 0.1.0-rc.6` 上完成真实界面验证。Night Signal 覆盖空会话、工作区会话、设置、刷新和 390px 窄屏；验证不包含 API Key 或模型请求。DeepSeek Harness 仍处于 Developer Preview，后续版本可能调整插件接口或 CSS 模块结构。
 
 ## 安装
 
@@ -66,7 +67,7 @@ pnpm run check
 
 静态文件输出到 `out/`，可直接部署到任意静态托管平台。`client.js` 是提交到仓库的生成文件。贡献者需要同时提交源文件和重新生成后的 bundle。CI 会在 Node.js 22.19 与 24 上检查站点构建、生成结果、插件生命周期和发布包清单。
 
-`main` 分支的 CI 全部通过后，会通过 SSH 触发容器化部署。服务器只需要预先克隆本仓库并安装 Docker Engine 与 Docker Compose；Node.js、pnpm、静态构建和 Nginx 都封装在镜像内。
+根目录命令会自动扫描 `skins/*/skin.json`，构建、检查和打包预检每个皮肤，不需要为新皮肤修改脚本。CI 还会生成版本化 tarball、`SHA256SUMS` 和 release manifest，并把它们保存为 `skin-release-assets` artifact。`main` 分支的 CI 全部通过后，会通过 SSH 触发容器化部署；独立的每小时监控会检查首页、详情页和 sitemap，每周兼容性探针会用 npm 最新 DSH 在临时 profile 中分别安装两款皮肤并验证 bundle 注册。服务器只需要预先克隆本仓库并安装 Docker Engine 与 Docker Compose；Node.js、pnpm、静态构建和 Nginx 都封装在镜像内。
 
 | 配置 | 级别 | 用途 |
 | --- | --- | --- |
@@ -84,9 +85,11 @@ app/                    Next.js 页面和全局样式
 components/             站点 UI 组件与皮肤预览
 lib/skins.ts            构建时读取皮肤元数据
 skins/
-  braun-control/   完整的可发布皮肤 bundle
+  braun-control/        完整的浅色皮肤 bundle
+  night-signal/         实验性深色皮肤 bundle
 scripts/
-  validate.mjs     manifest、CSS、token 和卸载生命周期检查
+  run-skins.mjs         通用构建、检查与打包运行器
+  validate.mjs          manifest、CSS、token 和卸载生命周期检查
 deploy/
   nginx.conf       容器内静态路由、缓存与 404 配置
 Dockerfile         Node 构建 + Nginx 运行的两阶段镜像

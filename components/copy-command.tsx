@@ -3,19 +3,23 @@
 import { useState } from "react";
 
 export function CopyCommand({ command }: { command: string }) {
-  const [copied, setCopied] = useState(false);
+  const [status, setStatus] = useState<"idle" | "copied" | "failed">("idle");
 
   async function copy() {
-    await navigator.clipboard.writeText(command);
-    setCopied(true);
-    window.setTimeout(() => setCopied(false), 1600);
+    try {
+      await navigator.clipboard.writeText(command);
+      setStatus("copied");
+    } catch {
+      setStatus("failed");
+    }
+    window.setTimeout(() => setStatus("idle"), 1600);
   }
 
   return (
     <div className="command-block">
       <code>{command}</code>
-      <button type="button" onClick={copy} aria-label={`Copy command: ${command}`}>
-        {copied ? "Copied" : "Copy"}
+      <button type="button" onClick={copy} aria-label={`Copy command: ${command}`} aria-live="polite">
+        {status === "copied" ? "Copied" : status === "failed" ? "Copy failed" : "Copy"}
       </button>
     </div>
   );

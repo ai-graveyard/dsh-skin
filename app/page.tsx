@@ -6,7 +6,8 @@ import { getSkins } from "@/lib/skins";
 
 export default async function Home() {
   const skins = await getSkins();
-  const featured = skins[0];
+  const featured = skins.find((skin) => skin.featured) ?? skins[0];
+  const indexSkins = skins.filter((skin) => skin.slug !== featured?.slug);
   const skinCount = String(skins.length).padStart(2, "0");
 
   return (
@@ -55,13 +56,13 @@ export default async function Home() {
               <p>{skinCount} SKIN{skins.length === 1 ? "" : "S"} AVAILABLE</p>
             </div>
 
-            <Link className="featured-card" href={`/skins/${featured.slug}`}>
+            <Link className="featured-card" href={`/skins/${featured.slug}`} aria-label={`View ${featured.name} skin`}>
               <div className="featured-visual">
                 <SkinPreview skin={featured} compact />
               </div>
               <div className="featured-info">
                 <div>
-                  <p className="eyebrow">NO. 001 / V{featured.version}</p>
+                  <p className="eyebrow">NO. {String(featured.order).padStart(3, "0")} / V{featured.version}</p>
                   <h2>{featured.name}</h2>
                 </div>
                 <div className="featured-description">
@@ -74,6 +75,44 @@ export default async function Home() {
                 <div className="card-action">Open record <span aria-hidden="true">↗</span></div>
               </div>
             </Link>
+
+            {indexSkins.length > 0 ? (
+              <div className="collection-index" aria-label="More skins">
+                <div className="collection-index-heading">
+                  <p className="eyebrow">FULL INDEX</p>
+                  <p>{String(indexSkins.length).padStart(2, "0")} MORE RECORD{indexSkins.length === 1 ? "" : "S"}</p>
+                </div>
+                <div className="skin-index-grid">
+                  {indexSkins.map((skin) => (
+                    <Link className="skin-index-card" href={`/skins/${skin.slug}`} key={skin.slug} aria-label={`View ${skin.name} skin`}>
+                      <div className="skin-index-visual">
+                        <SkinPreview skin={skin} compact />
+                      </div>
+                      <div className="skin-index-copy">
+                        <div>
+                          <p className="eyebrow">NO. {String(skin.order).padStart(3, "0")} / V{skin.version}</p>
+                          <h3>{skin.name}</h3>
+                        </div>
+                        <p>{skin.tagline}</p>
+                        <span aria-hidden="true">↗</span>
+                      </div>
+                    </Link>
+                  ))}
+                  <a
+                    className="skin-index-card skin-index-placeholder"
+                    href="https://github.com/ai-graveyard/dsh-skin/blob/main/CONTRIBUTING.md"
+                  >
+                    <span className="slot-number">{String(skins.length + 1).padStart(2, "0")}</span>
+                    <div>
+                      <p className="eyebrow">COMMUNITY RECORD</p>
+                      <h3>Open slot.</h3>
+                      <p>Build a useful surface and add it to the archive.</p>
+                    </div>
+                    <span className="slot-action">Submission guide ↗</span>
+                  </a>
+                </div>
+              </div>
+            ) : null}
           </section>
         ) : null}
 

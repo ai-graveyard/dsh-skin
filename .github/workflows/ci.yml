@@ -40,10 +40,25 @@ jobs:
       - name: Build static site
         run: pnpm run build
 
-      - name: Inspect npm package contents
+      - name: Inspect every npm package
         env:
           npm_config_cache: ${{ runner.temp }}/npm-cache
-        run: npm pack --dry-run --json ./skins/braun-control
+        run: pnpm run pack:skins
+
+      - name: Build versioned release assets
+        if: matrix.node-version == '22.19.0'
+        env:
+          npm_config_cache: ${{ runner.temp }}/npm-cache
+        run: pnpm run release:assets
+
+      - name: Upload release assets
+        if: matrix.node-version == '22.19.0'
+        uses: actions/upload-artifact@v4
+        with:
+          name: skin-release-assets
+          path: dist/releases/
+          if-no-files-found: error
+          retention-days: 14
 
   # PR 和非 main 分支只做校验。main 校验全部通过后，才串行部署生产站点。
   deploy:

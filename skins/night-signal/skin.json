@@ -1,0 +1,61 @@
+{
+  "slug": "night-signal",
+  "packageName": "dsh-skin-night-signal",
+  "order": 2,
+  "name": "Night Signal",
+  "tagline": "Stay sharp after dark.",
+  "description": "A focused night skin with near-black layers, compact geometry and one mint signal color for long-running sessions.",
+  "author": {
+    "name": "Ailln",
+    "url": "https://github.com/ailln"
+  },
+  "version": "0.1.0",
+  "status": "Available",
+  "license": "MIT",
+  "compatibility": "@deepseek-ai/dsh 0.1.0-rc.6",
+  "verifiedAt": "2026-08-17",
+  "verifiedStates": ["Empty session", "Workspace session", "Settings", "Reload", "390px viewport"],
+  "style": ["Dark", "High contrast", "Compact"],
+  "colors": ["#0C0F14", "#E8EDF2", "#5EE1B3"],
+  "preview": {
+    "label": "NIGHT SIGNAL / ACTIVE",
+    "surface": "#141922",
+    "layer": "#10151C",
+    "line": "#293240",
+    "muted": "#8B96A5"
+  },
+  "screenshots": [
+    {
+      "src": "/skins/night-signal/workspace-session.png",
+      "alt": "Night Signal applied to a real DSH workspace session with a prepared prompt",
+      "label": "Workspace session",
+      "viewport": "desktop",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "src": "/skins/night-signal/empty-session.png",
+      "alt": "Night Signal applied to the real DSH empty-session screen",
+      "label": "Empty session",
+      "viewport": "desktop",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "src": "/skins/night-signal/settings.png",
+      "alt": "Night Signal applied to the real DSH settings dialog",
+      "label": "Settings",
+      "viewport": "desktop",
+      "width": 1200,
+      "height": 818
+    },
+    {
+      "src": "/skins/night-signal/settings-mobile.png",
+      "alt": "Night Signal settings dialog at a 390 pixel mobile viewport",
+      "label": "390px settings",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844
+    }
+  ]
+}

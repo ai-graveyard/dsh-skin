@@ -1,0 +1,37 @@
+name: Public site uptime
+
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: public-site-uptime
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Check public routes
+        env:
+          SITE_ORIGIN: ${{ vars.SITE_ORIGIN || 'https://dshskin.com' }}
+        run: |
+          set -euo pipefail
+          origin="${SITE_ORIGIN%/}"
+          for path in / /skins/braun-control /skins/night-signal /sitemap.xml; do
+            url="${origin}${path}"
+            echo "Checking ${url}"
+            curl --fail --silent --show-error \
+              --location \
+              --max-time 20 \
+              --retry 2 \
+              --retry-all-errors \
+              --output /dev/null \
+              "${url}"
+          done

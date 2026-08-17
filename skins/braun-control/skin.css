@@ -173,7 +173,6 @@ body[data-dsh-skin="braun-control"] :where([class*="_composerStack"] [class*="_c
 }
 
 body[data-dsh-skin="braun-control"] :where([class*="_composerStack"] textarea[class*="_input"]) {
-  color: var(--ink) !important;
   font-family: var(--dsh-skin-sans);
 }
 

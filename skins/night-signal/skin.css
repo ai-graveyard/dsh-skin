@@ -1,0 +1,269 @@
+body[data-dsh-skin="night-signal"] {
+  --night-bg: #0c0f14;
+  --night-surface: #141922;
+  --night-layer: #10151c;
+  --night-layer-2: #171e28;
+  --night-ink: #e8edf2;
+  --night-muted: #8b96a5;
+  --night-line: #293240;
+  --night-accent: #5ee1b3;
+  --night-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  color-scheme: dark;
+  background: var(--night-bg);
+  color: var(--night-ink);
+  letter-spacing: -.005em;
+}
+
+body[data-dsh-skin="night-signal"] :where(button, input, textarea, select, [role="button"], [role="dialog"], [role="menu"], pre, code) {
+  border-radius: 6px !important;
+}
+
+body[data-dsh-skin="night-signal"] :where(button, [role="button"], [role="tab"], label, legend, dt, code, pre, kbd, samp) {
+  font-family: var(--night-mono);
+}
+
+body[data-dsh-skin="night-signal"] :where(button, [role="button"], input, textarea, select):focus-visible {
+  outline: 2px solid var(--night-accent) !important;
+  outline-offset: 2px;
+}
+
+body[data-dsh-skin="night-signal"] :where(button[type="submit"], form button:last-of-type:not([type="button"])) {
+  border-color: var(--night-accent) !important;
+  background: var(--night-accent) !important;
+  color: var(--night-bg) !important;
+}
+
+body[data-dsh-skin="night-signal"] :where(pre) {
+  border: 1px solid var(--night-line);
+  background: #090c10 !important;
+}
+
+body[data-dsh-skin="night-signal"] :where(blockquote) {
+  border-left: 2px solid var(--night-accent);
+}
+
+body[data-dsh-skin="night-signal"] :where([class*="_sidebarCol"]) {
+  background: var(--night-layer) !important;
+  border-right: 1px solid var(--night-line);
+}
+
+body[data-dsh-skin="night-signal"] :where([class*="_sidebarCol"] button[class*="_brand"]) {
+  min-height: 44px;
+  border-bottom: 1px solid var(--night-line) !important;
+}
+
+body[data-dsh-skin="night-signal"] :where([class*="_sidebarCol"] button[class*="_newSession"]) {
+  min-height: 38px;
+  border: 1px solid var(--night-accent) !important;
+  background: transparent !important;
+  color: var(--night-accent) !important;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+body[data-dsh-skin="night-signal"] :where([class*="_sidebarCol"] button[class*="_newSession"]:hover) {
+  background: rgba(94, 225, 179, .1) !important;
+}
+
+body[data-dsh-skin="night-signal"] :where([class*="_sidebarCol"] [class*="_sectionHeader"]) {
+  border-top: 1px solid var(--night-line);
+  color: var(--night-muted) !important;
+  font-family: var(--night-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+body[data-dsh-skin="night-signal"] :where([class*="_sidebarCol"] [role="treeitem"]) {
+  min-height: 32px;
+  border-left: 2px solid transparent;
+}
+
+body[data-dsh-skin="night-signal"] :where([class*="_sidebarCol"] [role="treeitem"][aria-selected="true"]) {
+  border-left-color: var(--night-accent) !important;
+  background: #1b3b34 !important;
+  color: var(--night-ink) !important;
+}
+
+body[data-dsh-skin="night-signal"] :where([class*="_composerSeat"]) {
+  background: none !important;
+}
+
+body[data-dsh-skin="night-signal"] :where([class*="_composerStack"]) {
+  position: relative;
+}
+
+body[data-dsh-skin="night-signal"] :where([class*="_composerStack"])::before {
+  position: absolute;
+  top: -19px;
+  left: 0;
+  color: var(--night-accent);
+  content: "NIGHT SIGNAL / ACTIVE";
+  font: 700 8px/1 var(--night-mono);
+  letter-spacing: .15em;
+  pointer-events: none;
+}
+
+body[data-dsh-skin="night-signal"] :where([class*="_heroGlow"]) {
+  display: none !important;
+}
+
+body[data-dsh-skin="night-signal"] :where([class*="_composerStack"] [class*="_root"][class*="_hero"]) {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+body[data-dsh-skin="night-signal"] :where([class*="_composerStack"] [class*="_card"]) {
+  border: 1px solid var(--night-line) !important;
+  background: var(--night-surface) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, .32) !important;
+}
+
+body[data-dsh-skin="night-signal"] :where([class*="_composerStack"] button[class*="_add"]) {
+  border: 1px solid var(--night-line) !important;
+  background: var(--night-layer-2) !important;
+}
+
+body[data-dsh-skin="night-signal"] :where([class*="_composerStack"] button[class*="_primary"]) {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--night-accent) !important;
+  background: var(--night-accent) !important;
+  color: var(--night-bg) !important;
+  box-shadow: 0 0 0 4px rgba(94, 225, 179, .08) !important;
+}
+
+body[data-dsh-skin="night-signal"] :where([class*="_composerStack"] button[class*="_primary"]:hover) {
+  background: #7be9c4 !important;
+  transform: translateY(-1px);
+}
+
+body[data-dsh-skin="night-signal"] :where([class*="_detailsCol"] > [class*="_root"]) {
+  border-left: 1px solid var(--night-line);
+  background: var(--night-bg) !important;
+}
+
+body[data-dsh-skin="night-signal"] :where([role="dialog"]) {
+  border: 1px solid var(--night-line) !important;
+  background: var(--night-surface) !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .45) !important;
+}
+
+body[data-dsh-skin="night-signal"] *,
+body[data-dsh-skin="night-signal"] *::before,
+body[data-dsh-skin="night-signal"] *::after {
+  transition-duration: 100ms !important;
+}
+
+@media (max-width: 640px) {
+  body[data-dsh-skin="night-signal"] :where([role="dialog"], [role="dialog"] *) {
+    box-sizing: border-box !important;
+  }
+
+  body[data-dsh-skin="night-signal"] :where([role="dialog"]:has([class*="_nav"])) {
+    width: calc(100vw - 24px) !important;
+    max-width: none !important;
+    height: calc(100svh - 24px) !important;
+    max-height: none !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+  }
+
+  body[data-dsh-skin="night-signal"] :where([role="dialog"] [class*="_nav"]) {
+    width: 100% !important;
+    min-width: 0 !important;
+    flex: 0 0 auto !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid var(--night-line) !important;
+  }
+
+  body[data-dsh-skin="night-signal"] :where([role="dialog"] [class*="_navTitle"]) {
+    padding-bottom: 8px !important;
+  }
+
+  body[data-dsh-skin="night-signal"] :where([role="dialog"] [class*="_navList"]) {
+    width: 100% !important;
+    min-width: 0 !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    overscroll-behavior-x: contain;
+  }
+
+  body[data-dsh-skin="night-signal"] :where([role="dialog"] [class*="_navCell"]) {
+    width: auto !important;
+    min-width: max-content !important;
+    flex: 0 0 auto !important;
+  }
+
+  body[data-dsh-skin="night-signal"] :where([role="dialog"] [class*="_navLabel"]) {
+    width: auto !important;
+  }
+
+  body[data-dsh-skin="night-signal"] :where([role="dialog"] [class*="_content"]) {
+    width: 100% !important;
+    min-width: 0 !important;
+    flex: 1 1 auto !important;
+    overflow: hidden !important;
+  }
+
+  body[data-dsh-skin="night-signal"] :where([role="dialog"] [class*="_header"], [role="dialog"] [class*="_options"]) {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  body[data-dsh-skin="night-signal"] :where([role="dialog"] [class*="_options"]) {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+  }
+
+  body[data-dsh-skin="night-signal"] :where([role="dialog"] [class*="_section"]) {
+    width: 100% !important;
+    min-width: 0 !important;
+    padding-right: 16px !important;
+    padding-left: 16px !important;
+  }
+
+  body[data-dsh-skin="night-signal"] :where([role="dialog"] [class*="_row"]) {
+    width: 100% !important;
+    min-width: 0 !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+  }
+
+  body[data-dsh-skin="night-signal"] :where([role="dialog"] [class*="_rowText"]) {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  body[data-dsh-skin="night-signal"] :where([role="dialog"] [class*="_title"], [role="dialog"] [class*="_desc"]) {
+    width: auto !important;
+    min-width: 0 !important;
+    overflow-wrap: anywhere;
+  }
+
+  body[data-dsh-skin="night-signal"] :where([role="dialog"] [class*="_selector"], [role="dialog"] [class*="_themeCube"]) {
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  body[data-dsh-skin="night-signal"] :where([role="dialog"] [class*="_cubeRow"]) {
+    width: 100% !important;
+    min-width: 0 !important;
+    flex-direction: column !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body[data-dsh-skin="night-signal"] *,
+  body[data-dsh-skin="night-signal"] *::before,
+  body[data-dsh-skin="night-signal"] *::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}

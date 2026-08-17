@@ -1,7 +1,7 @@
 {
-  "name": "dsh-skin-braun-control",
-  "version": "0.1.1",
-  "description": "A Dieter Rams / Braun-inspired functional theme for DeepSeek Harness Web UI",
+  "name": "dsh-skin-night-signal",
+  "version": "0.1.0",
+  "description": "A focused, high-contrast dark skin for DeepSeek Harness Web UI",
   "type": "module",
   "main": "index.js",
   "exports": {
@@ -23,16 +23,16 @@
     "deepseek-harness",
     "dsh-plugin",
     "theme",
-    "dieter-rams",
-    "braun"
+    "dark-theme",
+    "high-contrast"
   ],
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ai-graveyard/dsh-skin.git",
-    "directory": "skins/braun-control"
+    "directory": "skins/night-signal"
   },
-  "homepage": "https://dshskin.com/skins/braun-control",
+  "homepage": "https://dshskin.com/skins/night-signal",
   "bugs": {
     "url": "https://github.com/ai-graveyard/dsh-skin/issues"
   },

@@ -11,4 +11,5 @@ screenshots/
 .env.*
 !.env.example
 coverage/
+dist/
 *.log

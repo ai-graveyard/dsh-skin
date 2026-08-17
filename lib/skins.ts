@@ -3,6 +3,8 @@ import path from "node:path";
 
 export type Skin = {
   slug: string;
+  packageName: string;
+  order: number;
   name: string;
   tagline: string;
   description: string;
@@ -14,8 +16,25 @@ export type Skin = {
   status: string;
   license: string;
   compatibility: string;
+  verifiedAt: string;
+  verifiedStates: string[];
   style: string[];
   colors: string[];
+  preview: {
+    label: string;
+    surface: string;
+    layer: string;
+    line: string;
+    muted: string;
+  };
+  screenshots?: Array<{
+    src: string;
+    alt: string;
+    label: string;
+    viewport: "desktop" | "mobile";
+    width: number;
+    height: number;
+  }>;
   featured?: boolean;
 };
 
@@ -40,7 +59,11 @@ export async function getSkins(): Promise<Skin[]> {
 
   return skins
     .filter((skin): skin is Skin => skin !== null)
-    .sort((a, b) => Number(Boolean(b.featured)) - Number(Boolean(a.featured)));
+    .sort((a, b) => {
+      const featured = Number(Boolean(b.featured)) - Number(Boolean(a.featured));
+      if (featured !== 0) return featured;
+      return a.order - b.order || a.name.localeCompare(b.name);
+    });
 }
 
 export async function getSkin(slug: string): Promise<Skin | undefined> {
