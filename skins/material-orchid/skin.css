@@ -1,0 +1,84 @@
+/* Material Orchid · 兰序. Fixed palette; all rules scoped to the active plugin. */
+body[data-dsh-skin="material-orchid"] {
+  --primary: #6750A4;
+  --on-primary: #FFFFFF;
+  --primary-container: #EADDFF;
+  --on-primary-container: #21005D;
+  --secondary-container: #E8DEF8;
+  --on-secondary-container: #1D192B;
+  --tertiary-container: #FFD8E4;
+  --on-tertiary-container: #31111D;
+  --surface: #FEF7FF;
+  --surface-dim: #F8F1FA;
+  --surface-c-low: #F7F2FA;
+  --surface-c: #F3EDF7;
+  --surface-c-high: #ECE6F0;
+  --on-surface: #1C1B1F;
+  --on-surface-var: #49454F;
+  --outline: #79747E;
+  --outline-var: #CAC4D0;
+  --blue: #4285F4;
+  --green: #34A853;
+  --yellow: #FBBC05;
+  --red: #EA4335;
+  --grey: #5F6368;
+  --e1: 0 1px 2px rgba(0,0,0,.3), 0 1px 3px 1px rgba(0,0,0,.15);
+  --e2: 0 1px 2px rgba(0,0,0,.3), 0 2px 6px 2px rgba(0,0,0,.15);
+  --e3: 0 1px 3px rgba(0,0,0,.3), 0 4px 8px 3px rgba(0,0,0,.15);
+  --e4: 0 2px 3px rgba(0,0,0,.3), 0 6px 10px 4px rgba(0,0,0,.15);
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+  --skin-bg: #FEF7FF; --skin-ink: #1C1B1F; --skin-accent: #6750A4;
+  --skin-surface: #FFFBFE; --skin-layer: #F3EDF7; --skin-line: #CAC4D0;
+  --skin-muted: #49454F; --skin-action: #6750A4; --skin-on-action: #FFFFFF;
+  --skin-focus: #6750A4;
+  --skin-radius: 16px; --skin-card-radius: 28px; --skin-shadow: 0 1px 2px #00000024, 0 2px 6px 2px #0000000d;
+  --dsw-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  color-scheme: light;
+  background: var(--skin-bg); color: var(--skin-ink); font-family: var(--dsw-font-family);
+}
+body[data-dsh-skin="material-orchid"] :where(button, input, textarea, select, [role="button"], [role="tab"]) { font-family: inherit; border-radius: var(--skin-radius); }
+body[data-dsh-skin="material-orchid"] :where(code, pre, kbd, samp) { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+body[data-dsh-skin="material-orchid"] :where(button, a, input, textarea, select, [role="button"], [role="tab"], [contenteditable="true"]):focus-visible { outline: 2px solid var(--skin-focus) !important; outline-offset: 3px; }
+body[data-dsh-skin="material-orchid"] :where(button[type="submit"]:not(:disabled)) { background: var(--skin-action) !important; color: var(--skin-on-action) !important; }
+body[data-dsh-skin="material-orchid"] :where([class*="_sidebarCol"]) { background: var(--skin-layer) !important; border-right: 1px solid var(--skin-line); }
+body[data-dsh-skin="material-orchid"] :where([class*="_sidebarCol"] button[class*="_brand"]) { min-height: 48px; border-bottom: 1px solid var(--skin-line); }
+body[data-dsh-skin="material-orchid"] :where([class*="_sidebarCol"] button[class*="_newSession"]) { min-height: 40px; border: 1px solid var(--skin-line) !important; border-radius: var(--skin-radius) !important; background: var(--skin-surface) !important; color: var(--skin-ink) !important; font-weight: 600; }
+body[data-dsh-skin="material-orchid"] :where([class*="_sidebarCol"] [class*="_sectionHeader"]) { color: var(--skin-muted) !important; font-size: 11px; letter-spacing: .04em; }
+body[data-dsh-skin="material-orchid"] :where([class*="_sidebarCol"] [role="treeitem"][aria-selected="true"]) { box-shadow: inset 3px 0 var(--skin-action); color: var(--skin-ink) !important; }
+body[data-dsh-skin="material-orchid"] :where([class*="_heroGlow"]) { display: none !important; }
+body[data-dsh-skin="material-orchid"] :where([class*="_composerStack"] [class*="_root"][class*="_hero"]) { border: 0 !important; background: transparent !important; box-shadow: none !important; }
+body[data-dsh-skin="material-orchid"] :where([class*="_composerStack"] [class$="_card"], [class*="_composerStack"] [class*="_card "]) { border: 1px solid var(--skin-line) !important; border-radius: var(--skin-card-radius) !important; background: var(--skin-surface) !important; box-shadow: var(--skin-shadow) !important; }
+body[data-dsh-skin="material-orchid"] :where([class*="_composerStack"] [class$="_card"], [class*="_composerStack"] [class*="_card "]):focus-within { border-color: var(--skin-action) !important; box-shadow: 0 0 0 1px var(--skin-action), var(--skin-shadow) !important; }
+body[data-dsh-skin="material-orchid"] :where([class*="_composerStack"] [contenteditable="true"], [class*="_composerStack"] textarea) { font-family: var(--dsw-font-family); caret-color: var(--skin-focus); }
+body[data-dsh-skin="material-orchid"] :where([class*="_composerStack"] button[class*="_add"]) { background: var(--skin-layer) !important; border: 1px solid var(--skin-line) !important; }
+body[data-dsh-skin="material-orchid"] :where([class*="_composerStack"] button[class*="_primary"]) { width: 38px; height: 38px; border: 1px solid var(--skin-action) !important; border-radius: var(--skin-radius) !important; background: var(--skin-action) !important; color: var(--skin-on-action) !important; }
+body[data-dsh-skin="material-orchid"] :where([class*="_composerStack"] button[class*="_primary"]:disabled) { background: var(--skin-layer) !important; border-color: var(--skin-line) !important; color: var(--skin-muted) !important; opacity: .65; box-shadow: none !important; }
+body[data-dsh-skin="material-orchid"] :where([role="dialog"]) { border: 1px solid var(--skin-line); border-radius: var(--skin-card-radius) !important; background: var(--skin-surface) !important; box-shadow: var(--skin-shadow); }
+body[data-dsh-skin="material-orchid"] :where([role="menu"], [role="listbox"]) { border: 1px solid var(--skin-line); background: var(--skin-surface); border-radius: var(--skin-radius); }
+body[data-dsh-skin="material-orchid"] :where(pre) { border: 1px solid var(--skin-line); border-radius: var(--skin-radius); background: var(--skin-surface) !important; }
+body[data-dsh-skin="material-orchid"] :where(blockquote) { border-left: 2px solid var(--skin-action); }
+body[data-dsh-skin="material-orchid"] ::selection { background: var(--skin-action); color: var(--skin-on-action); }
+@media (hover: hover) {
+  body[data-dsh-skin="material-orchid"] :where([class*="_sidebarCol"] button[class*="_newSession"]:hover) { background: var(--skin-bg) !important; border-color: var(--skin-action) !important; }
+  body[data-dsh-skin="material-orchid"] :where([class*="_composerStack"] button[class*="_primary"]:not(:disabled):hover) { filter: brightness(.92); }
+}
+
+/* Signature details: material */
+body[data-dsh-skin="material-orchid"] [class*="_sidebarCol"] button[class*="_newSession"] { background: #EADDFF !important; color: #21005D !important; border-color: transparent !important; border-radius: 16px !important; }
+body[data-dsh-skin="material-orchid"] [class*="_composerStack"] button[class*="_primary"] { border-radius: 50% !important; box-shadow: 0 1px 3px #00000033; }
+body[data-dsh-skin="material-orchid"] :where(button, [role="tab"]) { transition: background-color 160ms ease, box-shadow 160ms ease; }
+body[data-dsh-skin="material-orchid"] :where(button:active:not(:disabled)) { box-shadow: inset 0 0 0 100px #6750a418; }
+
+@media (prefers-reduced-motion: reduce) {
+  body[data-dsh-skin="material-orchid"] *, body[data-dsh-skin="material-orchid"] *::before, body[data-dsh-skin="material-orchid"] *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* Preserve switch affordance and align selection geometry with the skin. */
+body[data-dsh-skin="material-orchid"] :where(button[role="switch"]) { border-radius: 999px !important; }
+body[data-dsh-skin="material-orchid"] :where([class*="_sidebarCol"] [role="treeitem"]) { border-radius: var(--skin-radius); }
+
+/* Focus must remain visible above every signature surface rule. */
+body[data-dsh-skin="material-orchid"] [class*="_composerStack"] :is([class$="_card"], [class*="_card "]):focus-within {
+  border-color: var(--skin-focus) !important;
+  box-shadow: 0 0 0 1px var(--skin-focus), var(--skin-shadow) !important;
+}

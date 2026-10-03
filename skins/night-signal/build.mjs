@@ -8,93 +8,7 @@ const STYLE_ID = 'dsh-skin-night-signal/skin.css'
 const directory = dirname(fileURLToPath(import.meta.url))
 const css = await readFile(join(directory, 'skin.css'), 'utf8')
 
-const tokenValues = {
-  '--shiki-token-constant': '#4DABF7',
-  '--shiki-token-string': '#69DB7C',
-  '--shiki-token-comment': '#ADB5BD',
-  '--shiki-token-keyword': '#FAA2C1',
-  '--shiki-token-parameter': '#FFA94D',
-  '--shiki-token-function': '#B197FC',
-  '--shiki-token-string-expression': '#8CE99A',
-  '--shiki-token-punctuation': '#CED4DA',
-  '--shiki-token-link': '#74C0FC',
-
-  '--dsw-alias-link': '#7BE9C4',
-  '--dsw-alias-state-business-primary': '#5EE1B3',
-  '--dsw-alias-state-business-tertiary': '#1B3B34',
-  '--dsw-alias-menu-icon': '#AEB8C4',
-  '--dsw-alias-menu-group-header-fill': '#10151C',
-  '--dsw-alias-settings-card-fill': '#141922',
-  '--dsw-alias-settings-card-stroke': '#293240',
-  '--dsw-alias-button-info-fill': '#5EE1B3',
-  '--dsw-alias-button-info-hover': '#7BE9C4',
-  '--dsw-alias-button-ghost-active-border': '#3A4657',
-  '--dsw-alias-button-ghost-active-fill': '#171E28',
-  '--dsw-alias-button-ghost-active-hover': '#222A36',
-
-  '--dsw-alias-bg-base': '#0C0F14',
-  '--dsw-alias-bg-layer-1': '#141922',
-  '--dsw-alias-bg-layer-2': '#10151C',
-  '--dsw-alias-bg-layer-3': '#171E28',
-  '--dsw-alias-bg-module-platform': '#10151C',
-  '--dsw-alias-bg-multi-select': '#171E28',
-  '--dsw-alias-bg-overlay': '#171E28',
-  '--dsw-alias-bg-skeleton': 'rgba(232, 237, 242, 0.08)',
-  '--dsw-alias-border-inverted2': '#293240',
-  '--dsw-alias-border-inverted': '#293240',
-  '--dsw-alias-border-l1': '#222A36',
-  '--dsw-alias-border-l2-darkmode-thin': '#293240',
-  '--dsw-alias-border-l2': '#293240',
-  '--dsw-alias-border-l3': '#3A4657',
-  '--dsw-alias-border-l4': '#8B96A5',
-  '--dsw-alias-brand-primary-invert': '#0C0F14',
-  '--dsw-alias-brand-primary-new-colorprimary-new-color': '#5EE1B3',
-  '--dsw-alias-brand-primary': '#5EE1B3',
-  '--dsw-alias-brand-text': '#5EE1B3',
-  '--dsw-alias-button-contrast-fill': '#E8EDF2',
-  '--dsw-alias-button-elevated-fill': '#171E28',
-  '--dsw-alias-button-floating-fill': '#171E28',
-  '--dsw-alias-button-floating-hover': '#222A36',
-  '--dsw-alias-button-primary-dimmed': '#293240',
-  '--dsw-alias-button-primary-fill': '#5EE1B3',
-  '--dsw-alias-button-primary-hover': '#7BE9C4',
-  '--dsw-alias-interactive-bg-active': '#222A36',
-  '--dsw-alias-interactive-bg-hover-accent': '#1B3B34',
-  '--dsw-alias-interactive-bg-hover-solid': '#171E28',
-  '--dsw-alias-interactive-bg-hover': 'rgba(94, 225, 179, 0.08)',
-  '--dsw-alias-label-caption': '#8B96A5',
-  '--dsw-alias-label-dimmed': '#657182',
-  '--dsw-alias-label-primary-bluish': '#E8EDF2',
-  '--dsw-alias-label-primary-dimmed': '#AEB8C4',
-  '--dsw-alias-label-primary-foreground': '#0C0F14',
-  '--dsw-alias-label-primary-inverted': '#0C0F14',
-  '--dsw-alias-label-primary': '#E8EDF2',
-  '--dsw-alias-label-secondary': '#AEB8C4',
-  '--dsw-alias-label-tertiary': '#8B96A5',
-  '--dsw-alias-markdown-citation': '#171E28',
-  '--dsw-alias-markdown-code-block-banner': '#10151C',
-  '--dsw-alias-markdown-code-block': '#090C10',
-  '--dsw-alias-markdown-code-segment-selected': '#222A36',
-  '--dsw-alias-markdown-code-segment-unselected': '#10151C',
-  '--dsw-alias-markdown-inline-code': '#171E28',
-  '--dsw-alias-markdown-placeholder': '#10151C',
-  '--dsw-alias-markdown-tag': '#171E28',
-  '--dsw-alias-scrollbar-bg-l1': '#293240',
-  '--dsw-alias-scrollbar-bg-l2': '#293240',
-  '--dsw-alias-scrollbar-hover-l1': '#5EE1B3',
-  '--dsw-alias-scrollbar-hover-l2': '#5EE1B3',
-  '--dsw-specific-bubble-highlight': '#1B3B34',
-  '--dsw-specific-bubble': '#141922',
-  '--dsw-specific-input-major': '#141922',
-  '--dsw-specific-login-input': '#10151C',
-  '--dsw-specific-menu': '#141922',
-  '--dsw-specific-selector': '#171E28',
-  '--dsw-specific-sidebar-fill': '#10151C',
-  '--dsw-specific-sidebar-nav-item-active-accent': '#5EE1B3',
-  '--dsw-specific-sidebar-nav-item-active': '#1B3B34',
-  '--dsw-specific-sidebar-nav-item-hover': '#171E28',
-  '--dsw-specific-tip': '#171E28',
-}
+const tokenValues = JSON.parse(await readFile(join(directory, 'tokens.json'), 'utf8'))
 
 const tokenOverrides = Object.fromEntries(
   Object.entries(tokenValues).map(([name, value]) => [name, { light: value, dark: value }]),
@@ -154,7 +68,7 @@ const target = join(directory, 'client.js')
 if (process.argv.includes('--check')) {
   const current = await readFile(target, 'utf8').catch(() => '')
   if (current !== client) {
-    console.error('client.js is stale; run `pnpm run build:skins`.')
+    console.error('client.js is stale; run `pnpm run build`.')
     process.exitCode = 1
   }
 } else {

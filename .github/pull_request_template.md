@@ -7,10 +7,10 @@ Describe the visible or lifecycle change.
 - [ ] I ran `pnpm run check`.
 - [ ] I regenerated and committed `client.js` when its source changed.
 - [ ] I inspected the `npm pack --dry-run` file list.
-- [ ] I tested installation, refresh, and removal in a DSH Web profile.
+- [ ] I tested installation, restart, activation and removal in the DSH desktop client.
 - [ ] I checked the empty-session screen and an existing conversation.
 - [ ] I removed credentials, session content, and local absolute paths from logs and screenshots.
 
 ## Compatibility
 
-List the DSH, Node.js, operating system, and browser versions used for testing.
+List the desktop client version/build, skin version, Node.js version and operating system used for testing. Record native acceptance scope in `DESKTOP-QA.md`.

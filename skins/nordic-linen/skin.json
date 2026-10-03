@@ -1,0 +1,51 @@
+{
+  "slug": "nordic-linen",
+  "packageName": "dsh-skin-nordic-linen",
+  "order": 6,
+  "name": "Nordic Linen",
+  "nameZh": "北欧亚麻",
+  "tagline": "Make yourself at home.",
+  "description": "Warm linen, sage controls and softly shaped surfaces for an unhurried workspace.",
+  "author": {
+    "name": "DSH Skin",
+    "url": "https://github.com/ai-graveyard/dsh-skin"
+  },
+  "version": "0.3.1",
+  "status": "Available",
+  "license": "MIT",
+  "compatibility": "DeepSeek Harness Desktop 0.2.0-rc.2",
+  "verifiedAt": "2026-10-04",
+  "verifiedStates": [
+    "Bundle lifecycle",
+    "Text and focus contrast",
+    "Package validation",
+    "Installed runtime matches source",
+    "Native desktop composer and focus",
+    "Native General settings and appearance modes",
+    "Native dropdown",
+    "Native rich conversation and half-screen layout",
+    "Native plugin details and reactivation"
+  ],
+  "style": [
+    "scandinavian",
+    "Light"
+  ],
+  "colors": [
+    "#F6F3ED",
+    "#3E3A33",
+    "#8B9A7C"
+  ],
+  "preview": {
+    "label": "NORDIC LINEN",
+    "surface": "#FFFFFF",
+    "layer": "#E8DCC4",
+    "line": "#C9BBA4",
+    "muted": "#655E52",
+    "radius": 12,
+    "cardRadius": 20,
+    "onAccent": "#FFFFFF"
+  },
+  "official": true,
+  "featured": false,
+  "designPattern": "scandinavian"
+}

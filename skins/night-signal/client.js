@@ -5,59 +5,59 @@ window.__ModuleLoader__.load({
     const PACKAGE_ID = "dsh-skin-night-signal";
     const SKIN_ID = "night-signal";
     const STYLE_ID = "dsh-skin-night-signal/skin.css";
-    const CSS = "body[data-dsh-skin=\"night-signal\"] {\n  --night-bg: #0c0f14;\n  --night-surface: #141922;\n  --night-layer: #10151c;\n  --night-layer-2: #171e28;\n  --night-ink: #e8edf2;\n  --night-muted: #8b96a5;\n  --night-line: #293240;\n  --night-accent: #5ee1b3;\n  --night-mono: ui-monospace, \"SF Mono\", Menlo, Consolas, monospace;\n  color-scheme: dark;\n  background: var(--night-bg);\n  color: var(--night-ink);\n  letter-spacing: -.005em;\n}\n\nbody[data-dsh-skin=\"night-signal\"] :where(button, input, textarea, select, [role=\"button\"], [role=\"dialog\"], [role=\"menu\"], pre, code) {\n  border-radius: 6px !important;\n}\n\nbody[data-dsh-skin=\"night-signal\"] :where(code, pre, kbd, samp) {\n  font-family: var(--night-mono);\n}\n\nbody[data-dsh-skin=\"night-signal\"] :where(button, [role=\"button\"], input, textarea, select):focus-visible {\n  outline: 2px solid var(--night-accent) !important;\n  outline-offset: 2px;\n}\n\nbody[data-dsh-skin=\"night-signal\"] :where(button[type=\"submit\"]:not(:disabled)) {\n  border-color: var(--night-accent) !important;\n  background: var(--night-accent) !important;\n  color: var(--night-bg) !important;\n}\n\nbody[data-dsh-skin=\"night-signal\"] :where(pre) {\n  border: 1px solid var(--night-line);\n  background: #090c10 !important;\n}\n\nbody[data-dsh-skin=\"night-signal\"] :where(blockquote) {\n  border-left: 2px solid var(--night-accent);\n}\n\nbody[data-dsh-skin=\"night-signal\"] :where([class*=\"_sidebarCol\"]) {\n  background: var(--night-layer) !important;\n  border-right: 1px solid var(--night-line);\n}\n\nbody[data-dsh-skin=\"night-signal\"] :where([class*=\"_sidebarCol\"] button[class*=\"_brand\"]) {\n  min-height: 44px;\n  border-bottom: 1px solid var(--night-line) !important;\n}\n\nbody[data-dsh-skin=\"night-signal\"] :where([class*=\"_sidebarCol\"] button[class*=\"_newSession\"]) {\n  min-height: 38px;\n  border: 1px solid var(--night-accent) !important;\n  background: transparent !important;\n  color: var(--night-accent) !important;\n  font-size: 13px;\n  font-weight: 700;\n  letter-spacing: .02em;\n  text-transform: uppercase;\n}\n\nbody[data-dsh-skin=\"night-signal\"] :where([class*=\"_sidebarCol\"] button[class*=\"_newSession\"]:hover) {\n  background: rgba(94, 225, 179, .1) !important;\n}\n\nbody[data-dsh-skin=\"night-signal\"] :where([class*=\"_sidebarCol\"] [class*=\"_sectionHeader\"]) {\n  border-top: 1px solid var(--night-line);\n  color: var(--night-muted) !important;\n  font-family: var(--night-mono);\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: .12em;\n  text-transform: uppercase;\n}\n\nbody[data-dsh-skin=\"night-signal\"] :where([class*=\"_sidebarCol\"] [role=\"treeitem\"]) {\n  min-height: 32px;\n  border-left: 2px solid transparent;\n}\n\nbody[data-dsh-skin=\"night-signal\"] :where([class*=\"_sidebarCol\"] [role=\"treeitem\"][aria-selected=\"true\"]) {\n  border-left-color: var(--night-accent) !important;\n  background: #1b3b34 !important;\n  color: var(--night-ink) !important;\n}\n\nbody[data-dsh-skin=\"night-signal\"] :where([class*=\"_composerStack\"]) {\n  position: relative;\n}\n\nbody[data-dsh-skin=\"night-signal\"] :where([class*=\"_heroGlow\"]) {\n  display: none !important;\n}\n\nbody[data-dsh-skin=\"night-signal\"] :where([class*=\"_composerStack\"] [class*=\"_root\"][class*=\"_hero\"]) {\n  border: 0 !important;\n  background: transparent !important;\n  box-shadow: none !important;\n}\n\nbody[data-dsh-skin=\"night-signal\"] :where([class*=\"_composerStack\"] [class$=\"_card\"], [class*=\"_composerStack\"] [class*=\"_card \"]) {\n  border: 1px solid var(--night-line) !important;\n  border-radius: 12px !important;\n  background: var(--night-surface) !important;\n  box-shadow: 0 12px 32px rgba(0, 0, 0, .32) !important;\n}\n\nbody[data-dsh-skin=\"night-signal\"] :where([class*=\"_composerStack\"] button[class*=\"_add\"]) {\n  border: 1px solid var(--night-line) !important;\n  background: var(--night-layer-2) !important;\n}\n\nbody[data-dsh-skin=\"night-signal\"] :where([class*=\"_composerStack\"] button[class*=\"_primary\"]) {\n  width: 36px;\n  height: 36px;\n  border: 1px solid var(--night-accent) !important;\n  background: var(--night-accent) !important;\n  color: var(--night-bg) !important;\n  box-shadow: 0 0 0 4px rgba(94, 225, 179, .08) !important;\n}\n\nbody[data-dsh-skin=\"night-signal\"] :where([class*=\"_composerStack\"] button[class*=\"_primary\"]:hover:not(:disabled)) {\n  background: #7be9c4 !important;\n  transform: translateY(-2px);\n}\n\nbody[data-dsh-skin=\"night-signal\"] :where([class*=\"_detailsCol\"] > [class*=\"_root\"]) {\n  border-left: 1px solid var(--night-line);\n  background: var(--night-bg) !important;\n}\n\nbody[data-dsh-skin=\"night-signal\"] :where([role=\"dialog\"]) {\n  border: 1px solid var(--night-line) !important;\n  background: var(--night-surface) !important;\n  box-shadow: 0 20px 60px rgba(0, 0, 0, .45) !important;\n}\n\n@media (max-width: 640px) {\n  body[data-dsh-skin=\"night-signal\"] :where([role=\"dialog\"], [role=\"dialog\"] *) {\n    box-sizing: border-box !important;\n  }\n\n  body[data-dsh-skin=\"night-signal\"] :where([role=\"dialog\"]:has([class*=\"_nav\"])) {\n    width: calc(100vw - 24px) !important;\n    max-width: none !important;\n    height: calc(100svh - 24px) !important;\n    max-height: none !important;\n    flex-direction: column !important;\n    overflow: hidden !important;\n  }\n\n  body[data-dsh-skin=\"night-signal\"] :where([role=\"dialog\"] [class*=\"_nav\"]) {\n    width: 100% !important;\n    min-width: 0 !important;\n    flex: 0 0 auto !important;\n    border-right: 0 !important;\n    border-bottom: 1px solid var(--night-line) !important;\n  }\n\n  body[data-dsh-skin=\"night-signal\"] :where([role=\"dialog\"] [class*=\"_navTitle\"]) {\n    padding-bottom: 8px !important;\n  }\n\n  body[data-dsh-skin=\"night-signal\"] :where([role=\"dialog\"] [class*=\"_navList\"]) {\n    width: 100% !important;\n    min-width: 0 !important;\n    flex-direction: row !important;\n    overflow-x: auto !important;\n    overscroll-behavior-x: contain;\n  }\n\n  body[data-dsh-skin=\"night-signal\"] :where([role=\"dialog\"] [class*=\"_navCell\"]) {\n    width: auto !important;\n    min-width: max-content !important;\n    flex: 0 0 auto !important;\n  }\n\n  body[data-dsh-skin=\"night-signal\"] :where([role=\"dialog\"] [class*=\"_navLabel\"]) {\n    width: auto !important;\n  }\n\n  body[data-dsh-skin=\"night-signal\"] :where([role=\"dialog\"] [class*=\"_content\"]) {\n    width: 100% !important;\n    min-width: 0 !important;\n    flex: 1 1 auto !important;\n    overflow: hidden !important;\n  }\n\n  body[data-dsh-skin=\"night-signal\"] :where([role=\"dialog\"] [class*=\"_header\"], [role=\"dialog\"] [class*=\"_options\"]) {\n    width: 100% !important;\n    min-width: 0 !important;\n  }\n\n  body[data-dsh-skin=\"night-signal\"] :where([role=\"dialog\"] [class*=\"_options\"]) {\n    overflow-x: hidden !important;\n    overflow-y: auto !important;\n  }\n\n  body[data-dsh-skin=\"night-signal\"] :where([role=\"dialog\"] [class*=\"_section\"]) {\n    width: 100% !important;\n    min-width: 0 !important;\n    padding-right: 16px !important;\n    padding-left: 16px !important;\n  }\n\n  body[data-dsh-skin=\"night-signal\"] :where([role=\"dialog\"] [class*=\"_row\"]) {\n    width: 100% !important;\n    min-width: 0 !important;\n    flex-direction: column !important;\n    align-items: stretch !important;\n    gap: 12px !important;\n  }\n\n  body[data-dsh-skin=\"night-signal\"] :where([role=\"dialog\"] [class*=\"_rowText\"]) {\n    width: 100% !important;\n    min-width: 0 !important;\n  }\n\n  body[data-dsh-skin=\"night-signal\"] :where([role=\"dialog\"] [class*=\"_title\"], [role=\"dialog\"] [class*=\"_desc\"]) {\n    width: auto !important;\n    min-width: 0 !important;\n    overflow-wrap: anywhere;\n  }\n\n  body[data-dsh-skin=\"night-signal\"] :where([role=\"dialog\"] [class*=\"_selector\"], [role=\"dialog\"] [class*=\"_themeCube\"]) {\n    width: 100% !important;\n    max-width: none !important;\n  }\n\n  body[data-dsh-skin=\"night-signal\"] :where([role=\"dialog\"] [class*=\"_cubeRow\"]) {\n    width: 100% !important;\n    min-width: 0 !important;\n    flex-direction: column !important;\n  }\n}\n\n/* Desktop 0.2: contenteditable composer, readable controls and quiet focus. */\nbody[data-dsh-skin=\"night-signal\"] {\n  --dsw-font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif;\n  font-family: var(--dsw-font-family);\n}\n\nbody[data-dsh-skin=\"night-signal\"] :where(button, input, textarea, select, [role=\"button\"], [role=\"tab\"]) {\n  font-family: inherit;\n}\n\nbody[data-dsh-skin=\"night-signal\"] :where([class*=\"_composerStack\"] [contenteditable=\"true\"]) {\n  font-family: var(--dsw-font-family);\n  caret-color: var(--night-accent);\n}\n\nbody[data-dsh-skin=\"night-signal\"] :where([class*=\"_composerStack\"] [class$=\"_card\"], [class*=\"_composerStack\"] [class*=\"_card \"]):focus-within {\n  border-color: var(--night-accent) !important;\n  box-shadow: 0 0 0 1px var(--night-accent), 0 8px 24px rgba(0, 0, 0, .08) !important;\n}\n\nbody[data-dsh-skin=\"night-signal\"] :where([class*=\"_composerStack\"] button[class*=\"_primary\"]:disabled) {\n  background: var(--night-line) !important;\n  border-color: var(--night-line) !important;\n  color: var(--night-muted) !important;\n  opacity: .65;\n  box-shadow: none !important;\n}\n\nbody[data-dsh-skin=\"night-signal\"] :where([role=\"menu\"]) {\n  background: var(--night-surface);\n  border-color: var(--night-line);\n}\n\nbody[data-dsh-skin=\"night-signal\"] :where(button, [role=\"button\"], [role=\"tab\"], a):focus-visible {\n  outline: 2px solid var(--night-accent) !important;\n  outline-offset: 2px;\n}\n\nbody[data-dsh-skin=\"night-signal\"] :where([class*=\"_sidebarCol\"] [class*=\"_sectionHeader\"]) {\n  font-size: 11px;\n  letter-spacing: .04em;\n}\n\n@media (prefers-reduced-motion: reduce) {\n  body[data-dsh-skin=\"night-signal\"] *,\n  body[data-dsh-skin=\"night-signal\"] *::before,\n  body[data-dsh-skin=\"night-signal\"] *::after {\n    animation: none !important;\n    scroll-behavior: auto !important;\n    transition: none !important;\n  }\n}\n";
+    const CSS = "/* Night Signal · 夜航信号. Fixed palette; all rules scoped to the active plugin. */\nbody[data-dsh-skin=\"night-signal\"] {\n  --skin-bg: #0C0F14; --skin-ink: #E8EDF2; --skin-accent: #5EE1B3;\n  --skin-surface: #141922; --skin-layer: #10151C; --skin-line: #364353;\n  --skin-muted: #9BA7B6; --skin-action: #5EE1B3; --skin-on-action: #0C0F14;\n  --skin-focus: #5EE1B3;\n  --skin-radius: 6px; --skin-card-radius: 12px; --skin-shadow: 0 12px 32px #00000040;\n  --dsw-font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif;\n  color-scheme: dark;\n  background: var(--skin-bg); color: var(--skin-ink); font-family: var(--dsw-font-family);\n}\nbody[data-dsh-skin=\"night-signal\"] :where(button, input, textarea, select, [role=\"button\"], [role=\"tab\"]) { font-family: inherit; border-radius: var(--skin-radius); }\nbody[data-dsh-skin=\"night-signal\"] :where(code, pre, kbd, samp) { font-family: ui-monospace, \"SF Mono\", Menlo, Consolas, monospace; }\nbody[data-dsh-skin=\"night-signal\"] :where(button, a, input, textarea, select, [role=\"button\"], [role=\"tab\"], [contenteditable=\"true\"]):focus-visible { outline: 2px solid var(--skin-focus) !important; outline-offset: 3px; }\nbody[data-dsh-skin=\"night-signal\"] :where(button[type=\"submit\"]:not(:disabled)) { background: var(--skin-action) !important; color: var(--skin-on-action) !important; }\nbody[data-dsh-skin=\"night-signal\"] :where([class*=\"_sidebarCol\"]) { background: var(--skin-layer) !important; border-right: 1px solid var(--skin-line); }\nbody[data-dsh-skin=\"night-signal\"] :where([class*=\"_sidebarCol\"] button[class*=\"_brand\"]) { min-height: 48px; border-bottom: 1px solid var(--skin-line); }\nbody[data-dsh-skin=\"night-signal\"] :where([class*=\"_sidebarCol\"] button[class*=\"_newSession\"]) { min-height: 40px; border: 1px solid var(--skin-line) !important; border-radius: var(--skin-radius) !important; background: var(--skin-surface) !important; color: var(--skin-ink) !important; font-weight: 600; }\nbody[data-dsh-skin=\"night-signal\"] :where([class*=\"_sidebarCol\"] [class*=\"_sectionHeader\"]) { color: var(--skin-muted) !important; font-size: 11px; letter-spacing: .04em; }\nbody[data-dsh-skin=\"night-signal\"] :where([class*=\"_sidebarCol\"] [role=\"treeitem\"][aria-selected=\"true\"]) { box-shadow: inset 3px 0 var(--skin-action); color: var(--skin-ink) !important; }\nbody[data-dsh-skin=\"night-signal\"] :where([class*=\"_heroGlow\"]) { display: none !important; }\nbody[data-dsh-skin=\"night-signal\"] :where([class*=\"_composerStack\"] [class*=\"_root\"][class*=\"_hero\"]) { border: 0 !important; background: transparent !important; box-shadow: none !important; }\nbody[data-dsh-skin=\"night-signal\"] :where([class*=\"_composerStack\"] [class$=\"_card\"], [class*=\"_composerStack\"] [class*=\"_card \"]) { border: 1px solid var(--skin-line) !important; border-radius: var(--skin-card-radius) !important; background: var(--skin-surface) !important; box-shadow: var(--skin-shadow) !important; }\nbody[data-dsh-skin=\"night-signal\"] :where([class*=\"_composerStack\"] [class$=\"_card\"], [class*=\"_composerStack\"] [class*=\"_card \"]):focus-within { border-color: var(--skin-action) !important; box-shadow: 0 0 0 1px var(--skin-action), var(--skin-shadow) !important; }\nbody[data-dsh-skin=\"night-signal\"] :where([class*=\"_composerStack\"] [contenteditable=\"true\"], [class*=\"_composerStack\"] textarea) { font-family: var(--dsw-font-family); caret-color: var(--skin-focus); }\nbody[data-dsh-skin=\"night-signal\"] :where([class*=\"_composerStack\"] button[class*=\"_add\"]) { background: var(--skin-layer) !important; border: 1px solid var(--skin-line) !important; }\nbody[data-dsh-skin=\"night-signal\"] :where([class*=\"_composerStack\"] button[class*=\"_primary\"]) { width: 38px; height: 38px; border: 1px solid var(--skin-action) !important; border-radius: var(--skin-radius) !important; background: var(--skin-action) !important; color: var(--skin-on-action) !important; }\nbody[data-dsh-skin=\"night-signal\"] :where([class*=\"_composerStack\"] button[class*=\"_primary\"]:disabled) { background: var(--skin-layer) !important; border-color: var(--skin-line) !important; color: var(--skin-muted) !important; opacity: .65; box-shadow: none !important; }\nbody[data-dsh-skin=\"night-signal\"] :where([role=\"dialog\"]) { border: 1px solid var(--skin-line); border-radius: var(--skin-card-radius) !important; background: var(--skin-surface) !important; box-shadow: var(--skin-shadow); }\nbody[data-dsh-skin=\"night-signal\"] :where([role=\"menu\"], [role=\"listbox\"]) { border: 1px solid var(--skin-line); background: var(--skin-surface); border-radius: var(--skin-radius); }\nbody[data-dsh-skin=\"night-signal\"] :where(pre) { border: 1px solid var(--skin-line); border-radius: var(--skin-radius); background: var(--skin-surface) !important; }\nbody[data-dsh-skin=\"night-signal\"] :where(blockquote) { border-left: 2px solid var(--skin-action); }\nbody[data-dsh-skin=\"night-signal\"] ::selection { background: var(--skin-action); color: var(--skin-on-action); }\n@media (hover: hover) {\n  body[data-dsh-skin=\"night-signal\"] :where([class*=\"_sidebarCol\"] button[class*=\"_newSession\"]:hover) { background: var(--skin-bg) !important; border-color: var(--skin-action) !important; }\n  body[data-dsh-skin=\"night-signal\"] :where([class*=\"_composerStack\"] button[class*=\"_primary\"]:not(:disabled):hover) { filter: brightness(1.08); }\n}\n\n/* Signature details: terminal */\nbody[data-dsh-skin=\"night-signal\"] [class*=\"_sidebarCol\"] button[class*=\"_newSession\"] { border-color: #5EE1B3 !important; background: transparent !important; color: #5EE1B3 !important; }\nbody[data-dsh-skin=\"night-signal\"] [class*=\"_sectionHeader\"] { font-family: ui-monospace, monospace; text-transform: uppercase; }\n\n@media (prefers-reduced-motion: reduce) {\n  body[data-dsh-skin=\"night-signal\"] *, body[data-dsh-skin=\"night-signal\"] *::before, body[data-dsh-skin=\"night-signal\"] *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }\n}\n\n/* Preserve switch affordance and align selection geometry with the skin. */\nbody[data-dsh-skin=\"night-signal\"] :where(button[role=\"switch\"]) { border-radius: 999px !important; }\nbody[data-dsh-skin=\"night-signal\"] :where([class*=\"_sidebarCol\"] [role=\"treeitem\"]) { border-radius: var(--skin-radius); }\n\n/* Focus must remain visible above every signature surface rule. */\nbody[data-dsh-skin=\"night-signal\"] [class*=\"_composerStack\"] :is([class$=\"_card\"], [class*=\"_card \"]):focus-within {\n  border-color: var(--skin-focus) !important;\n  box-shadow: 0 0 0 1px var(--skin-focus), var(--skin-shadow) !important;\n}\n";
     const TOKEN_OVERRIDES = Object.freeze({
   "--shiki-token-constant": {
-    "light": "#4DABF7",
-    "dark": "#4DABF7"
+    "light": "#82B7FF",
+    "dark": "#82B7FF"
   },
   "--shiki-token-string": {
-    "light": "#69DB7C",
-    "dark": "#69DB7C"
+    "light": "#99D9AC",
+    "dark": "#99D9AC"
   },
   "--shiki-token-comment": {
-    "light": "#ADB5BD",
-    "dark": "#ADB5BD"
+    "light": "#A7B1C2",
+    "dark": "#A7B1C2"
   },
   "--shiki-token-keyword": {
-    "light": "#FAA2C1",
-    "dark": "#FAA2C1"
+    "light": "#F4A3C1",
+    "dark": "#F4A3C1"
   },
   "--shiki-token-parameter": {
-    "light": "#FFA94D",
-    "dark": "#FFA94D"
+    "light": "#FFC18C",
+    "dark": "#FFC18C"
   },
   "--shiki-token-function": {
-    "light": "#B197FC",
-    "dark": "#B197FC"
+    "light": "#C8B2FF",
+    "dark": "#C8B2FF"
   },
   "--shiki-token-string-expression": {
-    "light": "#8CE99A",
-    "dark": "#8CE99A"
+    "light": "#99D9AC",
+    "dark": "#99D9AC"
   },
   "--shiki-token-punctuation": {
-    "light": "#CED4DA",
-    "dark": "#CED4DA"
+    "light": "#CCD5E3",
+    "dark": "#CCD5E3"
   },
   "--shiki-token-link": {
-    "light": "#74C0FC",
-    "dark": "#74C0FC"
+    "light": "#82C5FF",
+    "dark": "#82C5FF"
   },
   "--dsw-alias-link": {
-    "light": "#7BE9C4",
-    "dark": "#7BE9C4"
+    "light": "#5EE1B3",
+    "dark": "#5EE1B3"
   },
   "--dsw-alias-state-business-primary": {
     "light": "#5EE1B3",
     "dark": "#5EE1B3"
   },
   "--dsw-alias-state-business-tertiary": {
-    "light": "#1B3B34",
-    "dark": "#1B3B34"
+    "light": "#10151C",
+    "dark": "#10151C"
   },
   "--dsw-alias-menu-icon": {
-    "light": "#AEB8C4",
-    "dark": "#AEB8C4"
+    "light": "#9BA7B6",
+    "dark": "#9BA7B6"
   },
   "--dsw-alias-menu-group-header-fill": {
     "light": "#10151C",
@@ -68,28 +68,8 @@ window.__ModuleLoader__.load({
     "dark": "#141922"
   },
   "--dsw-alias-settings-card-stroke": {
-    "light": "#293240",
-    "dark": "#293240"
-  },
-  "--dsw-alias-button-info-fill": {
-    "light": "#5EE1B3",
-    "dark": "#5EE1B3"
-  },
-  "--dsw-alias-button-info-hover": {
-    "light": "#7BE9C4",
-    "dark": "#7BE9C4"
-  },
-  "--dsw-alias-button-ghost-active-border": {
-    "light": "#3A4657",
-    "dark": "#3A4657"
-  },
-  "--dsw-alias-button-ghost-active-fill": {
-    "light": "#171E28",
-    "dark": "#171E28"
-  },
-  "--dsw-alias-button-ghost-active-hover": {
-    "light": "#222A36",
-    "dark": "#222A36"
+    "light": "#364353",
+    "dark": "#364353"
   },
   "--dsw-alias-bg-base": {
     "light": "#0C0F14",
@@ -104,52 +84,52 @@ window.__ModuleLoader__.load({
     "dark": "#10151C"
   },
   "--dsw-alias-bg-layer-3": {
-    "light": "#171E28",
-    "dark": "#171E28"
+    "light": "#10151C",
+    "dark": "#10151C"
   },
   "--dsw-alias-bg-module-platform": {
     "light": "#10151C",
     "dark": "#10151C"
   },
   "--dsw-alias-bg-multi-select": {
-    "light": "#171E28",
-    "dark": "#171E28"
+    "light": "#10151C",
+    "dark": "#10151C"
   },
   "--dsw-alias-bg-overlay": {
-    "light": "#171E28",
-    "dark": "#171E28"
+    "light": "#10151C",
+    "dark": "#10151C"
   },
   "--dsw-alias-bg-skeleton": {
-    "light": "rgba(232, 237, 242, 0.08)",
-    "dark": "rgba(232, 237, 242, 0.08)"
+    "light": "#364353",
+    "dark": "#364353"
   },
   "--dsw-alias-border-inverted2": {
-    "light": "#293240",
-    "dark": "#293240"
+    "light": "#364353",
+    "dark": "#364353"
   },
   "--dsw-alias-border-inverted": {
-    "light": "#293240",
-    "dark": "#293240"
+    "light": "#364353",
+    "dark": "#364353"
   },
   "--dsw-alias-border-l1": {
-    "light": "#222A36",
-    "dark": "#222A36"
+    "light": "#364353",
+    "dark": "#364353"
   },
   "--dsw-alias-border-l2-darkmode-thin": {
-    "light": "#293240",
-    "dark": "#293240"
+    "light": "#364353",
+    "dark": "#364353"
   },
   "--dsw-alias-border-l2": {
-    "light": "#293240",
-    "dark": "#293240"
+    "light": "#364353",
+    "dark": "#364353"
   },
   "--dsw-alias-border-l3": {
-    "light": "#3A4657",
-    "dark": "#3A4657"
+    "light": "#364353",
+    "dark": "#364353"
   },
   "--dsw-alias-border-l4": {
-    "light": "#8B96A5",
-    "dark": "#8B96A5"
+    "light": "#364353",
+    "dark": "#364353"
   },
   "--dsw-alias-brand-primary-invert": {
     "light": "#0C0F14",
@@ -172,60 +152,80 @@ window.__ModuleLoader__.load({
     "dark": "#E8EDF2"
   },
   "--dsw-alias-button-elevated-fill": {
-    "light": "#171E28",
-    "dark": "#171E28"
+    "light": "#141922",
+    "dark": "#141922"
   },
   "--dsw-alias-button-floating-fill": {
-    "light": "#171E28",
-    "dark": "#171E28"
+    "light": "#141922",
+    "dark": "#141922"
   },
   "--dsw-alias-button-floating-hover": {
-    "light": "#222A36",
-    "dark": "#222A36"
+    "light": "#10151C",
+    "dark": "#10151C"
+  },
+  "--dsw-alias-button-ghost-active-border": {
+    "light": "#364353",
+    "dark": "#364353"
+  },
+  "--dsw-alias-button-ghost-active-fill": {
+    "light": "#10151C",
+    "dark": "#10151C"
+  },
+  "--dsw-alias-button-ghost-active-hover": {
+    "light": "#10151C",
+    "dark": "#10151C"
+  },
+  "--dsw-alias-button-info-fill": {
+    "light": "#5EE1B3",
+    "dark": "#5EE1B3"
+  },
+  "--dsw-alias-button-info-hover": {
+    "light": "#5EE1B3",
+    "dark": "#5EE1B3"
   },
   "--dsw-alias-button-primary-dimmed": {
-    "light": "#293240",
-    "dark": "#293240"
+    "light": "#364353",
+    "dark": "#364353"
   },
   "--dsw-alias-button-primary-fill": {
     "light": "#5EE1B3",
     "dark": "#5EE1B3"
   },
   "--dsw-alias-button-primary-hover": {
-    "light": "#7BE9C4",
-    "dark": "#7BE9C4"
+    "light": "#5EE1B3",
+    "dark": "#5EE1B3"
   },
   "--dsw-alias-interactive-bg-active": {
-    "light": "#222A36",
-    "dark": "#222A36"
+    "light": "#10151C",
+    "dark": "#10151C"
   },
   "--dsw-alias-interactive-bg-hover-accent": {
-    "light": "#1B3B34",
-    "dark": "#1B3B34"
+    "light": "#10151C",
+    "dark": "#10151C"
   },
   "--dsw-alias-interactive-bg-hover-solid": {
-    "light": "#171E28",
-    "dark": "#171E28"
+    "light": "#10151C",
+    "dark": "#10151C"
   },
   "--dsw-alias-interactive-bg-hover": {
-    "light": "rgba(94, 225, 179, 0.08)",
-    "dark": "rgba(94, 225, 179, 0.08)"
+    "light": "#10151C",
+    "dark": "#10151C"
   },
   "--dsw-alias-label-caption": {
-    "light": "#8B96A5",
-    "dark": "#8B96A5"
+    "light": "#9BA7B6",
+    "dark": "#9BA7B6"
   },
   "--dsw-alias-label-dimmed": {
-    "light": "#657182",
-    "dark": "#657182"
+    "light": "#9BA7B6",
+    "dark": "#9BA7B6"
   },
   "--dsw-alias-label-primary-bluish": {
     "light": "#E8EDF2",
     "dark": "#E8EDF2"
   },
   "--dsw-alias-label-primary-dimmed": {
-    "light": "#AEB8C4",
-    "dark": "#AEB8C4"
+    "light": "#9BA7B6",
+    "dark": "#9BA7B6"
   },
   "--dsw-alias-label-primary-foreground": {
     "light": "#0C0F14",
@@ -240,104 +240,104 @@ window.__ModuleLoader__.load({
     "dark": "#E8EDF2"
   },
   "--dsw-alias-label-secondary": {
-    "light": "#AEB8C4",
-    "dark": "#AEB8C4"
+    "light": "#9BA7B6",
+    "dark": "#9BA7B6"
   },
   "--dsw-alias-label-tertiary": {
-    "light": "#8B96A5",
-    "dark": "#8B96A5"
+    "light": "#9BA7B6",
+    "dark": "#9BA7B6"
   },
   "--dsw-alias-markdown-citation": {
-    "light": "#171E28",
-    "dark": "#171E28"
+    "light": "#10151C",
+    "dark": "#10151C"
   },
   "--dsw-alias-markdown-code-block-banner": {
     "light": "#10151C",
     "dark": "#10151C"
   },
   "--dsw-alias-markdown-code-block": {
-    "light": "#090C10",
-    "dark": "#090C10"
+    "light": "#141922",
+    "dark": "#141922"
   },
   "--dsw-alias-markdown-code-segment-selected": {
-    "light": "#222A36",
-    "dark": "#222A36"
+    "light": "#10151C",
+    "dark": "#10151C"
   },
   "--dsw-alias-markdown-code-segment-unselected": {
     "light": "#10151C",
     "dark": "#10151C"
   },
   "--dsw-alias-markdown-inline-code": {
-    "light": "#171E28",
-    "dark": "#171E28"
+    "light": "#10151C",
+    "dark": "#10151C"
   },
   "--dsw-alias-markdown-placeholder": {
     "light": "#10151C",
     "dark": "#10151C"
   },
   "--dsw-alias-markdown-tag": {
-    "light": "#171E28",
-    "dark": "#171E28"
+    "light": "#10151C",
+    "dark": "#10151C"
   },
   "--dsw-alias-scrollbar-bg-l1": {
-    "light": "#293240",
-    "dark": "#293240"
+    "light": "#364353",
+    "dark": "#364353"
   },
   "--dsw-alias-scrollbar-bg-l2": {
-    "light": "#293240",
-    "dark": "#293240"
+    "light": "#364353",
+    "dark": "#364353"
   },
   "--dsw-alias-scrollbar-hover-l1": {
-    "light": "#5EE1B3",
-    "dark": "#5EE1B3"
+    "light": "#9BA7B6",
+    "dark": "#9BA7B6"
   },
   "--dsw-alias-scrollbar-hover-l2": {
-    "light": "#5EE1B3",
-    "dark": "#5EE1B3"
+    "light": "#9BA7B6",
+    "dark": "#9BA7B6"
   },
   "--dsw-specific-bubble-highlight": {
-    "light": "#1B3B34",
-    "dark": "#1B3B34"
+    "light": "#10151C",
+    "dark": "#10151C"
   },
   "--dsw-specific-bubble": {
-    "light": "#141922",
-    "dark": "#141922"
+    "light": "#10151C",
+    "dark": "#10151C"
   },
   "--dsw-specific-input-major": {
     "light": "#141922",
     "dark": "#141922"
   },
   "--dsw-specific-login-input": {
-    "light": "#10151C",
-    "dark": "#10151C"
+    "light": "#0C0F14",
+    "dark": "#0C0F14"
   },
   "--dsw-specific-menu": {
     "light": "#141922",
     "dark": "#141922"
   },
   "--dsw-specific-selector": {
-    "light": "#171E28",
-    "dark": "#171E28"
+    "light": "#10151C",
+    "dark": "#10151C"
   },
   "--dsw-specific-sidebar-fill": {
     "light": "#10151C",
     "dark": "#10151C"
   },
   "--dsw-specific-sidebar-nav-item-active-accent": {
-    "light": "#5EE1B3",
-    "dark": "#5EE1B3"
+    "light": "#10151C",
+    "dark": "#10151C"
   },
   "--dsw-specific-sidebar-nav-item-active": {
-    "light": "#1B3B34",
-    "dark": "#1B3B34"
+    "light": "#10151C",
+    "dark": "#10151C"
   },
   "--dsw-specific-sidebar-nav-item-hover": {
-    "light": "#171E28",
-    "dark": "#171E28"
+    "light": "#10151C",
+    "dark": "#10151C"
   },
   "--dsw-specific-tip": {
-    "light": "#171E28",
-    "dark": "#171E28"
+    "light": "#10151C",
+    "dark": "#10151C"
   }
 });
     const inject = ['theme'];

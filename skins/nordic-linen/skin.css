@@ -1,0 +1,70 @@
+/* Nordic Linen · 北欧亚麻. Fixed palette; all rules scoped to the active plugin. */
+body[data-dsh-skin="nordic-linen"] {
+  --cream: #f6f3ed;
+  --card: #ffffff;
+  --linen: #e8dcc4;
+  --wood: #d4c4b7;
+  --wood-deep: #b3987d;
+  --sage: #8b9a7c;
+  --sage-soft: #a9b5a3;
+  --ink: #3e3a33;
+  --ink-soft: #7d766a;
+  --glow: rgba(255,222,160,.55);
+  --sans: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"PingFang SC","Microsoft YaHei",sans-serif;
+  --serif: Georgia,"Palatino Linotype","Songti SC",serif;
+  --r: 28px;
+  --skin-bg: #F6F3ED; --skin-ink: #3E3A33; --skin-accent: #8B9A7C;
+  --skin-surface: #FFFFFF; --skin-layer: #E8DCC4; --skin-line: #C9BBA4;
+  --skin-muted: #655E52; --skin-action: #506345; --skin-on-action: #FFFFFF;
+  --skin-focus: #506345;
+  --skin-radius: 12px; --skin-card-radius: 20px; --skin-shadow: 0 8px 24px #5c493d0d;
+  --dsw-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  color-scheme: light;
+  background: var(--skin-bg); color: var(--skin-ink); font-family: var(--dsw-font-family);
+}
+body[data-dsh-skin="nordic-linen"] :where(button, input, textarea, select, [role="button"], [role="tab"]) { font-family: inherit; border-radius: var(--skin-radius); }
+body[data-dsh-skin="nordic-linen"] :where(code, pre, kbd, samp) { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+body[data-dsh-skin="nordic-linen"] :where(button, a, input, textarea, select, [role="button"], [role="tab"], [contenteditable="true"]):focus-visible { outline: 2px solid var(--skin-focus) !important; outline-offset: 3px; }
+body[data-dsh-skin="nordic-linen"] :where(button[type="submit"]:not(:disabled)) { background: var(--skin-action) !important; color: var(--skin-on-action) !important; }
+body[data-dsh-skin="nordic-linen"] :where([class*="_sidebarCol"]) { background: var(--skin-layer) !important; border-right: 1px solid var(--skin-line); }
+body[data-dsh-skin="nordic-linen"] :where([class*="_sidebarCol"] button[class*="_brand"]) { min-height: 48px; border-bottom: 1px solid var(--skin-line); }
+body[data-dsh-skin="nordic-linen"] :where([class*="_sidebarCol"] button[class*="_newSession"]) { min-height: 40px; border: 1px solid var(--skin-line) !important; border-radius: var(--skin-radius) !important; background: var(--skin-surface) !important; color: var(--skin-ink) !important; font-weight: 600; }
+body[data-dsh-skin="nordic-linen"] :where([class*="_sidebarCol"] [class*="_sectionHeader"]) { color: var(--skin-muted) !important; font-size: 11px; letter-spacing: .04em; }
+body[data-dsh-skin="nordic-linen"] :where([class*="_sidebarCol"] [role="treeitem"][aria-selected="true"]) { box-shadow: inset 3px 0 var(--skin-action); color: var(--skin-ink) !important; }
+body[data-dsh-skin="nordic-linen"] :where([class*="_heroGlow"]) { display: none !important; }
+body[data-dsh-skin="nordic-linen"] :where([class*="_composerStack"] [class*="_root"][class*="_hero"]) { border: 0 !important; background: transparent !important; box-shadow: none !important; }
+body[data-dsh-skin="nordic-linen"] :where([class*="_composerStack"] [class$="_card"], [class*="_composerStack"] [class*="_card "]) { border: 1px solid var(--skin-line) !important; border-radius: var(--skin-card-radius) !important; background: var(--skin-surface) !important; box-shadow: var(--skin-shadow) !important; }
+body[data-dsh-skin="nordic-linen"] :where([class*="_composerStack"] [class$="_card"], [class*="_composerStack"] [class*="_card "]):focus-within { border-color: var(--skin-action) !important; box-shadow: 0 0 0 1px var(--skin-action), var(--skin-shadow) !important; }
+body[data-dsh-skin="nordic-linen"] :where([class*="_composerStack"] [contenteditable="true"], [class*="_composerStack"] textarea) { font-family: var(--dsw-font-family); caret-color: var(--skin-focus); }
+body[data-dsh-skin="nordic-linen"] :where([class*="_composerStack"] button[class*="_add"]) { background: var(--skin-layer) !important; border: 1px solid var(--skin-line) !important; }
+body[data-dsh-skin="nordic-linen"] :where([class*="_composerStack"] button[class*="_primary"]) { width: 38px; height: 38px; border: 1px solid var(--skin-action) !important; border-radius: var(--skin-radius) !important; background: var(--skin-action) !important; color: var(--skin-on-action) !important; }
+body[data-dsh-skin="nordic-linen"] :where([class*="_composerStack"] button[class*="_primary"]:disabled) { background: var(--skin-layer) !important; border-color: var(--skin-line) !important; color: var(--skin-muted) !important; opacity: .65; box-shadow: none !important; }
+body[data-dsh-skin="nordic-linen"] :where([role="dialog"]) { border: 1px solid var(--skin-line); border-radius: var(--skin-card-radius) !important; background: var(--skin-surface) !important; box-shadow: var(--skin-shadow); }
+body[data-dsh-skin="nordic-linen"] :where([role="menu"], [role="listbox"]) { border: 1px solid var(--skin-line); background: var(--skin-surface); border-radius: var(--skin-radius); }
+body[data-dsh-skin="nordic-linen"] :where(pre) { border: 1px solid var(--skin-line); border-radius: var(--skin-radius); background: var(--skin-surface) !important; }
+body[data-dsh-skin="nordic-linen"] :where(blockquote) { border-left: 2px solid var(--skin-action); }
+body[data-dsh-skin="nordic-linen"] ::selection { background: var(--skin-action); color: var(--skin-on-action); }
+@media (hover: hover) {
+  body[data-dsh-skin="nordic-linen"] :where([class*="_sidebarCol"] button[class*="_newSession"]:hover) { background: var(--skin-bg) !important; border-color: var(--skin-action) !important; }
+  body[data-dsh-skin="nordic-linen"] :where([class*="_composerStack"] button[class*="_primary"]:not(:disabled):hover) { filter: brightness(.92); }
+}
+
+/* Signature details: scandinavian */
+body[data-dsh-skin="nordic-linen"] [class*="_sidebarCol"] button[class*="_newSession"] { background: #506345 !important; color: #FFFFFF !important; border-color: #506345 !important; }
+body[data-dsh-skin="nordic-linen"] :where(h1, h2) { font-family: var(--serif); font-weight: 400; }
+body[data-dsh-skin="nordic-linen"] [class*="_composerStack"] [class$="_card"] { border-radius: 20px 20px 16px 20px !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  body[data-dsh-skin="nordic-linen"] *, body[data-dsh-skin="nordic-linen"] *::before, body[data-dsh-skin="nordic-linen"] *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* Preserve switch affordance and align selection geometry with the skin. */
+body[data-dsh-skin="nordic-linen"] :where(button[role="switch"]) { border-radius: 999px !important; }
+body[data-dsh-skin="nordic-linen"] :where([class*="_sidebarCol"] [role="treeitem"]) { border-radius: var(--skin-radius); }
+
+/* Focus must remain visible above every signature surface rule. */
+body[data-dsh-skin="nordic-linen"] [class*="_composerStack"] :is([class$="_card"], [class*="_card "]):focus-within {
+  border-color: var(--skin-focus) !important;
+  box-shadow: 0 0 0 1px var(--skin-focus), var(--skin-shadow) !important;
+}
+body[data-dsh-skin="nordic-linen"] [class*="_composerStack"] [class*="_titleGroup"] > span:first-child { font-family: var(--serif); font-weight: 500; letter-spacing: .01em; }

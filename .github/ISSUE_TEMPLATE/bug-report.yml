@@ -11,21 +11,21 @@ body:
     id: skin-version
     attributes:
       label: Skin version
-      placeholder: 0.1.1
+      placeholder: 0.3.1
     validations:
       required: true
   - type: input
     id: dsh-version
     attributes:
-      label: DSH version
-      placeholder: 0.1.0-rc.6
+      label: Desktop client version and build
+      placeholder: 0.2.0-rc.2 (include the build identifier)
     validations:
       required: true
   - type: input
     id: environment
     attributes:
       label: Environment
-      description: Operating system, browser, and Node.js version
+      description: Operating system and Node.js version; confirm you used the desktop client's dsh command
     validations:
       required: true
   - type: dropdown

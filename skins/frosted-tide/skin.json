@@ -1,0 +1,51 @@
+{
+  "slug": "frosted-tide",
+  "packageName": "dsh-skin-frosted-tide",
+  "order": 10,
+  "name": "Frosted Tide",
+  "nameZh": "雾潮",
+  "tagline": "Depth without distraction.",
+  "description": "Frosted navy panels, a quiet indigo glow and a clear teal focal point.",
+  "author": {
+    "name": "DSH Skin",
+    "url": "https://github.com/ai-graveyard/dsh-skin"
+  },
+  "version": "0.3.1",
+  "status": "Available",
+  "license": "MIT",
+  "compatibility": "DeepSeek Harness Desktop 0.2.0-rc.2",
+  "verifiedAt": "2026-10-04",
+  "verifiedStates": [
+    "Bundle lifecycle",
+    "Text and focus contrast",
+    "Package validation",
+    "Installed runtime matches source",
+    "Native desktop composer and focus",
+    "Native General settings and appearance modes",
+    "Native dropdown",
+    "Native rich conversation and half-screen layout",
+    "Native plugin details and reactivation"
+  ],
+  "style": [
+    "glassmorphism",
+    "Dark"
+  ],
+  "colors": [
+    "#0D0F26",
+    "#F4F5FF",
+    "#4ECDC4"
+  ],
+  "preview": {
+    "label": "FROSTED TIDE",
+    "surface": "#1D2342",
+    "layer": "#171A3D",
+    "line": "#505775",
+    "muted": "#B4BDD9",
+    "radius": 12,
+    "cardRadius": 22,
+    "onAccent": "#0D0F26"
+  },
+  "official": true,
+  "featured": false,
+  "designPattern": "glassmorphism"
+}

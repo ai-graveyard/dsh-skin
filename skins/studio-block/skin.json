@@ -1,0 +1,53 @@
+{
+  "slug": "studio-block",
+  "packageName": "dsh-skin-studio-block",
+  "order": 9,
+  "name": "Studio Block",
+  "nameZh": "积木工作室",
+  "tagline": "A little more character.",
+  "description": "Neo-brutalist black outlines, mustard actions and tactile hard-offset shadows.",
+  "author": {
+    "name": "DSH Skin",
+    "url": "https://github.com/ai-graveyard/dsh-skin"
+  },
+  "version": "0.3.1",
+  "status": "Available",
+  "license": "MIT",
+  "compatibility": "DeepSeek Harness Desktop 0.2.0-rc.2",
+  "verifiedAt": "2026-10-04",
+  "verifiedStates": [
+    "Bundle lifecycle",
+    "Text and focus contrast",
+    "Package validation",
+    "Installed runtime matches source",
+    "Desktop cold launch",
+    "Inverted brand label",
+    "Native desktop composer and focus",
+    "Native General settings and appearance modes",
+    "Native dropdown",
+    "Native rich conversation and half-screen layout",
+    "Native plugin details and reactivation"
+  ],
+  "style": [
+    "neo-brutalism",
+    "Light"
+  ],
+  "colors": [
+    "#FFF6EA",
+    "#000000",
+    "#F7C548"
+  ],
+  "preview": {
+    "label": "STUDIO BLOCK",
+    "surface": "#FFFFFF",
+    "layer": "#FFF0D9",
+    "line": "#000000",
+    "muted": "#51483D",
+    "radius": 4,
+    "cardRadius": 4,
+    "onAccent": "#000000"
+  },
+  "official": true,
+  "featured": false,
+  "designPattern": "neo-brutalism"
+}

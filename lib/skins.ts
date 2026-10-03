@@ -6,6 +6,9 @@ export type Skin = {
   packageName: string;
   order: number;
   name: string;
+  nameZh?: string;
+  official?: boolean;
+  designPattern?: string;
   tagline: string;
   description: string;
   author: {
@@ -26,6 +29,9 @@ export type Skin = {
     layer: string;
     line: string;
     muted: string;
+    radius?: number;
+    cardRadius?: number;
+    onAccent?: string;
   };
   screenshots?: Array<{
     src: string;

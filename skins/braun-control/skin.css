@@ -1,8 +1,6 @@
+/* Braun Control · 工业控制. Fixed palette; all rules scoped to the active plugin. */
 body[data-dsh-skin="braun-control"] {
   --u: 8px;
-  --bg: #f7f7f7;
-  --layer: #efefef;
-  --layer-2: #ececec;
   --panel: #ffffff;
   --ink: #1a1a1a;
   --gray: #808080;
@@ -11,236 +9,57 @@ body[data-dsh-skin="braun-control"] {
   --metal-lo: #dcdcdc;
   --accent: #e8500a;
   --mono: ui-monospace,"SF Mono",Menlo,Consolas,monospace;
-}
-
-body[data-dsh-skin="braun-control"] {
-  --dsh-skin-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
-  --dsh-skin-mono: var(--mono);
-  color-scheme: light;
-  background: #f7f7f7;
-  color: var(--ink);
-  font-family: var(--dsh-skin-sans);
-  letter-spacing: 0;
-}
-
-body[data-dsh-skin="braun-control"] :where(button, input, textarea, select, [role="button"], [role="dialog"], [role="menu"], [role="menuitem"], pre, code) {
-  border-radius: 3px !important;
-}
-
-body[data-dsh-skin="braun-control"] :where(code, pre, kbd, samp) {
-  font-family: var(--dsh-skin-mono);
-}
-
-body[data-dsh-skin="braun-control"] :where(button, [role="button"], [role="tab"], label, legend, dt) {
-  letter-spacing: 0;
-}
-
-body[data-dsh-skin="braun-control"] :where(h1, h2, h3, h4, strong, b) {
-  font-weight: 600;
-}
-
-body[data-dsh-skin="braun-control"] :where(button, [role="button"], input, textarea, select) {
-  box-shadow: none !important;
-}
-
-body[data-dsh-skin="braun-control"] :where(button, [role="button"], input, textarea, select):focus-visible {
-  outline: 2px solid var(--accent) !important;
-  outline-offset: 2px;
-}
-
-body[data-dsh-skin="braun-control"] :where(button[type="submit"]:not(:disabled)) {
-  background: var(--accent) !important;
-  border-color: var(--accent) !important;
-  color: #ffffff !important;
-}
-
-body[data-dsh-skin="braun-control"] :where(button[type="submit"]:not(:disabled)):hover {
-  background: #c84308 !important;
-  border-color: #c84308 !important;
-}
-
-body[data-dsh-skin="braun-control"] :where(hr) {
-  border: 0;
-  border-top: 1px solid var(--line);
-}
-
-body[data-dsh-skin="braun-control"] :where(pre) {
-  border: 1px solid var(--line);
-  background: #f1f1f1 !important;
-}
-
-body[data-dsh-skin="braun-control"] :where(blockquote) {
-  border-left: 2px solid var(--ink);
-}
-
-body[data-dsh-skin="braun-control"] :where([aria-pressed="true"], [aria-selected="true"], [data-state="checked"]) {
-  border-color: var(--ink) !important;
-}
-
-/*
- * Harness uses CSS modules, so the stable part of a component class is its
- * semantic suffix (for example `_sidebarCol` or `_composerStack`). Keep all
- * selectors below scoped to the skin marker and those suffixes: this gives the
- * real application the same control geometry as the static preview without
- * coupling the bundle to a generated module hash.
- */
-body[data-dsh-skin="braun-control"] :where([class*="_sidebarCol"]) {
-  background: var(--layer) !important;
-  border-right: 1px solid var(--line);
-}
-
-body[data-dsh-skin="braun-control"] :where([class*="_sidebarCol"] button[class*="_brand"]) {
-  min-height: 48px;
-  border-bottom: 1px solid var(--line) !important;
-}
-
-body[data-dsh-skin="braun-control"] :where([class*="_sidebarCol"] button[class*="_newSession"]) {
-  border: 1px solid var(--ink) !important;
-  border-left: 4px solid var(--accent) !important;
-  background: var(--ink) !important;
-  color: #ffffff !important;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-
-body[data-dsh-skin="braun-control"] :where([class*="_sidebarCol"] button[class*="_newSession"]:hover) {
-  background: #333333 !important;
-}
-
-body[data-dsh-skin="braun-control"] :where([class*="_sidebarCol"] [class*="_sectionHeader"]) {
-  border-top: 1px solid var(--line);
-  color: var(--gray) !important;
-  font-family: var(--dsh-skin-mono);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-body[data-dsh-skin="braun-control"] :where([class*="_sidebarCol"] [role="treeitem"]) {
-  border-left: 2px solid transparent;
-}
-
-body[data-dsh-skin="braun-control"] :where([class*="_sidebarCol"] [role="treeitem"][aria-selected="true"]) {
-  border-left-color: var(--ink) !important;
-  background: #e2e2e2 !important;
-}
-
-body[data-dsh-skin="braun-control"] :where([class*="_sidebarCol"] button[class*="_trigger"]) {
-  border-top: 1px solid var(--line) !important;
-}
-
-body[data-dsh-skin="braun-control"] :where([class*="_composerStack"]) {
-  position: relative;
-}
-
-body[data-dsh-skin="braun-control"] :where([class*="_heroGlow"]) {
-  display: none !important;
-}
-
-body[data-dsh-skin="braun-control"] :where([class*="_heroWorkspaceRow"]) {
-  border-top: 1px solid var(--line);
-  padding-top: 8px;
-}
-
-body[data-dsh-skin="braun-control"] :where([class*="_composerStack"] [class*="_root"][class*="_hero"]) {
-  border: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-}
-
-body[data-dsh-skin="braun-control"] :where([class*="_composerStack"] [class$="_card"], [class*="_composerStack"] [class*="_card "]) {
-  border: 1px solid var(--ink) !important;
-  border-radius: 4px !important;
-  background: var(--panel) !important;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;
-}
-
-body[data-dsh-skin="braun-control"] :where([class*="_composerStack"] [class*="_input"][contenteditable="true"], [class*="_composerStack"] textarea[class*="_input"]) {
-  font-family: var(--dsh-skin-sans);
-}
-
-body[data-dsh-skin="braun-control"] :where([class*="_composerStack"] button[class*="_add"]) {
-  border: 1px solid var(--line) !important;
-  background: var(--bg) !important;
-}
-
-body[data-dsh-skin="braun-control"] :where([class*="_composerStack"] button[class*="_primary"]) {
-  width: 38px;
-  height: 38px;
-  border: 1px solid #c84308 !important;
-  border-radius: 50% !important;
-  background: var(--accent) !important;
-  color: #ffffff !important;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2) !important;
-}
-
-body[data-dsh-skin="braun-control"] :where([class*="_composerStack"] button[class*="_primary"]:hover:not(:disabled)) {
-  background: #c84308 !important;
-  transform: translateY(-2px);
-}
-
-body[data-dsh-skin="braun-control"] :where([class*="_detailsCol"] > [class*="_root"]) {
-  border-left: 1px solid var(--line);
-  background: var(--bg) !important;
-}
-
-body[data-dsh-skin="braun-control"] :where([role="dialog"]) {
-  border: 1px solid var(--ink) !important;
-  background: var(--panel) !important;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12) !important;
-}
-
-/* Desktop 0.2: contenteditable composer, readable controls and quiet focus. */
-body[data-dsh-skin="braun-control"] {
+  --skin-bg: #F7F7F7; --skin-ink: #1A1A1A; --skin-accent: #E8500A;
+  --skin-surface: #FFFFFF; --skin-layer: #EFEFEF; --skin-line: #C9C9C9;
+  --skin-muted: #626262; --skin-action: #C84308; --skin-on-action: #FFFFFF;
+  --skin-focus: #C84308;
+  --skin-radius: 3px; --skin-card-radius: 4px; --skin-shadow: 0 4px 16px #0000000a;
   --dsw-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-  font-family: var(--dsw-font-family);
+  color-scheme: light;
+  background: var(--skin-bg); color: var(--skin-ink); font-family: var(--dsw-font-family);
+}
+body[data-dsh-skin="braun-control"] :where(button, input, textarea, select, [role="button"], [role="tab"]) { font-family: inherit; border-radius: var(--skin-radius); }
+body[data-dsh-skin="braun-control"] :where(code, pre, kbd, samp) { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+body[data-dsh-skin="braun-control"] :where(button, a, input, textarea, select, [role="button"], [role="tab"], [contenteditable="true"]):focus-visible { outline: 2px solid var(--skin-focus) !important; outline-offset: 3px; }
+body[data-dsh-skin="braun-control"] :where(button[type="submit"]:not(:disabled)) { background: var(--skin-action) !important; color: var(--skin-on-action) !important; }
+body[data-dsh-skin="braun-control"] :where([class*="_sidebarCol"]) { background: var(--skin-layer) !important; border-right: 1px solid var(--skin-line); }
+body[data-dsh-skin="braun-control"] :where([class*="_sidebarCol"] button[class*="_brand"]) { min-height: 48px; border-bottom: 1px solid var(--skin-line); }
+body[data-dsh-skin="braun-control"] :where([class*="_sidebarCol"] button[class*="_newSession"]) { min-height: 40px; border: 1px solid var(--skin-line) !important; border-radius: var(--skin-radius) !important; background: var(--skin-surface) !important; color: var(--skin-ink) !important; font-weight: 600; }
+body[data-dsh-skin="braun-control"] :where([class*="_sidebarCol"] [class*="_sectionHeader"]) { color: var(--skin-muted) !important; font-size: 11px; letter-spacing: .04em; }
+body[data-dsh-skin="braun-control"] :where([class*="_sidebarCol"] [role="treeitem"][aria-selected="true"]) { box-shadow: inset 3px 0 var(--skin-action); color: var(--skin-ink) !important; }
+body[data-dsh-skin="braun-control"] :where([class*="_heroGlow"]) { display: none !important; }
+body[data-dsh-skin="braun-control"] :where([class*="_composerStack"] [class*="_root"][class*="_hero"]) { border: 0 !important; background: transparent !important; box-shadow: none !important; }
+body[data-dsh-skin="braun-control"] :where([class*="_composerStack"] [class$="_card"], [class*="_composerStack"] [class*="_card "]) { border: 1px solid var(--skin-line) !important; border-radius: var(--skin-card-radius) !important; background: var(--skin-surface) !important; box-shadow: var(--skin-shadow) !important; }
+body[data-dsh-skin="braun-control"] :where([class*="_composerStack"] [class$="_card"], [class*="_composerStack"] [class*="_card "]):focus-within { border-color: var(--skin-action) !important; box-shadow: 0 0 0 1px var(--skin-action), var(--skin-shadow) !important; }
+body[data-dsh-skin="braun-control"] :where([class*="_composerStack"] [contenteditable="true"], [class*="_composerStack"] textarea) { font-family: var(--dsw-font-family); caret-color: var(--skin-focus); }
+body[data-dsh-skin="braun-control"] :where([class*="_composerStack"] button[class*="_add"]) { background: var(--skin-layer) !important; border: 1px solid var(--skin-line) !important; }
+body[data-dsh-skin="braun-control"] :where([class*="_composerStack"] button[class*="_primary"]) { width: 38px; height: 38px; border: 1px solid var(--skin-action) !important; border-radius: var(--skin-radius) !important; background: var(--skin-action) !important; color: var(--skin-on-action) !important; }
+body[data-dsh-skin="braun-control"] :where([class*="_composerStack"] button[class*="_primary"]:disabled) { background: var(--skin-layer) !important; border-color: var(--skin-line) !important; color: var(--skin-muted) !important; opacity: .65; box-shadow: none !important; }
+body[data-dsh-skin="braun-control"] :where([role="dialog"]) { border: 1px solid var(--skin-line); border-radius: var(--skin-card-radius) !important; background: var(--skin-surface) !important; box-shadow: var(--skin-shadow); }
+body[data-dsh-skin="braun-control"] :where([role="menu"], [role="listbox"]) { border: 1px solid var(--skin-line); background: var(--skin-surface); border-radius: var(--skin-radius); }
+body[data-dsh-skin="braun-control"] :where(pre) { border: 1px solid var(--skin-line); border-radius: var(--skin-radius); background: var(--skin-surface) !important; }
+body[data-dsh-skin="braun-control"] :where(blockquote) { border-left: 2px solid var(--skin-action); }
+body[data-dsh-skin="braun-control"] ::selection { background: var(--skin-action); color: var(--skin-on-action); }
+@media (hover: hover) {
+  body[data-dsh-skin="braun-control"] :where([class*="_sidebarCol"] button[class*="_newSession"]:hover) { background: var(--skin-bg) !important; border-color: var(--skin-action) !important; }
+  body[data-dsh-skin="braun-control"] :where([class*="_composerStack"] button[class*="_primary"]:not(:disabled):hover) { filter: brightness(.92); }
 }
 
-body[data-dsh-skin="braun-control"] :where(button, input, textarea, select, [role="button"], [role="tab"]) {
-  font-family: inherit;
-}
-
-body[data-dsh-skin="braun-control"] :where([class*="_composerStack"] [contenteditable="true"]) {
-  font-family: var(--dsw-font-family);
-  caret-color: var(--accent);
-}
-
-body[data-dsh-skin="braun-control"] :where([class*="_composerStack"] [class$="_card"], [class*="_composerStack"] [class*="_card "]):focus-within {
-  border-color: var(--accent) !important;
-  box-shadow: 0 0 0 1px var(--accent), 0 8px 24px rgba(0, 0, 0, .08) !important;
-}
-
-body[data-dsh-skin="braun-control"] :where([class*="_composerStack"] button[class*="_primary"]:disabled) {
-  background: var(--line) !important;
-  border-color: var(--line) !important;
-  color: var(--gray) !important;
-  opacity: .65;
-  box-shadow: none !important;
-}
-
-body[data-dsh-skin="braun-control"] :where([role="menu"]) {
-  background: var(--panel);
-  border-color: var(--line);
-}
-
-body[data-dsh-skin="braun-control"] :where(button, [role="button"], [role="tab"], a):focus-visible {
-  outline: 2px solid var(--accent) !important;
-  outline-offset: 2px;
-}
-
-body[data-dsh-skin="braun-control"] :where([class*="_sidebarCol"] [class*="_sectionHeader"]) {
-  font-size: 11px;
-  letter-spacing: .04em;
-}
+/* Signature details: braun */
+body[data-dsh-skin="braun-control"] [class*="_sidebarCol"] button[class*="_newSession"] { background: #1A1A1A !important; color: #FFFFFF !important; border-left: 4px solid #E8500A !important; }
+body[data-dsh-skin="braun-control"] [class*="_composerStack"] button[class*="_primary"] { border-radius: 50% !important; }
+body[data-dsh-skin="braun-control"] [class*="_sectionHeader"] { font-family: var(--mono); }
 
 @media (prefers-reduced-motion: reduce) {
-  body[data-dsh-skin="braun-control"] *,
-  body[data-dsh-skin="braun-control"] *::before,
-  body[data-dsh-skin="braun-control"] *::after {
-    animation: none !important;
-    scroll-behavior: auto !important;
-    transition: none !important;
-  }
+  body[data-dsh-skin="braun-control"] *, body[data-dsh-skin="braun-control"] *::before, body[data-dsh-skin="braun-control"] *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* Preserve switch affordance and align selection geometry with the skin. */
+body[data-dsh-skin="braun-control"] :where(button[role="switch"]) { border-radius: 999px !important; }
+body[data-dsh-skin="braun-control"] :where([class*="_sidebarCol"] [role="treeitem"]) { border-radius: var(--skin-radius); }
+
+/* Focus must remain visible above every signature surface rule. */
+body[data-dsh-skin="braun-control"] [class*="_composerStack"] :is([class$="_card"], [class*="_card "]):focus-within {
+  border-color: var(--skin-focus) !important;
+  box-shadow: 0 0 0 1px var(--skin-focus), var(--skin-shadow) !important;
 }

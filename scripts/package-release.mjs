@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto'
 import { spawn } from 'node:child_process'
-import { mkdir, readFile, rm, stat, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, stat, writeFile } from 'node:fs/promises'
 import { join, resolve, sep } from 'node:path'
 import { tmpdir } from 'node:os'
 import { getSkinDirectories } from './discover-skins.mjs'
@@ -32,7 +32,8 @@ function run(command, args, options = {}) {
   })
 }
 
-await rm(releaseRoot, { recursive: true, force: true })
+// Keep older versioned tarballs: desktop profiles can retain file: references
+// to them while the package manager resolves an upgrade.
 await mkdir(releaseRoot, { recursive: true })
 
 const skinDirectories = await getSkinDirectories(skinsRoot)

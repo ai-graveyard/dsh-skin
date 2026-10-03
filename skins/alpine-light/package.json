@@ -1,0 +1,65 @@
+{
+  "name": "dsh-skin-alpine-light",
+  "version": "0.3.1",
+  "description": "System minimalism: porcelain surfaces, quiet separators and soft continuous corners.",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json",
+    "./locale/*": "./locale/*"
+  },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "build.mjs",
+    "index.js",
+    "client.js",
+    "skin.css",
+    "preview.html",
+    "cordis.patch.yml",
+    "tokens.json",
+    "skin.json",
+    "locale",
+    "icon.svg"
+  ],
+  "keywords": [
+    "deepseek-harness",
+    "dsh-plugin",
+    "desktop",
+    "theme",
+    "apple"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ai-graveyard/dsh-skin.git",
+    "directory": "skins/alpine-light"
+  },
+  "homepage": "https://dshskin.com/skins/alpine-light",
+  "bugs": {
+    "url": "https://github.com/ai-graveyard/dsh-skin/issues"
+  },
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-theme"
+      ],
+      "platform": "web",
+      "immediately": true
+    }
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "check": "node build.mjs --check",
+    "prepack": "node build.mjs --check"
+  },
+  "icon": "./icon.svg"
+}

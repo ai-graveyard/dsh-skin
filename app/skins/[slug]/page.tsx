@@ -44,9 +44,10 @@ export default async function SkinPage({ params }: PageProps) {
   if (!skin) notFound();
 
   const cloneCommand = `${cloneCommandPrefix}.git`;
-  const localCommand = `cd dsh-skin && npx @deepseek-ai/dsh plugin --profile web add ./skins/${skin.slug}`;
-  const verifyCommand = "npx @deepseek-ai/dsh --profile web --dump-config";
-  const removeCommand = `npx @deepseek-ai/dsh plugin --profile web remove ${skin.packageName}`;
+  const localCommand = `cd dsh-skin && npm pack ./skins/${skin.slug}`;
+  const desktopCommand = `dsh plugin --profile desktop add ./${skin.packageName}-${skin.version}.tgz`;
+  const verifyCommand = "dsh --profile desktop --dump-config";
+  const removeCommand = `dsh plugin --profile desktop remove ${skin.packageName}`;
   const statusClass = skin.status === "Available" ? "status-available" : "status-experimental";
   const desktopScreenshots = skin.screenshots?.filter((screenshot) => screenshot.viewport === "desktop") ?? [];
   const mobileScreenshots = skin.screenshots?.filter((screenshot) => screenshot.viewport === "mobile") ?? [];
@@ -141,15 +142,17 @@ export default async function SkinPage({ params }: PageProps) {
               <p className="eyebrow">INSTALL LOCALLY</p>
               <h2>Clone, install, verify.</h2>
               <p>
-                The skin is linked into your DSH web profile without editing Harness source.
-                Keep the cloned directory in place, use one skin at a time, then restart Harness
-                or refresh the open tab.
+                Open the desktop client once, then quit it completely. Use the dsh command
+                supplied by the client to install the package. Restart Harness and enable one skin
+                in Plugins → Installed.
               </p>
               <p className="command-label">01 / CLONE THE COLLECTION</p>
               <CopyCommand command={cloneCommand} />
-              <p className="command-label">02 / INSTALL {skin.name.toUpperCase()}</p>
+              <p className="command-label">02 / PACKAGE {skin.name.toUpperCase()}</p>
               <CopyCommand command={localCommand} />
-              <p className="command-label">03 / VERIFY REGISTRATION</p>
+              <p className="command-label">03 / INSTALL IN THE DESKTOP CLIENT</p>
+              <CopyCommand command={desktopCommand} />
+              <p className="command-label">04 / VERIFY REGISTRATION</p>
               <CopyCommand command={verifyCommand} />
               <p className="command-label">REMOVE CLEANLY</p>
               <CopyCommand command={removeCommand} />
@@ -172,6 +175,7 @@ export default async function SkinPage({ params }: PageProps) {
               <div><dt>Verified</dt><dd><time dateTime={skin.verifiedAt}>{skin.verifiedAt}</time></dd></div>
               <div><dt>UI states</dt><dd>{skin.verifiedStates.join(" / ")}</dd></div>
               <div><dt>License</dt><dd>{skin.license}</dd></div>
+              <div><dt>Collection</dt><dd>DSH Skin official selection</dd></div>
               <div><dt>Style</dt><dd>{skin.style.join(" / ")}</dd></div>
             </dl>
           </section>

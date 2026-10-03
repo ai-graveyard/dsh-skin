@@ -17,6 +17,9 @@ export function SkinPreview({ skin, compact = false }: SkinPreviewProps) {
         "--preview-layer": skin.preview.layer,
         "--preview-line": skin.preview.line,
         "--preview-muted": skin.preview.muted,
+        "--preview-radius": `${skin.preview.radius ?? 3}px`,
+        "--preview-card-radius": `${skin.preview.cardRadius ?? 4}px`,
+        "--preview-on-accent": skin.preview.onAccent ?? "#FFFFFF",
       } as React.CSSProperties}
       role="img"
       aria-label={`${skin.name} interface preview`}

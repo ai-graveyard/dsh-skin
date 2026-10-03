@@ -1,0 +1,65 @@
+{
+  "name": "dsh-skin-washi-ink",
+  "version": "0.3.1",
+  "description": "Washi cream, fine ink rules and a vermilion seal, with restrained serif headings.",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json",
+    "./locale/*": "./locale/*"
+  },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "build.mjs",
+    "index.js",
+    "client.js",
+    "skin.css",
+    "preview.html",
+    "cordis.patch.yml",
+    "tokens.json",
+    "skin.json",
+    "locale",
+    "icon.svg"
+  ],
+  "keywords": [
+    "deepseek-harness",
+    "dsh-plugin",
+    "desktop",
+    "theme",
+    "japanese"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ai-graveyard/dsh-skin.git",
+    "directory": "skins/washi-ink"
+  },
+  "homepage": "https://dshskin.com/skins/washi-ink",
+  "bugs": {
+    "url": "https://github.com/ai-graveyard/dsh-skin/issues"
+  },
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-theme"
+      ],
+      "platform": "web",
+      "immediately": true
+    }
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "check": "node build.mjs --check",
+    "prepack": "node build.mjs --check"
+  },
+  "icon": "./icon.svg"
+}

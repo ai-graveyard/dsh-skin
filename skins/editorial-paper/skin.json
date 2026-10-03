@@ -1,0 +1,51 @@
+{
+  "slug": "editorial-paper",
+  "packageName": "dsh-skin-editorial-paper",
+  "order": 8,
+  "name": "Editorial Paper",
+  "nameZh": "纸上编辑",
+  "tagline": "Give your ideas a good edition.",
+  "description": "A reading-first surface with serif headings, paper tones and newspaper-red details.",
+  "author": {
+    "name": "DSH Skin",
+    "url": "https://github.com/ai-graveyard/dsh-skin"
+  },
+  "version": "0.3.1",
+  "status": "Available",
+  "license": "MIT",
+  "compatibility": "DeepSeek Harness Desktop 0.2.0-rc.2",
+  "verifiedAt": "2026-10-04",
+  "verifiedStates": [
+    "Bundle lifecycle",
+    "Text and focus contrast",
+    "Package validation",
+    "Installed runtime matches source",
+    "Native desktop composer and focus",
+    "Native General settings and appearance modes",
+    "Native dropdown",
+    "Native rich conversation and half-screen layout",
+    "Native plugin details and reactivation"
+  ],
+  "style": [
+    "editorial",
+    "Light"
+  ],
+  "colors": [
+    "#FAF7F0",
+    "#141414",
+    "#C8102E"
+  ],
+  "preview": {
+    "label": "EDITORIAL PAPER",
+    "surface": "#FFFCF6",
+    "layer": "#F0EBDF",
+    "line": "#DCD5C6",
+    "muted": "#655F55",
+    "radius": 0,
+    "cardRadius": 0,
+    "onAccent": "#FFFFFF"
+  },
+  "official": true,
+  "featured": false,
+  "designPattern": "editorial"
+}

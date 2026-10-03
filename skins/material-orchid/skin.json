@@ -1,0 +1,51 @@
+{
+  "slug": "material-orchid",
+  "packageName": "dsh-skin-material-orchid",
+  "order": 4,
+  "name": "Material Orchid",
+  "nameZh": "兰序",
+  "tagline": "A softer kind of structure.",
+  "description": "Material-inspired tonal surfaces, lavender containers and deliberate elevation.",
+  "author": {
+    "name": "DSH Skin",
+    "url": "https://github.com/ai-graveyard/dsh-skin"
+  },
+  "version": "0.3.1",
+  "status": "Available",
+  "license": "MIT",
+  "compatibility": "DeepSeek Harness Desktop 0.2.0-rc.2",
+  "verifiedAt": "2026-10-04",
+  "verifiedStates": [
+    "Bundle lifecycle",
+    "Text and focus contrast",
+    "Package validation",
+    "Installed runtime matches source",
+    "Native desktop composer and focus",
+    "Native General settings and appearance modes",
+    "Native dropdown",
+    "Native rich conversation and half-screen layout",
+    "Native plugin details and reactivation"
+  ],
+  "style": [
+    "material",
+    "Light"
+  ],
+  "colors": [
+    "#FEF7FF",
+    "#1C1B1F",
+    "#6750A4"
+  ],
+  "preview": {
+    "label": "MATERIAL ORCHID",
+    "surface": "#FFFBFE",
+    "layer": "#F3EDF7",
+    "line": "#CAC4D0",
+    "muted": "#49454F",
+    "radius": 16,
+    "cardRadius": 28,
+    "onAccent": "#FFFFFF"
+  },
+  "official": true,
+  "featured": false,
+  "designPattern": "material"
+}

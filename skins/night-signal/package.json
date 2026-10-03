@@ -1,13 +1,14 @@
 {
   "name": "dsh-skin-night-signal",
-  "version": "0.2.0",
-  "description": "A focused, high-contrast dark skin for DeepSeek Harness Desktop and Web UI",
+  "version": "0.3.1",
+  "description": "A professional dark workspace with graphite layers and crisp mint controls.",
   "type": "module",
   "main": "index.js",
   "exports": {
     ".": "./index.js",
     "./client": "./client.js",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./locale/*": "./locale/*"
   },
   "files": [
     "LICENSE",
@@ -17,14 +18,18 @@
     "client.js",
     "skin.css",
     "preview.html",
-    "cordis.patch.yml"
+    "cordis.patch.yml",
+    "tokens.json",
+    "skin.json",
+    "locale",
+    "icon.svg"
   ],
   "keywords": [
     "deepseek-harness",
     "dsh-plugin",
+    "desktop",
     "theme",
-    "dark-theme",
-    "high-contrast"
+    "terminal"
   ],
   "license": "MIT",
   "repository": {
@@ -55,5 +60,6 @@
     "build": "node build.mjs",
     "check": "node build.mjs --check",
     "prepack": "node build.mjs --check"
-  }
+  },
+  "icon": "./icon.svg"
 }

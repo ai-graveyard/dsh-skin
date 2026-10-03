@@ -8,6 +8,6 @@ Do not publish credentials, private workspace paths, session contents, or workin
 
 ## Project boundary
 
-The skins run in the DSH Web UI process. They should only register theme token overrides and scoped browser styles. A skin must not read credentials or session bodies, add telemetry, load remote scripts, or modify the Harness installation directory.
+The skins run in the DeepSeek Harness desktop client UI. They should only register theme token overrides and scoped browser styles. A skin must not read credentials or session bodies, add telemetry, load remote scripts, or modify the Harness installation directory.
 
 Only the current release line receives fixes. DeepSeek Harness remains a Developer Preview, so reports caused by an upstream interface change may require a compatibility update instead of a security patch.

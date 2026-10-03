@@ -5,11 +5,11 @@ window.__ModuleLoader__.load({
     const PACKAGE_ID = "dsh-skin-braun-control";
     const SKIN_ID = "braun-control";
     const STYLE_ID = "dsh-skin-braun-control/skin.css";
-    const CSS = "body[data-dsh-skin=\"braun-control\"] {\n  --u: 8px;\n  --bg: #f7f7f7;\n  --layer: #efefef;\n  --layer-2: #ececec;\n  --panel: #ffffff;\n  --ink: #1a1a1a;\n  --gray: #808080;\n  --line: #c9c9c9;\n  --metal-hi: #f6f6f6;\n  --metal-lo: #dcdcdc;\n  --accent: #e8500a;\n  --mono: ui-monospace,\"SF Mono\",Menlo,Consolas,monospace;\n}\n\nbody[data-dsh-skin=\"braun-control\"] {\n  --dsh-skin-sans: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"PingFang SC\", \"Microsoft YaHei\", sans-serif;\n  --dsh-skin-mono: var(--mono);\n  color-scheme: light;\n  background: #f7f7f7;\n  color: var(--ink);\n  font-family: var(--dsh-skin-sans);\n  letter-spacing: 0;\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where(button, input, textarea, select, [role=\"button\"], [role=\"dialog\"], [role=\"menu\"], [role=\"menuitem\"], pre, code) {\n  border-radius: 3px !important;\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where(code, pre, kbd, samp) {\n  font-family: var(--dsh-skin-mono);\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where(button, [role=\"button\"], [role=\"tab\"], label, legend, dt) {\n  letter-spacing: 0;\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where(h1, h2, h3, h4, strong, b) {\n  font-weight: 600;\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where(button, [role=\"button\"], input, textarea, select) {\n  box-shadow: none !important;\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where(button, [role=\"button\"], input, textarea, select):focus-visible {\n  outline: 2px solid var(--accent) !important;\n  outline-offset: 2px;\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where(button[type=\"submit\"]:not(:disabled)) {\n  background: var(--accent) !important;\n  border-color: var(--accent) !important;\n  color: #ffffff !important;\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where(button[type=\"submit\"]:not(:disabled)):hover {\n  background: #c84308 !important;\n  border-color: #c84308 !important;\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where(hr) {\n  border: 0;\n  border-top: 1px solid var(--line);\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where(pre) {\n  border: 1px solid var(--line);\n  background: #f1f1f1 !important;\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where(blockquote) {\n  border-left: 2px solid var(--ink);\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where([aria-pressed=\"true\"], [aria-selected=\"true\"], [data-state=\"checked\"]) {\n  border-color: var(--ink) !important;\n}\n\n/*\n * Harness uses CSS modules, so the stable part of a component class is its\n * semantic suffix (for example `_sidebarCol` or `_composerStack`). Keep all\n * selectors below scoped to the skin marker and those suffixes: this gives the\n * real application the same control geometry as the static preview without\n * coupling the bundle to a generated module hash.\n */\nbody[data-dsh-skin=\"braun-control\"] :where([class*=\"_sidebarCol\"]) {\n  background: var(--layer) !important;\n  border-right: 1px solid var(--line);\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where([class*=\"_sidebarCol\"] button[class*=\"_brand\"]) {\n  min-height: 48px;\n  border-bottom: 1px solid var(--line) !important;\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where([class*=\"_sidebarCol\"] button[class*=\"_newSession\"]) {\n  border: 1px solid var(--ink) !important;\n  border-left: 4px solid var(--accent) !important;\n  background: var(--ink) !important;\n  color: #ffffff !important;\n  font-size: 13px;\n  font-weight: 700;\n  letter-spacing: 0.02em;\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where([class*=\"_sidebarCol\"] button[class*=\"_newSession\"]:hover) {\n  background: #333333 !important;\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where([class*=\"_sidebarCol\"] [class*=\"_sectionHeader\"]) {\n  border-top: 1px solid var(--line);\n  color: var(--gray) !important;\n  font-family: var(--dsh-skin-mono);\n  font-size: 10px;\n  font-weight: 700;\n  letter-spacing: 0.12em;\n  text-transform: uppercase;\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where([class*=\"_sidebarCol\"] [role=\"treeitem\"]) {\n  border-left: 2px solid transparent;\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where([class*=\"_sidebarCol\"] [role=\"treeitem\"][aria-selected=\"true\"]) {\n  border-left-color: var(--ink) !important;\n  background: #e2e2e2 !important;\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where([class*=\"_sidebarCol\"] button[class*=\"_trigger\"]) {\n  border-top: 1px solid var(--line) !important;\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where([class*=\"_composerStack\"]) {\n  position: relative;\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where([class*=\"_heroGlow\"]) {\n  display: none !important;\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where([class*=\"_heroWorkspaceRow\"]) {\n  border-top: 1px solid var(--line);\n  padding-top: 8px;\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where([class*=\"_composerStack\"] [class*=\"_root\"][class*=\"_hero\"]) {\n  border: 0 !important;\n  background: transparent !important;\n  box-shadow: none !important;\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where([class*=\"_composerStack\"] [class$=\"_card\"], [class*=\"_composerStack\"] [class*=\"_card \"]) {\n  border: 1px solid var(--ink) !important;\n  border-radius: 4px !important;\n  background: var(--panel) !important;\n  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where([class*=\"_composerStack\"] [class*=\"_input\"][contenteditable=\"true\"], [class*=\"_composerStack\"] textarea[class*=\"_input\"]) {\n  font-family: var(--dsh-skin-sans);\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where([class*=\"_composerStack\"] button[class*=\"_add\"]) {\n  border: 1px solid var(--line) !important;\n  background: var(--bg) !important;\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where([class*=\"_composerStack\"] button[class*=\"_primary\"]) {\n  width: 38px;\n  height: 38px;\n  border: 1px solid #c84308 !important;\n  border-radius: 50% !important;\n  background: var(--accent) !important;\n  color: #ffffff !important;\n  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2) !important;\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where([class*=\"_composerStack\"] button[class*=\"_primary\"]:hover:not(:disabled)) {\n  background: #c84308 !important;\n  transform: translateY(-2px);\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where([class*=\"_detailsCol\"] > [class*=\"_root\"]) {\n  border-left: 1px solid var(--line);\n  background: var(--bg) !important;\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where([role=\"dialog\"]) {\n  border: 1px solid var(--ink) !important;\n  background: var(--panel) !important;\n  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12) !important;\n}\n\n/* Desktop 0.2: contenteditable composer, readable controls and quiet focus. */\nbody[data-dsh-skin=\"braun-control\"] {\n  --dsw-font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif;\n  font-family: var(--dsw-font-family);\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where(button, input, textarea, select, [role=\"button\"], [role=\"tab\"]) {\n  font-family: inherit;\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where([class*=\"_composerStack\"] [contenteditable=\"true\"]) {\n  font-family: var(--dsw-font-family);\n  caret-color: var(--accent);\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where([class*=\"_composerStack\"] [class$=\"_card\"], [class*=\"_composerStack\"] [class*=\"_card \"]):focus-within {\n  border-color: var(--accent) !important;\n  box-shadow: 0 0 0 1px var(--accent), 0 8px 24px rgba(0, 0, 0, .08) !important;\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where([class*=\"_composerStack\"] button[class*=\"_primary\"]:disabled) {\n  background: var(--line) !important;\n  border-color: var(--line) !important;\n  color: var(--gray) !important;\n  opacity: .65;\n  box-shadow: none !important;\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where([role=\"menu\"]) {\n  background: var(--panel);\n  border-color: var(--line);\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where(button, [role=\"button\"], [role=\"tab\"], a):focus-visible {\n  outline: 2px solid var(--accent) !important;\n  outline-offset: 2px;\n}\n\nbody[data-dsh-skin=\"braun-control\"] :where([class*=\"_sidebarCol\"] [class*=\"_sectionHeader\"]) {\n  font-size: 11px;\n  letter-spacing: .04em;\n}\n\n@media (prefers-reduced-motion: reduce) {\n  body[data-dsh-skin=\"braun-control\"] *,\n  body[data-dsh-skin=\"braun-control\"] *::before,\n  body[data-dsh-skin=\"braun-control\"] *::after {\n    animation: none !important;\n    scroll-behavior: auto !important;\n    transition: none !important;\n  }\n}\n";
+    const CSS = "/* Braun Control · 工业控制. Fixed palette; all rules scoped to the active plugin. */\nbody[data-dsh-skin=\"braun-control\"] {\n  --u: 8px;\n  --panel: #ffffff;\n  --ink: #1a1a1a;\n  --gray: #808080;\n  --line: #c9c9c9;\n  --metal-hi: #f6f6f6;\n  --metal-lo: #dcdcdc;\n  --accent: #e8500a;\n  --mono: ui-monospace,\"SF Mono\",Menlo,Consolas,monospace;\n  --skin-bg: #F7F7F7; --skin-ink: #1A1A1A; --skin-accent: #E8500A;\n  --skin-surface: #FFFFFF; --skin-layer: #EFEFEF; --skin-line: #C9C9C9;\n  --skin-muted: #626262; --skin-action: #C84308; --skin-on-action: #FFFFFF;\n  --skin-focus: #C84308;\n  --skin-radius: 3px; --skin-card-radius: 4px; --skin-shadow: 0 4px 16px #0000000a;\n  --dsw-font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif;\n  color-scheme: light;\n  background: var(--skin-bg); color: var(--skin-ink); font-family: var(--dsw-font-family);\n}\nbody[data-dsh-skin=\"braun-control\"] :where(button, input, textarea, select, [role=\"button\"], [role=\"tab\"]) { font-family: inherit; border-radius: var(--skin-radius); }\nbody[data-dsh-skin=\"braun-control\"] :where(code, pre, kbd, samp) { font-family: ui-monospace, \"SF Mono\", Menlo, Consolas, monospace; }\nbody[data-dsh-skin=\"braun-control\"] :where(button, a, input, textarea, select, [role=\"button\"], [role=\"tab\"], [contenteditable=\"true\"]):focus-visible { outline: 2px solid var(--skin-focus) !important; outline-offset: 3px; }\nbody[data-dsh-skin=\"braun-control\"] :where(button[type=\"submit\"]:not(:disabled)) { background: var(--skin-action) !important; color: var(--skin-on-action) !important; }\nbody[data-dsh-skin=\"braun-control\"] :where([class*=\"_sidebarCol\"]) { background: var(--skin-layer) !important; border-right: 1px solid var(--skin-line); }\nbody[data-dsh-skin=\"braun-control\"] :where([class*=\"_sidebarCol\"] button[class*=\"_brand\"]) { min-height: 48px; border-bottom: 1px solid var(--skin-line); }\nbody[data-dsh-skin=\"braun-control\"] :where([class*=\"_sidebarCol\"] button[class*=\"_newSession\"]) { min-height: 40px; border: 1px solid var(--skin-line) !important; border-radius: var(--skin-radius) !important; background: var(--skin-surface) !important; color: var(--skin-ink) !important; font-weight: 600; }\nbody[data-dsh-skin=\"braun-control\"] :where([class*=\"_sidebarCol\"] [class*=\"_sectionHeader\"]) { color: var(--skin-muted) !important; font-size: 11px; letter-spacing: .04em; }\nbody[data-dsh-skin=\"braun-control\"] :where([class*=\"_sidebarCol\"] [role=\"treeitem\"][aria-selected=\"true\"]) { box-shadow: inset 3px 0 var(--skin-action); color: var(--skin-ink) !important; }\nbody[data-dsh-skin=\"braun-control\"] :where([class*=\"_heroGlow\"]) { display: none !important; }\nbody[data-dsh-skin=\"braun-control\"] :where([class*=\"_composerStack\"] [class*=\"_root\"][class*=\"_hero\"]) { border: 0 !important; background: transparent !important; box-shadow: none !important; }\nbody[data-dsh-skin=\"braun-control\"] :where([class*=\"_composerStack\"] [class$=\"_card\"], [class*=\"_composerStack\"] [class*=\"_card \"]) { border: 1px solid var(--skin-line) !important; border-radius: var(--skin-card-radius) !important; background: var(--skin-surface) !important; box-shadow: var(--skin-shadow) !important; }\nbody[data-dsh-skin=\"braun-control\"] :where([class*=\"_composerStack\"] [class$=\"_card\"], [class*=\"_composerStack\"] [class*=\"_card \"]):focus-within { border-color: var(--skin-action) !important; box-shadow: 0 0 0 1px var(--skin-action), var(--skin-shadow) !important; }\nbody[data-dsh-skin=\"braun-control\"] :where([class*=\"_composerStack\"] [contenteditable=\"true\"], [class*=\"_composerStack\"] textarea) { font-family: var(--dsw-font-family); caret-color: var(--skin-focus); }\nbody[data-dsh-skin=\"braun-control\"] :where([class*=\"_composerStack\"] button[class*=\"_add\"]) { background: var(--skin-layer) !important; border: 1px solid var(--skin-line) !important; }\nbody[data-dsh-skin=\"braun-control\"] :where([class*=\"_composerStack\"] button[class*=\"_primary\"]) { width: 38px; height: 38px; border: 1px solid var(--skin-action) !important; border-radius: var(--skin-radius) !important; background: var(--skin-action) !important; color: var(--skin-on-action) !important; }\nbody[data-dsh-skin=\"braun-control\"] :where([class*=\"_composerStack\"] button[class*=\"_primary\"]:disabled) { background: var(--skin-layer) !important; border-color: var(--skin-line) !important; color: var(--skin-muted) !important; opacity: .65; box-shadow: none !important; }\nbody[data-dsh-skin=\"braun-control\"] :where([role=\"dialog\"]) { border: 1px solid var(--skin-line); border-radius: var(--skin-card-radius) !important; background: var(--skin-surface) !important; box-shadow: var(--skin-shadow); }\nbody[data-dsh-skin=\"braun-control\"] :where([role=\"menu\"], [role=\"listbox\"]) { border: 1px solid var(--skin-line); background: var(--skin-surface); border-radius: var(--skin-radius); }\nbody[data-dsh-skin=\"braun-control\"] :where(pre) { border: 1px solid var(--skin-line); border-radius: var(--skin-radius); background: var(--skin-surface) !important; }\nbody[data-dsh-skin=\"braun-control\"] :where(blockquote) { border-left: 2px solid var(--skin-action); }\nbody[data-dsh-skin=\"braun-control\"] ::selection { background: var(--skin-action); color: var(--skin-on-action); }\n@media (hover: hover) {\n  body[data-dsh-skin=\"braun-control\"] :where([class*=\"_sidebarCol\"] button[class*=\"_newSession\"]:hover) { background: var(--skin-bg) !important; border-color: var(--skin-action) !important; }\n  body[data-dsh-skin=\"braun-control\"] :where([class*=\"_composerStack\"] button[class*=\"_primary\"]:not(:disabled):hover) { filter: brightness(.92); }\n}\n\n/* Signature details: braun */\nbody[data-dsh-skin=\"braun-control\"] [class*=\"_sidebarCol\"] button[class*=\"_newSession\"] { background: #1A1A1A !important; color: #FFFFFF !important; border-left: 4px solid #E8500A !important; }\nbody[data-dsh-skin=\"braun-control\"] [class*=\"_composerStack\"] button[class*=\"_primary\"] { border-radius: 50% !important; }\nbody[data-dsh-skin=\"braun-control\"] [class*=\"_sectionHeader\"] { font-family: var(--mono); }\n\n@media (prefers-reduced-motion: reduce) {\n  body[data-dsh-skin=\"braun-control\"] *, body[data-dsh-skin=\"braun-control\"] *::before, body[data-dsh-skin=\"braun-control\"] *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }\n}\n\n/* Preserve switch affordance and align selection geometry with the skin. */\nbody[data-dsh-skin=\"braun-control\"] :where(button[role=\"switch\"]) { border-radius: 999px !important; }\nbody[data-dsh-skin=\"braun-control\"] :where([class*=\"_sidebarCol\"] [role=\"treeitem\"]) { border-radius: var(--skin-radius); }\n\n/* Focus must remain visible above every signature surface rule. */\nbody[data-dsh-skin=\"braun-control\"] [class*=\"_composerStack\"] :is([class$=\"_card\"], [class*=\"_card \"]):focus-within {\n  border-color: var(--skin-focus) !important;\n  box-shadow: 0 0 0 1px var(--skin-focus), var(--skin-shadow) !important;\n}\n";
     const TOKEN_OVERRIDES = Object.freeze({
   "--shiki-token-constant": {
-    "light": "#1C7ED6",
-    "dark": "#1C7ED6"
+    "light": "#1969AA",
+    "dark": "#1969AA"
   },
   "--shiki-token-string": {
     "light": "#237B36",
@@ -24,8 +24,8 @@ window.__ModuleLoader__.load({
     "dark": "#B42658"
   },
   "--shiki-token-parameter": {
-    "light": "#B54708",
-    "dark": "#B54708"
+    "light": "#994008",
+    "dark": "#994008"
   },
   "--shiki-token-function": {
     "light": "#6741D9",
@@ -44,20 +44,20 @@ window.__ModuleLoader__.load({
     "dark": "#1971C2"
   },
   "--dsw-alias-link": {
-    "light": "#A93807",
-    "dark": "#A93807"
+    "light": "#C84308",
+    "dark": "#C84308"
   },
   "--dsw-alias-state-business-primary": {
     "light": "#C84308",
     "dark": "#C84308"
   },
   "--dsw-alias-state-business-tertiary": {
-    "light": "#FBE9DF",
-    "dark": "#FBE9DF"
+    "light": "#EFEFEF",
+    "dark": "#EFEFEF"
   },
   "--dsw-alias-menu-icon": {
-    "light": "#5F5F5F",
-    "dark": "#5F5F5F"
+    "light": "#626262",
+    "dark": "#626262"
   },
   "--dsw-alias-menu-group-header-fill": {
     "light": "#EFEFEF",
@@ -68,8 +68,8 @@ window.__ModuleLoader__.load({
     "dark": "#FFFFFF"
   },
   "--dsw-alias-settings-card-stroke": {
-    "light": "#DCDCDC",
-    "dark": "#DCDCDC"
+    "light": "#C9C9C9",
+    "dark": "#C9C9C9"
   },
   "--dsw-alias-bg-base": {
     "light": "#F7F7F7",
@@ -84,24 +84,24 @@ window.__ModuleLoader__.load({
     "dark": "#EFEFEF"
   },
   "--dsw-alias-bg-layer-3": {
-    "light": "#ECECEC",
-    "dark": "#ECECEC"
+    "light": "#EFEFEF",
+    "dark": "#EFEFEF"
   },
   "--dsw-alias-bg-module-platform": {
     "light": "#EFEFEF",
     "dark": "#EFEFEF"
   },
   "--dsw-alias-bg-multi-select": {
-    "light": "#ECECEC",
-    "dark": "#ECECEC"
+    "light": "#EFEFEF",
+    "dark": "#EFEFEF"
   },
   "--dsw-alias-bg-overlay": {
-    "light": "#ECECEC",
-    "dark": "#ECECEC"
+    "light": "#EFEFEF",
+    "dark": "#EFEFEF"
   },
   "--dsw-alias-bg-skeleton": {
-    "light": "rgba(26, 26, 26, 0.06)",
-    "dark": "rgba(26, 26, 26, 0.06)"
+    "light": "#C9C9C9",
+    "dark": "#C9C9C9"
   },
   "--dsw-alias-border-inverted2": {
     "light": "#C9C9C9",
@@ -112,8 +112,8 @@ window.__ModuleLoader__.load({
     "dark": "#C9C9C9"
   },
   "--dsw-alias-border-l1": {
-    "light": "#DCDCDC",
-    "dark": "#DCDCDC"
+    "light": "#C9C9C9",
+    "dark": "#C9C9C9"
   },
   "--dsw-alias-border-l2-darkmode-thin": {
     "light": "#C9C9C9",
@@ -124,28 +124,28 @@ window.__ModuleLoader__.load({
     "dark": "#C9C9C9"
   },
   "--dsw-alias-border-l3": {
-    "light": "#AFAFAF",
-    "dark": "#AFAFAF"
+    "light": "#C9C9C9",
+    "dark": "#C9C9C9"
   },
   "--dsw-alias-border-l4": {
-    "light": "#808080",
-    "dark": "#808080"
+    "light": "#C9C9C9",
+    "dark": "#C9C9C9"
   },
   "--dsw-alias-brand-primary-invert": {
-    "light": "#F7F7F7",
-    "dark": "#F7F7F7"
+    "light": "#FFFFFF",
+    "dark": "#FFFFFF"
   },
   "--dsw-alias-brand-primary-new-colorprimary-new-color": {
-    "light": "#1A1A1A",
-    "dark": "#1A1A1A"
+    "light": "#C84308",
+    "dark": "#C84308"
   },
   "--dsw-alias-brand-primary": {
-    "light": "#1A1A1A",
-    "dark": "#1A1A1A"
+    "light": "#C84308",
+    "dark": "#C84308"
   },
   "--dsw-alias-brand-text": {
-    "light": "#1A1A1A",
-    "dark": "#1A1A1A"
+    "light": "#C84308",
+    "dark": "#C84308"
   },
   "--dsw-alias-button-contrast-fill": {
     "light": "#1A1A1A",
@@ -160,72 +160,72 @@ window.__ModuleLoader__.load({
     "dark": "#FFFFFF"
   },
   "--dsw-alias-button-floating-hover": {
-    "light": "#ECECEC",
-    "dark": "#ECECEC"
+    "light": "#EFEFEF",
+    "dark": "#EFEFEF"
   },
   "--dsw-alias-button-ghost-active-border": {
-    "light": "#808080",
-    "dark": "#808080"
+    "light": "#C9C9C9",
+    "dark": "#C9C9C9"
   },
   "--dsw-alias-button-ghost-active-fill": {
-    "light": "#ECECEC",
-    "dark": "#ECECEC"
+    "light": "#EFEFEF",
+    "dark": "#EFEFEF"
   },
   "--dsw-alias-button-ghost-active-hover": {
-    "light": "#E2E2E2",
-    "dark": "#E2E2E2"
+    "light": "#EFEFEF",
+    "dark": "#EFEFEF"
   },
   "--dsw-alias-button-info-fill": {
-    "light": "#1A1A1A",
-    "dark": "#1A1A1A"
+    "light": "#C84308",
+    "dark": "#C84308"
   },
   "--dsw-alias-button-info-hover": {
-    "light": "#333333",
-    "dark": "#333333"
+    "light": "#C84308",
+    "dark": "#C84308"
   },
   "--dsw-alias-button-primary-dimmed": {
-    "light": "#DCDCDC",
-    "dark": "#DCDCDC"
+    "light": "#C9C9C9",
+    "dark": "#C9C9C9"
   },
   "--dsw-alias-button-primary-fill": {
-    "light": "#1A1A1A",
-    "dark": "#1A1A1A"
+    "light": "#C84308",
+    "dark": "#C84308"
   },
   "--dsw-alias-button-primary-hover": {
-    "light": "#333333",
-    "dark": "#333333"
+    "light": "#C84308",
+    "dark": "#C84308"
   },
   "--dsw-alias-interactive-bg-active": {
-    "light": "#DCDCDC",
-    "dark": "#DCDCDC"
+    "light": "#EFEFEF",
+    "dark": "#EFEFEF"
   },
   "--dsw-alias-interactive-bg-hover-accent": {
-    "light": "#E2E2E2",
-    "dark": "#E2E2E2"
+    "light": "#EFEFEF",
+    "dark": "#EFEFEF"
   },
   "--dsw-alias-interactive-bg-hover-solid": {
-    "light": "#ECECEC",
-    "dark": "#ECECEC"
+    "light": "#EFEFEF",
+    "dark": "#EFEFEF"
   },
   "--dsw-alias-interactive-bg-hover": {
-    "light": "rgba(26, 26, 26, 0.055)",
-    "dark": "rgba(26, 26, 26, 0.055)"
+    "light": "#EFEFEF",
+    "dark": "#EFEFEF"
   },
   "--dsw-alias-label-caption": {
-    "light": "#808080",
-    "dark": "#808080"
+    "light": "#626262",
+    "dark": "#626262"
   },
   "--dsw-alias-label-dimmed": {
-    "light": "#AFAFAF",
-    "dark": "#AFAFAF"
+    "light": "#626262",
+    "dark": "#626262"
   },
   "--dsw-alias-label-primary-bluish": {
     "light": "#1A1A1A",
     "dark": "#1A1A1A"
   },
   "--dsw-alias-label-primary-dimmed": {
-    "light": "#555555",
-    "dark": "#555555"
+    "light": "#626262",
+    "dark": "#626262"
   },
   "--dsw-alias-label-primary-foreground": {
     "light": "#FFFFFF",
@@ -240,44 +240,44 @@ window.__ModuleLoader__.load({
     "dark": "#1A1A1A"
   },
   "--dsw-alias-label-secondary": {
-    "light": "#5F5F5F",
-    "dark": "#5F5F5F"
+    "light": "#626262",
+    "dark": "#626262"
   },
   "--dsw-alias-label-tertiary": {
-    "light": "#808080",
-    "dark": "#808080"
+    "light": "#626262",
+    "dark": "#626262"
   },
   "--dsw-alias-markdown-citation": {
-    "light": "#ECECEC",
-    "dark": "#ECECEC"
+    "light": "#EFEFEF",
+    "dark": "#EFEFEF"
   },
   "--dsw-alias-markdown-code-block-banner": {
-    "light": "#ECECEC",
-    "dark": "#ECECEC"
+    "light": "#EFEFEF",
+    "dark": "#EFEFEF"
   },
   "--dsw-alias-markdown-code-block": {
-    "light": "#F1F1F1",
-    "dark": "#F1F1F1"
-  },
-  "--dsw-alias-markdown-code-segment-selected": {
     "light": "#FFFFFF",
     "dark": "#FFFFFF"
   },
+  "--dsw-alias-markdown-code-segment-selected": {
+    "light": "#EFEFEF",
+    "dark": "#EFEFEF"
+  },
   "--dsw-alias-markdown-code-segment-unselected": {
-    "light": "#E2E2E2",
-    "dark": "#E2E2E2"
+    "light": "#EFEFEF",
+    "dark": "#EFEFEF"
   },
   "--dsw-alias-markdown-inline-code": {
-    "light": "#ECECEC",
-    "dark": "#ECECEC"
+    "light": "#EFEFEF",
+    "dark": "#EFEFEF"
   },
   "--dsw-alias-markdown-placeholder": {
     "light": "#EFEFEF",
     "dark": "#EFEFEF"
   },
   "--dsw-alias-markdown-tag": {
-    "light": "#ECECEC",
-    "dark": "#ECECEC"
+    "light": "#EFEFEF",
+    "dark": "#EFEFEF"
   },
   "--dsw-alias-scrollbar-bg-l1": {
     "light": "#C9C9C9",
@@ -288,16 +288,16 @@ window.__ModuleLoader__.load({
     "dark": "#C9C9C9"
   },
   "--dsw-alias-scrollbar-hover-l1": {
-    "light": "#808080",
-    "dark": "#808080"
+    "light": "#626262",
+    "dark": "#626262"
   },
   "--dsw-alias-scrollbar-hover-l2": {
-    "light": "#808080",
-    "dark": "#808080"
+    "light": "#626262",
+    "dark": "#626262"
   },
   "--dsw-specific-bubble-highlight": {
-    "light": "#E2E2E2",
-    "dark": "#E2E2E2"
+    "light": "#EFEFEF",
+    "dark": "#EFEFEF"
   },
   "--dsw-specific-bubble": {
     "light": "#EFEFEF",
@@ -316,28 +316,28 @@ window.__ModuleLoader__.load({
     "dark": "#FFFFFF"
   },
   "--dsw-specific-selector": {
-    "light": "#ECECEC",
-    "dark": "#ECECEC"
+    "light": "#EFEFEF",
+    "dark": "#EFEFEF"
   },
   "--dsw-specific-sidebar-fill": {
     "light": "#EFEFEF",
     "dark": "#EFEFEF"
   },
   "--dsw-specific-sidebar-nav-item-active-accent": {
-    "light": "#DCDCDC",
-    "dark": "#DCDCDC"
+    "light": "#EFEFEF",
+    "dark": "#EFEFEF"
   },
   "--dsw-specific-sidebar-nav-item-active": {
-    "light": "#E2E2E2",
-    "dark": "#E2E2E2"
+    "light": "#EFEFEF",
+    "dark": "#EFEFEF"
   },
   "--dsw-specific-sidebar-nav-item-hover": {
-    "light": "#E7E7E7",
-    "dark": "#E7E7E7"
+    "light": "#EFEFEF",
+    "dark": "#EFEFEF"
   },
   "--dsw-specific-tip": {
-    "light": "#ECECEC",
-    "dark": "#ECECEC"
+    "light": "#EFEFEF",
+    "dark": "#EFEFEF"
   }
 });
     const inject = ['theme'];

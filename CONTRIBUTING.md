@@ -6,7 +6,7 @@ DSH Skin keeps each skin self-contained. A pull request should leave users with 
 
 - Node.js `^22.19.0 || >=24.0.0`
 - pnpm for the repository commands
-- A local DeepSeek Harness Web profile for visual checks
+- The DeepSeek Harness desktop client for native visual and interaction checks
 
 Install the repository dependencies, then run checks from the repository root:
 
@@ -17,7 +17,7 @@ pnpm run check
 
 ## Changing a skin
 
-Edit `skins/<skin-id>/skin.css` for structural styles and its `build.mjs` for theme tokens or client lifecycle code. Regenerate every `client.js` before committing:
+Edit `skins/<skin-id>/skin.css` for structural styles, `tokens.json` for theme colours, and `build.mjs` for client lifecycle code. The build applies each token value to both light and dark modes, keeping the skin's palette fixed. Regenerate every `client.js` before committing:
 
 ```bash
 pnpm run build
@@ -37,11 +37,13 @@ Create a new directory under `skins/` and give it unique identifiers in:
 - `build.mjs`
 - the `data-dsh-skin` CSS scope
 
-Include a manifest, Cordis patch, browser bundle, CSS source, static preview, README, and license. Keep runtime code inside the skin directory.
+Include `package.json`, `index.js`, `cordis.patch.yml`, `build.mjs`, generated `client.js`, `skin.css`, `tokens.json`, `icon.svg`, `locale/en.json`, `locale/zh.json`, `preview.html`, `README.md`, and `LICENSE`. Export the locale files and include the tokens, icon and locales in the npm package's `files` list. Keep runtime code inside the skin directory.
 
-Add a `skin.json` listing in the same directory. The Next.js site reads these files at build time to generate the collection and detail routes. Keep its `slug`, `packageName`, unique `order`, package version, license, compatibility, verification date and states, preview palette, screenshots, and author credit in sync with the bundle.
+Add a `skin.json` listing in the same directory. The Next.js site reads these files at build time to generate the collection and detail routes. Keep its `slug`, `packageName`, unique `order`, English/Chinese names, design pattern, package version, license, compatibility, verification date and states, preview palette and control radii, screenshots, and author credit in sync with the bundle. `official` identifies the DSH Skin project's selection, not DeepSeek endorsement.
 
 Root commands discover every skin automatically. Do not add skin-specific commands to the root `package.json` or CI workflow.
+
+`pnpm run check` verifies generated bundles, package metadata, scoped CSS, activation/disposal, overlapping skin layers, selected text and focus contrast pairs, and TypeScript. Contrast checks cover the pairs defined in `scripts/check-contrast.mjs`; they do not replace native interaction and accessibility checks.
 
 ## Pull request checklist
 
@@ -54,3 +56,15 @@ Root commands discover every skin automatically. Do not add skin-specific comman
 - Avoid credentials, local absolute paths, telemetry, and remote assets.
 
 By submitting a contribution, you agree to license it under the repository's MIT License.
+
+## Desktop acceptance
+
+Install with the desktop client CLI after quitting the client. Increment the package version whenever runtime files change; a repacked tarball at the same path/version may remain cached by pnpm. Keep previous versioned tarballs available until the desktop profile has upgraded. After installing, verify the actual installed runtime before taking screenshots:
+
+```sh
+node scripts/check-installed.mjs <path-to-dsh-home>/profiles/desktop
+```
+
+This separate check expects every repository skin to be installed in that profile. It compares package metadata, runtime, CSS, tokens, icon and locale files byte-for-byte; it does not inspect the active UI and is not part of `pnpm run check`.
+
+Record the exact client and skin versions, completed native states and outstanding checks in `DESKTOP-QA.md`. Do not promote a `Desktop QA` entry to `Available` based only on static previews or unit checks.

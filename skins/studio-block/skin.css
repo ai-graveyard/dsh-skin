@@ -1,0 +1,70 @@
+/* Studio Block · 积木工作室. Fixed palette; all rules scoped to the active plugin. */
+body[data-dsh-skin="studio-block"] {
+  --paper: #FFF6EA;
+  --ink: #000000;
+  --white: #FFFFFF;
+  --orange: #FF6B35;
+  --blue: #004E89;
+  --yellow: #F7C548;
+  --pink: #FF8FD4;
+  --green: #3ECF8E;
+  --bw: 4px;
+  --sans: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"PingFang SC","Microsoft YaHei",sans-serif;
+  --mono: ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --skin-bg: #FFF6EA; --skin-ink: #000000; --skin-accent: #F7C548;
+  --skin-surface: #FFFFFF; --skin-layer: #FFF0D9; --skin-line: #000000;
+  --skin-muted: #51483D; --skin-action: #F7C548; --skin-on-action: #000000;
+  --skin-focus: #004E89;
+  --skin-radius: 4px; --skin-card-radius: 4px; --skin-shadow: 4px 4px 0 #000000;
+  --dsw-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  color-scheme: light;
+  background: var(--skin-bg); color: var(--skin-ink); font-family: var(--dsw-font-family);
+}
+body[data-dsh-skin="studio-block"] :where(button, input, textarea, select, [role="button"], [role="tab"]) { font-family: inherit; border-radius: var(--skin-radius); }
+body[data-dsh-skin="studio-block"] :where(code, pre, kbd, samp) { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+body[data-dsh-skin="studio-block"] :where(button, a, input, textarea, select, [role="button"], [role="tab"], [contenteditable="true"]):focus-visible { outline: 2px solid var(--skin-focus) !important; outline-offset: 3px; }
+body[data-dsh-skin="studio-block"] :where(button[type="submit"]:not(:disabled)) { background: var(--skin-action) !important; color: var(--skin-on-action) !important; }
+body[data-dsh-skin="studio-block"] :where([class*="_sidebarCol"]) { background: var(--skin-layer) !important; border-right: 1px solid var(--skin-line); }
+body[data-dsh-skin="studio-block"] :where([class*="_sidebarCol"] button[class*="_brand"]) { min-height: 48px; border-bottom: 1px solid var(--skin-line); }
+body[data-dsh-skin="studio-block"] :where([class*="_sidebarCol"] button[class*="_newSession"]) { min-height: 40px; border: 1px solid var(--skin-line) !important; border-radius: var(--skin-radius) !important; background: var(--skin-surface) !important; color: var(--skin-ink) !important; font-weight: 600; }
+body[data-dsh-skin="studio-block"] :where([class*="_sidebarCol"] [class*="_sectionHeader"]) { color: var(--skin-muted) !important; font-size: 11px; letter-spacing: .04em; }
+body[data-dsh-skin="studio-block"] :where([class*="_sidebarCol"] [role="treeitem"][aria-selected="true"]) { box-shadow: inset 3px 0 var(--skin-action); color: var(--skin-ink) !important; }
+body[data-dsh-skin="studio-block"] :where([class*="_heroGlow"]) { display: none !important; }
+body[data-dsh-skin="studio-block"] :where([class*="_composerStack"] [class*="_root"][class*="_hero"]) { border: 0 !important; background: transparent !important; box-shadow: none !important; }
+body[data-dsh-skin="studio-block"] :where([class*="_composerStack"] [class$="_card"], [class*="_composerStack"] [class*="_card "]) { border: 1px solid var(--skin-line) !important; border-radius: var(--skin-card-radius) !important; background: var(--skin-surface) !important; box-shadow: var(--skin-shadow) !important; }
+body[data-dsh-skin="studio-block"] :where([class*="_composerStack"] [class$="_card"], [class*="_composerStack"] [class*="_card "]):focus-within { border-color: var(--skin-action) !important; box-shadow: 0 0 0 1px var(--skin-action), var(--skin-shadow) !important; }
+body[data-dsh-skin="studio-block"] :where([class*="_composerStack"] [contenteditable="true"], [class*="_composerStack"] textarea) { font-family: var(--dsw-font-family); caret-color: var(--skin-focus); }
+body[data-dsh-skin="studio-block"] :where([class*="_composerStack"] button[class*="_add"]) { background: var(--skin-layer) !important; border: 1px solid var(--skin-line) !important; }
+body[data-dsh-skin="studio-block"] :where([class*="_composerStack"] button[class*="_primary"]) { width: 38px; height: 38px; border: 1px solid var(--skin-action) !important; border-radius: var(--skin-radius) !important; background: var(--skin-action) !important; color: var(--skin-on-action) !important; }
+body[data-dsh-skin="studio-block"] :where([class*="_composerStack"] button[class*="_primary"]:disabled) { background: var(--skin-layer) !important; border-color: var(--skin-line) !important; color: var(--skin-muted) !important; opacity: .65; box-shadow: none !important; }
+body[data-dsh-skin="studio-block"] :where([role="dialog"]) { border: 1px solid var(--skin-line); border-radius: var(--skin-card-radius) !important; background: var(--skin-surface) !important; box-shadow: var(--skin-shadow); }
+body[data-dsh-skin="studio-block"] :where([role="menu"], [role="listbox"]) { border: 1px solid var(--skin-line); background: var(--skin-surface); border-radius: var(--skin-radius); }
+body[data-dsh-skin="studio-block"] :where(pre) { border: 1px solid var(--skin-line); border-radius: var(--skin-radius); background: var(--skin-surface) !important; }
+body[data-dsh-skin="studio-block"] :where(blockquote) { border-left: 2px solid var(--skin-action); }
+body[data-dsh-skin="studio-block"] ::selection { background: var(--skin-action); color: var(--skin-on-action); }
+@media (hover: hover) {
+  body[data-dsh-skin="studio-block"] :where([class*="_sidebarCol"] button[class*="_newSession"]:hover) { background: var(--skin-bg) !important; border-color: var(--skin-action) !important; }
+  body[data-dsh-skin="studio-block"] :where([class*="_composerStack"] button[class*="_primary"]:not(:disabled):hover) { filter: brightness(.92); }
+}
+
+/* Signature details: neo-brutalism */
+body[data-dsh-skin="studio-block"] [class*="_sidebarCol"] button[class*="_newSession"] { border: 2px solid #000000 !important; background: #FF8FD4 !important; box-shadow: 3px 3px 0 #000000; }
+body[data-dsh-skin="studio-block"] [class*="_composerStack"] [class$="_card"] { border: 2px solid #000000 !important; }
+body[data-dsh-skin="studio-block"] [class*="_composerStack"] button[class*="_primary"] { border: 2px solid #000000 !important; box-shadow: 2px 2px 0 #000000; }
+body[data-dsh-skin="studio-block"] :where([class*="_newSession"], [class*="_primary"]):active:not(:disabled) { transform: translate(2px, 2px); box-shadow: none !important; }
+body[data-dsh-skin="studio-block"] :where(h1,h2,h3) { font-weight: 750; letter-spacing: -.025em; }
+
+@media (prefers-reduced-motion: reduce) {
+  body[data-dsh-skin="studio-block"] *, body[data-dsh-skin="studio-block"] *::before, body[data-dsh-skin="studio-block"] *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* Preserve switch affordance and align selection geometry with the skin. */
+body[data-dsh-skin="studio-block"] :where(button[role="switch"]) { border-radius: 999px !important; }
+body[data-dsh-skin="studio-block"] :where([class*="_sidebarCol"] [role="treeitem"]) { border-radius: var(--skin-radius); }
+
+/* Focus must remain visible above every signature surface rule. */
+body[data-dsh-skin="studio-block"] [class*="_composerStack"] :is([class$="_card"], [class*="_card "]):focus-within {
+  border-color: var(--skin-focus) !important;
+  box-shadow: 0 0 0 1px var(--skin-focus), var(--skin-shadow) !important;
+}
+body[data-dsh-skin="studio-block"] :where([class*="_sidebarCol"] [role="treeitem"][aria-selected="true"]) { box-shadow: inset 3px 0 #000000; }

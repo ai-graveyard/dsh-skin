@@ -3,29 +3,32 @@
   "packageName": "dsh-skin-braun-control",
   "order": 1,
   "name": "Braun Control",
-  "tagline": "Less interface. More intention.",
-  "description": "A quiet, functional skin shaped by warm greys, an eight-pixel grid and one precise signal orange.",
+  "nameZh": "工业控制",
+  "tagline": "Precision in every detail.",
+  "description": "Warm grey instruments, precise rules and a single orange action.",
   "author": {
-    "name": "Ailln",
-    "url": "https://github.com/ailln"
+    "name": "DSH Skin",
+    "url": "https://github.com/ai-graveyard/dsh-skin"
   },
-  "version": "0.2.0",
+  "version": "0.3.1",
   "status": "Available",
   "license": "MIT",
   "compatibility": "DeepSeek Harness Desktop 0.2.0-rc.2",
-  "verifiedAt": "2026-10-03",
+  "verifiedAt": "2026-10-04",
   "verifiedStates": [
-    "Desktop launch",
-    "Empty session",
-    "Existing conversation",
-    "Rich-text composer",
-    "Settings",
-    "Plugin toggle"
+    "Bundle lifecycle",
+    "Text and focus contrast",
+    "Package validation",
+    "Installed runtime matches source",
+    "Native desktop composer and focus",
+    "Native General settings and appearance modes",
+    "Native dropdown",
+    "Native rich conversation and half-screen layout",
+    "Native plugin details and reactivation"
   ],
   "style": [
-    "Industrial",
-    "Warm grey",
-    "Low radius"
+    "braun",
+    "Light"
   ],
   "colors": [
     "#F7F7F7",
@@ -37,7 +40,12 @@
     "surface": "#FFFFFF",
     "layer": "#EFEFEF",
     "line": "#C9C9C9",
-    "muted": "#686868"
+    "muted": "#626262",
+    "radius": 3,
+    "cardRadius": 4,
+    "onAccent": "#FFFFFF"
   },
-  "featured": true
+  "official": true,
+  "featured": true,
+  "designPattern": "braun"
 }

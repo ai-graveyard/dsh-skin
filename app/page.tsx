@@ -19,13 +19,13 @@ export default async function Home() {
         <section className="home-hero">
           <div className="section-rail">
             <span>01</span>
-            <p>Community skin archive</p>
-            <p>DSH / WEB INTERFACE</p>
+            <p>DSH Skin / Official collection</p>
+            <p>DSH / DESKTOP CLIENT</p>
           </div>
 
           <div className="home-hero-grid">
             <div className="home-hero-copy">
-              <p className="eyebrow">Independent surfaces for DeepSeek Harness</p>
+              <p className="eyebrow">Ten classic designs for the Harness desktop client</p>
               <h1>
                 Change the surface.
                 <span>Keep the machine.</span>
@@ -34,7 +34,7 @@ export default async function Home() {
 
             <div className="home-hero-meta">
               <p className="home-hero-lede">
-                A small, open archive of visual skins for the Harness Web UI.
+                Ten carefully crafted desktop skins, recommended by DSH Skin.
                 Install locally. Remove cleanly. Keep the underlying tool intact.
               </p>
               <dl className="hero-specs">
@@ -54,7 +54,7 @@ export default async function Home() {
             <div className="section-rail">
               <span>02</span>
               <p>Collection</p>
-              <p>{skinCount} SKIN{skins.length === 1 ? "" : "S"} AVAILABLE</p>
+              <p>{skinCount} SKIN{skins.length === 1 ? "" : "S"} / DESKTOP QA</p>
             </div>
 
             <Link className="featured-card" href={`/skins/${featured.slug}`} aria-label={`View ${featured.name} skin`}>
@@ -63,7 +63,7 @@ export default async function Home() {
               </div>
               <div className="featured-info">
                 <div>
-                  <p className="eyebrow">NO. {String(featured.order).padStart(3, "0")} / V{featured.version}</p>
+                  <p className="eyebrow">OFFICIAL / NO. {String(featured.order).padStart(3, "0")} / V{featured.version}</p>
                   <h2>{featured.name}</h2>
                 </div>
                 <div className="featured-description">
@@ -91,7 +91,7 @@ export default async function Home() {
                       </div>
                       <div className="skin-index-copy">
                         <div>
-                          <p className="eyebrow">NO. {String(skin.order).padStart(3, "0")} / V{skin.version}</p>
+                          <p className="eyebrow">OFFICIAL / NO. {String(skin.order).padStart(3, "0")} / V{skin.version}</p>
                           <h3>{skin.name}</h3>
                         </div>
                         <p>{skin.tagline}</p>

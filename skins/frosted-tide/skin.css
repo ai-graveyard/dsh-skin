@@ -1,0 +1,72 @@
+/* Frosted Tide · 雾潮. Fixed palette; all rules scoped to the active plugin. */
+body[data-dsh-skin="frosted-tide"] {
+  --bg0: #0d0f26;
+  --bg1: #171a3d;
+  --fg: #f4f5ff;
+  --muted: rgba(230,233,255,.68);
+  --faint: rgba(230,233,255,.42);
+  --pink: #FF6B9D;
+  --teal: #4ECDC4;
+  --indigo: #667EEA;
+  --violet: #9b6bff;
+  --glass: rgba(255,255,255,.10);
+  --glass-strong: rgba(255,255,255,.16);
+  --stroke: rgba(255,255,255,.22);
+  --stroke-soft: rgba(255,255,255,.12);
+  --shadow: 0 24px 60px rgba(4,7,28,.5);
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+  --skin-bg: #0D0F26; --skin-ink: #F4F5FF; --skin-accent: #4ECDC4;
+  --skin-surface: #1D2342; --skin-layer: #171A3D; --skin-line: #505775;
+  --skin-muted: #B4BDD9; --skin-action: #4ECDC4; --skin-on-action: #0D0F26;
+  --skin-focus: #4ECDC4;
+  --skin-radius: 12px; --skin-card-radius: 22px; --skin-shadow: 0 16px 40px #04071c66;
+  --dsw-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  color-scheme: dark;
+  background: var(--skin-bg); color: var(--skin-ink); font-family: var(--dsw-font-family);
+}
+body[data-dsh-skin="frosted-tide"] :where(button, input, textarea, select, [role="button"], [role="tab"]) { font-family: inherit; border-radius: var(--skin-radius); }
+body[data-dsh-skin="frosted-tide"] :where(code, pre, kbd, samp) { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+body[data-dsh-skin="frosted-tide"] :where(button, a, input, textarea, select, [role="button"], [role="tab"], [contenteditable="true"]):focus-visible { outline: 2px solid var(--skin-focus) !important; outline-offset: 3px; }
+body[data-dsh-skin="frosted-tide"] :where(button[type="submit"]:not(:disabled)) { background: var(--skin-action) !important; color: var(--skin-on-action) !important; }
+body[data-dsh-skin="frosted-tide"] :where([class*="_sidebarCol"]) { background: var(--skin-layer) !important; border-right: 1px solid var(--skin-line); }
+body[data-dsh-skin="frosted-tide"] :where([class*="_sidebarCol"] button[class*="_brand"]) { min-height: 48px; border-bottom: 1px solid var(--skin-line); }
+body[data-dsh-skin="frosted-tide"] :where([class*="_sidebarCol"] button[class*="_newSession"]) { min-height: 40px; border: 1px solid var(--skin-line) !important; border-radius: var(--skin-radius) !important; background: var(--skin-surface) !important; color: var(--skin-ink) !important; font-weight: 600; }
+body[data-dsh-skin="frosted-tide"] :where([class*="_sidebarCol"] [class*="_sectionHeader"]) { color: var(--skin-muted) !important; font-size: 11px; letter-spacing: .04em; }
+body[data-dsh-skin="frosted-tide"] :where([class*="_sidebarCol"] [role="treeitem"][aria-selected="true"]) { box-shadow: inset 3px 0 var(--skin-action); color: var(--skin-ink) !important; }
+body[data-dsh-skin="frosted-tide"] :where([class*="_heroGlow"]) { display: none !important; }
+body[data-dsh-skin="frosted-tide"] :where([class*="_composerStack"] [class*="_root"][class*="_hero"]) { border: 0 !important; background: transparent !important; box-shadow: none !important; }
+body[data-dsh-skin="frosted-tide"] :where([class*="_composerStack"] [class$="_card"], [class*="_composerStack"] [class*="_card "]) { border: 1px solid var(--skin-line) !important; border-radius: var(--skin-card-radius) !important; background: var(--skin-surface) !important; box-shadow: var(--skin-shadow) !important; }
+body[data-dsh-skin="frosted-tide"] :where([class*="_composerStack"] [class$="_card"], [class*="_composerStack"] [class*="_card "]):focus-within { border-color: var(--skin-action) !important; box-shadow: 0 0 0 1px var(--skin-action), var(--skin-shadow) !important; }
+body[data-dsh-skin="frosted-tide"] :where([class*="_composerStack"] [contenteditable="true"], [class*="_composerStack"] textarea) { font-family: var(--dsw-font-family); caret-color: var(--skin-focus); }
+body[data-dsh-skin="frosted-tide"] :where([class*="_composerStack"] button[class*="_add"]) { background: var(--skin-layer) !important; border: 1px solid var(--skin-line) !important; }
+body[data-dsh-skin="frosted-tide"] :where([class*="_composerStack"] button[class*="_primary"]) { width: 38px; height: 38px; border: 1px solid var(--skin-action) !important; border-radius: var(--skin-radius) !important; background: var(--skin-action) !important; color: var(--skin-on-action) !important; }
+body[data-dsh-skin="frosted-tide"] :where([class*="_composerStack"] button[class*="_primary"]:disabled) { background: var(--skin-layer) !important; border-color: var(--skin-line) !important; color: var(--skin-muted) !important; opacity: .65; box-shadow: none !important; }
+body[data-dsh-skin="frosted-tide"] :where([role="dialog"]) { border: 1px solid var(--skin-line); border-radius: var(--skin-card-radius) !important; background: var(--skin-surface) !important; box-shadow: var(--skin-shadow); }
+body[data-dsh-skin="frosted-tide"] :where([role="menu"], [role="listbox"]) { border: 1px solid var(--skin-line); background: var(--skin-surface); border-radius: var(--skin-radius); }
+body[data-dsh-skin="frosted-tide"] :where(pre) { border: 1px solid var(--skin-line); border-radius: var(--skin-radius); background: var(--skin-surface) !important; }
+body[data-dsh-skin="frosted-tide"] :where(blockquote) { border-left: 2px solid var(--skin-action); }
+body[data-dsh-skin="frosted-tide"] ::selection { background: var(--skin-action); color: var(--skin-on-action); }
+@media (hover: hover) {
+  body[data-dsh-skin="frosted-tide"] :where([class*="_sidebarCol"] button[class*="_newSession"]:hover) { background: var(--skin-bg) !important; border-color: var(--skin-action) !important; }
+  body[data-dsh-skin="frosted-tide"] :where([class*="_composerStack"] button[class*="_primary"]:not(:disabled):hover) { filter: brightness(1.08); }
+}
+
+/* Signature details: glassmorphism */
+body[data-dsh-skin="frosted-tide"] [class*="_sidebarCol"] { background: linear-gradient(155deg, #667eea25, #171a3de0 55%, #4ecdc415) !important; }
+body[data-dsh-skin="frosted-tide"] [class*="_composerStack"] [class$="_card"] { background: linear-gradient(120deg, #667eea26, #1d2342dd 65%, #4ecdc41a) !important; border-color: #ffffff38 !important; -webkit-backdrop-filter: blur(20px) saturate(150%); backdrop-filter: blur(20px) saturate(150%); box-shadow: inset 0 1px 0 #ffffff1f, 0 16px 40px #04071c66 !important; }
+body[data-dsh-skin="frosted-tide"] [class*="_sidebarCol"] button[class*="_newSession"] { background: #ffffff12 !important; border-color: #ffffff38 !important; }
+body[data-dsh-skin="frosted-tide"] [role="dialog"] { background: #1D2342 !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  body[data-dsh-skin="frosted-tide"] *, body[data-dsh-skin="frosted-tide"] *::before, body[data-dsh-skin="frosted-tide"] *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* Preserve switch affordance and align selection geometry with the skin. */
+body[data-dsh-skin="frosted-tide"] :where(button[role="switch"]) { border-radius: 999px !important; }
+body[data-dsh-skin="frosted-tide"] :where([class*="_sidebarCol"] [role="treeitem"]) { border-radius: var(--skin-radius); }
+
+/* Focus must remain visible above every signature surface rule. */
+body[data-dsh-skin="frosted-tide"] [class*="_composerStack"] :is([class$="_card"], [class*="_card "]):focus-within {
+  border-color: var(--skin-focus) !important;
+  box-shadow: 0 0 0 1px var(--skin-focus), var(--skin-shadow) !important;
+}

@@ -1,0 +1,52 @@
+{
+  "slug": "alpine-light",
+  "packageName": "dsh-skin-alpine-light",
+  "order": 3,
+  "name": "Alpine Light",
+  "nameZh": "雪岭",
+  "tagline": "Room to think.",
+  "description": "System minimalism: porcelain surfaces, quiet separators and soft continuous corners.",
+  "author": {
+    "name": "DSH Skin",
+    "url": "https://github.com/ai-graveyard/dsh-skin"
+  },
+  "version": "0.3.1",
+  "status": "Available",
+  "license": "MIT",
+  "compatibility": "DeepSeek Harness Desktop 0.2.0-rc.2",
+  "verifiedAt": "2026-10-04",
+  "verifiedStates": [
+    "Bundle lifecycle",
+    "Text and focus contrast",
+    "Package validation",
+    "Installed runtime matches source",
+    "Native desktop composer and focus",
+    "Native General settings and appearance modes",
+    "Native dropdown",
+    "Native rich conversation and half-screen layout",
+    "Native cold launch",
+    "Native plugin details and reactivation"
+  ],
+  "style": [
+    "apple",
+    "Light"
+  ],
+  "colors": [
+    "#FFFFFF",
+    "#1D1D1F",
+    "#0071E3"
+  ],
+  "preview": {
+    "label": "ALPINE LIGHT",
+    "surface": "#FFFFFF",
+    "layer": "#F5F5F7",
+    "line": "#D2D2D7",
+    "muted": "#6E6E73",
+    "radius": 10,
+    "cardRadius": 24,
+    "onAccent": "#FFFFFF"
+  },
+  "official": true,
+  "featured": false,
+  "designPattern": "apple"
+}

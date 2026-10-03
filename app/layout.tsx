@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: "%s — DSH Skin",
   },
   description:
-    "Discover and install independent, community-made skins for the DeepSeek Harness Web UI.",
+    "Discover and install independent, community-made skins for the DeepSeek Harness Desktop.",
   keywords: ["DeepSeek Harness", "DSH", "themes", "skins", "open source"],
   alternates: {
     canonical: toAbsoluteUrl("/"),
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "DSH Skin",
-    description: "Independent, installable skins for the DeepSeek Harness Web UI.",
+    description: "Independent, installable skins for the DeepSeek Harness Desktop.",
   },
 };
 
@@ -34,7 +34,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     "@type": "CollectionPage",
     name: "DSH Skin",
     url: siteOrigin,
-    description: "Independent, community-made skins for the DeepSeek Harness Web UI.",
+    description: "Independent, community-made skins for the DeepSeek Harness Desktop.",
     isAccessibleForFree: true,
   };
 

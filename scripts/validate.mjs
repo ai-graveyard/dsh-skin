@@ -17,6 +17,10 @@ const requiredFiles = [
   'preview.html',
   'skin.css',
   'skin.json',
+  'tokens.json',
+  'icon.svg',
+  'locale/en.json',
+  'locale/zh.json',
 ]
 
 const directories = await getSkinDirectories(skinsRoot)
@@ -52,6 +56,19 @@ for (const directory of directories) {
   assert.equal(pkg.dsh.client.platform, 'web')
   assert.equal(pkg.exports['./client'], './client.js')
   assert.equal(pkg.scripts.prepack, 'node build.mjs --check')
+  assert.equal(pkg.exports['./locale/*'], './locale/*')
+  assert.equal(pkg.icon, './icon.svg')
+  assert.ok(pkg.files.includes('tokens.json') && pkg.files.includes('locale') && pkg.files.includes('icon.svg'))
+  const english = JSON.parse(await read('locale/en.json'))
+  const chinese = JSON.parse(await read('locale/zh.json'))
+  assert.equal(english.meta.title, listing.name)
+  assert.ok(chinese.meta.title.includes(listing.nameZh))
+  assert.ok(chinese.meta.description.length > 5)
+  const icon = await read('icon.svg')
+  assert.match(icon, /<svg/)
+  assert.doesNotMatch(icon, /<script|(?:href|src)=/i)
+  assert.ok(Buffer.byteLength(icon) < 262144)
+
   assert.ok(pkg.repository?.url, `${directoryName}: repository URL is required`)
   assert.ok(pkg.homepage, `${directoryName}: homepage is required`)
   assert.ok(pkg.bugs?.url, `${directoryName}: bugs URL is required`)

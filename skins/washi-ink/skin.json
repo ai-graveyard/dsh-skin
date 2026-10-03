@@ -1,0 +1,51 @@
+{
+  "slug": "washi-ink",
+  "packageName": "dsh-skin-washi-ink",
+  "order": 7,
+  "name": "Washi Ink",
+  "nameZh": "和纸墨",
+  "tagline": "Space for the essential.",
+  "description": "Washi cream, fine ink rules and a vermilion seal, with restrained serif headings.",
+  "author": {
+    "name": "DSH Skin",
+    "url": "https://github.com/ai-graveyard/dsh-skin"
+  },
+  "version": "0.3.1",
+  "status": "Available",
+  "license": "MIT",
+  "compatibility": "DeepSeek Harness Desktop 0.2.0-rc.2",
+  "verifiedAt": "2026-10-04",
+  "verifiedStates": [
+    "Bundle lifecycle",
+    "Text and focus contrast",
+    "Package validation",
+    "Installed runtime matches source",
+    "Native desktop composer and focus",
+    "Native General settings and appearance modes",
+    "Native dropdown",
+    "Native rich conversation and half-screen layout",
+    "Native plugin details and reactivation"
+  ],
+  "style": [
+    "japanese",
+    "Light"
+  ],
+  "colors": [
+    "#F6F2E6",
+    "#2F3B38",
+    "#A63A2B"
+  ],
+  "preview": {
+    "label": "WASHI INK",
+    "surface": "#FBF8F0",
+    "layer": "#EFE9D8",
+    "line": "#C4B69B",
+    "muted": "#6B6658",
+    "radius": 2,
+    "cardRadius": 2,
+    "onAccent": "#FFFFFF"
+  },
+  "official": true,
+  "featured": false,
+  "designPattern": "japanese"
+}

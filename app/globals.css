@@ -748,3 +748,23 @@ button, a { -webkit-tap-highlight-color: transparent; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
 }
+
+/* The catalogue preserves each desktop skin's control geometry. */
+.skin-preview .preview-new, .skin-preview .preview-model, .skin-preview .preview-heading > span { border-radius: var(--preview-radius); }
+.skin-preview .preview-composer { border-radius: var(--preview-card-radius); color: var(--preview-muted); }
+.skin-preview .preview-send { border-radius: var(--preview-radius); color: var(--preview-on-accent); }
+.skin-preview :is(.preview-rail > p, .preview-heading p, .preview-topbar small, .preview-message b, .preview-active) { color: var(--preview-muted); }
+.skin-preview-alpine-light .preview-new { background: var(--preview-surface); color: var(--preview-ink); border: 1px solid var(--preview-line); }
+.skin-preview-alpine-light .preview-send, .skin-preview-material-orchid .preview-send, .skin-preview-braun-control .preview-send { border-radius: 50%; }
+.skin-preview-material-orchid .preview-new { background: #EADDFF; color: #21005D; }
+.skin-preview-material-orchid .preview-composer { box-shadow: 0 2px 6px #00000015; }
+.skin-preview-nordic-linen .preview-new { background: #506345; color: #FFFFFF; }
+.skin-preview-washi-ink .preview-new { background: transparent; border: 1px solid #A63A2B; color: #A63A2B; }
+:is(.skin-preview-washi-ink, .skin-preview-nordic-linen, .skin-preview-editorial-paper) .preview-heading h3 { font-family: Georgia, "Songti SC", serif; font-weight: 400; }
+.skin-preview-editorial-paper .preview-brand { border-bottom: 3px double var(--preview-ink); }
+.skin-preview-swiss-grid .preview-composer { border-top: 3px solid #000000; }
+.skin-preview-studio-block .preview-new { background: #FF8FD4; color: #000000; border: 2px solid #000000; box-shadow: 3px 3px 0 #000000; }
+.skin-preview-studio-block .preview-composer { border: 2px solid #000000; box-shadow: 4px 4px 0 #000000; }
+.skin-preview-frosted-tide .preview-rail { background: linear-gradient(155deg,#667eea25,#171a3de0 55%,#4ecdc415); }
+.skin-preview-frosted-tide .preview-new { background: #ffffff12; color: #F4F5FF; border: 1px solid #ffffff38; }
+.skin-preview-frosted-tide .preview-composer { background: linear-gradient(120deg,#667eea26,#1d2342dd 65%,#4ecdc41a); border-color: #ffffff38; box-shadow: inset 0 1px 0 #ffffff1f; }

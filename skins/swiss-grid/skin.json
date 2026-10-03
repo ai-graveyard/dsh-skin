@@ -1,0 +1,51 @@
+{
+  "slug": "swiss-grid",
+  "packageName": "dsh-skin-swiss-grid",
+  "order": 5,
+  "name": "Swiss Grid",
+  "nameZh": "瑞士网格",
+  "tagline": "Clarity, set in type.",
+  "description": "International typography: square controls, black rules and a precise red accent.",
+  "author": {
+    "name": "DSH Skin",
+    "url": "https://github.com/ai-graveyard/dsh-skin"
+  },
+  "version": "0.3.1",
+  "status": "Available",
+  "license": "MIT",
+  "compatibility": "DeepSeek Harness Desktop 0.2.0-rc.2",
+  "verifiedAt": "2026-10-04",
+  "verifiedStates": [
+    "Bundle lifecycle",
+    "Text and focus contrast",
+    "Package validation",
+    "Installed runtime matches source",
+    "Native desktop composer and focus",
+    "Native General settings and appearance modes",
+    "Native dropdown",
+    "Native rich conversation and half-screen layout",
+    "Native plugin details and reactivation"
+  ],
+  "style": [
+    "swiss",
+    "Light"
+  ],
+  "colors": [
+    "#FFFFFF",
+    "#000000",
+    "#FF0000"
+  ],
+  "preview": {
+    "label": "SWISS GRID",
+    "surface": "#FFFFFF",
+    "layer": "#F4F4F4",
+    "line": "#B8B8B8",
+    "muted": "#595959",
+    "radius": 0,
+    "cardRadius": 0,
+    "onAccent": "#FFFFFF"
+  },
+  "official": true,
+  "featured": false,
+  "designPattern": "swiss"
+}

@@ -1,0 +1,69 @@
+/* Washi Ink · 和纸墨. Fixed palette; all rules scoped to the active plugin. */
+body[data-dsh-skin="washi-ink"] {
+  --paper: #f6f2e6;
+  --paper-deep: #efe9d8;
+  --ink: #2f3b38;
+  --ink-soft: #6f6a5b;
+  --clay: #8b7355;
+  --sand: #c4a77d;
+  --gold: #b08d3f;
+  --seal: #a63a2b;
+  --hair: rgba(139,115,85,.35);
+  --serif: Georgia,"Palatino Linotype","Songti SC",serif;
+  --sans: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"PingFang SC","Microsoft YaHei",sans-serif;
+  --skin-bg: #F6F2E6; --skin-ink: #2F3B38; --skin-accent: #A63A2B;
+  --skin-surface: #FBF8F0; --skin-layer: #EFE9D8; --skin-line: #C4B69B;
+  --skin-muted: #6B6658; --skin-action: #A63A2B; --skin-on-action: #FFFFFF;
+  --skin-focus: #A63A2B;
+  --skin-radius: 2px; --skin-card-radius: 2px; --skin-shadow: 0 4px 16px #a63a2b08;
+  --dsw-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  color-scheme: light;
+  background: var(--skin-bg); color: var(--skin-ink); font-family: var(--dsw-font-family);
+}
+body[data-dsh-skin="washi-ink"] :where(button, input, textarea, select, [role="button"], [role="tab"]) { font-family: inherit; border-radius: var(--skin-radius); }
+body[data-dsh-skin="washi-ink"] :where(code, pre, kbd, samp) { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+body[data-dsh-skin="washi-ink"] :where(button, a, input, textarea, select, [role="button"], [role="tab"], [contenteditable="true"]):focus-visible { outline: 2px solid var(--skin-focus) !important; outline-offset: 3px; }
+body[data-dsh-skin="washi-ink"] :where(button[type="submit"]:not(:disabled)) { background: var(--skin-action) !important; color: var(--skin-on-action) !important; }
+body[data-dsh-skin="washi-ink"] :where([class*="_sidebarCol"]) { background: var(--skin-layer) !important; border-right: 1px solid var(--skin-line); }
+body[data-dsh-skin="washi-ink"] :where([class*="_sidebarCol"] button[class*="_brand"]) { min-height: 48px; border-bottom: 1px solid var(--skin-line); }
+body[data-dsh-skin="washi-ink"] :where([class*="_sidebarCol"] button[class*="_newSession"]) { min-height: 40px; border: 1px solid var(--skin-line) !important; border-radius: var(--skin-radius) !important; background: var(--skin-surface) !important; color: var(--skin-ink) !important; font-weight: 600; }
+body[data-dsh-skin="washi-ink"] :where([class*="_sidebarCol"] [class*="_sectionHeader"]) { color: var(--skin-muted) !important; font-size: 11px; letter-spacing: .04em; }
+body[data-dsh-skin="washi-ink"] :where([class*="_sidebarCol"] [role="treeitem"][aria-selected="true"]) { box-shadow: inset 3px 0 var(--skin-action); color: var(--skin-ink) !important; }
+body[data-dsh-skin="washi-ink"] :where([class*="_heroGlow"]) { display: none !important; }
+body[data-dsh-skin="washi-ink"] :where([class*="_composerStack"] [class*="_root"][class*="_hero"]) { border: 0 !important; background: transparent !important; box-shadow: none !important; }
+body[data-dsh-skin="washi-ink"] :where([class*="_composerStack"] [class$="_card"], [class*="_composerStack"] [class*="_card "]) { border: 1px solid var(--skin-line) !important; border-radius: var(--skin-card-radius) !important; background: var(--skin-surface) !important; box-shadow: var(--skin-shadow) !important; }
+body[data-dsh-skin="washi-ink"] :where([class*="_composerStack"] [class$="_card"], [class*="_composerStack"] [class*="_card "]):focus-within { border-color: var(--skin-action) !important; box-shadow: 0 0 0 1px var(--skin-action), var(--skin-shadow) !important; }
+body[data-dsh-skin="washi-ink"] :where([class*="_composerStack"] [contenteditable="true"], [class*="_composerStack"] textarea) { font-family: var(--dsw-font-family); caret-color: var(--skin-focus); }
+body[data-dsh-skin="washi-ink"] :where([class*="_composerStack"] button[class*="_add"]) { background: var(--skin-layer) !important; border: 1px solid var(--skin-line) !important; }
+body[data-dsh-skin="washi-ink"] :where([class*="_composerStack"] button[class*="_primary"]) { width: 38px; height: 38px; border: 1px solid var(--skin-action) !important; border-radius: var(--skin-radius) !important; background: var(--skin-action) !important; color: var(--skin-on-action) !important; }
+body[data-dsh-skin="washi-ink"] :where([class*="_composerStack"] button[class*="_primary"]:disabled) { background: var(--skin-layer) !important; border-color: var(--skin-line) !important; color: var(--skin-muted) !important; opacity: .65; box-shadow: none !important; }
+body[data-dsh-skin="washi-ink"] :where([role="dialog"]) { border: 1px solid var(--skin-line); border-radius: var(--skin-card-radius) !important; background: var(--skin-surface) !important; box-shadow: var(--skin-shadow); }
+body[data-dsh-skin="washi-ink"] :where([role="menu"], [role="listbox"]) { border: 1px solid var(--skin-line); background: var(--skin-surface); border-radius: var(--skin-radius); }
+body[data-dsh-skin="washi-ink"] :where(pre) { border: 1px solid var(--skin-line); border-radius: var(--skin-radius); background: var(--skin-surface) !important; }
+body[data-dsh-skin="washi-ink"] :where(blockquote) { border-left: 2px solid var(--skin-action); }
+body[data-dsh-skin="washi-ink"] ::selection { background: var(--skin-action); color: var(--skin-on-action); }
+@media (hover: hover) {
+  body[data-dsh-skin="washi-ink"] :where([class*="_sidebarCol"] button[class*="_newSession"]:hover) { background: var(--skin-bg) !important; border-color: var(--skin-action) !important; }
+  body[data-dsh-skin="washi-ink"] :where([class*="_composerStack"] button[class*="_primary"]:not(:disabled):hover) { filter: brightness(.92); }
+}
+
+/* Signature details: japanese */
+body[data-dsh-skin="washi-ink"] [class*="_sidebarCol"] button[class*="_newSession"] { border-color: #A63A2B !important; color: #A63A2B !important; background: transparent !important; }
+body[data-dsh-skin="washi-ink"] :where(h1,h2,h3) { font-family: var(--serif); font-weight: 400; letter-spacing: .02em; }
+body[data-dsh-skin="washi-ink"] [class*="_sectionHeader"] { letter-spacing: .08em; }
+body[data-dsh-skin="washi-ink"] [class*="_composerStack"] button[class*="_primary"] { border-radius: 2px !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  body[data-dsh-skin="washi-ink"] *, body[data-dsh-skin="washi-ink"] *::before, body[data-dsh-skin="washi-ink"] *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* Preserve switch affordance and align selection geometry with the skin. */
+body[data-dsh-skin="washi-ink"] :where(button[role="switch"]) { border-radius: 999px !important; }
+body[data-dsh-skin="washi-ink"] :where([class*="_sidebarCol"] [role="treeitem"]) { border-radius: var(--skin-radius); }
+
+/* Focus must remain visible above every signature surface rule. */
+body[data-dsh-skin="washi-ink"] [class*="_composerStack"] :is([class$="_card"], [class*="_card "]):focus-within {
+  border-color: var(--skin-focus) !important;
+  box-shadow: 0 0 0 1px var(--skin-focus), var(--skin-shadow) !important;
+}
+body[data-dsh-skin="washi-ink"] [class*="_composerStack"] [class*="_titleGroup"] > span:first-child { font-family: var(--serif); font-weight: 500; letter-spacing: .01em; }
