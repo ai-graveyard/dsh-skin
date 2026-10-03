@@ -9,13 +9,30 @@ This package is an unofficial Braun-inspired skin for the DeepSeek Harness Web U
 ## 设计边界
 
 - 使用 8px 基础网格和暖灰背景：`#F7F7F7`、`#EFEFEF`、`#ECECEC`。
-- 正文使用系统无衬线字体，技术标签、按钮和代码使用系统等宽字体。
+- 正文使用系统无衬线字体，技术标签和代码使用系统等宽字体，按钮使用系统无衬线字体。
 - 常规控件使用低圆角；发送键保留圆形功能拨盘。
 - `#E8500A` 只用于发送、焦点和功能状态标记。
 - 错误、成功和警告保留 Harness 的语义色。
 - 不加载远程脚本、字体、图片或遥测。
 
-## 安装
+## 桌面客户端安装
+
+适用于官方 DeepSeek Harness Desktop。先启动一次客户端完成初始化，再从应用菜单完全退出。使用客户端菜单「管理 dsh 命令…」安装命令后，在仓库根目录执行：
+
+```bash
+npm pack ./skins/braun-control
+dsh plugin --profile desktop add ./dsh-skin-braun-control-0.2.0.tgz
+```
+
+macOS 未注册命令时，也可使用客户端内置路径：
+
+```bash
+"/Applications/DeepSeek Harness.app/Contents/Resources/runtime/cli/bin/dsh" plugin --profile desktop add ./dsh-skin-braun-control-0.2.0.tgz
+```
+
+重新打开客户端，在「插件 → 已安装」中切换皮肤开关。推荐同时只启用一款；全部停用即可恢复原生外观。皮肤使用固定配色，DSH 的浅色／深色选项不会改变皮肤自身配色。客户端插件必须使用 `desktop` profile 和客户端自带的命令，不能使用 npm 安装的 `npx @deepseek-ai/dsh` 修改桌面 profile。
+
+## Web 安装
 
 需要 Node.js `^22.19.0 || >=24.0.0`。在仓库根目录运行：
 
@@ -29,12 +46,20 @@ npx @deepseek-ai/dsh web
 
 ```bash
 npm pack ./skins/braun-control
-npx @deepseek-ai/dsh plugin --profile web add ./dsh-skin-braun-control-0.1.1.tgz
+npx @deepseek-ai/dsh plugin --profile web add ./dsh-skin-braun-control-0.2.0.tgz
 ```
 
-`--dump-config` 输出中应出现 `dsh-skin-braun-control`。页面会显示 `BRAUN CONTROL / ACTIVE` 标签、黑色新会话按钮和焦橙发送键。
+`--dump-config` 输出中应出现 `dsh-skin-braun-control`。页面会显示黑色新会话按钮和焦橙发送键。
 
 ## 卸载
+
+桌面端：完全退出客户端后，使用客户端自带命令执行：
+
+```bash
+dsh plugin --profile desktop remove dsh-skin-braun-control
+```
+
+Web 端：
 
 ```bash
 npx @deepseek-ai/dsh plugin --profile web remove dsh-skin-braun-control
@@ -64,3 +89,14 @@ Version `0.1.1` has been tested locally with `@deepseek-ai/dsh 0.1.0-rc.6`. Harn
 ## License
 
 MIT. DeepSeek, Harness, Braun, Dieter Rams, and related marks belong to their respective owners.
+
+## 0.2.0 更新
+
+- 适配桌面富文本输入框和插件启停；优化字体、焦点、菜单、设置页与禁用按钮。
+- 移除输入框上方的 ACTIVE 浮动标签和发送按钮位移动画。
+- 代码高亮跟随皮肤配色，避免系统深浅模式造成低对比度。
+- 限定 CSS 变量作用域，支持多皮肤按不同顺序停用后正确恢复。
+
+## 桌面验证
+
+`0.2.0` 已在 macOS 官方客户端 `0.2.0-rc.2` 检查启动、空会话、现有会话、富文本输入、发送按钮启用／禁用、代码高亮、通用设置与插件启停。未发送模型请求。旧版 Web 截图仅为历史展示；本轮未重新验证 Web 和 390px 窄屏。

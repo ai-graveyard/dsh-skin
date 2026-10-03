@@ -1,7 +1,7 @@
 {
   "name": "dsh-skin-night-signal",
-  "version": "0.1.0",
-  "description": "A focused, high-contrast dark skin for DeepSeek Harness Web UI",
+  "version": "0.2.0",
+  "description": "A focused, high-contrast dark skin for DeepSeek Harness Desktop and Web UI",
   "type": "module",
   "main": "index.js",
   "exports": {

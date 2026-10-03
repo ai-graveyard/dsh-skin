@@ -9,16 +9,31 @@
     "name": "Ailln",
     "url": "https://github.com/ailln"
   },
-  "version": "0.1.1",
+  "version": "0.2.0",
   "status": "Available",
   "license": "MIT",
-  "compatibility": "@deepseek-ai/dsh 0.1.0-rc.6",
-  "verifiedAt": "2026-08-15",
-  "verifiedStates": ["Empty session", "Existing conversation", "Settings", "Reload"],
-  "style": ["Industrial", "Warm grey", "Low radius"],
-  "colors": ["#F7F7F7", "#1A1A1A", "#E8500A"],
+  "compatibility": "DeepSeek Harness Desktop 0.2.0-rc.2",
+  "verifiedAt": "2026-10-03",
+  "verifiedStates": [
+    "Desktop launch",
+    "Empty session",
+    "Existing conversation",
+    "Rich-text composer",
+    "Settings",
+    "Plugin toggle"
+  ],
+  "style": [
+    "Industrial",
+    "Warm grey",
+    "Low radius"
+  ],
+  "colors": [
+    "#F7F7F7",
+    "#1A1A1A",
+    "#E8500A"
+  ],
   "preview": {
-    "label": "BRAUN CONTROL / ACTIVE",
+    "label": "BRAUN CONTROL",
     "surface": "#FFFFFF",
     "layer": "#EFEFEF",
     "line": "#C9C9C9",

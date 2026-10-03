@@ -6,12 +6,13 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { SkinPreview } from "@/components/skin-preview";
 import { getSkin, getSkins } from "@/lib/skins";
+import { repositoryUrl, skinsTreeUrl, toAbsoluteUrl } from "@/lib/site";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
-const repository = "https://github.com/ai-graveyard/dsh-skin";
+const cloneCommandPrefix = `git clone --depth 1 ${repositoryUrl}`;
 
 export const dynamicParams = false;
 
@@ -27,12 +28,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: skin.name,
     description: skin.description,
     alternates: {
-      canonical: `/skins/${skin.slug}`,
+      canonical: toAbsoluteUrl(`/skins/${skin.slug}`),
     },
     openGraph: {
       title: skin.name,
       description: skin.description,
-      url: `/skins/${skin.slug}`,
+      url: toAbsoluteUrl(`/skins/${skin.slug}`),
       type: "website",
     },
   };
@@ -42,7 +43,7 @@ export default async function SkinPage({ params }: PageProps) {
   const skin = await getSkin((await params).slug);
   if (!skin) notFound();
 
-  const cloneCommand = "git clone --depth 1 https://github.com/ai-graveyard/dsh-skin.git";
+  const cloneCommand = `${cloneCommandPrefix}.git`;
   const localCommand = `cd dsh-skin && npx @deepseek-ai/dsh plugin --profile web add ./skins/${skin.slug}`;
   const verifyCommand = "npx @deepseek-ai/dsh --profile web --dump-config";
   const removeCommand = `npx @deepseek-ai/dsh plugin --profile web remove ${skin.packageName}`;
@@ -92,9 +93,16 @@ export default async function SkinPage({ params }: PageProps) {
               </div>
 
               <div className="desktop-shot-grid">
-                {desktopScreenshots.map((screenshot) => (
+                {desktopScreenshots.map((screenshot, index) => (
                   <figure className="real-ui-shot" key={screenshot.src}>
-                    <img src={screenshot.src} alt={screenshot.alt} width={screenshot.width} height={screenshot.height} />
+                    <img
+                      src={screenshot.src}
+                      alt={screenshot.alt}
+                      width={screenshot.width}
+                      height={screenshot.height}
+                      loading={index === 0 ? "eager" : "lazy"}
+                      decoding="async"
+                    />
                     <figcaption>{screenshot.label}</figcaption>
                   </figure>
                 ))}
@@ -110,9 +118,16 @@ export default async function SkinPage({ params }: PageProps) {
                       column, and the dialog keeps its content inside the viewport.
                     </p>
                   </div>
-                  {mobileScreenshots.map((screenshot) => (
+                  {mobileScreenshots.map((screenshot, index) => (
                     <figure className="real-ui-shot real-ui-shot-mobile" key={screenshot.src}>
-                      <img src={screenshot.src} alt={screenshot.alt} width={screenshot.width} height={screenshot.height} />
+                      <img
+                        src={screenshot.src}
+                        alt={screenshot.alt}
+                        width={screenshot.width}
+                        height={screenshot.height}
+                        loading={index === 0 ? "eager" : "lazy"}
+                        decoding="async"
+                      />
                       <figcaption>{screenshot.label}</figcaption>
                     </figure>
                   ))}
@@ -138,7 +153,7 @@ export default async function SkinPage({ params }: PageProps) {
               <CopyCommand command={verifyCommand} />
               <p className="command-label">REMOVE CLEANLY</p>
               <CopyCommand command={removeCommand} />
-              <a className="button button-dark" href={`${repository}/tree/main/skins/${skin.slug}`}>
+              <a className="button button-dark" href={`${skinsTreeUrl}/${skin.slug}`}>
                 View package on GitHub <span aria-hidden="true">↗</span>
               </a>
             </div>

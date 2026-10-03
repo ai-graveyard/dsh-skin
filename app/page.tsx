@@ -3,6 +3,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { SkinPreview } from "@/components/skin-preview";
 import { getSkins } from "@/lib/skins";
+import { contributingUrl } from "@/lib/site";
 
 export default async function Home() {
   const skins = await getSkins();
@@ -100,7 +101,7 @@ export default async function Home() {
                   ))}
                   <a
                     className="skin-index-card skin-index-placeholder"
-                    href="https://github.com/ai-graveyard/dsh-skin/blob/main/CONTRIBUTING.md"
+                    href={contributingUrl}
                   >
                     <span className="slot-number">{String(skins.length + 1).padStart(2, "0")}</span>
                     <div>
@@ -119,7 +120,7 @@ export default async function Home() {
         <section className="submit-strip">
           <p>03 / SUBMISSIONS</p>
           <h2>Made something useful?</h2>
-          <a href="https://github.com/ai-graveyard/dsh-skin/blob/main/CONTRIBUTING.md">
+          <a href={contributingUrl}>
             Add it to the archive <span aria-hidden="true">↗</span>
           </a>
         </section>

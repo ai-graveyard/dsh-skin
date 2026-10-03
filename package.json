@@ -10,7 +10,7 @@
     "dev": "next dev",
     "build": "pnpm run build:skins && next build",
     "build:skins": "node scripts/run-skins.mjs build",
-    "check": "node scripts/run-skins.mjs check && node scripts/validate.mjs && tsc --noEmit",
+    "check": "node scripts/run-skins.mjs check && node scripts/validate.mjs && node scripts/check-skin-layers.mjs && tsc --noEmit",
     "pack:skins": "node scripts/run-skins.mjs pack",
     "release:assets": "node scripts/package-release.mjs"
   },

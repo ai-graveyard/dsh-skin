@@ -1,9 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function CopyCommand({ command }: { command: string }) {
   const [status, setStatus] = useState<"idle" | "copied" | "failed">("idle");
+  const timeoutRef = useRef<NodeJS.Timeout | number | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current !== null) clearTimeout(timeoutRef.current);
+    };
+  }, []);
 
   async function copy() {
     try {
@@ -12,7 +19,9 @@ export function CopyCommand({ command }: { command: string }) {
     } catch {
       setStatus("failed");
     }
-    window.setTimeout(() => setStatus("idle"), 1600);
+
+    if (timeoutRef.current !== null) clearTimeout(timeoutRef.current);
+    timeoutRef.current = window.setTimeout(() => setStatus("idle"), 1600);
   }
 
   return (

@@ -1,8 +1,9 @@
 import { createHash } from 'node:crypto'
 import { spawn } from 'node:child_process'
-import { mkdir, readFile, readdir, rm, stat, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, rm, stat, writeFile } from 'node:fs/promises'
 import { join, resolve, sep } from 'node:path'
 import { tmpdir } from 'node:os'
+import { getSkinDirectories } from './discover-skins.mjs'
 
 const root = resolve(import.meta.dirname, '..')
 const skinsRoot = join(root, 'skins')
@@ -34,11 +35,11 @@ function run(command, args, options = {}) {
 await rm(releaseRoot, { recursive: true, force: true })
 await mkdir(releaseRoot, { recursive: true })
 
-const entries = await readdir(skinsRoot, { withFileTypes: true })
-const skinDirectories = entries
-  .filter((entry) => entry.isDirectory())
-  .map((entry) => join(skinsRoot, entry.name))
-  .sort()
+const skinDirectories = await getSkinDirectories(skinsRoot)
+if (skinDirectories.length === 0) {
+  console.error("No skin directories found.")
+  process.exit(1)
+}
 
 const artifacts = []
 

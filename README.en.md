@@ -10,12 +10,23 @@ DSH Skin is a collection of independent visual skins for the DeepSeek Harness We
 
 | Skin | Style | Version | Status |
 | --- | --- | --- | --- |
-| [Braun Control](./skins/braun-control) | Warm gray grid, restrained corners, one functional orange accent | `0.1.1` | Installable |
-| [Night Signal](./skins/night-signal) | Near-black layers, compact geometry, one mint signal color | `0.1.0` | Installable |
+| [Braun Control](./skins/braun-control) | Warm gray grid, restrained corners, one functional orange accent | `0.2.0` | Installable |
+| [Night Signal](./skins/night-signal) | Near-black layers, compact geometry, one mint signal color | `0.2.0` | Installable |
 
-Braun Control and Night Signal have both been visually tested locally with `@deepseek-ai/dsh 0.1.0-rc.6`. Night Signal covers the empty screen, a workspace session, settings, reload, and a 390px viewport without using an API key or model request. DeepSeek Harness is a Developer Preview, so later releases may change its plugin API or CSS module structure.
+Earlier versions of Braun Control and Night Signal were visually tested locally with `@deepseek-ai/dsh 0.1.0-rc.6`. Night Signal covers the empty screen, a workspace session, settings, reload, and a 390px viewport without using an API key or model request. DeepSeek Harness is a Developer Preview, so later releases may change its plugin API or CSS module structure.
 
-## Install
+## Desktop installation
+
+Open the official Desktop client once, then fully quit it. Register its bundled CLI through **Manage dsh Command…** and run from this repository:
+
+```bash
+npm pack ./skins/night-signal
+dsh plugin --profile desktop add ./dsh-skin-night-signal-0.2.0.tgz
+```
+
+Reopen Desktop and use **Plugins → Installed** to enable or disable skins. Keep one skin enabled at a time; disable both to restore the native appearance. Replace `night-signal` with `braun-control` for the light skin. Use Desktop's bundled CLI, not npm-installed dsh, to manage the reserved desktop profile. Each skin keeps its fixed palette regardless of the native appearance preference.
+
+## Web installation
 
 You need Node.js `^22.19.0 || >=24.0.0`. Download or clone this repository, then run these commands from its root:
 
@@ -29,10 +40,10 @@ The first command links the local skin directory into the DSH profile. Moving or
 
 ```bash
 npm pack ./skins/braun-control
-npx @deepseek-ai/dsh plugin --profile web add ./dsh-skin-braun-control-0.1.1.tgz
+npx @deepseek-ai/dsh plugin --profile web add ./dsh-skin-braun-control-0.2.0.tgz
 ```
 
-The loaded page shows a `BRAUN CONTROL / ACTIVE` label, a black new-session control, and an orange send button. Refresh an existing DSH tab after installation.
+The loaded page shows a black new-session control, and an orange send button. Refresh an existing DSH tab after installation.
 
 If `dsh` is already available on your PATH, replace `npx @deepseek-ai/dsh` with `dsh` in the commands above.
 
@@ -102,3 +113,7 @@ Read [CONTRIBUTING.md](./CONTRIBUTING.md) before sending a change. Report securi
 ## License
 
 The code is available under the [MIT License](./LICENSE). DeepSeek, Harness, Braun, Dieter Rams, and related marks belong to their respective owners.
+
+## Desktop verification (2026-10-03)
+
+Both 0.2.0 bundles were checked in the macOS official Desktop client 0.2.0-rc.2: launch, empty and existing conversations, rich-text input, send-button states, syntax highlighting, settings and plugin toggles. No model request was sent. Existing Web screenshots document the earlier releases; Web and 390px layouts were not reverified in this desktop pass.

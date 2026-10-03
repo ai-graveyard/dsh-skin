@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { toAbsoluteUrl, siteOrigin } from "@/lib/site";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://dshskin.com"),
+  metadataBase: new URL(siteOrigin),
   title: {
     default: "DSH Skin — Community skins for DeepSeek Harness",
     template: "%s — DSH Skin",
@@ -11,12 +12,12 @@ export const metadata: Metadata = {
     "Discover and install independent, community-made skins for the DeepSeek Harness Web UI.",
   keywords: ["DeepSeek Harness", "DSH", "themes", "skins", "open source"],
   alternates: {
-    canonical: "/",
+    canonical: toAbsoluteUrl("/"),
   },
   openGraph: {
     title: "DSH Skin",
     description: "A community collection of skins for DeepSeek Harness.",
-    url: "https://dshskin.com",
+    url: toAbsoluteUrl("/"),
     siteName: "DSH Skin",
     type: "website",
   },
@@ -32,7 +33,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "DSH Skin",
-    url: "https://dshskin.com",
+    url: siteOrigin,
     description: "Independent, community-made skins for the DeepSeek Harness Web UI.",
     isAccessibleForFree: true,
   };

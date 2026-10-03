@@ -1,7 +1,7 @@
-import { readdir } from 'node:fs/promises'
 import { spawn } from 'node:child_process'
 import { basename, join, resolve } from 'node:path'
 import { tmpdir } from 'node:os'
+import { getSkinDirectories } from './discover-skins.mjs'
 
 const root = resolve(import.meta.dirname, '..')
 const skinsRoot = join(root, 'skins')
@@ -12,11 +12,7 @@ if (!['build', 'check', 'pack'].includes(action)) {
   process.exit(1)
 }
 
-const entries = await readdir(skinsRoot, { withFileTypes: true })
-const skinDirectories = entries
-  .filter((entry) => entry.isDirectory())
-  .map((entry) => join(skinsRoot, entry.name))
-  .sort()
+const skinDirectories = await getSkinDirectories(skinsRoot)
 
 if (skinDirectories.length === 0) {
   console.error('No skin directories found.')

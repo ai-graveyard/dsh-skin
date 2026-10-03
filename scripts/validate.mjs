@@ -1,7 +1,8 @@
 import assert from 'node:assert/strict'
-import { access, readdir, readFile } from 'node:fs/promises'
-import { join, resolve } from 'node:path'
+import { access, readFile } from 'node:fs/promises'
+import { basename, join, resolve } from 'node:path'
 import vm from 'node:vm'
+import { getSkinDirectories } from './discover-skins.mjs'
 
 const root = resolve(import.meta.dirname, '..')
 const skinsRoot = join(root, 'skins')
@@ -18,8 +19,7 @@ const requiredFiles = [
   'skin.json',
 ]
 
-const entries = await readdir(skinsRoot, { withFileTypes: true })
-const directories = entries.filter((entry) => entry.isDirectory()).map((entry) => entry.name).sort()
+const directories = await getSkinDirectories(skinsRoot)
 const seenSlugs = new Set()
 const seenPackages = new Set()
 const seenOrders = new Set()
@@ -27,8 +27,8 @@ let featuredCount = 0
 
 assert.ok(directories.length > 0, 'At least one skin is required')
 
-for (const directoryName of directories) {
-  const directory = join(skinsRoot, directoryName)
+for (const directory of directories) {
+  const directoryName = basename(directory)
   const read = (file) => readFile(join(directory, file), 'utf8')
 
   for (const file of requiredFiles) {

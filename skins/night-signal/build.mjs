@@ -9,6 +9,29 @@ const directory = dirname(fileURLToPath(import.meta.url))
 const css = await readFile(join(directory, 'skin.css'), 'utf8')
 
 const tokenValues = {
+  '--shiki-token-constant': '#4DABF7',
+  '--shiki-token-string': '#69DB7C',
+  '--shiki-token-comment': '#ADB5BD',
+  '--shiki-token-keyword': '#FAA2C1',
+  '--shiki-token-parameter': '#FFA94D',
+  '--shiki-token-function': '#B197FC',
+  '--shiki-token-string-expression': '#8CE99A',
+  '--shiki-token-punctuation': '#CED4DA',
+  '--shiki-token-link': '#74C0FC',
+
+  '--dsw-alias-link': '#7BE9C4',
+  '--dsw-alias-state-business-primary': '#5EE1B3',
+  '--dsw-alias-state-business-tertiary': '#1B3B34',
+  '--dsw-alias-menu-icon': '#AEB8C4',
+  '--dsw-alias-menu-group-header-fill': '#10151C',
+  '--dsw-alias-settings-card-fill': '#141922',
+  '--dsw-alias-settings-card-stroke': '#293240',
+  '--dsw-alias-button-info-fill': '#5EE1B3',
+  '--dsw-alias-button-info-hover': '#7BE9C4',
+  '--dsw-alias-button-ghost-active-border': '#3A4657',
+  '--dsw-alias-button-ghost-active-fill': '#171E28',
+  '--dsw-alias-button-ghost-active-hover': '#222A36',
+
   '--dsw-alias-bg-base': '#0C0F14',
   '--dsw-alias-bg-layer-1': '#141922',
   '--dsw-alias-bg-layer-2': '#10151C',
@@ -94,21 +117,30 @@ const client = `window.__ModuleLoader__.load({
       );
       ctx.effect(() => {
         if (typeof document === 'undefined') return;
-        const previousSkin = document.body.dataset.dshSkin;
+        // A shared stack keeps the DOM marker aligned with token-layer order,
+        // including when an older skin is disabled before the newest one.
+        const key = Symbol.for('dsh-skin.active-layers.v1');
+        const state = document[key] || (document[key] = {
+          previous: document.body.dataset.dshSkin,
+          layers: [],
+        });
+        const layer = { id: SKIN_ID };
+        state.layers.push(layer);
         document.body.dataset.dshSkin = SKIN_ID;
-        let tag = document.querySelector('style[data-plugin-css=' + JSON.stringify(STYLE_ID) + ']');
-        const ownsTag = tag === null;
-        if (ownsTag) {
-          tag = document.createElement('style');
-          tag.dataset.plugin = PACKAGE_ID;
-          tag.dataset.pluginCss = STYLE_ID;
-          tag.textContent = CSS;
-          document.head.appendChild(tag);
-        }
+        const tag = document.createElement('style');
+        tag.dataset.plugin = PACKAGE_ID;
+        tag.dataset.pluginCss = STYLE_ID;
+        tag.textContent = CSS;
+        document.head.appendChild(tag);
         return () => {
-          if (ownsTag) tag.remove();
-          if (previousSkin === undefined) delete document.body.dataset.dshSkin;
-          else document.body.dataset.dshSkin = previousSkin;
+          tag.remove();
+          const index = state.layers.indexOf(layer);
+          if (index < 0) return;
+          state.layers.splice(index, 1);
+          const active = state.layers.at(-1)?.id ?? state.previous;
+          if (active === undefined) delete document.body.dataset.dshSkin;
+          else document.body.dataset.dshSkin = active;
+          if (state.layers.length === 0) delete document[key];
         };
       }, PACKAGE_ID + ': install structural CSS');
     }

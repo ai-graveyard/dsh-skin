@@ -18,7 +18,7 @@ body[data-dsh-skin="night-signal"] :where(button, input, textarea, select, [role
   border-radius: 6px !important;
 }
 
-body[data-dsh-skin="night-signal"] :where(button, [role="button"], [role="tab"], label, legend, dt, code, pre, kbd, samp) {
+body[data-dsh-skin="night-signal"] :where(code, pre, kbd, samp) {
   font-family: var(--night-mono);
 }
 
@@ -27,7 +27,7 @@ body[data-dsh-skin="night-signal"] :where(button, [role="button"], input, textar
   outline-offset: 2px;
 }
 
-body[data-dsh-skin="night-signal"] :where(button[type="submit"], form button:last-of-type:not([type="button"])) {
+body[data-dsh-skin="night-signal"] :where(button[type="submit"]:not(:disabled)) {
   border-color: var(--night-accent) !important;
   background: var(--night-accent) !important;
   color: var(--night-bg) !important;
@@ -57,9 +57,9 @@ body[data-dsh-skin="night-signal"] :where([class*="_sidebarCol"] button[class*="
   border: 1px solid var(--night-accent) !important;
   background: transparent !important;
   color: var(--night-accent) !important;
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 700;
-  letter-spacing: .08em;
+  letter-spacing: .02em;
   text-transform: uppercase;
 }
 
@@ -71,7 +71,7 @@ body[data-dsh-skin="night-signal"] :where([class*="_sidebarCol"] [class*="_secti
   border-top: 1px solid var(--night-line);
   color: var(--night-muted) !important;
   font-family: var(--night-mono);
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: .12em;
   text-transform: uppercase;
@@ -88,23 +88,8 @@ body[data-dsh-skin="night-signal"] :where([class*="_sidebarCol"] [role="treeitem
   color: var(--night-ink) !important;
 }
 
-body[data-dsh-skin="night-signal"] :where([class*="_composerSeat"]) {
-  background: none !important;
-}
-
 body[data-dsh-skin="night-signal"] :where([class*="_composerStack"]) {
   position: relative;
-}
-
-body[data-dsh-skin="night-signal"] :where([class*="_composerStack"])::before {
-  position: absolute;
-  top: -19px;
-  left: 0;
-  color: var(--night-accent);
-  content: "NIGHT SIGNAL / ACTIVE";
-  font: 700 8px/1 var(--night-mono);
-  letter-spacing: .15em;
-  pointer-events: none;
 }
 
 body[data-dsh-skin="night-signal"] :where([class*="_heroGlow"]) {
@@ -117,8 +102,9 @@ body[data-dsh-skin="night-signal"] :where([class*="_composerStack"] [class*="_ro
   box-shadow: none !important;
 }
 
-body[data-dsh-skin="night-signal"] :where([class*="_composerStack"] [class*="_card"]) {
+body[data-dsh-skin="night-signal"] :where([class*="_composerStack"] [class$="_card"], [class*="_composerStack"] [class*="_card "]) {
   border: 1px solid var(--night-line) !important;
+  border-radius: 12px !important;
   background: var(--night-surface) !important;
   box-shadow: 0 12px 32px rgba(0, 0, 0, .32) !important;
 }
@@ -137,9 +123,9 @@ body[data-dsh-skin="night-signal"] :where([class*="_composerStack"] button[class
   box-shadow: 0 0 0 4px rgba(94, 225, 179, .08) !important;
 }
 
-body[data-dsh-skin="night-signal"] :where([class*="_composerStack"] button[class*="_primary"]:hover) {
+body[data-dsh-skin="night-signal"] :where([class*="_composerStack"] button[class*="_primary"]:hover:not(:disabled)) {
   background: #7be9c4 !important;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
 body[data-dsh-skin="night-signal"] :where([class*="_detailsCol"] > [class*="_root"]) {
@@ -151,12 +137,6 @@ body[data-dsh-skin="night-signal"] :where([role="dialog"]) {
   border: 1px solid var(--night-line) !important;
   background: var(--night-surface) !important;
   box-shadow: 0 20px 60px rgba(0, 0, 0, .45) !important;
-}
-
-body[data-dsh-skin="night-signal"] *,
-body[data-dsh-skin="night-signal"] *::before,
-body[data-dsh-skin="night-signal"] *::after {
-  transition-duration: 100ms !important;
 }
 
 @media (max-width: 640px) {
@@ -256,6 +236,49 @@ body[data-dsh-skin="night-signal"] *::after {
     min-width: 0 !important;
     flex-direction: column !important;
   }
+}
+
+/* Desktop 0.2: contenteditable composer, readable controls and quiet focus. */
+body[data-dsh-skin="night-signal"] {
+  --dsw-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: var(--dsw-font-family);
+}
+
+body[data-dsh-skin="night-signal"] :where(button, input, textarea, select, [role="button"], [role="tab"]) {
+  font-family: inherit;
+}
+
+body[data-dsh-skin="night-signal"] :where([class*="_composerStack"] [contenteditable="true"]) {
+  font-family: var(--dsw-font-family);
+  caret-color: var(--night-accent);
+}
+
+body[data-dsh-skin="night-signal"] :where([class*="_composerStack"] [class$="_card"], [class*="_composerStack"] [class*="_card "]):focus-within {
+  border-color: var(--night-accent) !important;
+  box-shadow: 0 0 0 1px var(--night-accent), 0 8px 24px rgba(0, 0, 0, .08) !important;
+}
+
+body[data-dsh-skin="night-signal"] :where([class*="_composerStack"] button[class*="_primary"]:disabled) {
+  background: var(--night-line) !important;
+  border-color: var(--night-line) !important;
+  color: var(--night-muted) !important;
+  opacity: .65;
+  box-shadow: none !important;
+}
+
+body[data-dsh-skin="night-signal"] :where([role="menu"]) {
+  background: var(--night-surface);
+  border-color: var(--night-line);
+}
+
+body[data-dsh-skin="night-signal"] :where(button, [role="button"], [role="tab"], a):focus-visible {
+  outline: 2px solid var(--night-accent) !important;
+  outline-offset: 2px;
+}
+
+body[data-dsh-skin="night-signal"] :where([class*="_sidebarCol"] [class*="_sectionHeader"]) {
+  font-size: 11px;
+  letter-spacing: .04em;
 }
 
 @media (prefers-reduced-motion: reduce) {

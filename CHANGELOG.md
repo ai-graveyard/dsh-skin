@@ -4,6 +4,15 @@ This file records user-visible changes to published skin bundles.
 
 ## Unreleased
 
+### Skin bundles 0.2.0
+
+- Added official Desktop installation instructions using the bundled CLI and desktop profile.
+- Adapted rich-text composer focus, disabled send buttons, settings and menu tokens.
+- Improved control typography and removed the floating ACTIVE badge and decorative send-button motion.
+- Kept syntax highlighting readable independently of the native appearance mode.
+- Scoped Braun variables and fixed non-LIFO skin disposal and hot-reload cleanup.
+
+
 - Added Night Signal as a high-contrast dark skin.
 - Verified Night Signal in a real isolated DSH profile and added empty-session, workspace, settings, and 390px screenshots.
 - Fixed narrow settings layout and preserved DSH's transparent textarea/backdrop protocol to prevent duplicated composer text in both skins.

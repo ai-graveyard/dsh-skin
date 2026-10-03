@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getSkins } from "@/lib/skins";
+import { toAbsoluteUrl } from "@/lib/site";
 
 export const dynamic = "force-static";
 
@@ -13,13 +14,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     {
-      url: "https://dshskin.com",
+      url: toAbsoluteUrl("/"),
       lastModified,
       changeFrequency: "weekly",
       priority: 1,
     },
     ...skins.map((skin) => ({
-      url: `https://dshskin.com/skins/${skin.slug}`,
+      url: toAbsoluteUrl(`/skins/${skin.slug}`),
       lastModified: new Date(`${skin.verifiedAt}T00:00:00Z`),
       changeFrequency: "monthly" as const,
       priority: skin.featured ? 0.9 : 0.8,

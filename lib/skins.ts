@@ -39,8 +39,11 @@ export type Skin = {
 };
 
 const skinsDirectory = path.join(process.cwd(), "skins");
+let cachedSkins: Skin[] | null = null;
 
 export async function getSkins(): Promise<Skin[]> {
+  if (cachedSkins) return cachedSkins;
+
   const entries = await readdir(skinsDirectory, { withFileTypes: true });
   const skins = await Promise.all(
     entries
@@ -51,19 +54,25 @@ export async function getSkins(): Promise<Skin[]> {
         try {
           return JSON.parse(await readFile(file, "utf8")) as Skin;
         } catch (error) {
-          if ((error as NodeJS.ErrnoException).code === "ENOENT") return null;
-          throw error;
+          if ((error as NodeJS.ErrnoException).code === "ENOENT") {
+            console.warn(`[skins] Missing skin manifest: ${file}. Skipping "${entry.name}".`);
+            return null;
+          }
+
+          throw new Error(`[skins] Failed to read ${file}: ${(error as Error).message}`);
         }
       }),
   );
 
-  return skins
+  cachedSkins = skins
     .filter((skin): skin is Skin => skin !== null)
     .sort((a, b) => {
       const featured = Number(Boolean(b.featured)) - Number(Boolean(a.featured));
       if (featured !== 0) return featured;
       return a.order - b.order || a.name.localeCompare(b.name);
     });
+
+  return cachedSkins;
 }
 
 export async function getSkin(slug: string): Promise<Skin | undefined> {

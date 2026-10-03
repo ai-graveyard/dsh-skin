@@ -10,12 +10,25 @@ DeepSeek Harness Web UI 的独立皮肤集合，也是 [dshskin.com](https://dsh
 
 | 皮肤 | 风格 | 版本 | 状态 |
 | --- | --- | --- | --- |
-| [Braun Control](./skins/braun-control) | 暖灰网格、低圆角、单一焦橙功能色 | `0.1.1` | 可安装 |
-| [Night Signal](./skins/night-signal) | 近黑分层、紧凑布局、薄荷绿信号色 | `0.1.0` | 可安装 |
+| [Braun Control](./skins/braun-control) | 暖灰网格、低圆角、单一焦橙功能色 | `0.2.0` | 可安装 |
+| [Night Signal](./skins/night-signal) | 近黑分层、紧凑布局、薄荷绿信号色 | `0.2.0` | 可安装 |
 
-Braun Control 与 Night Signal 均已在本机的 `@deepseek-ai/dsh 0.1.0-rc.6` 上完成真实界面验证。Night Signal 覆盖空会话、工作区会话、设置、刷新和 390px 窄屏；验证不包含 API Key 或模型请求。DeepSeek Harness 仍处于 Developer Preview，后续版本可能调整插件接口或 CSS 模块结构。
+Braun Control 与 Night Signal `0.2.0` 已在 macOS 官方客户端 `0.2.0-rc.2` 实测启动、空会话、现有会话、富文本输入、代码块、设置与插件启停。验证没有发送模型请求。旧版曾在 Web `0.1.0-rc.6` 上验证；现有 Web 截图属于历史版本，本轮未重新验证 Web 和 390px 窄屏。DSH 后续版本仍可能调整插件接口或 CSS 模块结构。
 
-## 安装
+## 桌面客户端安装
+
+官方客户端使用独立的 `desktop` profile。首次打开客户端后完全退出，使用客户端菜单「管理 dsh 命令…」提供的命令安装：
+
+```bash
+npm pack ./skins/night-signal
+dsh plugin --profile desktop add ./dsh-skin-night-signal-0.2.0.tgz
+```
+
+macOS 也可直接使用 `"/Applications/DeepSeek Harness.app/Contents/Resources/runtime/cli/bin/dsh"` 替换 `dsh`。重新打开客户端，在「插件 → 已安装」中启停皮肤；建议同时只启用一款。更换为浅色皮肤时，将命令中的 `night-signal` 换为 `braun-control`。
+
+皮肤保持自己的固定配色。停用全部皮肤后恢复 DSH 原生外观。桌面插件不能通过 npm 安装的 `npx @deepseek-ai/dsh` 管理。完整步骤见各皮肤 README。
+
+## Web 安装
 
 需要 Node.js `^22.19.0 || >=24.0.0`。下载或克隆仓库后，在仓库根目录运行：
 
@@ -29,10 +42,10 @@ npx @deepseek-ai/dsh web
 
 ```bash
 npm pack ./skins/braun-control
-npx @deepseek-ai/dsh plugin --profile web add ./dsh-skin-braun-control-0.1.1.tgz
+npx @deepseek-ai/dsh plugin --profile web add ./dsh-skin-braun-control-0.2.0.tgz
 ```
 
-页面加载后会出现 `BRAUN CONTROL / ACTIVE` 标签、黑色新会话按钮和焦橙发送键。若页面已打开，请刷新标签页。
+页面加载后会出现黑色新会话按钮和焦橙发送键。若页面已打开，请刷新标签页。
 
 如果本机已有全局 `dsh` 命令，可以把以上命令中的 `npx @deepseek-ai/dsh` 替换为 `dsh`。
 

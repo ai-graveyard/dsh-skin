@@ -1,6 +1,5 @@
 import Link from "next/link";
-
-const repository = "https://github.com/ai-graveyard/dsh-skin";
+import { contributingUrl, repositoryUrl } from "@/lib/site";
 
 export function SiteHeader() {
   return (
@@ -18,8 +17,8 @@ export function SiteHeader() {
 
       <nav className="site-nav" aria-label="Primary navigation">
         <Link href="/#collection">01 / Skins</Link>
-        <a href={`${repository}/blob/main/CONTRIBUTING.md`}>02 / Submit</a>
-        <a className="nav-source" href={repository}>
+        <a href={contributingUrl}>02 / Submit</a>
+        <a className="nav-source" href={repositoryUrl}>
           GitHub <span aria-hidden="true">↗</span>
         </a>
       </nav>

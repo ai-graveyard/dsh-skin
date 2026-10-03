@@ -9,6 +9,24 @@ const directory = dirname(fileURLToPath(import.meta.url))
 const css = await readFile(join(directory, 'skin.css'), 'utf8')
 
 const tokenValues = {
+  '--shiki-token-constant': '#1C7ED6',
+  '--shiki-token-string': '#237B36',
+  '--shiki-token-comment': '#636B73',
+  '--shiki-token-keyword': '#B42658',
+  '--shiki-token-parameter': '#B54708',
+  '--shiki-token-function': '#6741D9',
+  '--shiki-token-string-expression': '#237B36',
+  '--shiki-token-punctuation': '#495057',
+  '--shiki-token-link': '#1971C2',
+
+  '--dsw-alias-link': '#A93807',
+  '--dsw-alias-state-business-primary': '#C84308',
+  '--dsw-alias-state-business-tertiary': '#FBE9DF',
+  '--dsw-alias-menu-icon': '#5F5F5F',
+  '--dsw-alias-menu-group-header-fill': '#EFEFEF',
+  '--dsw-alias-settings-card-fill': '#FFFFFF',
+  '--dsw-alias-settings-card-stroke': '#DCDCDC',
+
   '--dsw-alias-bg-base': '#F7F7F7',
   '--dsw-alias-bg-layer-1': '#FFFFFF',
   '--dsw-alias-bg-layer-2': '#EFEFEF',
@@ -99,21 +117,30 @@ const client = `window.__ModuleLoader__.load({
       );
       ctx.effect(() => {
         if (typeof document === 'undefined') return;
-        const previousSkin = document.body.dataset.dshSkin;
+        // A shared stack keeps the DOM marker aligned with token-layer order,
+        // including when an older skin is disabled before the newest one.
+        const key = Symbol.for('dsh-skin.active-layers.v1');
+        const state = document[key] || (document[key] = {
+          previous: document.body.dataset.dshSkin,
+          layers: [],
+        });
+        const layer = { id: SKIN_ID };
+        state.layers.push(layer);
         document.body.dataset.dshSkin = SKIN_ID;
-        let tag = document.querySelector('style[data-plugin-css=' + JSON.stringify(STYLE_ID) + ']');
-        const ownsTag = tag === null;
-        if (ownsTag) {
-          tag = document.createElement('style');
-          tag.dataset.plugin = PACKAGE_ID;
-          tag.dataset.pluginCss = STYLE_ID;
-          tag.textContent = CSS;
-          document.head.appendChild(tag);
-        }
+        const tag = document.createElement('style');
+        tag.dataset.plugin = PACKAGE_ID;
+        tag.dataset.pluginCss = STYLE_ID;
+        tag.textContent = CSS;
+        document.head.appendChild(tag);
         return () => {
-          if (ownsTag) tag.remove();
-          if (previousSkin === undefined) delete document.body.dataset.dshSkin;
-          else document.body.dataset.dshSkin = previousSkin;
+          tag.remove();
+          const index = state.layers.indexOf(layer);
+          if (index < 0) return;
+          state.layers.splice(index, 1);
+          const active = state.layers.at(-1)?.id ?? state.previous;
+          if (active === undefined) delete document.body.dataset.dshSkin;
+          else document.body.dataset.dshSkin = active;
+          if (state.layers.length === 0) delete document[key];
         };
       }, PACKAGE_ID + ': install structural CSS');
     }
