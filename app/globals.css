@@ -163,10 +163,6 @@ p {
   font-weight: 750;
   letter-spacing: -0.9px;
 }
-.wordmark img {
-  object-fit: contain;
-  filter: brightness(0) invert(1);
-}
 .wordmark-light {
   font-weight: 400;
 }
@@ -2340,10 +2336,6 @@ html[data-theme="light"] .orb-amber {
 }
 html[data-theme="light"] .site-header {
   background-color: #f8fbff9e;
-}
-html[data-theme="light"] .wordmark img {
-  filter: brightness(0) saturate(100%) invert(17%) sepia(23%) saturate(1112%)
-    hue-rotate(175deg);
 }
 html[data-theme="light"] .hero-copy h1 > span {
   color: #2676a0;
