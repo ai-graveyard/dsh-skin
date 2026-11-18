@@ -4,13 +4,14 @@ import {
   useSitePreferences,
 } from "@/components/site-preferences";
 import Link from "next/link";
+import siteIcon from "@/app/icon.svg";
 import { repositoryUrl } from "@/lib/site";
 export function SiteHeader() {
   const { t } = useSitePreferences();
   return (
     <header className="site-header glass">
       <Link className="wordmark" href="/" aria-label={t("DSH Skin 首页")}>
-        <img src="/icon.svg" width="36" height="36" alt="" />
+        <img src={siteIcon.src} width="36" height="36" alt="" />
         <span>
           DSH<span className="wordmark-light"> Skin</span>
         </span>
