@@ -764,6 +764,34 @@ h2 {
   border-radius: 999px;
   color: var(--text-accent);
 }
+.install-preview {
+  grid-column: 1 / -1;
+  width: min(100%, 917px);
+  margin: 0;
+}
+.install-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 8px;
+  border: 1px solid var(--stroke-soft);
+  border-radius: 12px;
+  background: #fff;
+}
+.install-preview figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 14px;
+  margin-top: 10px;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+.install-preview a {
+  color: var(--text-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 summary {
   cursor: pointer;
   list-style: none;
