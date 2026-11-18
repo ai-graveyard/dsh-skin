@@ -10,7 +10,7 @@ export function SiteHeader() {
   return (
     <header className="site-header glass">
       <Link className="wordmark" href="/" aria-label={t("DSH Skin 首页")}>
-        <img src="/dsh-skin-whale.svg" width="36" height="32" alt="" />
+        <img src="/icon.svg" width="36" height="36" alt="" />
         <span>
           DSH<span className="wordmark-light"> Skin</span>
         </span>
