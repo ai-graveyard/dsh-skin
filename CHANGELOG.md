@@ -4,6 +4,32 @@ This file records user-visible changes to skin bundles and the collection site. 
 
 ## Unreleased
 
+### DSH Skin 0.4.5
+
+- Replace the theme dropdown with clickable previews for all ten themes and Original appearance. The active card shows a checkmark.
+
+### DSH Skin 0.4.4
+
+- Use the small-size Aurora betta icon with a larger round eye, a defined mouth, and short fins set apart from the tail.
+
+### DSH Skin 0.4.3
+
+- Redraw the plugin icon as a side-view halfmoon betta with a bright fan tail, a distinct dark body, long fins, and a visible eye and gill.
+
+### DSH Skin 0.4.2
+
+- Refresh the desktop plugin icon with the blue Aurora betta. Use brighter outlines and a lighter body on dark themes.
+
+### DSH Skin 0.4.1
+
+- Give the desktop plugin a square whale icon with an orange tail and light/dark variants.
+
+### DSH Skin 0.4.0
+
+- Package all ten themes together as `dsh-skin`.
+- Add a theme picker in the desktop plugin page with immediate switching, a saved selection, and an Original appearance option.
+- Give the website, release manifest, and CLI instructions one package and version.
+
 ### Skin bundles 0.3.1 — desktop collection (local acceptance 2026-10-04)
 
 - Expand the DSH Skin recommended collection to ten named, independent desktop bundles.

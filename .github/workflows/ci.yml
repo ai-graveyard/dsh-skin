@@ -40,23 +40,30 @@ jobs:
       - name: Build static site
         run: pnpm run build
 
-      - name: Inspect every npm package
+      - name: Inspect the dsh-skin package
         env:
           npm_config_cache: ${{ runner.temp }}/npm-cache
-        run: pnpm run pack:skins
+        run: pnpm run pack:plugin
 
       - name: Build versioned release assets
+        id: skin-release
         if: matrix.node-version == '22.19.0'
         env:
           npm_config_cache: ${{ runner.temp }}/npm-cache
-        run: pnpm run release:assets
+        run: |
+          pnpm run release:assets
+          archive=$(node -p "require('./dist/releases/release-manifest.json').artifacts[0].filename")
+          echo "archive=$archive" >> "$GITHUB_OUTPUT"
 
       - name: Upload release assets
         if: matrix.node-version == '22.19.0'
         uses: actions/upload-artifact@v4
         with:
-          name: skin-release-assets
-          path: dist/releases/
+          name: dsh-skin-release-assets
+          path: |
+            dist/releases/${{ steps.skin-release.outputs.archive }}
+            dist/releases/SHA256SUMS
+            dist/releases/release-manifest.json
           if-no-files-found: error
           retention-days: 14
 

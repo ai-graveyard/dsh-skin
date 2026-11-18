@@ -1,31 +1,33 @@
 import assert from 'node:assert/strict'
 import { access, readFile } from 'node:fs/promises'
 import { basename, join, resolve } from 'node:path'
-import vm from 'node:vm'
-import { getSkinDirectories } from './discover-skins.mjs'
+import { getSkinDirectories } from '../plugin/discover-skins.mjs'
 
 const root = resolve(import.meta.dirname, '..')
-const skinsRoot = join(root, 'skins')
-const requiredFiles = [
-  'LICENSE',
-  'README.md',
-  'build.mjs',
-  'client.js',
-  'cordis.patch.yml',
-  'index.js',
-  'package.json',
-  'preview.html',
-  'skin.css',
-  'skin.json',
-  'tokens.json',
-  'icon.svg',
-  'locale/en.json',
-  'locale/zh.json',
-]
+const plugin = join(root, 'plugin')
+const readPlugin = (file) => readFile(join(plugin, file), 'utf8')
+const pkg = JSON.parse(await readPlugin('package.json'))
+assert.equal(pkg.name, 'dsh-skin')
+assert.equal(pkg.dsh.bundle.patch, './cordis.patch.yml')
+assert.equal(pkg.dsh.client.platform, 'web')
+assert.equal(pkg.exports['./client'], './client.js')
+assert.equal(pkg.exports['./locale/*'], './locale/*')
+assert.equal(pkg.scripts.prepack, 'node build.mjs --check')
+assert.equal(pkg.icon, './icon.svg')
+const pluginIcon = await readPlugin('icon.svg')
+assert.match(pluginIcon, /viewBox="0 0 ([1-9]\d*) \1"/, 'The desktop plugin icon must fit a square slot')
+assert.doesNotMatch(pluginIcon, /<script|(?:href|src)=/i, 'The desktop plugin icon must be self-contained')
+assert.ok(pkg.repository?.url && pkg.homepage && pkg.bugs?.url)
+assert.match(await readPlugin('cordis.patch.yml'), /id: dsh-skin\s+name: dsh-skin/)
+for (const locale of ['en', 'zh']) {
+  const { meta } = JSON.parse(await readPlugin(`locale/${locale}.json`))
+  assert.equal(meta.title, 'DSH Skin')
+  assert.ok(meta.description.length > 5)
+}
+const requiredFiles = ['README.md', 'preview.html', 'skin.css', 'skin.json', 'tokens.json', 'icon.svg', 'locale/en.json', 'locale/zh.json']
 
-const directories = await getSkinDirectories(skinsRoot)
+const directories = await getSkinDirectories()
 const seenSlugs = new Set()
-const seenPackages = new Set()
 const seenOrders = new Set()
 let featuredCount = 0
 
@@ -39,26 +41,13 @@ for (const directory of directories) {
     await access(join(directory, file))
   }
 
-  const pkg = JSON.parse(await read('package.json'))
-  const patch = await read('cordis.patch.yml')
   const css = await read('skin.css')
   const preview = await read('preview.html')
-  const clientSource = await read('client.js')
   const listing = JSON.parse(await read('skin.json'))
 
   assert.equal(listing.slug, directoryName, `${directoryName}: slug must match its directory`)
   assert.match(listing.slug, /^[a-z0-9]+(?:-[a-z0-9]+)*$/, `${directoryName}: slug must be kebab-case`)
-  assert.equal(listing.packageName, pkg.name, `${directoryName}: packageName must match package.json`)
-  assert.equal(pkg.name, `dsh-skin-${listing.slug}`, `${directoryName}: package name must follow dsh-skin-<slug>`)
-  assert.equal(listing.version, pkg.version, `${directoryName}: listing and package versions differ`)
-  assert.equal(listing.license, pkg.license, `${directoryName}: listing and package licenses differ`)
-  assert.equal(pkg.dsh.bundle.patch, './cordis.patch.yml')
-  assert.equal(pkg.dsh.client.platform, 'web')
-  assert.equal(pkg.exports['./client'], './client.js')
-  assert.equal(pkg.scripts.prepack, 'node build.mjs --check')
-  assert.equal(pkg.exports['./locale/*'], './locale/*')
-  assert.equal(pkg.icon, './icon.svg')
-  assert.ok(pkg.files.includes('tokens.json') && pkg.files.includes('locale') && pkg.files.includes('icon.svg'))
+  assert.equal(listing.license, pkg.license)
   const english = JSON.parse(await read('locale/en.json'))
   const chinese = JSON.parse(await read('locale/zh.json'))
   assert.equal(english.meta.title, listing.name)
@@ -69,9 +58,6 @@ for (const directory of directories) {
   assert.doesNotMatch(icon, /<script|(?:href|src)=/i)
   assert.ok(Buffer.byteLength(icon) < 262144)
 
-  assert.ok(pkg.repository?.url, `${directoryName}: repository URL is required`)
-  assert.ok(pkg.homepage, `${directoryName}: homepage is required`)
-  assert.ok(pkg.bugs?.url, `${directoryName}: bugs URL is required`)
   assert.ok(Number.isInteger(listing.order) && listing.order > 0, `${directoryName}: order must be a positive integer`)
   assert.match(listing.verifiedAt, /^\d{4}-\d{2}-\d{2}$/)
   assert.ok(Array.isArray(listing.verifiedStates) && listing.verifiedStates.length > 0, `${directoryName}: verifiedStates are required`)
@@ -96,15 +82,11 @@ for (const directory of directories) {
   }
 
   assert.ok(!seenSlugs.has(listing.slug), `Duplicate skin slug: ${listing.slug}`)
-  assert.ok(!seenPackages.has(pkg.name), `Duplicate package name: ${pkg.name}`)
   assert.ok(!seenOrders.has(listing.order), `Duplicate skin order: ${listing.order}`)
   seenSlugs.add(listing.slug)
-  seenPackages.add(pkg.name)
   seenOrders.add(listing.order)
   if (listing.featured) featuredCount += 1
 
-  assert.match(patch, new RegExp(`id:\\s*${pkg.name}`))
-  assert.match(patch, new RegExp(`name:\\s*${pkg.name}`))
   assert.match(css, new RegExp(`body\\[data-dsh-skin=["']${listing.slug}["']\\]`))
   assert.match(css, /prefers-reduced-motion/)
   for (const selector of ['_sidebarCol', '_composerStack', '_card', '_primary']) {
@@ -117,71 +99,11 @@ for (const directory of directories) {
     assert.ok(preview.toLowerCase().includes(color.toLowerCase()), `${directoryName}: preview is missing ${color}`)
   }
 
-  let registration
-  const styleTags = []
-  const document = {
-    body: { dataset: {} },
-    head: { appendChild(tag) { styleTags.push(tag) } },
-    querySelector(selector) {
-      if (!selector.startsWith('style[data-plugin-css=')) return null
-      return styleTags.find((tag) => selector.includes(JSON.stringify(tag.dataset.pluginCss))) ?? null
-    },
-    createElement(name) {
-      assert.equal(name, 'style')
-      return {
-        dataset: {},
-        textContent: '',
-        remove() {
-          const index = styleTags.indexOf(this)
-          if (index >= 0) styleTags.splice(index, 1)
-        },
-      }
-    },
-  }
-
-  vm.runInNewContext(clientSource, {
-    document,
-    window: { __ModuleLoader__: { load(value) { registration = value } } },
-  }, { filename: `${listing.slug}/client.js` })
-
-  assert.equal(registration.id, pkg.name)
-  const plugin = registration.factory()
-  assert.equal(plugin.name, pkg.name)
-  assert.deepEqual([...plugin.inject], ['theme'])
-
-  const disposers = []
-  let overrideLayer
-  const ctx = {
-    effect(setup) {
-      const disposer = setup()
-      if (typeof disposer === 'function') disposers.push(disposer)
-    },
-    theme: {
-      overrideTokens(source, tokens) {
-        overrideLayer = { source, tokens }
-        return () => { overrideLayer = undefined }
-      },
-    },
-  }
-
-  plugin.apply(ctx)
-  assert.equal(overrideLayer.source, pkg.name)
-  assert.deepEqual(Object.keys(overrideLayer.tokens['--dsw-alias-bg-base']).sort(), ['dark', 'light'])
-  assert.deepEqual(
-    { ...overrideLayer.tokens['--dsw-alias-bg-base'] },
-    { light: listing.colors[0], dark: listing.colors[0] },
-  )
-  assert.equal(document.body.dataset.dshSkin, listing.slug)
-  assert.equal(styleTags.length, 1)
-  assert.match(styleTags[0].textContent, /button\[type="submit"\]/)
-
-  for (const dispose of disposers.reverse()) dispose()
-  assert.equal(overrideLayer, undefined)
-  assert.equal(styleTags.length, 0)
-  assert.equal(document.body.dataset.dshSkin, undefined)
-
-  console.log(`Validated ${listing.name} (${pkg.name}@${pkg.version}).`)
+  assert.doesNotMatch(css, /(^|\n):root\s*\{/, 'skin variables must stay scoped')
+  assert.match(css, /contenteditable="true"/, 'support the desktop rich-text composer')
+  assert.match(css, /_primary.*:disabled/, 'send must retain an explicit disabled appearance')
+  console.log(`Validated ${listing.name}.`)
 }
 
 assert.ok(featuredCount <= 1, 'Only one skin may be featured')
-console.log(`Validated ${directories.length} skin manifest(s), bundles, previews and lifecycles.`)
+console.log(`Validated ${directories.length} theme manifests and previews.`)

@@ -1,0 +1,48 @@
+{
+  "slug": "night-signal",
+  "order": 2,
+  "name": "Night Signal",
+  "nameZh": "夜航信号",
+  "tagline": "A clear signal after dark.",
+  "description": "A professional dark workspace with graphite layers and crisp mint controls.",
+  "author": {
+    "name": "DSH Skin",
+    "url": "https://github.com/ai-graveyard/dsh-skin"
+  },
+  "license": "MIT",
+  "compatibility": "DeepSeek Harness Desktop 0.2.0-rc.2",
+  "verifiedAt": "2026-10-04",
+  "verifiedStates": [
+    "Bundle lifecycle",
+    "Text and focus contrast",
+    "Package validation",
+    "Installed runtime matches source",
+    "Native desktop composer and focus",
+    "Native General settings and appearance modes",
+    "Native dropdown",
+    "Native rich conversation and half-screen layout",
+    "Native plugin details and reactivation"
+  ],
+  "style": [
+    "terminal",
+    "Dark"
+  ],
+  "colors": [
+    "#0C0F14",
+    "#E8EDF2",
+    "#5EE1B3"
+  ],
+  "preview": {
+    "label": "NIGHT SIGNAL",
+    "surface": "#141922",
+    "layer": "#10151C",
+    "line": "#364353",
+    "muted": "#9BA7B6",
+    "radius": 6,
+    "cardRadius": 12,
+    "onAccent": "#0C0F14"
+  },
+  "official": true,
+  "featured": false,
+  "designPattern": "terminal"
+}

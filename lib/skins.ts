@@ -3,7 +3,6 @@ import path from "node:path";
 
 export type Skin = {
   slug: string;
-  packageName: string;
   order: number;
   name: string;
   nameZh?: string;
@@ -15,8 +14,6 @@ export type Skin = {
     name: string;
     url?: string;
   };
-  version: string;
-  status: string;
   license: string;
   compatibility: string;
   verifiedAt: string;
@@ -44,7 +41,7 @@ export type Skin = {
   featured?: boolean;
 };
 
-const skinsDirectory = path.join(process.cwd(), "skins");
+const skinsDirectory = path.join(process.cwd(), "plugin", "skins");
 let cachedSkins: Skin[] | null = null;
 
 export async function getSkins(): Promise<Skin[]> {

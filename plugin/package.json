@@ -1,0 +1,60 @@
+{
+  "name": "dsh-skin",
+  "version": "0.4.5",
+  "description": "Ten switchable themes for DeepSeek Harness Desktop.",
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json",
+    "./locale/*": "./locale/*"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "client-source.js",
+    "picker.css",
+    "cordis.patch.yml",
+    "icon.svg",
+    "locale",
+    "build.mjs",
+    "discover-skins.mjs",
+    "skins/*/skin.json",
+    "skins/*/skin.css",
+    "skins/*/tokens.json"
+  ],
+  "keywords": ["deepseek-harness", "dsh-plugin", "desktop", "theme"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ai-graveyard/dsh-skin.git",
+    "directory": "plugin"
+  },
+  "homepage": "https://dshskin.com",
+  "bugs": {
+    "url": "https://github.com/ai-graveyard/dsh-skin/issues"
+  },
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-theme",
+        "@deepseek-ai/dsh-client-ui-plugin-manager",
+        "@deepseek-ai/dsh-client-locale"
+      ],
+      "platform": "web"
+    }
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "check": "node build.mjs --check",
+    "prepack": "node build.mjs --check"
+  },
+  "icon": "./icon.svg"
+}
