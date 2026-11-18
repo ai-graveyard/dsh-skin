@@ -8,6 +8,7 @@ import plugin from "@/plugin/package.json";
 
 const archive = `${plugin.name}-${plugin.version}.tgz`;
 const downloadUrl = `${repositoryUrl}/releases/download/v${plugin.version}/${archive}`;
+const themePickerScreenshot = "/install/theme-picker-macos.png";
 
 export function InstallGuide({ skin }: { skin?: Skin }) {
   const { t, skinName } = useSitePreferences();
@@ -101,6 +102,21 @@ export function InstallGuide({ skin }: { skin?: Skin }) {
             <span aria-hidden="true">→</span>
             <span className="enabled-pill">{t("主题")}</span>
           </div>
+          <figure className="install-preview">
+            <img
+              src={themePickerScreenshot}
+              alt={t("DSH Skin 主题卡片，原生外观已勾选。")}
+              width={899}
+              height={294}
+              loading="lazy"
+            />
+            <figcaption>
+              {t("macOS 客户端实拍。带勾的是当前主题。")}
+              <a href={themePickerScreenshot} target="_blank" rel="noreferrer">
+                {t("查看大图")}
+              </a>
+            </figcaption>
+          </figure>
         </li>
       </ol>
       <details className="install-troubleshooting">
