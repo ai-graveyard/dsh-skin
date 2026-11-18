@@ -3,15 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "packageManager": "pnpm@11.20.0",
-  "description": "Independent visual skins for the DeepSeek Harness desktop client",
+  "description": "Theme collection and desktop plugin for DeepSeek Harness",
   "license": "MIT",
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "pnpm run build:skins && next build",
-    "build:skins": "node scripts/run-skins.mjs build",
-    "check": "node scripts/run-skins.mjs check && node scripts/validate.mjs && node scripts/check-skin-layers.mjs && node scripts/check-contrast.mjs && tsc --noEmit",
-    "pack:skins": "node scripts/run-skins.mjs pack",
+    "build": "pnpm run build:plugin && next build",
+    "build:plugin": "node plugin/build.mjs",
+    "check": "node plugin/build.mjs --check && node scripts/validate.mjs && node scripts/check-skin-layers.mjs && node scripts/check-contrast.mjs && tsc --noEmit",
+    "pack:plugin": "node scripts/package-release.mjs --dry-run",
     "release:assets": "node scripts/package-release.mjs"
   },
   "dependencies": {

@@ -1,13 +1,13 @@
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { getSkinDirectories } from './discover-skins.mjs'
+import { getSkinDirectories } from '../plugin/discover-skins.mjs'
 const luminance = hex => {
   const rgb = hex.slice(1).match(/../g).map(x => parseInt(x, 16) / 255).map(x => x <= .04045 ? x / 12.92 : ((x + .055) / 1.055) ** 2.4)
   return rgb[0] * .2126 + rgb[1] * .7152 + rgb[2] * .0722
 }
 const ratio = (a, b) => (Math.max(luminance(a), luminance(b)) + .05) / (Math.min(luminance(a), luminance(b)) + .05)
-for (const dir of await getSkinDirectories(new URL('../skins', import.meta.url).pathname)) {
+for (const dir of await getSkinDirectories()) {
   const skin = JSON.parse(await readFile(join(dir, 'skin.json'), 'utf8'))
   const tokens = JSON.parse(await readFile(join(dir, 'tokens.json'), 'utf8'))
   const pairs = [

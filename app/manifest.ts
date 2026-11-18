@@ -6,11 +6,11 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "DSH Skin",
     short_name: "DSH Skin",
-    description: "Independent skins for the DeepSeek Harness Desktop.",
+    description: "DeepSeek Harness 桌面客户端的免费开源皮肤库。",
     start_url: "/",
     display: "standalone",
-    background_color: "#F7F7F7",
-    theme_color: "#1A1A1A",
+    background_color: "#05070f",
+    theme_color: "#0a1022",
     icons: [
       {
         src: "/icon.svg",

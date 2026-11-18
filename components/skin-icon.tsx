@@ -1,0 +1,93 @@
+import type { Skin } from "@/lib/skins";
+
+/** Small, deliberately simple emblems that stay legible in the theme picker. */
+export function SkinIcon({ skin, className = "" }: { skin: Skin; className?: string }) {
+  const accent = skin.colors[2];
+  const motifs: Record<string, React.ReactNode> = {
+    "alpine-light": (
+      <>
+        <path d="m14 44 16-25 20 25H14Z" />
+        <path d="m24 29 6 5 5-4" />
+        <circle cx="45" cy="20" r="4" fill={accent} stroke="none" />
+      </>
+    ),
+    "braun-control": (
+      <>
+        <path d="M18 17h16M18 22h11" opacity=".4" />
+        <circle cx="32" cy="38" r="12" />
+        <path d="m32 38 6-6" stroke={accent} strokeWidth="3" />
+        <circle cx="46" cy="18" r="3" fill={accent} stroke="none" />
+      </>
+    ),
+    "night-signal": (
+      <>
+        <path d="m18 24 9 8-9 8" stroke={accent} strokeWidth="3" />
+        <path d="M34 41h12" strokeWidth="3" />
+      </>
+    ),
+    "frosted-tide": (
+      <>
+        <rect x="17" y="15" width="24" height="29" rx="5" opacity=".35" />
+        <rect x="25" y="23" width="23" height="27" rx="5" fill={skin.colors[0]} />
+        <path d="M29 39c5-7 10 5 15-2" stroke={accent} strokeWidth="2.5" />
+      </>
+    ),
+    "material-orchid": (
+      <>
+        <path d="M32 33C17 34 16 20 23 18c6-2 9 7 9 15Zm0 0c-1-15 13-17 15-10 2 6-7 10-15 10Zm0 0c15-1 17 13 10 15-6 2-10-7-10-15Zm0 0c1 15-13 17-15 10-2-6 7-10 15-10Z" fill={accent} fillOpacity=".12" stroke={accent} />
+        <circle cx="32" cy="33" r="3" fill={accent} stroke="none" />
+      </>
+    ),
+    "swiss-grid": (
+      <>
+        <path d="M17 17h30v30H17zM29 17v30M29 32h18" />
+        <path d="M32 20h12v9H32z" fill={accent} stroke="none" />
+      </>
+    ),
+    "nordic-linen": (
+      <>
+        <path d="M21 43C15 25 28 17 45 19c2 17-6 29-24 24Z" fill={accent} fillOpacity=".1" stroke={accent} />
+        <path d="m18 48 20-22M26 39l-1-9M26 39l10-1" stroke={accent} />
+      </>
+    ),
+    "washi-ink": (
+      <>
+        <path d="M41 21c-12-9-27 1-24 15 3 13 21 16 29 4" strokeWidth="3" />
+        <path d="M22 25c-5 8-2 16 4 19" opacity=".3" />
+        <path d="M39 17h9v9h-9z" fill={accent} stroke="none" />
+      </>
+    ),
+    "editorial-paper": (
+      <>
+        <path d="M18 18h28M18 46h28" opacity=".35" />
+        <path d="M24 25h16M32 25v15M28 40h8" />
+        <path d="M18 51h12" stroke={accent} />
+      </>
+    ),
+    "studio-block": (
+      <>
+        <path d="M17 30h18v18H17z" fill={accent} fillOpacity=".6" />
+        <circle cx="40" cy="25" r="9" fill={accent} />
+        <path d="m40 39 8 9H32l8-9Z" fill={skin.colors[1]} stroke="none" />
+      </>
+    ),
+  };
+
+  return (
+    <svg
+      className={`skin-icon ${className}`}
+      viewBox="0 0 64 64"
+      width="48"
+      height="48"
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <rect x="1" y="1" width="62" height="62" rx="15" fill={skin.colors[0]} />
+      <rect x="1" y="1" width="62" height="62" rx="15" stroke={skin.colors[1]} strokeOpacity=".12" />
+      <g stroke={skin.colors[1]} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        {motifs[skin.slug] ?? <path d="M19 22h26M19 32h18M19 42h22" />}
+      </g>
+    </svg>
+  );
+}

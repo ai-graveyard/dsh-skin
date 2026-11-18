@@ -1,9 +1,44 @@
-# Desktop skin acceptance — 0.3.1
+# Desktop verification
+
+## DSH Skin 0.4.5
+
+On 2026-11-18 (Asia/Shanghai), the packaged plugin was installed in an isolated profile on DeepSeek Harness Desktop **0.2.2-rc.5** for macOS. Clicking each of the ten thumbnails applied its palette immediately and moved the checkmark to that card. Original appearance restored the native palette. Tab, Space and Enter worked on the cards, and re-enabling the plugin restored the saved selection.
+
+The grid displayed six columns at the test window's default width and three columns at a 530 px viewport without horizontal overflow. The installed 0.4.5 build reopened with Swiss Grid still selected and was checked by the user on their desktop profile.
+
+## DSH Skin 0.4.4
+
+On 2026-11-18 (Asia/Shanghai), the approved small-size Aurora artwork was tested with DeepSeek Harness Desktop **0.2.2-rc.3** for macOS. The icon displayed at 36 px in the plugin list and detail header and at 30 px in the component row. Screenshots covered Original appearance and all ten built-in themes.
+
+## DSH Skin 0.4.3
+
+On 2026-11-18 (Asia/Shanghai), DeepSeek Harness Desktop **0.2.2-rc.3** for macOS displayed the updated halfmoon betta at 36 px in the plugin list and detail header and 30 px in the component row. Screenshots covered Original appearance and all ten built-in themes.
+
+## DSH Skin 0.4.2
+
+On 2026-11-18 (Asia/Shanghai), the blue Aurora betta icon was tested with DeepSeek Harness Desktop **0.2.2-rc.3** for macOS. The plugin list and detail header loaded it at 36 px, and the component row loaded it at 30 px. The Original appearance option and all ten built-in themes displayed the icon. Screenshots confirmed that the dark variant lightens the fish and its outline.
+
+## DSH Skin 0.4.1
+
+On 2026-11-18 (Asia/Shanghai), the packaged whale icon was checked on DeepSeek Harness Desktop **0.2.2-rc.3** for macOS. The plugin list and details loaded it at 36 px and the component row at 30 px. Screenshots confirmed light and dark variants across all ten themes and Original appearance.
+
+## DSH Skin 0.4.0
+
+On 2026-11-18 (Asia/Shanghai), the unified archive was tested with DeepSeek Harness Desktop **0.2.2-rc.3** for macOS, build `6b729fedde0c8fd03af7afdf5a711aa64fe87c3b`, in a temporary desktop profile.
+
+- Installed the release tarball using the bundled CLI and compared installed runtime and metadata with the source.
+- Confirmed one DSH Skin entry with a theme menu in its plugin page. Selected all ten themes and verified that each applied the expected base token with one active style layer.
+- Verified that Original appearance restores the built-in palette. Disabling the plugin removes its CSS and tokens. Re-enabling restores the saved selection.
+- Selected Frosted Tide, fully quit and reopened the app, and verified that the theme was restored before opening the plugin page.
+
+This pass covers installation and theme switching on macOS. The earlier record below covers detailed visual and interaction checks for the original individual themes. Windows and Linux remain untested.
+
+## Earlier single-theme packages (0.3.1)
 
 Target: DeepSeek Harness **macOS desktop 0.2.0-rc.2**, build `5e9e301dd9dc8923b2762f76dacfc5751f6ca851`.
 Completed: **2026-10-04**, Asia/Shanghai.
 
-## Result
+### Result
 
 All ten skins passed the native desktop checks listed below. Each was enabled individually in the installed desktop client and inspected using Computer Use. The collection is ready for local use and recommendation on this tested client version. At the completion of this acceptance pass, packages were prepared locally; npm/GitHub release publication and site deployment were not part of the pass. This record does not track later Git pushes or deployment status.
 
@@ -20,7 +55,7 @@ All ten skins passed the native desktop checks listed below. Each was enabled in
 | Studio Block / 积木工作室 | Passed | Passed | Passed | Passed |
 | Frosted Tide / 雾潮 | Passed | Passed | Passed | Passed |
 
-## Native checks performed
+### Native checks performed
 
 - Empty new session: Send disabled. Multiline Chinese/English draft: Send enabled. Draft clearing and visible keyboard focus were checked without sending a model request.
 - General settings: selected/unselected controls, switches, language dropdown and Escape dismissal. Light, Dark and System were exercised beneath each skin's fixed palette; System was restored.
@@ -31,7 +66,7 @@ All ten skins passed the native desktop checks listed below. Each was enabled in
 - All ten were finally disabled; the plugin switches and desktop profile confirmed the original all-disabled configuration, and the native default appearance returned.
 - The user's unsent draft was preserved and restored, with an exact 29-character readback. Private conversation/account screenshots were viewed inline and were not saved into repository assets.
 
-## Automated verification
+### Automated verification
 
 - Ten manifests, independent package identifiers, exported registrations and source/bundle consistency.
 - Scoped structural CSS, disabled-send styles, contenteditable support and reduced-motion rules.
@@ -43,7 +78,7 @@ All ten skins passed the native desktop checks listed below. Each was enabled in
 - TypeScript and Next.js production static build, including all ten detail routes.
 - Ten versioned npm tarballs with release manifest and SHA-256 checksums.
 
-## Corrections made during acceptance
+### Corrections made during acceptance
 
 - Preserved round switch tracks instead of inheriting rectangular button geometry.
 - Increased Washi Ink secondary-text contrast on the sidebar.
@@ -53,12 +88,12 @@ All ten skins passed the native desktop checks listed below. Each was enabled in
 - Applied paper-style typography to the desktop's actual hero-title element.
 - Bumped the installed bundles to 0.3.1 after identifying stale package-manager content at the old 0.3.0 tarball path. Release packaging retains older tarballs needed for local-file upgrades.
 
-## Scope and tooling notes
+### Scope and tooling notes
 
 This acceptance covers the named macOS client build and the states above. Windows/Linux clients, future DSH versions, model inference, every tool type, and all third-party plugin combinations are outside this pass. The palettes are intentionally fixed light or dark designs.
 
 Computer Use intermittently returned `elementHasNoFrame`, `noWindowsAvailable`, ScreenCaptureKit errors and stale frames. A stale frame was never accepted as evidence for a different page or skin. Fresh synchronized captures were obtained through native foreground/window/full-screen actions before completing the corresponding visual checks. These tool failures were not attributed to the skins.
 
-## Design references
+### Design references
 
 The local Design Vibes references informed the palettes and geometry. Industrial functionalism follows [Dieter Rams's principles](https://www.vitsoe.com/us/about/good-design); tonal surfaces follow [Material colour roles](https://m3.material.io/styles/color/the-color-system/color-roles); translucent layering is informed by [Apple's materials guidance](https://developer.apple.com/design/human-interface-guidelines/materials). Names identify influences, not affiliation or endorsement. “Official recommendation” refers to the DSH Skin project's collection.

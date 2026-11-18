@@ -2,80 +2,72 @@
 
 [English](./README.en.md) | 简体中文
 
-DeepSeek Harness Desktop 的独立皮肤集合，也是 [dshskin.com](https://dshskin.com) 的 Next.js 静态站点源码。每款皮肤都是可单独安装、卸载和打包的 Harness bundle，不修改 Harness 源码或应用文件。
+DeepSeek Harness Desktop 的主题插件。一包内置 10 套主题，安装一次就能在客户端里随时切换。[dshskin.com](https://dshskin.com) 展示每套主题的预览。
 
 > 这是非官方社区项目，与 DeepSeek、Braun 或 Dieter Rams 没有隶属或授权关系。项目只借鉴工业设计语言，不包含 Braun 的商标、产品图或专有素材。
 
 ## 官方推荐系列
 
-面向 **DeepSeek Harness 桌面客户端** 的 10 款独立皮肤。“官方推荐”指 DSH Skin 项目的推荐系列，不代表 DeepSeek 官方授权。
+面向 **DeepSeek Harness 桌面客户端** 的 10 款内置主题。“官方推荐”指 DSH Skin 项目的推荐系列，不代表 DeepSeek 官方授权。
 
-| 皮肤 | 中文名 | 设计模式 | 版本 |
-| --- | --- | --- | --- |
-| [Braun Control](./skins/braun-control) | 工业控制 | braun | `0.3.1` |
-| [Night Signal](./skins/night-signal) | 夜航信号 | terminal | `0.3.1` |
-| [Alpine Light](./skins/alpine-light) | 雪岭 | apple | `0.3.1` |
-| [Material Orchid](./skins/material-orchid) | 兰序 | material | `0.3.1` |
-| [Swiss Grid](./skins/swiss-grid) | 瑞士网格 | swiss | `0.3.1` |
-| [Nordic Linen](./skins/nordic-linen) | 北欧亚麻 | scandinavian | `0.3.1` |
-| [Washi Ink](./skins/washi-ink) | 和纸墨 | japanese | `0.3.1` |
-| [Editorial Paper](./skins/editorial-paper) | 纸上编辑 | editorial | `0.3.1` |
-| [Studio Block](./skins/studio-block) | 积木工作室 | neo-brutalism | `0.3.1` |
-| [Frosted Tide](./skins/frosted-tide) | 雾潮 | glassmorphism | `0.3.1` |
+| 皮肤 | 中文名 | 设计模式 |
+| --- | --- | --- |
+| [Braun Control](./plugin/skins/braun-control) | 工业控制 | braun |
+| [Night Signal](./plugin/skins/night-signal) | 夜航信号 | terminal |
+| [Alpine Light](./plugin/skins/alpine-light) | 雪岭 | apple |
+| [Material Orchid](./plugin/skins/material-orchid) | 兰序 | material |
+| [Swiss Grid](./plugin/skins/swiss-grid) | 瑞士网格 | swiss |
+| [Nordic Linen](./plugin/skins/nordic-linen) | 北欧亚麻 | scandinavian |
+| [Washi Ink](./plugin/skins/washi-ink) | 和纸墨 | japanese |
+| [Editorial Paper](./plugin/skins/editorial-paper) | 纸上编辑 | editorial |
+| [Studio Block](./plugin/skins/studio-block) | 积木工作室 | neo-brutalism |
+| [Frosted Tide](./plugin/skins/frosted-tide) | 雾潮 | glassmorphism |
 
-10 款均已在 macOS 桌面客户端 0.2.0-rc.2 完成逐款验收。客户端版本与具体检查范围见 [DESKTOP-QA.md](./DESKTOP-QA.md)。每款采用固定明暗配色，保留独立 token、结构样式、卸载清理和减少动态效果支持。
+每套主题使用固定明暗配色。合包版和历史单主题的验证范围见 [DESKTOP-QA.md](./DESKTOP-QA.md)。
 
-## 桌面客户端安装
+## 安装
 
-官方客户端使用独立的 `desktop` profile。下载或克隆本仓库后，在仓库根目录操作。首次打开客户端后完全退出，使用客户端菜单「管理 dsh 命令…」提供的命令安装：
+首次打开 DeepSeek Harness 后完全退出。在客户端菜单「管理 dsh 命令…」中配置 `dsh` 命令。下载 [DSH Skin 0.4.5 安装包](https://github.com/ai-graveyard/dsh-skin/releases/download/v0.4.5/dsh-skin-0.4.5.tgz)，在安装包所在目录运行：
 
-```bash
-npm pack ./skins/night-signal
-dsh plugin --profile desktop add ./dsh-skin-night-signal-0.3.1.tgz
+```sh
+dsh plugin --profile desktop add ./dsh-skin-0.4.5.tgz
 ```
 
-macOS 也可直接使用 `"/Applications/DeepSeek Harness.app/Contents/Resources/runtime/cli/bin/dsh"` 替换 `dsh`。重新打开客户端，在「插件 → 已安装」中启停皮肤；建议同时只启用一款。更换为浅色皮肤时，将命令中的 `night-signal` 换为 `braun-control`。
+macOS 也可直接使用 `"/Applications/DeepSeek Harness.app/Contents/Resources/runtime/cli/bin/dsh"` 替换 `dsh`。重新打开客户端，在「插件」中启用并打开 **DSH Skin**。点击主题预览卡片即可切换外观，当前主题带有勾选标记。客户端重启后会读取这台设备上的上次选择。
 
-皮肤保持自己的固定配色。停用全部皮肤后恢复 DSH 原生外观。安装、验证和卸载均使用桌面客户端自带的 `dsh`。完整步骤见各皮肤 README。
+使用过旧版单主题插件时，在「插件」里停用那些插件一次，再通过 DSH Skin 选择主题。选择「原生外观」即可恢复默认样式。
 
 ## 卸载
 
-桌面客户端使用其自带的 CLI：
-
-```bash
-dsh plugin --profile desktop remove dsh-skin-night-signal
+```sh
+dsh plugin --profile desktop remove dsh-skin
 ```
-
-卸载会撤销主题 token、结构样式和 `data-dsh-skin` 标记。它不会删除 DSH 会话、模型配置或凭证。
 
 ## 开发与检查
 
-需要 Node.js `^22.19.0 || >=24.0.0` 和 pnpm。首次开发先安装依赖：
+使用 Node.js `^22.19.0 || >=24.0.0` 和 pnpm。在仓库根目录运行：
 
-```bash
+```sh
 pnpm install
-```
-
-启动站点开发服务器：
-
-```bash
 pnpm dev
 ```
 
-修改 `skin.css`（结构样式）、`tokens.json`（固定配色）或 `build.mjs`（生命周期）后，重新生成浏览器 bundle 并构建静态站点：
+修改主题或插件后，重新生成客户端代码，并检查网站和安装包。
 
-```bash
+```sh
 pnpm run build
 pnpm run check
+pnpm run pack:plugin
+pnpm run release:assets
 ```
 
-`check` 覆盖生成文件一致性、元数据、作用域样式、插件及叠加层生命周期、160 组文字对比度、30 组焦点对比度和 TypeScript。它不包含真实桌面客户端验收。安装全部皮肤后，可单独运行 `node scripts/check-installed.mjs <桌面-profile-目录>`，核对安装文件与源码是否逐字节一致。
+`check` 覆盖生成文件一致性、元数据、作用域 CSS、主题切换和清理、配色对比度与 TypeScript。安装后可运行 `node scripts/check-installed.mjs <桌面-profile-目录>` 比对实际安装的运行代码。
 
-`pnpm run pack:skins` 预检所有 npm 包清单；`pnpm run release:assets` 将版本化 tarball、`SHA256SUMS` 和 `release-manifest.json` 写入 `dist/releases/`。打包会保留旧版本 tarball，校验和与 manifest 仅列出本次生成的版本。正式发布步骤见 [RELEASING.md](./RELEASING.md)。
+`release:assets` 在 `dist/releases/` 生成一个 `dsh-skin-<version>.tgz`，附校验和和发布清单。清单只包含本次生成的安装包，目录中的历史 tarball 可供旧版安装继续使用。发布步骤见 [RELEASING.md](./RELEASING.md)。
 
-静态文件输出到 `out/`，可直接部署到任意静态托管平台。`client.js` 是提交到仓库的生成文件。贡献者需要同时提交源文件和重新生成后的 bundle。CI 会在 Node.js 22.19 与 24 上检查站点构建、生成结果、插件生命周期和发布包清单。
+静态文件输出到 `out/`，可直接部署到任意静态托管平台。`plugin/client.js` 是提交到仓库的生成文件。CI 会在 Node.js 22.19 与 24 上检查站点构建、生成结果、插件生命周期和发布包清单。
 
-根目录命令会自动扫描 `skins/*/skin.json`，构建、检查和打包预检每个皮肤，不需要为新皮肤修改脚本。CI 还会生成版本化 tarball、`SHA256SUMS` 和 release manifest，并把它们保存为 `skin-release-assets` artifact。`main` 分支的 CI 全部通过后，会通过 SSH 触发容器化部署；独立的每小时监控会检查首页、详情页和 sitemap。服务器只需要预先克隆本仓库并安装 Docker Engine 与 Docker Compose；Node.js、pnpm、静态构建和 Nginx 都封装在镜像内。
+插件和网站构建时会扫描 `plugin/skins/*/skin.json`。CI 会把本次安装包和校验文件保存为 `dsh-skin-release-assets` artifact。`main` 分支的 CI 全部通过后，会通过 SSH 触发容器化部署；独立的每小时监控会检查首页、详情页和 sitemap。服务器只需要预先克隆本仓库并安装 Docker Engine 与 Docker Compose；Node.js、pnpm、静态构建和 Nginx 都封装在镜像内。
 
 | 配置 | 级别 | 用途 |
 | --- | --- | --- |
@@ -92,17 +84,12 @@ pnpm run check
 app/                    Next.js 页面和全局样式
 components/             站点 UI 组件与皮肤预览
 lib/skins.ts            构建时读取皮肤元数据
-skins/
-  braun-control/        完整的浅色皮肤 bundle
-  night-signal/         深色皮肤 bundle
-  .../                  其余 8 款官方推荐皮肤
-scripts/
-  run-skins.mjs         通用构建、检查与打包运行器
-  validate.mjs          manifest、CSS、token 和卸载生命周期检查
-  check-skin-layers.mjs  叠加皮肤与重复激活检查
-  check-contrast.mjs     文字和焦点配色对比度检查
-  check-installed.mjs    已安装桌面包与本地源码比对
-  package-release.mjs    版本化 tarball、校验和与 manifest
+plugin/
+  package.json          dsh-skin 插件和版本
+  client-source.js      主题选择与应用
+  client.js             生成的客户端 bundle
+  skins/                10 套主题及预览
+scripts/                元数据、配色、安装和打包校验
 deploy/
   nginx.conf       容器内静态路由、缓存与 404 配置
 Dockerfile         Node 构建 + Nginx 运行的两阶段镜像
@@ -110,8 +97,6 @@ docker-compose.yml 生产容器与默认 8092 端口映射
 Makefile           本地容器操作与服务器部署入口
 .github/           CI、Issue 与 Pull Request 模板
 ```
-
-新增皮肤时，每个目录都要保留独立的 `skin.json`、manifest、Cordis patch、构建脚本、浏览器 bundle、CSS、`tokens.json`、`icon.svg`、中英文 `locale/`、预览、说明和许可证。首页和详情页会在静态构建时扫描 `skins/*/skin.json`。不要复用 package id、skin id 或 style id。
 
 ## 参与项目
 
