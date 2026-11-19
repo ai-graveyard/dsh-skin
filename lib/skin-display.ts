@@ -42,6 +42,10 @@ const descriptions: Record<string, { style: string; description: string }> = {
     style: "趣味积木",
     description: "明快色块、粗线条与利落阴影，让工作区多一点玩心。",
   },
+  "whale-courier": {
+    style: "海洋插画",
+    description: "海雾蓝侧栏、信使头像与鲸尾火漆，从新会话一直陪到输入框。",
+  },
 };
 
 export function skinDisplay(skin: Skin, locale: "zh" | "en" = "zh") {
@@ -59,4 +63,12 @@ export function skinDisplay(skin: Skin, locale: "zh" | "en" = "zh") {
 }
 export function isDarkSkin(skin: Skin) {
   return skin.style.includes("Dark");
+}
+
+export function defaultPreviewPalette(skin: Skin) {
+  const palette = isDarkSkin(skin) ? skin.dark : undefined;
+  return {
+    colors: palette?.colors ?? skin.colors,
+    preview: { ...skin.preview, ...palette?.preview },
+  };
 }

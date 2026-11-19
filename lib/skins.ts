@@ -30,6 +30,10 @@ export type Skin = {
     cardRadius?: number;
     onAccent?: string;
   };
+  dark?: {
+    colors: string[];
+    preview: Partial<Skin["preview"]>;
+  };
   screenshots?: Array<{
     src: string;
     alt: string;

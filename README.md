@@ -1,14 +1,12 @@
-# DSH Skin
+# 皮肤大全 · Skin Collection
 
 [English](./README.en.md) | 简体中文
 
-DeepSeek Harness Desktop 的主题插件。一包内置 10 套主题，安装一次就能在客户端里随时切换。[dshskin.com](https://dshskin.com) 展示每套主题的预览。
+DeepSeek Harness Desktop 的主题插件。内置 11 套主题，均随 Harness 外观自动切换明暗。[dshskin.com](https://dshskin.com) 展示皮肤预览。
 
 > 这是非官方社区项目，与 DeepSeek、Braun 或 Dieter Rams 没有隶属或授权关系。项目只借鉴工业设计语言，不包含 Braun 的商标、产品图或专有素材。
 
-## 官方推荐系列
-
-面向 **DeepSeek Harness 桌面客户端** 的 10 款内置主题。“官方推荐”指 DSH Skin 项目的推荐系列，不代表 DeepSeek 官方授权。
+## 内置主题
 
 | 皮肤 | 中文名 | 设计模式 |
 | --- | --- | --- |
@@ -22,20 +20,21 @@ DeepSeek Harness Desktop 的主题插件。一包内置 10 套主题，安装一
 | [Editorial Paper](./plugin/skins/editorial-paper) | 纸上编辑 | editorial |
 | [Studio Block](./plugin/skins/studio-block) | 积木工作室 | neo-brutalism |
 | [Frosted Tide](./plugin/skins/frosted-tide) | 雾潮 | glassmorphism |
+| [Whale Courier](./plugin/skins/whale-courier) | 鲸鱼娘 | maritime illustration |
 
-每套主题使用固定明暗配色。合包版和历史单主题的验证范围见 [DESKTOP-QA.md](./DESKTOP-QA.md)。
+在「设置 → 通用设置 → 外观」可选择浅色、深色或跟随系统。合包版和历史单主题的验证范围见 [DESKTOP-QA.md](./DESKTOP-QA.md)。
 
 ## 安装
 
-首次打开 DeepSeek Harness 后完全退出。在客户端菜单「管理 dsh 命令…」中配置 `dsh` 命令。下载 [DSH Skin 0.4.5 安装包](https://github.com/ai-graveyard/dsh-skin/releases/download/v0.4.5/dsh-skin-0.4.5.tgz)，在安装包所在目录运行：
+首次打开 DeepSeek Harness 后完全退出。在客户端菜单「管理 dsh 命令…」中配置 `dsh` 命令。下载 [皮肤大全 0.4.6 安装包](https://github.com/ai-graveyard/dsh-skin/releases/download/v0.4.6/dsh-skin-0.4.6.tgz)，在安装包所在目录运行：
 
 ```sh
-dsh plugin --profile desktop add ./dsh-skin-0.4.5.tgz
+dsh plugin --profile desktop add ./dsh-skin-0.4.6.tgz
 ```
 
-macOS 也可直接使用 `"/Applications/DeepSeek Harness.app/Contents/Resources/runtime/cli/bin/dsh"` 替换 `dsh`。重新打开客户端，在「插件」中启用并打开 **DSH Skin**。点击主题预览卡片即可切换外观，当前主题带有勾选标记。客户端重启后会读取这台设备上的上次选择。
+macOS 也可直接使用 `"/Applications/DeepSeek Harness.app/Contents/Resources/runtime/cli/bin/dsh"` 替换 `dsh`。重新打开客户端，在「插件」中启用并打开 **皮肤大全**。点击主题预览卡片即可切换外观，当前主题带有勾选标记。客户端重启后会读取这台设备上的上次选择。
 
-使用过旧版单主题插件时，在「插件」里停用那些插件一次，再通过 DSH Skin 选择主题。选择「原生外观」即可恢复默认样式。
+使用过旧版单主题插件时，在「插件」里停用那些插件一次，再通过皮肤大全选择主题。选择「原生外观」即可恢复默认样式。
 
 ## 卸载
 
@@ -88,7 +87,7 @@ plugin/
   package.json          dsh-skin 插件和版本
   client-source.js      主题选择与应用
   client.js             生成的客户端 bundle
-  skins/                10 套主题及预览
+  skins/                主题及预览
 scripts/                元数据、配色、安装和打包校验
 deploy/
   nginx.conf       容器内静态路由、缓存与 404 配置

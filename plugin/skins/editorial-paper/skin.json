@@ -44,5 +44,19 @@
   },
   "official": true,
   "featured": false,
-  "designPattern": "editorial"
+  "designPattern": "editorial",
+  "dark": {
+    "colors": [
+      "#211E23",
+      "#F8EDE6",
+      "#FA92A8"
+    ],
+    "preview": {
+      "surface": "#2E282D",
+      "layer": "#382C33",
+      "line": "#715A64",
+      "muted": "#CBBABC",
+      "onAccent": "#32141D"
+    }
+  }
 }

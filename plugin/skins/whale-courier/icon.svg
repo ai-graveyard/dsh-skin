@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Whale Courier · 鲸鱼娘</title>
+  <rect x="1" y="1" width="62" height="62" rx="15" fill="#E2EEF8" stroke="#98B2CB"/>
+  <g stroke="#132B46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="15" y="23" width="34" height="23" rx="4" fill="#FFFDF8"/>
+    <path d="m16 26 16 12 16-12" fill="none"/>
+    <path d="M32 23c-6-6-10-3-13-9 5-1 10 0 13 4 3-4 8-5 13-4-3 6-7 3-13 9Z" fill="#2A5CBF"/>
+    <circle cx="32" cy="38" r="3" fill="#B9796F" stroke="none"/>
+  </g>
+</svg>

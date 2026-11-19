@@ -28,21 +28,35 @@
     "Dark"
   ],
   "colors": [
-    "#0C0F14",
-    "#E8EDF2",
-    "#5EE1B3"
+    "#F0F4F0",
+    "#162923",
+    "#006B48"
   ],
   "preview": {
     "label": "NIGHT SIGNAL",
-    "surface": "#141922",
-    "layer": "#10151C",
-    "line": "#364353",
-    "muted": "#9BA7B6",
+    "surface": "#FAFDF8",
+    "layer": "#E3EEE6",
+    "line": "#7F9E90",
+    "muted": "#466456",
     "radius": 6,
     "cardRadius": 12,
-    "onAccent": "#0C0F14"
+    "onAccent": "#FFFFFF"
   },
   "official": true,
   "featured": false,
-  "designPattern": "terminal"
+  "designPattern": "terminal",
+  "dark": {
+    "colors": [
+      "#0C0F14",
+      "#E8EDF2",
+      "#5EE1B3"
+    ],
+    "preview": {
+      "surface": "#141922",
+      "layer": "#10151C",
+      "line": "#364353",
+      "muted": "#9BA7B6",
+      "onAccent": "#0C0F14"
+    }
+  }
 }

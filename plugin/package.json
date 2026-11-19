@@ -1,7 +1,7 @@
 {
   "name": "dsh-skin",
-  "version": "0.4.5",
-  "description": "Ten switchable themes for DeepSeek Harness Desktop.",
+  "version": "0.4.6",
+  "description": "Eleven switchable themes for DeepSeek Harness Desktop.",
   "type": "module",
   "main": "./index.js",
   "exports": {
@@ -15,6 +15,7 @@
     "client.js",
     "client-source.js",
     "picker.css",
+    "surfaces.css",
     "cordis.patch.yml",
     "icon.svg",
     "locale",
@@ -22,7 +23,9 @@
     "discover-skins.mjs",
     "skins/*/skin.json",
     "skins/*/skin.css",
-    "skins/*/tokens.json"
+    "skins/*/tokens.json",
+    "skins/*/tokens.dark.json",
+    "skins/*/*.webp"
   ],
   "keywords": ["deepseek-harness", "dsh-plugin", "desktop", "theme"],
   "license": "MIT",

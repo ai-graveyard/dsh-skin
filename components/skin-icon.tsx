@@ -71,6 +71,14 @@ export function SkinIcon({ skin, className = "" }: { skin: Skin; className?: str
         <path d="m40 39 8 9H32l8-9Z" fill={skin.colors[1]} stroke="none" />
       </>
     ),
+    "whale-courier": (
+      <>
+        <rect x="15" y="23" width="34" height="23" rx="4" fill="#FFFDF8" />
+        <path d="m16 26 16 12 16-12" />
+        <path d="M32 23c-6-6-10-3-13-9 5-1 10 0 13 4 3-4 8-5 13-4-3 6-7 3-13 9Z" fill={accent} />
+        <circle cx="32" cy="38" r="3" fill="#B9796F" stroke="none" />
+      </>
+    ),
   };
 
   return (

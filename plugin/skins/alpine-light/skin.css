@@ -1,4 +1,4 @@
-/* Alpine Light · 雪岭. Fixed palette; all rules scoped to the active plugin. */
+/* Alpine Light · 雪岭. Light and dark modes scoped to the active skin. */
 body[data-dsh-skin="alpine-light"] {
   --bg: #ffffff;
   --bg-alt: #f5f5f7;
@@ -17,6 +17,20 @@ body[data-dsh-skin="alpine-light"] {
   --dsw-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
   color-scheme: light;
   background: var(--skin-bg); color: var(--skin-ink); font-family: var(--dsw-font-family);
+}
+body[data-dsh-skin="alpine-light"][data-ds-dark-theme] {
+  --skin-bg: #141A24;
+  --skin-ink: #EEF3FD;
+  --skin-accent: #93BEFF;
+  --skin-surface: #202C3B;
+  --skin-layer: #253242;
+  --skin-line: #5B708E;
+  --skin-muted: #BAC9DE;
+  --skin-action: #A7CAFF;
+  --skin-on-action: #11243E;
+  --skin-focus: #A0C7FF;
+  --skin-shadow: 0 1px 2px #00000040;
+  color-scheme: dark;
 }
 body[data-dsh-skin="alpine-light"] :where(button, input, textarea, select, [role="button"], [role="tab"]) { font-family: inherit; border-radius: var(--skin-radius); }
 body[data-dsh-skin="alpine-light"] :where(code, pre, kbd, samp) { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
@@ -46,8 +60,51 @@ body[data-dsh-skin="alpine-light"] ::selection { background: var(--skin-action);
 }
 
 /* Signature details: apple */
-body[data-dsh-skin="alpine-light"] [class*="_sidebarCol"] { background: #f5f5f7e8 !important; -webkit-backdrop-filter: blur(20px) saturate(180%); backdrop-filter: blur(20px) saturate(180%); }
+body[data-dsh-skin="alpine-light"] [class*="_sidebarCol"] { background: color-mix(in srgb, var(--skin-layer) 91%, transparent) !important; -webkit-backdrop-filter: blur(20px) saturate(180%); backdrop-filter: blur(20px) saturate(180%); }
 body[data-dsh-skin="alpine-light"] [class*="_composerStack"] button[class*="_primary"] { border-radius: 50% !important; }
+
+/* Cool graphite: diffuse light, silver edges, and continuous corners. */
+body[data-dsh-skin="alpine-light"] {
+  --alpine-halo: #DDEBFF6B;
+  --alpine-edge: #FFFFFFD0;
+  --skin-settings-surface: #F8FAFF;
+  --skin-popup: #F4F7FC;
+  --skin-command-surface: #F6F8FD;
+  --skin-code-header: #E9EFF7;
+  --skin-selected-surface: #DEE9F9;
+  --skin-settings-shadow: inset 0 1px var(--alpine-edge), 0 20px 55px #101D3C32;
+  --skin-popup-shadow: inset 0 1px var(--alpine-edge), 0 0 0 1px #7D91AF52, 0 10px 26px #152D531F;
+}
+body[data-dsh-skin="alpine-light"][data-ds-dark-theme] {
+  --alpine-halo: #405B84A6;
+  --alpine-edge: #C8DAFA2E;
+  --skin-settings-surface: #222F41;
+  --skin-popup: #2B3A50;
+  --skin-command-surface: #29394F;
+  --skin-code-header: #27374D;
+  --skin-selected-surface: #354B68;
+  --skin-settings-shadow: inset 0 1px var(--alpine-edge), 0 20px 55px #080E1BB8;
+  --skin-popup-shadow: inset 0 1px var(--alpine-edge), 0 0 0 1px #A6C3EF3D, 0 10px 26px #080E1B80;
+}
+body[data-dsh-skin="alpine-light"] [class*="_centerCol"]:has([class*="_composerHero"]) {
+  background: radial-gradient(ellipse at 50% 41%, var(--alpine-halo) 0%, transparent 59%);
+}
+body[data-dsh-skin="alpine-light"][data-ds-dark-theme] [class*="_sidebarCol"] button[class*="_newSession"] {
+  border-radius: 999px !important;
+  background: var(--skin-selected-surface) !important;
+}
+body[data-dsh-skin="alpine-light"] [role="dialog"][data-shortcut-modal="settings"] nav button {
+  border-radius: 999px;
+}
+body[data-dsh-skin="alpine-light"] [data-menu-material]:not([data-trigger-menu]) {
+  border-radius: 15px;
+}
+body[data-dsh-skin="alpine-light"] [data-text-interaction-source] [data-code-wrap] {
+  border-radius: 16px;
+}
+body[data-dsh-skin="alpine-light"] [data-text-interaction-source] [data-code-wrap] pre {
+  border-color: transparent;
+}
 body[data-dsh-skin="alpine-light"] :where(h1, h2, h3) { font-weight: 500; letter-spacing: -.025em; }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,4 +1,4 @@
-/* Editorial Paper · 纸上编辑. Fixed palette; all rules scoped to the active plugin. */
+/* Editorial Paper · 纸上编辑. Light and dark modes scoped to the active skin. */
 body[data-dsh-skin="editorial-paper"] {
   --paper: #FAF7F0;
   --ink: #141414;
@@ -13,10 +13,24 @@ body[data-dsh-skin="editorial-paper"] {
   --skin-surface: #FFFCF6; --skin-layer: #F0EBDF; --skin-line: #DCD5C6;
   --skin-muted: #655F55; --skin-action: #C8102E; --skin-on-action: #FFFFFF;
   --skin-focus: #C8102E;
-  --skin-radius: 0px; --skin-card-radius: 0px; --skin-shadow: none;
+  --skin-radius: 0px; --skin-card-radius: 0px; --skin-shadow: 0 0 0 transparent;
   --dsw-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
   color-scheme: light;
   background: var(--skin-bg); color: var(--skin-ink); font-family: var(--dsw-font-family);
+}
+body[data-dsh-skin="editorial-paper"][data-ds-dark-theme] {
+  --skin-bg: #211E23;
+  --skin-ink: #F8EDE6;
+  --skin-accent: #FA92A8;
+  --skin-surface: #2E282D;
+  --skin-layer: #382C33;
+  --skin-line: #715A64;
+  --skin-muted: #CBBABC;
+  --skin-action: #FA92A8;
+  --skin-on-action: #32141D;
+  --skin-focus: #FA92A8;
+  --skin-shadow: 0 0 0 transparent;
+  color-scheme: dark;
 }
 body[data-dsh-skin="editorial-paper"] :where(button, input, textarea, select, [role="button"], [role="tab"]) { font-family: inherit; border-radius: var(--skin-radius); }
 body[data-dsh-skin="editorial-paper"] :where(code, pre, kbd, samp) { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
@@ -46,9 +60,9 @@ body[data-dsh-skin="editorial-paper"] ::selection { background: var(--skin-actio
 }
 
 /* Signature details: editorial */
-body[data-dsh-skin="editorial-paper"] [class*="_sidebarCol"] button[class*="_brand"] { border-bottom: 3px double #141414 !important; }
+body[data-dsh-skin="editorial-paper"] [class*="_sidebarCol"] button[class*="_brand"] { border-bottom: 3px double var(--skin-ink) !important; }
 body[data-dsh-skin="editorial-paper"] :where(h1,h2,h3) { font-family: var(--serif); font-weight: 500; }
-body[data-dsh-skin="editorial-paper"] [class*="_sidebarCol"] button[class*="_newSession"] { background: #141414 !important; color: #FAF7F0 !important; border-color: #141414 !important; }
+body[data-dsh-skin="editorial-paper"] [class*="_sidebarCol"] button[class*="_newSession"] { background: var(--skin-ink) !important; color: var(--skin-bg) !important; border-color: var(--skin-ink) !important; }
 body[data-dsh-skin="editorial-paper"] :where(blockquote) { font-family: var(--serif); font-style: italic; }
 
 @media (prefers-reduced-motion: reduce) {
@@ -65,3 +79,50 @@ body[data-dsh-skin="editorial-paper"] [class*="_composerStack"] :is([class$="_ca
   box-shadow: 0 0 0 1px var(--skin-focus), var(--skin-shadow) !important;
 }
 body[data-dsh-skin="editorial-paper"] [class*="_composerStack"] [class*="_titleGroup"] > span:first-child { font-family: var(--serif); font-weight: 500; letter-spacing: .01em; }
+
+/* Reading desk: newsprint rules and a hierarchy that continues inside a reply. */
+body[data-dsh-skin="editorial-paper"] {
+  --skin-settings-surface: #F9F3E7;
+  --skin-popup: #FFF8EA;
+  --skin-command-surface: #FBF4E7;
+  --skin-code-header: #F2E9D9;
+  --skin-selected-surface: #F5E4D7;
+  --skin-selection-mark: inset 2px 0 var(--skin-action);
+  --skin-popup-shadow: 0 0 0 1px var(--skin-line), 0 4px 0 #4231221A;
+}
+body[data-dsh-skin="editorial-paper"][data-ds-dark-theme] {
+  --skin-settings-surface: #30262D;
+  --skin-popup: #3B2A34;
+  --skin-command-surface: #362830;
+  --skin-code-header: #392B32;
+  --skin-selected-surface: #4C313B;
+  --skin-popup-shadow: 0 0 0 1px var(--skin-line), 0 4px 0 #0A060963;
+}
+body[data-dsh-skin="editorial-paper"] :where(
+  [class*="_composerHero"] [class*="_titleGroup"],
+  [role="dialog"][data-shortcut-modal="settings"] > [class*="_navTitle"]
+) {
+  font-family: var(--serif);
+  border-block-start: 3px double var(--skin-ink);
+  border-block-end: 1px solid var(--skin-line);
+  padding-block: .3em;
+}
+body[data-dsh-skin="editorial-paper"] [data-menu-material]:not([data-trigger-menu]) {
+  border-block-start: 3px double var(--skin-action);
+  border-radius: 0;
+}
+body[data-dsh-skin="editorial-paper"] [data-text-interaction-source] > :is(h1,h2,h3) {
+  font-family: var(--serif);
+  font-weight: 600;
+  letter-spacing: .015em;
+  border-block-start: 3px double var(--skin-ink);
+  padding-block-start: .42em;
+}
+body[data-dsh-skin="editorial-paper"] [data-text-interaction-source] > p {
+  line-height: 1.75;
+  margin-block: .8em;
+}
+body[data-dsh-skin="editorial-paper"] [data-text-interaction-source] [data-code-wrap] {
+  border-radius: 0;
+  border-block-start: 2px solid var(--skin-action);
+}

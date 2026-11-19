@@ -8,7 +8,7 @@ import plugin from "@/plugin/package.json";
 
 const archive = `${plugin.name}-${plugin.version}.tgz`;
 const downloadUrl = `${repositoryUrl}/releases/download/v${plugin.version}/${archive}`;
-const themePickerScreenshot = "/install/theme-picker-macos.png";
+const themePickerScreenshot = `/install/theme-picker-macos.png?v=${plugin.version}`;
 
 export function InstallGuide({ skin }: { skin?: Skin }) {
   const { t, skinName } = useSitePreferences();
@@ -21,7 +21,7 @@ export function InstallGuide({ skin }: { skin?: Skin }) {
     <div className="install-guide glass">
       <div className="install-options">
         <p className="install-selected">
-          <strong>DSH Skin</strong> · v{plugin.version}
+          <strong>{t("皮肤大全")}</strong> · v{plugin.version}
         </p>
         <div
           className="segmented platform-switch"
@@ -64,7 +64,7 @@ export function InstallGuide({ skin }: { skin?: Skin }) {
       <ol className="install-steps">
         <li>
           <div className="step-copy">
-            <h3>{t("下载 DSH Skin")}</h3>
+            <h3>{t("下载皮肤大全")}</h3>
             <p>{t("一个安装包包含全部主题。")}</p>
           </div>
           <div>
@@ -76,7 +76,7 @@ export function InstallGuide({ skin }: { skin?: Skin }) {
         </li>
         <li>
           <div className="step-copy">
-            <h3>{t("安装 DSH Skin")}</h3>
+            <h3>{t("安装皮肤大全")}</h3>
             <p>{t("在安装包所在的目录打开终端，运行以下命令。")}</p>
           </div>
           <div>
@@ -88,7 +88,7 @@ export function InstallGuide({ skin }: { skin?: Skin }) {
         <li>
           <div className="step-copy">
             <h3>{t("在客户端选择主题")}</h3>
-            <p>{t("重新打开 DeepSeek Harness，在插件列表中启用并打开 DSH Skin。")}</p>
+            <p>{t("重新打开 DeepSeek Harness，在插件列表中启用并打开皮肤大全。")}</p>
             <p>
               {skin
                 ? t("点击「{theme}」的预览卡片。").replace("{theme}", skinName(skin))
@@ -98,16 +98,16 @@ export function InstallGuide({ skin }: { skin?: Skin }) {
           <div className="enable-path">
             <span>{t("插件")}</span>
             <span aria-hidden="true">→</span>
-            <span>DSH Skin</span>
+            <span>{t("皮肤大全")}</span>
             <span aria-hidden="true">→</span>
             <span className="enabled-pill">{t("主题")}</span>
           </div>
           <figure className="install-preview">
             <img
               src={themePickerScreenshot}
-              alt={t("DSH Skin 主题卡片，原生外观已勾选。")}
+              alt={t("皮肤大全主题卡片，原生外观已勾选。")}
               width={899}
-              height={294}
+              height={264}
               loading="lazy"
             />
             <figcaption>
@@ -133,7 +133,7 @@ export function InstallGuide({ skin }: { skin?: Skin }) {
           <CopyCommand command={`${cli} plugin --profile desktop list --depth 0`} />
           <p>
             {t(
-              "选「原生外观」即可恢复默认样式。要卸载 DSH Skin，可运行：",
+              "选「原生外观」即可恢复默认样式。要卸载皮肤大全，可运行：",
             )}
           </p>
           <CopyCommand

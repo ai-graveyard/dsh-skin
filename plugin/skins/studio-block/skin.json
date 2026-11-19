@@ -46,5 +46,19 @@
   },
   "official": true,
   "featured": false,
-  "designPattern": "neo-brutalism"
+  "designPattern": "neo-brutalism",
+  "dark": {
+    "colors": [
+      "#231B29",
+      "#FFF1E0",
+      "#F7C548"
+    ],
+    "preview": {
+      "surface": "#302437",
+      "layer": "#3B2A46",
+      "line": "#856D8C",
+      "muted": "#D9C5D9",
+      "onAccent": "#23182B"
+    }
+  }
 }

@@ -27,11 +27,16 @@ const [packed] = JSON.parse(stdout)
 assert.equal(packed.name, 'dsh-skin')
 
 const packedFiles = new Set(packed.files.map((file) => file.path))
-const expectedFiles = ['package.json', 'index.js', 'client.js', 'picker.css', 'cordis.patch.yml', 'icon.svg', 'locale/zh.json', 'locale/en.json']
+const expectedFiles = ['package.json', 'index.js', 'client.js', 'picker.css', 'surfaces.css', 'cordis.patch.yml', 'icon.svg', 'locale/zh.json', 'locale/en.json']
 for (const directory of await getSkinDirectories()) {
   const slug = basename(directory)
+  const listing = JSON.parse(await readFile(join(directory, 'skin.json'), 'utf8'))
   for (const file of ['skin.css', 'tokens.json', 'skin.json']) {
     expectedFiles.push(`skins/${slug}/${file}`)
+  }
+  if (listing.dark) expectedFiles.push(`skins/${slug}/tokens.dark.json`)
+  for (const artwork of [listing.artwork, listing.sidebarArtwork].filter(Boolean)) {
+    expectedFiles.push(`skins/${slug}/${artwork}`)
   }
 }
 for (const file of expectedFiles) assert.ok(packedFiles.has(file), `Package is missing ${file}`)

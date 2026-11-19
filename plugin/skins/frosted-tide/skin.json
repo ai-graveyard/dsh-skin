@@ -28,21 +28,35 @@
     "Dark"
   ],
   "colors": [
-    "#0D0F26",
-    "#F4F5FF",
-    "#4ECDC4"
+    "#F0F5FF",
+    "#263859",
+    "#10746C"
   ],
   "preview": {
     "label": "FROSTED TIDE",
-    "surface": "#1D2342",
-    "layer": "#171A3D",
-    "line": "#505775",
-    "muted": "#B4BDD9",
+    "surface": "#F9FCFF",
+    "layer": "#E2EAFE",
+    "line": "#8A9DBA",
+    "muted": "#4B6077",
     "radius": 12,
     "cardRadius": 22,
-    "onAccent": "#0D0F26"
+    "onAccent": "#FFFFFF"
   },
   "official": true,
   "featured": false,
-  "designPattern": "glassmorphism"
+  "designPattern": "glassmorphism",
+  "dark": {
+    "colors": [
+      "#0D0F26",
+      "#F4F5FF",
+      "#4ECDC4"
+    ],
+    "preview": {
+      "surface": "#1D2342",
+      "layer": "#171A3D",
+      "line": "#505775",
+      "muted": "#B4BDD9",
+      "onAccent": "#0D0F26"
+    }
+  }
 }

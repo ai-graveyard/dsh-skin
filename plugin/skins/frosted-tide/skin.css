@@ -1,4 +1,4 @@
-/* Frosted Tide · 雾潮. Fixed palette; all rules scoped to the active plugin. */
+/* Frosted Tide · 雾潮. Light and dark modes scoped to the active skin. */
 body[data-dsh-skin="frosted-tide"] {
   --bg0: #0d0f26;
   --bg1: #171a3d;
@@ -15,14 +15,34 @@ body[data-dsh-skin="frosted-tide"] {
   --stroke-soft: rgba(255,255,255,.12);
   --shadow: 0 24px 60px rgba(4,7,28,.5);
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
-  --skin-bg: #0D0F26; --skin-ink: #F4F5FF; --skin-accent: #4ECDC4;
-  --skin-surface: #1D2342; --skin-layer: #171A3D; --skin-line: #505775;
-  --skin-muted: #B4BDD9; --skin-action: #4ECDC4; --skin-on-action: #0D0F26;
-  --skin-focus: #4ECDC4;
-  --skin-radius: 12px; --skin-card-radius: 22px; --skin-shadow: 0 16px 40px #04071c66;
+  --skin-bg: #F0F5FF; --skin-ink: #263859; --skin-accent: #10746C;
+  --skin-surface: #F9FCFF; --skin-layer: #E2EAFE; --skin-line: #8A9DBA;
+  --skin-muted: #4B6077; --skin-action: #10746C; --skin-on-action: #FFFFFF;
+  --skin-focus: #10746C;
+  --skin-radius: 12px; --skin-card-radius: 22px; --skin-shadow: 0 12px 32px #283B611C;
   --dsw-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-  color-scheme: dark;
+  --glass-edge: #637AA54D;
+  --glass-glow: #45A9A526;
+  --glass-button: #FFFFFF80;
+  color-scheme: light;
   background: var(--skin-bg); color: var(--skin-ink); font-family: var(--dsw-font-family);
+}
+body[data-dsh-skin="frosted-tide"][data-ds-dark-theme] {
+  --skin-bg: #0D0F26;
+  --skin-ink: #F4F5FF;
+  --skin-accent: #4ECDC4;
+  --skin-surface: #1D2342;
+  --skin-layer: #171A3D;
+  --skin-line: #505775;
+  --skin-muted: #B4BDD9;
+  --skin-action: #4ECDC4;
+  --skin-on-action: #0D0F26;
+  --skin-focus: #4ECDC4;
+  --skin-shadow: 0 16px 40px #04071c66;
+  --glass-edge: #FFFFFF38;
+  --glass-glow: #4ECDC41A;
+  --glass-button: #FFFFFF12;
+  color-scheme: dark;
 }
 body[data-dsh-skin="frosted-tide"] :where(button, input, textarea, select, [role="button"], [role="tab"]) { font-family: inherit; border-radius: var(--skin-radius); }
 body[data-dsh-skin="frosted-tide"] :where(code, pre, kbd, samp) { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
@@ -52,10 +72,44 @@ body[data-dsh-skin="frosted-tide"] ::selection { background: var(--skin-action);
 }
 
 /* Signature details: glassmorphism */
-body[data-dsh-skin="frosted-tide"] [class*="_sidebarCol"] { background: linear-gradient(155deg, #667eea25, #171a3de0 55%, #4ecdc415) !important; }
-body[data-dsh-skin="frosted-tide"] [class*="_composerStack"] [class$="_card"] { background: linear-gradient(120deg, #667eea26, #1d2342dd 65%, #4ecdc41a) !important; border-color: #ffffff38 !important; -webkit-backdrop-filter: blur(20px) saturate(150%); backdrop-filter: blur(20px) saturate(150%); box-shadow: inset 0 1px 0 #ffffff1f, 0 16px 40px #04071c66 !important; }
-body[data-dsh-skin="frosted-tide"] [class*="_sidebarCol"] button[class*="_newSession"] { background: #ffffff12 !important; border-color: #ffffff38 !important; }
-body[data-dsh-skin="frosted-tide"] [role="dialog"] { background: #1D2342 !important; }
+body[data-dsh-skin="frosted-tide"] [class*="_sidebarCol"] { background: linear-gradient(155deg, #667eea25, color-mix(in srgb, var(--skin-layer) 88%, transparent) 55%, var(--glass-glow)) !important; }
+body[data-dsh-skin="frosted-tide"] [class*="_composerStack"] [class$="_card"] { background: linear-gradient(120deg, #667eea26, color-mix(in srgb, var(--skin-surface) 87%, transparent) 65%, var(--glass-glow)) !important; border-color: var(--glass-edge) !important; -webkit-backdrop-filter: blur(20px) saturate(150%); backdrop-filter: blur(20px) saturate(150%); box-shadow: inset 0 1px 0 var(--glass-edge), var(--skin-shadow) !important; }
+body[data-dsh-skin="frosted-tide"] [class*="_sidebarCol"] button[class*="_newSession"] { background: var(--glass-button) !important; border-color: var(--glass-edge) !important; }
+body[data-dsh-skin="frosted-tide"] [role="dialog"] { background: var(--skin-surface) !important; }
+
+body[data-dsh-skin="frosted-tide"] {
+  --skin-settings-surface: #ECF4FF;
+  --skin-settings-texture: radial-gradient(ellipse at 0 0, #FFFFFFEB, transparent 62%), linear-gradient(145deg, #F6F8FFC0, #D9F1EE80);
+  --skin-popup: #ECF6FF58;
+  --skin-popup-material: linear-gradient(140deg, #FAFDFFF0, #DAF1EDE0);
+  --skin-popup-filter: blur(18px) saturate(125%);
+  --skin-command-surface: #EDF7FD;
+  --skin-code-header: #E5F1F6;
+  --skin-selected-surface: #CEE8E9;
+  --skin-settings-shadow: inset 0 1px #FFFFFFBF, 0 16px 40px #345B8536;
+  --skin-popup-shadow: inset 0 1px #FFFFFFDD, 0 0 0 1px #57759C66, 0 8px 25px #3B627F39;
+}
+body[data-dsh-skin="frosted-tide"][data-ds-dark-theme] {
+  --skin-settings-surface: #202846;
+  --skin-settings-texture: linear-gradient(145deg, #667AEA26, transparent 62%, #4ECDC41F);
+  --skin-popup: #202A4D62;
+  --skin-popup-material: linear-gradient(140deg, #2B3559F2, #202F46EB);
+  --skin-command-surface: #26334C;
+  --skin-code-header: #27324F;
+  --skin-selected-surface: #334858;
+  --skin-settings-shadow: inset 0 1px #D7E4FF28, 0 16px 40px #060B2480;
+  --skin-popup-shadow: inset 0 1px #E6F1FF30, 0 0 0 1px #A3B3D950, 0 8px 25px #050A2580;
+}
+body[data-dsh-skin="frosted-tide"] [class*="_centerCol"]:has([class*="_composerHero"]) {
+  background: radial-gradient(ellipse at 48% 36%, var(--glass-glow), transparent 56%);
+}
+body[data-dsh-skin="frosted-tide"] [data-menu-material]:not([data-trigger-menu]) {
+  border-radius: 15px;
+}
+body[data-dsh-skin="frosted-tide"] [data-text-interaction-source] [data-code-wrap] {
+  border-radius: 14px;
+  box-shadow: inset 0 1px var(--glass-edge);
+}
 
 @media (prefers-reduced-motion: reduce) {
   body[data-dsh-skin="frosted-tide"] *, body[data-dsh-skin="frosted-tide"] *::before, body[data-dsh-skin="frosted-tide"] *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }

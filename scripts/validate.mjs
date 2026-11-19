@@ -19,9 +19,9 @@ assert.match(pluginIcon, /viewBox="0 0 ([1-9]\d*) \1"/, 'The desktop plugin icon
 assert.doesNotMatch(pluginIcon, /<script|(?:href|src)=/i, 'The desktop plugin icon must be self-contained')
 assert.ok(pkg.repository?.url && pkg.homepage && pkg.bugs?.url)
 assert.match(await readPlugin('cordis.patch.yml'), /id: dsh-skin\s+name: dsh-skin/)
-for (const locale of ['en', 'zh']) {
+for (const [locale, title] of [['en', 'Skin Collection'], ['zh', '皮肤大全']]) {
   const { meta } = JSON.parse(await readPlugin(`locale/${locale}.json`))
-  assert.equal(meta.title, 'DSH Skin')
+  assert.equal(meta.title, title, `${locale}: plugin display name`)
   assert.ok(meta.description.length > 5)
 }
 const requiredFiles = ['README.md', 'preview.html', 'skin.css', 'skin.json', 'tokens.json', 'icon.svg', 'locale/en.json', 'locale/zh.json']
@@ -96,6 +96,18 @@ for (const directory of directories) {
   assert.doesNotMatch(preview, /<script\b/i, `${directoryName}: preview must remain script-free`)
   for (const color of listing.colors) {
     assert.ok(css.toLowerCase().includes(color.toLowerCase()), `${directoryName}: skin.css is missing ${color}`)
+  }
+  if (listing.dark) {
+    const darkTokens = await read('tokens.dark.json')
+    for (const color of listing.dark.colors) {
+      assert.ok(
+        css.toLowerCase().includes(color.toLowerCase()) || darkTokens.toLowerCase().includes(color.toLowerCase()),
+        `${directoryName}: dark palette is missing ${color}`,
+      )
+    }
+  }
+  const sample = listing.style.includes('Dark') && listing.dark ? listing.dark : listing
+  for (const color of sample.colors) {
     assert.ok(preview.toLowerCase().includes(color.toLowerCase()), `${directoryName}: preview is missing ${color}`)
   }
 

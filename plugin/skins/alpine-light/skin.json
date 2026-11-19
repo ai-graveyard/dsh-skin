@@ -45,5 +45,19 @@
   },
   "official": true,
   "featured": false,
-  "designPattern": "apple"
+  "designPattern": "apple",
+  "dark": {
+    "colors": [
+      "#141A24",
+      "#EEF3FD",
+      "#93BEFF"
+    ],
+    "preview": {
+      "surface": "#202C3B",
+      "layer": "#253242",
+      "line": "#5B708E",
+      "muted": "#BAC9DE",
+      "onAccent": "#11243E"
+    }
+  }
 }

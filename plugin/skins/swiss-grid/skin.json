@@ -44,5 +44,19 @@
   },
   "official": true,
   "featured": false,
-  "designPattern": "swiss"
+  "designPattern": "swiss",
+  "dark": {
+    "colors": [
+      "#161616",
+      "#F7F7F7",
+      "#FF746F"
+    ],
+    "preview": {
+      "surface": "#212121",
+      "layer": "#1A1A1A",
+      "line": "#686868",
+      "muted": "#C6C6C6",
+      "onAccent": "#230C0C"
+    }
+  }
 }

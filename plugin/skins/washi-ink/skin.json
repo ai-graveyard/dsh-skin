@@ -44,5 +44,19 @@
   },
   "official": true,
   "featured": false,
-  "designPattern": "japanese"
+  "designPattern": "japanese",
+  "dark": {
+    "colors": [
+      "#1B2623",
+      "#F4EDDE",
+      "#F59C86"
+    ],
+    "preview": {
+      "surface": "#24312C",
+      "layer": "#26372F",
+      "line": "#5E7165",
+      "muted": "#C6C8B7",
+      "onAccent": "#2B1914"
+    }
+  }
 }
