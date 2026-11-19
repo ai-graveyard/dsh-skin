@@ -67,7 +67,7 @@ export function HomeContent({ skins }: { skins: Skin[] }) {
             {t("内置全部主题的 DeepSeek Harness 桌面插件。")}
           </p>
           <span>
-            {t("安装 DSH Skin")}
+            {t("安装皮肤大全")}
             <b>→</b>
             {t("打开插件")}
             <b>→</b>
@@ -96,7 +96,7 @@ export function HomeContent({ skins }: { skins: Skin[] }) {
           <SkinGallery skins={skins} />
           <p className="section-note">
             {t(
-              "预览为基于皮肤配色与样式的设计示意；每款皮肤采用固定明暗配色。",
+              "预览为基于皮肤配色与样式的设计示意。",
             )}
           </p>
         </section>
@@ -160,7 +160,7 @@ export function HomeContent({ skins }: { skins: Skin[] }) {
               </summary>
               <p>
                 {t(
-                  "可以。在「插件 → DSH Skin」里选择主题，立即生效并记住上次选择。选「原生外观」可恢复默认样式。每套主题使用固定配色。",
+                  "可以。在「插件 → 皮肤大全」里选择主题，立即生效并记住上次选择。选「原生外观」可恢复默认样式。",
                 )}
               </p>
             </details>

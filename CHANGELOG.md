@@ -2,7 +2,19 @@
 
 This file records user-visible changes to skin bundles and the collection site. Local acceptance, Git publication, npm/GitHub releases and site deployment are separate milestones.
 
-## Unreleased
+## Skin Collection 0.4.6 · 2026-11-19
+
+- Add Whale Courier (鲸鱼娘) as an eleventh theme, with sea-blue controls, an original whale courier in the welcome view and sidebar, and a whale-tail wax seal on the composer.
+- Keep Whale Courier's popovers pale blue in both Harness appearance modes, tint dialog backdrops navy, and use distinct blue switch states.
+- Give Whale Courier's Settings window a cool blue-white surface.
+- Make Whale Courier follow Harness Light, Dark, and System appearance with separate palettes and matching theme-card previews.
+- Give all ten other skins their own light and dark palettes, preserving their signature controls, type, and surface styles.
+- Rework Night Signal light and the dark Alpine Light, Nordic Linen, and Editorial Paper variants. Extend each theme's visual details into settings, menus, and conversations, with individual syntax palettes.
+- Display the plugin as 皮肤大全 in Chinese and Skin Collection in English. The package identifier remains `dsh-skin`.
+- Match the Original appearance preview to the client's light or dark setting, and make the Swiss Grid, Nordic Linen, Washi Ink, and Editorial Paper previews reflect their desktop controls.
+- Remove the inner border from the composer's command menu.
+
+## Earlier versions
 
 ### DSH Skin 0.4.5
 

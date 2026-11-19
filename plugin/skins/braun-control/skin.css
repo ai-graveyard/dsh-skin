@@ -1,4 +1,4 @@
-/* Braun Control · 工业控制. Fixed palette; all rules scoped to the active plugin. */
+/* Braun Control · 工业控制. Light and dark modes scoped to the active skin. */
 body[data-dsh-skin="braun-control"] {
   --u: 8px;
   --panel: #ffffff;
@@ -17,6 +17,20 @@ body[data-dsh-skin="braun-control"] {
   --dsw-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
   color-scheme: light;
   background: var(--skin-bg); color: var(--skin-ink); font-family: var(--dsw-font-family);
+}
+body[data-dsh-skin="braun-control"][data-ds-dark-theme] {
+  --skin-bg: #191B1D;
+  --skin-ink: #F1EFEA;
+  --skin-accent: #F88B56;
+  --skin-surface: #232629;
+  --skin-layer: #202326;
+  --skin-line: #565A5E;
+  --skin-muted: #BBB9B5;
+  --skin-action: #F08852;
+  --skin-on-action: #20140E;
+  --skin-focus: #F88B56;
+  --skin-shadow: 0 4px 16px #00000033;
+  color-scheme: dark;
 }
 body[data-dsh-skin="braun-control"] :where(button, input, textarea, select, [role="button"], [role="tab"]) { font-family: inherit; border-radius: var(--skin-radius); }
 body[data-dsh-skin="braun-control"] :where(code, pre, kbd, samp) { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
@@ -46,9 +60,43 @@ body[data-dsh-skin="braun-control"] ::selection { background: var(--skin-action)
 }
 
 /* Signature details: braun */
-body[data-dsh-skin="braun-control"] [class*="_sidebarCol"] button[class*="_newSession"] { background: #1A1A1A !important; color: #FFFFFF !important; border-left: 4px solid #E8500A !important; }
+body[data-dsh-skin="braun-control"] [class*="_sidebarCol"] button[class*="_newSession"] { background: var(--skin-ink) !important; color: var(--skin-bg) !important; border-left: 4px solid var(--skin-accent) !important; }
 body[data-dsh-skin="braun-control"] [class*="_composerStack"] button[class*="_primary"] { border-radius: 50% !important; }
 body[data-dsh-skin="braun-control"] [class*="_sectionHeader"] { font-family: var(--mono); }
+
+body[data-dsh-skin="braun-control"] {
+  --skin-settings-surface: #F0F1F1;
+  --skin-popup: #F9FAFA;
+  --skin-command-surface: #EFF0F0;
+  --skin-selected-surface: #FFE2CC;
+  --skin-code-header: #E4E6E7;
+  --skin-selection-mark: inset 3px 0 var(--skin-accent);
+  --skin-settings-shadow: inset 0 2px var(--skin-line), 0 12px 36px #17202C26;
+  --skin-popup-shadow: 0 0 0 1px var(--skin-line), 0 4px 0 #20272B26;
+}
+body[data-dsh-skin="braun-control"][data-ds-dark-theme] {
+  --skin-settings-surface: #272A2C;
+  --skin-popup: #313539;
+  --skin-command-surface: #2B2D2F;
+  --skin-selected-surface: #49382D;
+  --skin-code-header: #343536;
+  --skin-popup-shadow: 0 0 0 1px var(--skin-line), 0 4px 0 #07080970;
+}
+body[data-dsh-skin="braun-control"][data-ds-dark-theme] [class*="_sidebarCol"] button[class*="_newSession"] {
+  background: #292D30 !important;
+  color: var(--skin-ink) !important;
+  border-color: #606368 !important;
+  border-inline-start-color: var(--skin-accent) !important;
+}
+body[data-dsh-skin="braun-control"] [role="dialog"][data-shortcut-modal="settings"] > [class*="_navTitle"] {
+  font-family: var(--mono);
+  border-inline-start: 3px solid var(--skin-accent);
+  padding-inline-start: 8px;
+}
+body[data-dsh-skin="braun-control"] [data-text-interaction-source] [data-code-wrap] {
+  border-radius: 4px;
+  border-inline-start: 3px solid var(--skin-accent);
+}
 
 @media (prefers-reduced-motion: reduce) {
   body[data-dsh-skin="braun-control"] *, body[data-dsh-skin="braun-control"] *::before, body[data-dsh-skin="braun-control"] *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }

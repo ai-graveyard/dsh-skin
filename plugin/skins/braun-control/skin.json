@@ -44,5 +44,19 @@
   },
   "official": true,
   "featured": true,
-  "designPattern": "braun"
+  "designPattern": "braun",
+  "dark": {
+    "colors": [
+      "#191B1D",
+      "#F1EFEA",
+      "#F88B56"
+    ],
+    "preview": {
+      "surface": "#232629",
+      "layer": "#202326",
+      "line": "#565A5E",
+      "muted": "#BBB9B5",
+      "onAccent": "#20140E"
+    }
+  }
 }

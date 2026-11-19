@@ -49,6 +49,7 @@ assert.deepEqual([...plugin.inject], ['theme', 'slots', 'locale'])
 
 function activate(locale = 'zh-CN') {
   const disposers = []
+  let colorScheme = 'light'
   let picker
   plugin.apply({
     effect(setup) { disposers.push(setup()) },
@@ -62,6 +63,7 @@ function activate(locale = 'zh-CN') {
     },
     locale: { getSnapshot: () => ({ active: locale }) },
     theme: {
+      getTheme: () => ({ active: { colorScheme } }),
       overrideTokens(source, tokens) {
         layers.set(source, tokens)
         return () => { if (layers.get(source) === tokens) layers.delete(source) }
@@ -76,6 +78,11 @@ function activate(locale = 'zh-CN') {
   }
   return {
     names() { return cards().map((card) => card.children[1].children[0].children[0]) },
+    setAppearance(scheme) { colorScheme = scheme },
+    previewBackground(id) {
+      const { type, props } = cards().find((card) => card.props['data-theme'] === id).children[0]
+      return type(props).props.style['--mini-bg']
+    },
     selected() {
       const pressed = cards().filter((card) => card.props['aria-pressed'])
       assert.equal(pressed.length, 1)
@@ -95,15 +102,18 @@ function checkOriginal(marker) {
 function checkTheme({ listing, css }) {
   assert.equal(document.body.dataset.dshSkin, listing.slug)
   assert.equal(styles.size, 1)
-  assert.equal([...styles][0].textContent, css)
+  const style = [...styles][0].textContent
+  assert.ok(style.startsWith(css))
+  assert.match(style.slice(css.length), /_composerStack.*data-trigger-menu.*role="listbox"/)
   assert.equal(layers.size, 1)
   const base = layers.get('dsh-skin')['--dsw-alias-bg-base']
-  assert.deepEqual({ ...base }, { light: listing.colors[0], dark: listing.colors[0] })
+  assert.deepEqual({ ...base }, { light: listing.colors[0], dark: listing.dark?.colors[0] ?? listing.colors[0] })
 }
 
 let active = activate()
 checkOriginal()
 assert.equal(active.selected(), '')
+assert.equal(active.previewBackground(''), '#FFFFFF')
 assert.deepEqual(
   active.names(),
   ['原生外观', ...catalog.map(({ listing }) => listing.nameZh)],
@@ -113,6 +123,18 @@ for (const theme of catalog) {
   active.choose(theme.listing.slug)
   assert.equal(active.selected(), theme.listing.slug)
   checkTheme(theme)
+}
+
+active.setAppearance('dark')
+assert.equal(active.previewBackground(''), '#151517')
+for (const { listing } of catalog) {
+  assert.equal(active.previewBackground(listing.slug), listing.dark?.colors[0] ?? listing.colors[0])
+}
+checkTheme(catalog.at(-1))
+active.setAppearance('light')
+assert.equal(active.previewBackground(''), '#FFFFFF')
+for (const { listing } of catalog) {
+  assert.equal(active.previewBackground(listing.slug), listing.colors[0])
 }
 
 active.close()

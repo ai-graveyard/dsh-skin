@@ -1,4 +1,4 @@
-/* Washi Ink · 和纸墨. Fixed palette; all rules scoped to the active plugin. */
+/* Washi Ink · 和纸墨. Light and dark modes scoped to the active skin. */
 body[data-dsh-skin="washi-ink"] {
   --paper: #f6f2e6;
   --paper-deep: #efe9d8;
@@ -19,6 +19,20 @@ body[data-dsh-skin="washi-ink"] {
   --dsw-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
   color-scheme: light;
   background: var(--skin-bg); color: var(--skin-ink); font-family: var(--dsw-font-family);
+}
+body[data-dsh-skin="washi-ink"][data-ds-dark-theme] {
+  --skin-bg: #1B2623;
+  --skin-ink: #F4EDDE;
+  --skin-accent: #F59C86;
+  --skin-surface: #24312C;
+  --skin-layer: #26372F;
+  --skin-line: #5E7165;
+  --skin-muted: #C6C8B7;
+  --skin-action: #F59C86;
+  --skin-on-action: #2B1914;
+  --skin-focus: #F59C86;
+  --skin-shadow: 0 4px 16px #0D16134D;
+  color-scheme: dark;
 }
 body[data-dsh-skin="washi-ink"] :where(button, input, textarea, select, [role="button"], [role="tab"]) { font-family: inherit; border-radius: var(--skin-radius); }
 body[data-dsh-skin="washi-ink"] :where(code, pre, kbd, samp) { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
@@ -48,7 +62,7 @@ body[data-dsh-skin="washi-ink"] ::selection { background: var(--skin-action); co
 }
 
 /* Signature details: japanese */
-body[data-dsh-skin="washi-ink"] [class*="_sidebarCol"] button[class*="_newSession"] { border-color: #A63A2B !important; color: #A63A2B !important; background: transparent !important; }
+body[data-dsh-skin="washi-ink"] [class*="_sidebarCol"] button[class*="_newSession"] { border-color: var(--skin-action) !important; color: var(--skin-action) !important; background: transparent !important; }
 body[data-dsh-skin="washi-ink"] :where(h1,h2,h3) { font-family: var(--serif); font-weight: 400; letter-spacing: .02em; }
 body[data-dsh-skin="washi-ink"] [class*="_sectionHeader"] { letter-spacing: .08em; }
 body[data-dsh-skin="washi-ink"] [class*="_composerStack"] button[class*="_primary"] { border-radius: 2px !important; }
@@ -67,3 +81,38 @@ body[data-dsh-skin="washi-ink"] [class*="_composerStack"] :is([class$="_card"], 
   box-shadow: 0 0 0 1px var(--skin-focus), var(--skin-shadow) !important;
 }
 body[data-dsh-skin="washi-ink"] [class*="_composerStack"] [class*="_titleGroup"] > span:first-child { font-family: var(--serif); font-weight: 500; letter-spacing: .01em; }
+
+body[data-dsh-skin="washi-ink"] {
+  --skin-settings-surface: #F8F3E6;
+  --skin-popup: #FDF6E7;
+  --skin-command-surface: #F9F3E4;
+  --skin-code-header: #EEE6D5;
+  --skin-selected-surface: #F0DFCB;
+  --skin-selection-mark: inset 2px 0 var(--skin-accent);
+  --skin-popup-shadow: 0 0 0 1px var(--skin-line), 0 6px 22px #48392D1C;
+}
+body[data-dsh-skin="washi-ink"][data-ds-dark-theme] {
+  --skin-settings-surface: #27332C;
+  --skin-popup: #303D32;
+  --skin-command-surface: #2C382F;
+  --skin-code-header: #2C392F;
+  --skin-selected-surface: #4B3A32;
+  --skin-popup-shadow: 0 0 0 1px var(--skin-line), 0 6px 22px #09130C80;
+}
+body[data-dsh-skin="washi-ink"] :where([class*="_composerHero"] [class*="_titleGroup"], [role="dialog"][data-shortcut-modal="settings"] > [class*="_navTitle"]) {
+  font-family: var(--serif);
+  border-inline-start: 1px solid var(--skin-accent);
+  padding-inline-start: .65em;
+}
+body[data-dsh-skin="washi-ink"] [data-menu-material]:not([data-trigger-menu]) {
+  border-radius: 2px;
+  border-inline-start: 1px solid var(--skin-accent);
+}
+body[data-dsh-skin="washi-ink"] [data-text-interaction-source] > :is(h1,h2,h3,blockquote) {
+  font-family: var(--serif);
+  border-inline-start: 1px solid var(--skin-accent);
+  padding-inline-start: .7em;
+}
+body[data-dsh-skin="washi-ink"] [data-text-interaction-source] [data-code-wrap] {
+  border-radius: 2px;
+}

@@ -1,0 +1,98 @@
+body[data-dsh-skin] [role="dialog"][data-shortcut-modal="settings"] {
+  --dsw-alias-settings-card-fill: var(--skin-settings-surface, var(--skin-surface));
+  background: var(--dsw-alias-settings-card-fill) !important;
+  background-image: var(--skin-settings-texture, none) !important;
+  box-shadow: var(--skin-settings-shadow, var(--skin-shadow));
+}
+
+body[data-dsh-skin] [role="dialog"][data-shortcut-modal="settings"] nav button[aria-current]:not([aria-current="false"]) {
+  background: var(--skin-selected-surface, var(--dsw-alias-interactive-bg-active));
+  box-shadow: var(--skin-selection-mark, none);
+}
+
+body[data-dsh-skin] [role="presentation"]:has(> [role="dialog"]) > [class*="_mask"][aria-hidden="true"] {
+  background: var(--skin-scrim, #0C142A70);
+}
+
+body[data-dsh-skin] [data-menu-material]:not([data-trigger-menu]) {
+  background: var(--skin-popup, var(--skin-surface));
+  box-shadow: var(--skin-popup-shadow, var(--dsw-elevation-panel));
+}
+
+body[data-dsh-skin] [data-menu-material]:not([data-trigger-menu]) > [class*="_material_"] {
+  background: var(--skin-popup-material, var(--skin-popup, var(--skin-surface)));
+  backdrop-filter: var(--skin-popup-filter, none);
+}
+
+body[data-dsh-skin] [data-menu-material]:not([data-trigger-menu]) [role="menuitem"]:is([aria-checked="true"], [class*="_selected_"], :hover) {
+  background: var(--skin-selected-surface, var(--dsw-alias-interactive-bg-hover));
+  box-shadow: var(--skin-selection-mark, none);
+}
+
+/* The host draws the composer popup frame. The listbox is its scroll viewport. */
+body[data-dsh-skin] :where([class*="_composerStack"] [data-trigger-menu]) {
+  background-color: var(--skin-command-surface, var(--skin-surface));
+  border-radius: var(--skin-radius);
+}
+
+body[data-dsh-skin] :where([class*="_composerStack"] [data-trigger-menu][data-menu-material="translucent"]) {
+  background-color: transparent;
+}
+
+body[data-dsh-skin] :where([class*="_composerStack"] [data-trigger-menu] > [class*="_material_"]) {
+  background-color: color-mix(in srgb, var(--skin-command-surface, var(--skin-surface)) 94%, transparent);
+}
+
+body[data-dsh-skin] :where([class*="_composerStack"] [data-trigger-menu] > [role="listbox"]) {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+body[data-dsh-skin] :where(pre) {
+  background: var(--dsw-alias-markdown-code-block, var(--skin-surface)) !important;
+}
+
+body[data-dsh-skin] [data-text-interaction-source] [data-code-wrap] > [class*="_bannerWrap"] {
+  background: var(--skin-code-header, var(--dsw-alias-markdown-code-block-banner));
+}
+
+body[data-dsh-skin] button[role="switch"] {
+  --switch-track: var(--skin-switch-off, var(--skin-layer));
+  --switch-edge: var(--skin-switch-off-edge, var(--skin-muted));
+  --switch-thumb: var(--skin-switch-off-thumb, var(--skin-muted));
+  background-color: var(--switch-track);
+  box-shadow: inset 0 0 0 1px var(--switch-edge);
+  border-radius: 999px !important;
+}
+
+body[data-dsh-skin] button[role="switch"][aria-checked="true"] {
+  --switch-track: var(--skin-action);
+  --switch-edge: transparent;
+  --switch-thumb: var(--skin-on-action);
+}
+
+body[data-dsh-skin] button[role="switch"]:is(:disabled, [aria-disabled="true"]) {
+  --switch-track: var(--skin-switch-disabled, color-mix(in srgb, var(--skin-layer), var(--skin-bg)));
+  --switch-edge: var(--skin-switch-disabled-edge, var(--skin-line));
+  --switch-thumb: var(--skin-switch-disabled-thumb, color-mix(in srgb, var(--skin-muted) 60%, var(--skin-layer)));
+  opacity: 1;
+}
+
+body[data-dsh-skin] button[role="switch"][aria-checked="true"]:is(:disabled, [aria-disabled="true"]) {
+  --switch-track: var(--skin-switch-disabled-on, color-mix(in srgb, var(--skin-action) 52%, var(--skin-layer)));
+  --switch-thumb: var(--skin-switch-disabled-on-thumb, var(--skin-on-action));
+}
+
+body[data-dsh-skin] button[role="switch"] > [class*="_thumb"] {
+  background-color: var(--switch-thumb);
+}
+
+@media (hover: hover) {
+  body[data-dsh-skin] button[role="switch"]:not(:disabled, [aria-disabled="true"]):hover {
+    --switch-track: var(--skin-switch-off-hover, color-mix(in srgb, var(--skin-layer) 90%, var(--skin-action)));
+  }
+  body[data-dsh-skin] button[role="switch"][aria-checked="true"]:not(:disabled, [aria-disabled="true"]):hover {
+    --switch-track: var(--dsw-alias-button-primary-hover, var(--skin-action));
+  }
+}

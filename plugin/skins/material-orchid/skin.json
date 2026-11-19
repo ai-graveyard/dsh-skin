@@ -40,9 +40,25 @@
     "muted": "#49454F",
     "radius": 16,
     "cardRadius": 28,
-    "onAccent": "#FFFFFF"
+    "onAccent": "#FFFFFF",
+    "sidebarButton": "#EADDFF"
   },
   "official": true,
   "featured": false,
-  "designPattern": "material"
+  "designPattern": "material",
+  "dark": {
+    "colors": [
+      "#1E1A27",
+      "#F3EAFB",
+      "#D4B8FF"
+    ],
+    "preview": {
+      "surface": "#292338",
+      "layer": "#322941",
+      "line": "#645672",
+      "muted": "#C7B8D3",
+      "onAccent": "#2A173D",
+      "sidebarButton": "#49375F"
+    }
+  }
 }

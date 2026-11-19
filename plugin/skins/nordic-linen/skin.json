@@ -40,9 +40,25 @@
     "muted": "#655E52",
     "radius": 12,
     "cardRadius": 20,
-    "onAccent": "#FFFFFF"
+    "onAccent": "#FFFFFF",
+    "sidebarButton": "#506345"
   },
   "official": true,
   "featured": false,
-  "designPattern": "scandinavian"
+  "designPattern": "scandinavian",
+  "dark": {
+    "colors": [
+      "#242C28",
+      "#F6F0E3",
+      "#AFCAA0"
+    ],
+    "preview": {
+      "surface": "#2E3932",
+      "layer": "#3A352E",
+      "line": "#687B69",
+      "muted": "#CCD0BC",
+      "onAccent": "#1B2D20",
+      "sidebarButton": "#BED5A9"
+    }
+  }
 }

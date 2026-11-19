@@ -3,7 +3,7 @@ import { useSitePreferences } from "@/components/site-preferences";
 import Link from "next/link";
 import { useState } from "react";
 import type { Skin } from "@/lib/skins";
-import { isDarkSkin, skinDisplay } from "@/lib/skin-display";
+import { defaultPreviewPalette, isDarkSkin, skinDisplay } from "@/lib/skin-display";
 import { SkinPreview } from "@/components/skin-preview";
 export function SkinGallery({ skins }: { skins: Skin[] }) {
   const { t, skinName, locale } = useSitePreferences();
@@ -19,7 +19,7 @@ export function SkinGallery({ skins }: { skins: Skin[] }) {
         <div
           className="segmented glass"
           role="group"
-          aria-label={t("按明暗筛选皮肤")}
+          aria-label={t("按默认预览的明暗筛选皮肤")}
         >
           {[
             { key: "all", name: t("全部皮肤") },
@@ -60,7 +60,7 @@ export function SkinGallery({ skins }: { skins: Skin[] }) {
           >
             <div
               className={`card-preview ${isDarkSkin(skin) ? "card-preview-dark" : ""}`}
-              style={{ "--card-tint": skin.colors[2] } as React.CSSProperties}
+              style={{ "--card-tint": defaultPreviewPalette(skin).colors[2] } as React.CSSProperties}
             >
               <SkinPreview skin={skin} compact />
               <span className="style-tag">
@@ -84,7 +84,7 @@ export function SkinGallery({ skins }: { skins: Skin[] }) {
               <p>{skinDisplay(skin, locale).description}</p>
               <div className="card-bottom">
                 <span className="skin-colors" aria-label={t("皮肤配色")}>
-                  {skin.colors.map((c) => (
+                  {defaultPreviewPalette(skin).colors.map((c) => (
                     <i key={c} style={{ background: c }} />
                   ))}
                 </span>

@@ -8,7 +8,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SkinPreview } from "@/components/skin-preview";
 import { SkinIcon } from "@/components/skin-icon";
 import type { Skin } from "@/lib/skins";
-import { skinDisplay, isDarkSkin } from "@/lib/skin-display";
+import { defaultPreviewPalette, skinDisplay, isDarkSkin } from "@/lib/skin-display";
 import { repositoryUrl, skinsTreeUrl } from "@/lib/site";
 export function SkinDetail({ skin, related }: { skin: Skin; related: Skin[] }) {
   const { t, skinName, locale } = useSitePreferences();
@@ -25,7 +25,7 @@ export function SkinDetail({ skin, related }: { skin: Skin; related: Skin[] }) {
             <div>
               <p className="eyebrow">
                 {skinDisplay(skin, locale).style} /{" "}
-                {isDarkSkin(skin) ? t("深色皮肤") : t("浅色皮肤")}
+                {skin.dark ? t("明暗双模式") : isDarkSkin(skin) ? t("深色皮肤") : t("浅色皮肤")}
               </p>
               <h1>
                 {skinName(skin)}
@@ -40,13 +40,13 @@ export function SkinDetail({ skin, related }: { skin: Skin; related: Skin[] }) {
               </p>
               <div className="detail-tags">
                 <span>{t("免费开源")}</span>
-                <span>DSH Skin v{plugin.version}</span>
+                <span>{t("皮肤大全")} v{plugin.version}</span>
                 <span>{t("DeepSeek Harness 桌面端")}</span>
               </div>
             </div>
             <div className="detail-actions">
               <a className="button button-primary" href="#install">
-                {t("安装 DSH Skin")}
+                {t("安装皮肤大全")}
                 <span aria-hidden="true">↓</span>
               </a>
               <a className="text-link" href={`${skinsTreeUrl}/${skin.slug}`}>
@@ -68,7 +68,7 @@ export function SkinDetail({ skin, related }: { skin: Skin; related: Skin[] }) {
             <figcaption>
               <span>{t("界面设计示意 · 实际效果以客户端为准")}</span>
               <span className="skin-colors">
-                {skin.colors.map((c) => (
+                {defaultPreviewPalette(skin).colors.map((c) => (
                   <i key={c} title={c} style={{ background: c }} />
                 ))}
               </span>
@@ -116,7 +116,7 @@ export function SkinDetail({ skin, related }: { skin: Skin; related: Skin[] }) {
           <section className="page-section install-section" id="install">
             <div className="section-heading">
               <div>
-                <p className="eyebrow">{t("INSTALL / 安装 DSH Skin")}</p>
+                <p className="eyebrow">{t("INSTALL / 安装皮肤大全")}</p>
                 <h2>
                   {t("让")}
                   {skinName(skin)}
@@ -124,7 +124,7 @@ export function SkinDetail({ skin, related }: { skin: Skin; related: Skin[] }) {
                 </h2>
               </div>
               <p>
-                {t("这款主题已包含在 DSH Skin 里。")}
+                {t("皮肤大全已内置这套主题。")}
                 <br />
                 {t("安装后在插件里切换主题。")}
               </p>

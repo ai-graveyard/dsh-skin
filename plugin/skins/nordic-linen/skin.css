@@ -1,4 +1,4 @@
-/* Nordic Linen · 北欧亚麻. Fixed palette; all rules scoped to the active plugin. */
+/* Nordic Linen · 北欧亚麻. Light and dark modes scoped to the active skin. */
 body[data-dsh-skin="nordic-linen"] {
   --cream: #f6f3ed;
   --card: #ffffff;
@@ -21,6 +21,20 @@ body[data-dsh-skin="nordic-linen"] {
   --dsw-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
   color-scheme: light;
   background: var(--skin-bg); color: var(--skin-ink); font-family: var(--dsw-font-family);
+}
+body[data-dsh-skin="nordic-linen"][data-ds-dark-theme] {
+  --skin-bg: #242C28;
+  --skin-ink: #F6F0E3;
+  --skin-accent: #AFCAA0;
+  --skin-surface: #2E3932;
+  --skin-layer: #3A352E;
+  --skin-line: #687B69;
+  --skin-muted: #CCD0BC;
+  --skin-action: #BED5A9;
+  --skin-on-action: #1B2D20;
+  --skin-focus: #BED5A9;
+  --skin-shadow: 0 8px 24px #100B0650;
+  color-scheme: dark;
 }
 body[data-dsh-skin="nordic-linen"] :where(button, input, textarea, select, [role="button"], [role="tab"]) { font-family: inherit; border-radius: var(--skin-radius); }
 body[data-dsh-skin="nordic-linen"] :where(code, pre, kbd, samp) { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
@@ -50,7 +64,7 @@ body[data-dsh-skin="nordic-linen"] ::selection { background: var(--skin-action);
 }
 
 /* Signature details: scandinavian */
-body[data-dsh-skin="nordic-linen"] [class*="_sidebarCol"] button[class*="_newSession"] { background: #506345 !important; color: #FFFFFF !important; border-color: #506345 !important; }
+body[data-dsh-skin="nordic-linen"] [class*="_sidebarCol"] button[class*="_newSession"] { background: var(--skin-action) !important; color: var(--skin-on-action) !important; border-color: var(--skin-action) !important; }
 body[data-dsh-skin="nordic-linen"] :where(h1, h2) { font-family: var(--serif); font-weight: 400; }
 body[data-dsh-skin="nordic-linen"] [class*="_composerStack"] [class$="_card"] { border-radius: 20px 20px 16px 20px !important; }
 
@@ -68,3 +82,51 @@ body[data-dsh-skin="nordic-linen"] [class*="_composerStack"] :is([class$="_card"
   box-shadow: 0 0 0 1px var(--skin-focus), var(--skin-shadow) !important;
 }
 body[data-dsh-skin="nordic-linen"] [class*="_composerStack"] [class*="_titleGroup"] > span:first-child { font-family: var(--serif); font-weight: 500; letter-spacing: .01em; }
+
+/* Linen at dusk: warm wood, a quiet open weave, and sage controls. */
+body[data-dsh-skin="nordic-linen"] {
+  --linen-thread: #7D664418;
+  --linen-stitch: #6F7453;
+  --skin-settings-surface: #F8F5EC;
+  --skin-popup: #F3EFDE;
+  --skin-command-surface: #F2EFE2;
+  --skin-code-header: #E6E7D5;
+  --skin-selected-surface: #DDE6CF;
+  --skin-selection-mark: inset 3px 0 var(--skin-action);
+  --skin-popup-shadow: 0 0 0 1px var(--skin-line), 0 10px 30px #3A302526;
+}
+body[data-dsh-skin="nordic-linen"][data-ds-dark-theme] {
+  --linen-thread: #E7D1A41A;
+  --linen-stitch: #A5B48C;
+  --skin-settings-surface: #2D3830;
+  --skin-popup: #384638;
+  --skin-command-surface: #364337;
+  --skin-code-header: #344033;
+  --skin-selected-surface: #425442;
+  --skin-popup-shadow: 0 0 0 1px var(--skin-line), 0 12px 30px #0B140C7A;
+}
+body[data-dsh-skin="nordic-linen"] [class*="_sidebarCol"] {
+  background:
+    repeating-linear-gradient(0deg, transparent 0 4px, var(--linen-thread) 5px 6px),
+    repeating-linear-gradient(90deg, transparent 0 8px, var(--linen-thread) 9px 10px),
+    var(--skin-layer) !important;
+}
+body[data-dsh-skin="nordic-linen"] [class*="_composerHero"] [class*="_titleGroup"] {
+  border-block-end: 1px dashed var(--linen-stitch);
+  padding-block-end: 8px;
+}
+body[data-dsh-skin="nordic-linen"] [role="dialog"][data-shortcut-modal="settings"] > [class*="_navTitle"] {
+  font-family: var(--serif);
+  border-block-end: 1px dashed var(--linen-stitch);
+}
+body[data-dsh-skin="nordic-linen"] [data-menu-material]:not([data-trigger-menu]) {
+  border-radius: 14px;
+}
+body[data-dsh-skin="nordic-linen"] [data-text-interaction-source] > :is(h1,h2,h3) {
+  font-family: var(--serif);
+  font-weight: 500;
+}
+body[data-dsh-skin="nordic-linen"] [data-text-interaction-source] [data-code-wrap] {
+  border-radius: 12px;
+  border-block-start: 1px dashed var(--linen-stitch);
+}

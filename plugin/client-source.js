@@ -5,21 +5,25 @@ const inject = ['theme', 'slots', 'locale']
 const CONFIG_SLOT = 'plugins.bundle.config'
 const STORAGE_KEY = 'dsh-skin.theme'
 const ORIGINAL = ''
-const themesById = new Map(THEMES.map((theme) => [theme.id, theme]))
-const choices = [
-  {
-    id: ORIGINAL,
-    name: 'Original appearance',
-    nameZh: '原生外观',
-    colors: ['#FFFFFF', '#20242B', '#4D6BFE'],
-    preview: { layer: '#F5F7FA', surface: '#FFFFFF', line: '#DEE3EA', muted: '#737D8C', radius: 14, cardRadius: 24 },
-  },
-  ...THEMES,
-]
+const ORIGINAL_LIGHT = {
+  id: ORIGINAL,
+  name: 'Original appearance',
+  nameZh: '原生外观',
+  colors: ['#FFFFFF', '#20242B', '#4D6BFE'],
+  preview: { layer: '#F5F7FA', surface: '#FFFFFF', line: '#DEE3EA', muted: '#737D8C', radius: 14, cardRadius: 24 },
+}
+const ORIGINAL_DARK = {
+  ...ORIGINAL_LIGHT,
+  colors: ['#151517', '#F9FAFB', '#7095FF'],
+  preview: { ...ORIGINAL_LIGHT.preview, layer: '#1D1E22', surface: '#232324', line: '#3B3D44', muted: '#9CA3AF' },
+}
 
-function ThemeThumbnail({ theme }) {
-  const [background, ink, accent] = theme.colors
-  const { layer, surface, line, muted, radius = 3, cardRadius = 4 } = theme.preview
+const themesById = new Map(THEMES.map((theme) => [theme.id, theme]))
+
+function ThemeThumbnail({ theme, dark }) {
+  const palette = (dark && theme.dark) || theme
+  const [background, ink, accent] = palette.colors
+  const { layer, surface, line, muted, radius = 3, cardRadius = 4 } = { ...theme.preview, ...palette.preview }
   return createElement('span', {
     className: 'dsh-skin-thumbnail',
     'aria-hidden': true,
@@ -33,13 +37,15 @@ function ThemeThumbnail({ theme }) {
       '--mini-muted': muted,
       '--mini-radius': `${radius / 2}px`,
       '--mini-card-radius': `${cardRadius / 2}px`,
+      ...(palette.preview.sidebarButton && { '--mini-sidebar-button': palette.preview.sidebarButton }),
+      ...(theme.artwork && { '--mini-artwork': `url("${theme.artwork}")` }),
     },
   },
   createElement('span', { className: 'dsh-skin-thumbnail-sidebar' },
     createElement('b'), createElement('i'), createElement('i'), createElement('i'),
   ),
   createElement('span', { className: 'dsh-skin-thumbnail-workspace' },
-    createElement('span', { className: 'dsh-skin-thumbnail-title' }, 'Aa'),
+    createElement('span', { className: 'dsh-skin-thumbnail-title' }, theme.artwork ? null : 'Aa'),
     createElement('span', { className: 'dsh-skin-thumbnail-composer' }, createElement('i')),
   ))
 }
@@ -67,7 +73,14 @@ function applyTheme(ctx, theme) {
   const style = document.createElement('style')
   style.dataset.plugin = PACKAGE_ID
   style.dataset.pluginCss = PACKAGE_ID + '/skin.css'
-  style.textContent = theme.css
+  const artwork = [
+    theme.artwork && `--skin-artwork: url("${theme.artwork}");`,
+    theme.sidebarArtwork && `--skin-sidebar-artwork: url("${theme.sidebarArtwork}");`,
+  ].filter(Boolean)
+  style.textContent = theme.css + "\n" + SURFACE_CSS
+  if (artwork.length) {
+    style.textContent += `\nbody[data-dsh-skin="${theme.id}"] { ${artwork.join(' ')} }\n`
+  }
 
   const restoreTokens = ctx.theme.overrideTokens(PACKAGE_ID, theme.tokens)
   state.layers.push(layer)
@@ -98,6 +111,8 @@ function apply(ctx) {
   const getSelected = () => selected
   const subscribeLocale = (listener) => ctx.locale.subscribe(listener)
   const getLocale = () => ctx.locale.getSnapshot().active
+  const subscribeAppearance = (listener) => ctx.on('theme/change', listener)
+  const getAppearance = () => ctx.theme.getTheme().active.colorScheme
 
   function switchTheme(id) {
     const next = normalize(id)
@@ -121,6 +136,8 @@ function apply(ctx) {
   function ThemePicker() {
     const value = useSyncExternalStore(subscribe, getSelected)
     const chinese = useSyncExternalStore(subscribeLocale, getLocale).toLowerCase().startsWith('zh')
+    const dark = useSyncExternalStore(subscribeAppearance, getAppearance) === 'dark'
+    const choices = [dark ? ORIGINAL_DARK : ORIGINAL_LIGHT, ...THEMES]
     const label = chinese ? '主题' : 'Themes'
     return createElement('section', { className: 'dsh-skin-picker' },
       createElement('style', null, PICKER_CSS),
@@ -133,7 +150,7 @@ function apply(ctx) {
           'aria-pressed': theme.id === value,
           onClick: () => selectTheme(theme.id),
         },
-        createElement(ThemeThumbnail, { theme }),
+        createElement(ThemeThumbnail, { theme, dark }),
         createElement('span', { className: 'dsh-skin-picker-caption' },
           createElement('span', null, chinese ? theme.nameZh : theme.name),
           createElement('span', { className: 'dsh-skin-picker-check', 'aria-hidden': true }),

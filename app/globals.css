@@ -1491,6 +1491,45 @@ details[open] > summary > span:last-child {
   border-color: #ffffff38;
   box-shadow: inset 0 1px 0 #ffffff1f;
 }
+.skin-preview-whale-courier .preview-rail {
+  background: linear-gradient(175deg, #d5e8fa, var(--preview-layer) 44%, #edf3f7);
+}
+.skin-preview-whale-courier .preview-new {
+  background: #23467b;
+  color: var(--preview-surface);
+}
+.skin-preview-whale-courier .preview-courier-sidebar {
+  display: block;
+  width: 100%;
+  height: 54px;
+  margin-top: auto;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  background: #d9ebf8;
+  object-fit: contain;
+  object-position: right center;
+}
+.skin-preview-whale-courier .preview-courier-sidebar + .preview-settings {
+  margin-top: 0;
+}
+.skin-preview-whale-courier .preview-courier {
+  display: grid;
+  flex: 1;
+  align-content: center;
+  justify-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+}
+.skin-preview-whale-courier .preview-courier img {
+  display: block;
+  width: clamp(104px, 15cqw, 168px);
+  height: auto;
+}
+.skin-preview-whale-courier .preview-courier h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
 /* Scale the full desktop canvas so every preview stays 16:10 without cropping. */
 .skin-preview-frame {
   --preview-canvas-width: 640px;

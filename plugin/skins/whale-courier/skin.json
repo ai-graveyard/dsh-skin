@@ -1,0 +1,50 @@
+{
+  "slug": "whale-courier",
+  "order": 11,
+  "name": "Whale Courier",
+  "nameZh": "鲸鱼娘",
+  "tagline": "A letter from the tide.",
+  "description": "Sea-glass blue, an original whale courier in the welcome view and sidebar, and a wax seal on the composer.",
+  "author": {
+    "name": "Skin Collection",
+    "url": "https://github.com/ai-graveyard/dsh-skin"
+  },
+  "license": "MIT",
+  "compatibility": "DeepSeek Harness Desktop 0.2.2-rc.5",
+  "verifiedAt": "2026-11-19",
+  "verifiedStates": [
+    "Bundle lifecycle",
+    "Text and focus contrast",
+    "Package validation",
+    "Native macOS new conversation art and 530 px viewport",
+    "Native desktop theme switching and restart persistence"
+  ],
+  "style": ["Maritime illustration", "Light"],
+  "colors": ["#F3F8FD", "#132B46", "#2A5CBF"],
+  "preview": {
+    "label": "WHALE COURIER",
+    "surface": "#FFFDF8",
+    "layer": "#E2EEF8",
+    "line": "#98B2CB",
+    "muted": "#495F77",
+    "radius": 10,
+    "cardRadius": 16,
+    "onAccent": "#FFFDF8",
+    "sidebarButton": "#23467B"
+  },
+  "dark": {
+    "colors": ["#0D1929", "#EBF3FF", "#8CB9F4"],
+    "preview": {
+      "surface": "#182A40",
+      "layer": "#132339",
+      "line": "#41617E",
+      "muted": "#A9C0D8",
+      "onAccent": "#0B2036",
+      "sidebarButton": "#28496A"
+    }
+  },
+  "artwork": "courier.webp",
+  "sidebarArtwork": "courier-sidebar.webp",
+  "featured": false,
+  "designPattern": "maritime-illustration"
+}
