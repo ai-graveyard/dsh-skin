@@ -1,0 +1,268 @@
+/* Starlight Conductor · 星穹列车长 */
+body[data-dsh-skin="starlight-conductor"] {
+  --skin-bg: #F2F5FC;
+  --skin-ink: #182042;
+  --skin-accent: #344AA6;
+  --skin-surface: #FCFDFE;
+  --skin-settings-surface: #F4F7FD;
+  --skin-popup: #F7F9FE;
+  --skin-scrim: #18204270;
+  --skin-layer: #E3E9F8;
+  --skin-line: #A5B3D6;
+  --skin-muted: #4B587E;
+  --skin-action: #344AA6;
+  --skin-on-action: #FCFDFE;
+  --skin-focus: #344AA6;
+  --fw-sidebar-top: #DCE4F8;
+  --fw-sidebar-mid: #E3E9F8;
+  --fw-sidebar-bottom: #EDF1FA;
+  --fw-new: #344AA6;
+  --fw-new-hover: #273A8A;
+  --fw-new-ink: #FCFDFE;
+  --fw-shortcut: #D5DFFA;
+  --fw-dock-top: #E8EEFA;
+  --fw-dock-bottom: #DCE4F6;
+  --fw-dock-wave: #F4C95D42;
+  --fw-dock-edge: #A5B3D688;
+  --skin-switch-off: #DCE4F8;
+  --skin-switch-off-hover: #CCD7F4;
+  --skin-switch-off-edge: #7486B8;
+  --skin-switch-off-thumb: #2F407D;
+  --skin-switch-disabled: #EDF1FA;
+  --skin-switch-disabled-edge: #B2BEDB;
+  --skin-switch-disabled-thumb: #93A2C7;
+  --skin-switch-disabled-on: #8E9ED4;
+  --skin-switch-disabled-on-thumb: #F6F8FD;
+  --skin-command-surface: #EDF1FB;
+  --skin-selected-surface: #D6DFF6;
+  --skin-code-header: #E2E8F8;
+  --skin-selection-mark: inset 2px 0 var(--skin-accent);
+  --skin-popup-shadow: 0 0 0 1px var(--skin-line), 0 8px 22px #18204224;
+  --skin-radius: 10px;
+  --skin-card-radius: 16px;
+  --skin-shadow: 0 10px 28px #18204214;
+  --fw-canvas-bg: radial-gradient(circle 220px at 50% 34%, rgba(244,201,93,0.20), rgba(86,120,230,0.07) 54%, transparent 74%), linear-gradient(128deg, transparent 28%, rgba(88,118,224,0.065) 48%, rgba(244,201,93,0.075) 56%, transparent 74%), radial-gradient(1.5px 1.5px at 18% 22%, rgba(54,76,168,0.32), transparent), radial-gradient(1.5px 1.5px at 82% 28%, rgba(196,144,32,0.40), transparent), radial-gradient(1.5px 1.5px at 26% 74%, rgba(54,76,168,0.28), transparent), radial-gradient(1.5px 1.5px at 76% 68%, rgba(196,144,32,0.34), transparent), #F2F5FC;
+  --fw-canvas-size: auto;
+  --dsw-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  color-scheme: light;
+  background: var(--skin-bg);
+  color: var(--skin-ink);
+  font-family: var(--dsw-font-family);
+}
+body[data-dsh-skin="starlight-conductor"][data-ds-dark-theme] {
+  --skin-bg: var(--dsw-alias-bg-base);
+  --skin-ink: var(--dsw-alias-label-primary);
+  --skin-accent: var(--dsw-alias-brand-primary);
+  --skin-surface: var(--dsw-alias-bg-layer-1);
+  --skin-settings-surface: #131A36;
+  --skin-popup: var(--dsw-alias-bg-overlay);
+  --skin-scrim: #03060CA6;
+  --skin-layer: var(--dsw-alias-bg-layer-2);
+  --skin-line: var(--dsw-alias-border-l2);
+  --skin-muted: var(--dsw-alias-label-secondary);
+  --skin-action: var(--dsw-alias-button-primary-fill);
+  --skin-on-action: var(--dsw-alias-label-primary-foreground);
+  --skin-focus: #F4C95D;
+  --skin-shadow: 0 12px 32px #02040A75;
+  --fw-sidebar-top: #151D40;
+  --fw-sidebar-mid: #111733;
+  --fw-sidebar-bottom: #0C1128;
+  --fw-new: #2A366B;
+  --fw-new-hover: #354485;
+  --fw-new-ink: #EEF2FF;
+  --fw-shortcut: #D5DFFA;
+  --fw-dock-top: #1B244A;
+  --fw-dock-bottom: #121833;
+  --fw-dock-wave: #F4C95D3A;
+  --fw-dock-edge: #5C6EA899;
+  --skin-switch-off: #212B54;
+  --skin-switch-off-hover: #2C396E;
+  --skin-switch-off-edge: #6D7FB8;
+  --skin-switch-off-thumb: #C9D3F2;
+  --skin-switch-disabled: #1A2242;
+  --skin-switch-disabled-edge: #425080;
+  --skin-switch-disabled-thumb: #8291BA;
+  --skin-switch-disabled-on: #9E874A;
+  --skin-switch-disabled-on-thumb: #FFF9E8;
+  --skin-command-surface: #182142;
+  --skin-selected-surface: #263363;
+  --skin-code-header: #1E2850;
+  --skin-popup-shadow: 0 0 0 1px var(--skin-line), 0 8px 22px #02040A7A;
+  --fw-canvas-bg: radial-gradient(circle 225px at 50% 34%, rgba(244,201,93,0.18), rgba(99,142,255,0.11) 52%, transparent 74%), linear-gradient(128deg, transparent 22%, rgba(92,130,255,0.10) 48%, rgba(244,201,93,0.07) 56%, transparent 76%), radial-gradient(1.5px 1.5px at 14% 18%, rgba(255,244,204,0.85), transparent), radial-gradient(1.5px 1.5px at 86% 22%, rgba(140,185,255,0.85), transparent), radial-gradient(1.2px 1.2px at 24% 64%, rgba(255,232,168,0.70), transparent), radial-gradient(1.5px 1.5px at 78% 72%, rgba(150,192,255,0.75), transparent), #0A0E22;
+  --fw-canvas-size: auto;
+  color-scheme: dark;
+}
+body[data-dsh-skin="starlight-conductor"] :where(button, input, textarea, select, [role="button"], [role="tab"]) {
+  font-family: inherit;
+  border-radius: var(--skin-radius);
+}
+body[data-dsh-skin="starlight-conductor"] :where(code, pre, kbd, samp) {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+body[data-dsh-skin="starlight-conductor"] :where(button, a, input, textarea, select, [role="button"], [role="tab"], [contenteditable="true"]):focus-visible {
+  outline: 2px solid var(--skin-focus) !important;
+  outline-offset: 3px;
+}
+body[data-dsh-skin="starlight-conductor"] :where(button[type="submit"]:not(:disabled)) {
+  background: var(--skin-action) !important;
+  color: var(--skin-on-action) !important;
+}
+body[data-dsh-skin="starlight-conductor"] :where([class*="_sidebarCol"]) {
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--fw-sidebar-top) 78%, transparent) 0%,
+      color-mix(in srgb, var(--fw-sidebar-mid) 48%, transparent) 54%,
+      color-mix(in srgb, var(--fw-sidebar-bottom) 38%, transparent) 100%
+    ),
+    var(--skin-sidebar-artwork, none) center bottom 84px / min(82%, 184px) auto no-repeat,
+    linear-gradient(175deg, var(--fw-sidebar-top), var(--fw-sidebar-mid) 48%, var(--fw-sidebar-bottom)) !important;
+  border-right: 1px solid var(--skin-line);
+}
+body[data-dsh-skin="starlight-conductor"] :where([class*="_sidebarCol"] [class*="_footArea"]) {
+  background: transparent !important;
+}
+body[data-dsh-skin="starlight-conductor"] :where([class*="_sidebarCol"] button[class*="_newSession"]) {
+  min-height: 40px;
+  border: 1px solid var(--fw-new) !important;
+  background: var(--fw-new) !important;
+  color: var(--fw-new-ink) !important;
+  font-weight: 600;
+}
+body[data-dsh-skin="starlight-conductor"] [class*="_sidebarCol"] [class*="_newSessionShortcut"] {
+  color: var(--fw-shortcut);
+}
+body[data-dsh-skin="starlight-conductor"] :where([class*="_sidebarCol"] [class*="_sectionHeader"]) {
+  color: var(--skin-muted) !important;
+}
+body[data-dsh-skin="starlight-conductor"] :where([class*="_sidebarCol"] [role="treeitem"][aria-selected="true"]) {
+  border-radius: var(--skin-radius);
+  box-shadow: inset 3px 0 var(--skin-action);
+}
+body[data-dsh-skin="starlight-conductor"] :where([class*="_heroGlow"]) {
+  display: none !important;
+}
+body[data-dsh-skin="starlight-conductor"] :where([class*="_composerStack"] [class*="_root"][class*="_hero"]) {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+body[data-dsh-skin="starlight-conductor"] :where([class*="_composerStack"] [class$="_card"], [class*="_composerStack"] [class*="_card "]) {
+  border: 1px solid var(--skin-line) !important;
+  border-radius: var(--skin-card-radius) !important;
+  background: var(--skin-surface) !important;
+  box-shadow: var(--skin-shadow) !important;
+}
+body[data-dsh-skin="starlight-conductor"] [class*="_composerStack"] :is([class$="_card"], [class*="_card "]):focus-within {
+  border-color: var(--skin-focus) !important;
+  box-shadow: 0 0 0 1px var(--skin-focus), var(--skin-shadow) !important;
+}
+body[data-dsh-skin="starlight-conductor"] [class*="_composerStack"] :is([class$="_card"], [class*="_card "])::after {
+  content: "";
+  position: absolute;
+  inset-block-start: -8px;
+  inset-inline-end: 18px;
+  width: 18px;
+  height: 18px;
+  box-sizing: border-box;
+  border: 1px solid #23357D;
+  border-radius: 50%;
+  background: #364CA8 url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%23F4C95D' d='M10 2.5 11.9 8.1 17.5 10l-5.6 1.9L10 17.5l-1.9-5.6L2.5 10l5.6-1.9Z'/></svg>") center / 12px no-repeat;
+  box-shadow: 0 0 0 2px var(--skin-bg);
+  pointer-events: none;
+}
+body[data-dsh-skin="starlight-conductor"] :where([class*="_composerStack"] [contenteditable="true"], [class*="_composerStack"] textarea) {
+  font-family: var(--dsw-font-family);
+  caret-color: var(--skin-focus);
+}
+body[data-dsh-skin="starlight-conductor"] :where([class*="_composerStack"] button[class*="_add"]) {
+  background: var(--skin-layer) !important;
+  border: 1px solid var(--skin-line) !important;
+}
+body[data-dsh-skin="starlight-conductor"] :where([class*="_composerStack"] button[class*="_primary"]:not(:disabled)) {
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--skin-action) !important;
+  border-radius: var(--skin-radius) !important;
+  background: var(--skin-action) !important;
+  color: var(--skin-on-action) !important;
+}
+body[data-dsh-skin="starlight-conductor"] :where([class*="_composerStack"] button[class*="_primary"]:disabled) {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--skin-radius) !important;
+  background: var(--skin-layer) !important;
+  border: 1px solid var(--skin-line) !important;
+  color: var(--skin-muted) !important;
+  box-shadow: none !important;
+}
+body[data-dsh-skin="starlight-conductor"] :where([role="dialog"]) {
+  border: 1px solid var(--skin-line);
+  border-radius: var(--skin-card-radius) !important;
+  background: var(--skin-surface) !important;
+  box-shadow: var(--skin-shadow);
+}
+body[data-dsh-skin="starlight-conductor"] :where([role="menu"], [role="listbox"]) {
+  border: 1px solid var(--skin-line);
+  border-radius: var(--skin-radius);
+  background: var(--skin-surface);
+}
+body[data-dsh-skin="starlight-conductor"] :where(pre) {
+  border: 1px solid var(--skin-line);
+  border-radius: var(--skin-radius);
+  background: var(--dsw-alias-markdown-code-block, var(--skin-surface)) !important;
+}
+body[data-dsh-skin="starlight-conductor"] :where(blockquote) {
+  border-inline-start: 3px solid var(--skin-accent);
+  padding-inline-start: 14px;
+}
+body[data-dsh-skin="starlight-conductor"] ::selection {
+  background: var(--skin-action);
+  color: var(--skin-on-action);
+}
+body[data-dsh-skin="starlight-conductor"] [class*="_composerHero"] [class*="_headline"]:has(> [class*="_titleGroup"]) {
+  --fw-hero-size: clamp(120px, 23vh, 184px);
+  position: relative;
+  margin-block-start: calc(var(--fw-hero-size) + 14px);
+}
+body[data-dsh-skin="starlight-conductor"] [class*="_composerHero"] [class*="_headline"]:has(> [class*="_titleGroup"])::before {
+  content: "";
+  position: absolute;
+  inset-block-end: calc(100% + 12px);
+  inset-inline-start: calc(50% - var(--fw-hero-size) / 2);
+  width: var(--fw-hero-size);
+  aspect-ratio: 1;
+  background: var(--skin-artwork, none) center / contain no-repeat;
+  pointer-events: none;
+}
+body[data-dsh-skin="starlight-conductor"][data-ds-dark-theme] [class*="_composerHero"] [class*="_headline"]:has(> [class*="_titleGroup"])::before {
+  filter: drop-shadow(0 0 14px #F4C95D3A);
+}
+body[data-dsh-skin="starlight-conductor"] [data-text-interaction-source] [data-code-wrap] {
+  border-radius: 12px;
+}
+body[data-dsh-skin="starlight-conductor"] [class*="_centerCol"] {
+  background-color: var(--skin-bg) !important;
+  background-image: var(--fw-canvas-bg) !important;
+  background-size: var(--fw-canvas-size, auto) !important;
+}
+@media (max-width: 640px), (max-height: 600px) {
+  body[data-dsh-skin="starlight-conductor"] [class*="_composerHero"] [class*="_headline"]:has(> [class*="_titleGroup"]) {
+    --fw-hero-size: clamp(86px, 18vh, 124px);
+  }
+}
+@media (hover: hover) {
+  body[data-dsh-skin="starlight-conductor"] :where([class*="_sidebarCol"] button[class*="_newSession"]:hover) {
+    background: var(--fw-new-hover) !important;
+  }
+  body[data-dsh-skin="starlight-conductor"] :where([class*="_composerStack"] button[class*="_primary"]:not(:disabled):hover) {
+    background: var(--dsw-alias-button-primary-hover) !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  body[data-dsh-skin="starlight-conductor"] *, body[data-dsh-skin="starlight-conductor"] *::before, body[data-dsh-skin="starlight-conductor"] *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

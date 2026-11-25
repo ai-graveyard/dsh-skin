@@ -1,0 +1,61 @@
+{
+  "slug": "taiji-ink",
+  "order": 14,
+  "category": "featured",
+  "name": "Taiji Ink",
+  "nameZh": "太极水墨",
+  "tagline": "Rice paper, pine-soot ink, and a cinnabar seal.",
+  "description": "Warm xuan-paper ivory, monochrome ink balance, a Wudang taiji sword immortal, and a single vermilion seal.",
+  "author": {
+    "name": "Skin Collection",
+    "url": "https://github.com/ai-graveyard/dsh-skin"
+  },
+  "license": "MIT",
+  "compatibility": "DeepSeek Harness Desktop 0.2.2-rc.5",
+  "verifiedAt": "2026-11-25",
+  "verifiedStates": [
+    "Bundle lifecycle",
+    "Text and focus contrast",
+    "Package validation",
+    "Offline transparent WebP hero and sidebar art"
+  ],
+  "style": [
+    "Taiji ink wash",
+    "Light"
+  ],
+  "colors": [
+    "#F4F0E6",
+    "#1C1B18",
+    "#B33020"
+  ],
+  "preview": {
+    "label": "TAIJI INK",
+    "surface": "#FBF8F1",
+    "layer": "#EAE4D7",
+    "line": "#BEB6A6",
+    "muted": "#5C564D",
+    "radius": 10,
+    "cardRadius": 16,
+    "onAccent": "#FAF7F2",
+    "sidebarButton": "#1E1D1A"
+  },
+  "dark": {
+    "colors": [
+      "#131312",
+      "#F0ECE3",
+      "#E35D4B"
+    ],
+    "preview": {
+      "surface": "#1C1B19",
+      "layer": "#181715",
+      "line": "#4B4740",
+      "muted": "#B5AEA2",
+      "onAccent": "#190C0A",
+      "sidebarButton": "#382420"
+    }
+  },
+  "artwork": "hero.webp",
+  "sidebarArtwork": "sidebar.webp",
+  "featured": false,
+  "designPattern": "taiji-ink-illustration"
+}

@@ -2,6 +2,14 @@
 
 This file records user-visible changes to skin bundles and the collection site. Local acceptance, Git publication, npm/GitHub releases and site deployment are separate milestones.
 
+## Skin Collection 0.5.0 · 2026-11-25
+
+- Reorganize the 20-theme collection into two groups — **Classic Styles (经典风格)** and **Featured Worlds (特色形象)** — in both the DeepSeek Harness Desktop plugin picker and the showcase website.
+- Curate the 10 Classic Styles lineup by adding **Liquid Glass (液态玻璃)** and retiring **Studio Block**.
+- Add 9 new Featured Worlds alongside **Whale Courier (鲸鱼娘)**: **Sunset Boulevard (落日大道)**, **Night Circuit (夜城骇客)**, **Taiji Ink (太极水墨)**, **Starlight Conductor (星穹列车长)**, **Midnight Roaster (深夜烘焙师)**, **Tabby Desk (橘猫桌伴)**, **Capy Onsen (卡皮巴拉温泉)**, **Dunhuang Melody (敦煌飞天)**, and **Jiangnan Rain (江南烟雨)**.
+- Equip every Featured World with offline transparent WebP hero artwork, a dedicated companion/prop sidebar WebP blended cleanly into the lower-left sidebar background without obscuring scrolling sessions, a custom composer corner seal, and tailored light/dark atmospheric backgrounds.
+- Upgrade all 20 skins (40 light & dark palettes) to pass 100/100 contrast, popover surface, focus ring, and desktop layer validation.
+
 ## Skin Collection 0.4.6 · 2026-11-19
 
 - Add Whale Courier (鲸鱼娘) as an eleventh theme, with sea-blue controls, an original whale courier in the welcome view and sidebar, and a whale-tail wax seal on the composer.

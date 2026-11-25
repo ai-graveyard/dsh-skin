@@ -65,6 +65,37 @@ body[data-dsh-skin="editorial-paper"] :where(h1,h2,h3) { font-family: var(--seri
 body[data-dsh-skin="editorial-paper"] [class*="_sidebarCol"] button[class*="_newSession"] { background: var(--skin-ink) !important; color: var(--skin-bg) !important; border-color: var(--skin-ink) !important; }
 body[data-dsh-skin="editorial-paper"] :where(blockquote) { font-family: var(--serif); font-style: italic; }
 
+/* === Fine-grained polish === */
+body[data-dsh-skin="editorial-paper"] [class*="_centerCol"] {
+  background-color: var(--skin-bg) !important;
+  background-image: radial-gradient(ellipse 90% 55% at 50% 0%, color-mix(in srgb, var(--skin-ink) 3.5%, transparent), transparent 68%) !important;
+}
+body[data-dsh-skin="editorial-paper"] [class*="_composerStack"] :is([class$="_card"], [class*="_card "]) {
+  position: relative;
+  border-top: 3px double var(--skin-ink) !important;
+}
+body[data-dsh-skin="editorial-paper"] [class*="_composerStack"] :is([class$="_card"], [class*="_card "])::before {
+  content: "";
+  position: absolute;
+  inset: -3px auto auto 0;
+  width: 34px;
+  height: 3px;
+  background: var(--skin-accent);
+  pointer-events: none;
+}
+body[data-dsh-skin="editorial-paper"] [class*="_sidebarCol"] [role="treeitem"][aria-selected="true"] {
+  box-shadow: inset 3px 0 var(--skin-accent) !important;
+  font-family: var(--serif, Georgia, serif);
+}
+@media (hover: hover) {
+  body[data-dsh-skin="editorial-paper"] [class*="_sidebarCol"] button[class*="_newSession"]:hover {
+    background: var(--skin-action) !important;
+    color: var(--skin-on-action) !important;
+    border-color: var(--skin-action) !important;
+  }
+}
+/* === End fine-grained polish === */
+
 @media (prefers-reduced-motion: reduce) {
   body[data-dsh-skin="editorial-paper"] *, body[data-dsh-skin="editorial-paper"] *::before, body[data-dsh-skin="editorial-paper"] *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }

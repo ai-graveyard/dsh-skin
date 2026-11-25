@@ -1,0 +1,61 @@
+{
+  "slug": "tabby-desk",
+  "order": 17,
+  "category": "featured",
+  "name": "Tabby Desk",
+  "nameZh": "橘猫桌伴",
+  "tagline": "Afternoon sunbeams, matcha keycaps, and a fluffy tabby.",
+  "description": "Warm sunlit cream, matcha-leaf highlights, a chubby ginger tabby lounging by a custom keyboard, and a paw seal.",
+  "author": {
+    "name": "Skin Collection",
+    "url": "https://github.com/ai-graveyard/dsh-skin"
+  },
+  "license": "MIT",
+  "compatibility": "DeepSeek Harness Desktop 0.2.2-rc.5",
+  "verifiedAt": "2026-11-25",
+  "verifiedStates": [
+    "Bundle lifecycle",
+    "Text and focus contrast",
+    "Package validation",
+    "Offline transparent WebP hero and sidebar art"
+  ],
+  "style": [
+    "Cozy pet desk",
+    "Light"
+  ],
+  "colors": [
+    "#FCF6EC",
+    "#2D1C12",
+    "#A3470B"
+  ],
+  "preview": {
+    "label": "TABBY DESK",
+    "surface": "#FFFFFF",
+    "layer": "#F4E7D4",
+    "line": "#D1B598",
+    "muted": "#6B503B",
+    "radius": 14,
+    "cardRadius": 20,
+    "onAccent": "#FFFDF9",
+    "sidebarButton": "#A3470B"
+  },
+  "dark": {
+    "colors": [
+      "#1C1511",
+      "#FDF3E7",
+      "#FFB067"
+    ],
+    "preview": {
+      "surface": "#2A201A",
+      "layer": "#221A15",
+      "line": "#614B3D",
+      "muted": "#D1BCA9",
+      "onAccent": "#221206",
+      "sidebarButton": "#59361B"
+    }
+  },
+  "artwork": "hero.webp",
+  "sidebarArtwork": "sidebar.webp",
+  "featured": false,
+  "designPattern": "cozy-pet-illustration"
+}

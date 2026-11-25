@@ -66,7 +66,31 @@ body[data-dsh-skin="nordic-linen"] ::selection { background: var(--skin-action);
 /* Signature details: scandinavian */
 body[data-dsh-skin="nordic-linen"] [class*="_sidebarCol"] button[class*="_newSession"] { background: var(--skin-action) !important; color: var(--skin-on-action) !important; border-color: var(--skin-action) !important; }
 body[data-dsh-skin="nordic-linen"] :where(h1, h2) { font-family: var(--serif); font-weight: 400; }
-body[data-dsh-skin="nordic-linen"] [class*="_composerStack"] [class$="_card"] { border-radius: 20px 20px 16px 20px !important; }
+body[data-dsh-skin="nordic-linen"] [class*="_composerStack"] :is([class$="_card"], [class*="_card "]) { border-radius: 20px 20px 16px 20px !important; }
+
+/* === Fine-grained polish === */
+body[data-dsh-skin="nordic-linen"] [class*="_centerCol"] {
+  background-color: var(--skin-bg) !important;
+  background-image:
+    radial-gradient(ellipse 68% 48% at 86% 6%, color-mix(in srgb, var(--skin-accent) 10%, transparent), transparent 62%),
+    repeating-linear-gradient(0deg, color-mix(in srgb, var(--skin-ink) 1.8%, transparent) 0 1px, transparent 1px 4px),
+    repeating-linear-gradient(90deg, color-mix(in srgb, var(--skin-ink) 1.5%, transparent) 0 1px, transparent 1px 4px) !important;
+}
+body[data-dsh-skin="nordic-linen"] [class*="_sidebarCol"] [role="treeitem"][aria-selected="true"] {
+  background: color-mix(in srgb, var(--skin-accent) 16%, transparent) !important;
+  box-shadow: inset 3px 0 var(--skin-accent) !important;
+}
+body[data-dsh-skin="nordic-linen"] :where(blockquote) {
+  font-family: var(--serif, Georgia, serif);
+  border-inline-start: 2px solid var(--skin-accent);
+  padding-inline-start: 14px;
+}
+@media (hover: hover) {
+  body[data-dsh-skin="nordic-linen"] [class*="_sidebarCol"] button[class*="_newSession"]:hover {
+    filter: brightness(.92);
+  }
+}
+/* === End fine-grained polish === */
 
 @media (prefers-reduced-motion: reduce) {
   body[data-dsh-skin="nordic-linen"] *, body[data-dsh-skin="nordic-linen"] *::before, body[data-dsh-skin="nordic-linen"] *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }

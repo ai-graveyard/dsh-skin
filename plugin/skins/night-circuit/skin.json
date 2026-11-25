@@ -1,0 +1,61 @@
+{
+  "slug": "night-circuit",
+  "order": 13,
+  "category": "featured",
+  "name": "Night Circuit",
+  "nameZh": "夜城骇客",
+  "tagline": "Electric cyan neural grid and bionic runner precision.",
+  "description": "Obsidian terminal canvas, electric cyan blueprint grid, a bionic runner with a binary plasma blade, and crisp focus rings.",
+  "author": {
+    "name": "Skin Collection",
+    "url": "https://github.com/ai-graveyard/dsh-skin"
+  },
+  "license": "MIT",
+  "compatibility": "DeepSeek Harness Desktop 0.2.2-rc.5",
+  "verifiedAt": "2026-11-25",
+  "verifiedStates": [
+    "Bundle lifecycle",
+    "Text and focus contrast",
+    "Package validation",
+    "Offline transparent WebP hero and sidebar art"
+  ],
+  "style": [
+    "Cyber runner",
+    "Dark"
+  ],
+  "colors": [
+    "#EEF6FB",
+    "#0C1E2E",
+    "#006982"
+  ],
+  "preview": {
+    "label": "NIGHT CIRCUIT",
+    "surface": "#FFFFFF",
+    "layer": "#DCECF6",
+    "line": "#8EB3C9",
+    "muted": "#3F5E73",
+    "radius": 8,
+    "cardRadius": 14,
+    "onAccent": "#F4FCFF",
+    "sidebarButton": "#006982"
+  },
+  "dark": {
+    "colors": [
+      "#070B12",
+      "#E6F4FF",
+      "#2EE6E6"
+    ],
+    "preview": {
+      "surface": "#101828",
+      "layer": "#0C1321",
+      "line": "#2B4A66",
+      "muted": "#9BB8CE",
+      "onAccent": "#05181C",
+      "sidebarButton": "#14374A"
+    }
+  },
+  "artwork": "hero.webp",
+  "sidebarArtwork": "sidebar.webp",
+  "featured": false,
+  "designPattern": "cyber-runner-illustration"
+}

@@ -1,0 +1,61 @@
+{
+  "slug": "jiangnan-rain",
+  "order": 20,
+  "category": "featured",
+  "name": "Jiangnan Rain",
+  "nameZh": "江南烟雨",
+  "tagline": "Celadon mist, fine diagonal rain, and plum blossoms.",
+  "description": "Song-dynasty celadon jade, delicate diagonal rain streaks, an oil-paper umbrella maiden with swallows, and plum blush.",
+  "author": {
+    "name": "Skin Collection",
+    "url": "https://github.com/ai-graveyard/dsh-skin"
+  },
+  "license": "MIT",
+  "compatibility": "DeepSeek Harness Desktop 0.2.2-rc.5",
+  "verifiedAt": "2026-11-25",
+  "verifiedStates": [
+    "Bundle lifecycle",
+    "Text and focus contrast",
+    "Package validation",
+    "Offline transparent WebP hero and sidebar art"
+  ],
+  "style": [
+    "Celadon rain",
+    "Light"
+  ],
+  "colors": [
+    "#EFF6F4",
+    "#15292B",
+    "#226665"
+  ],
+  "preview": {
+    "label": "JIANGNAN RAIN",
+    "surface": "#FAFCFB",
+    "layer": "#DFECE9",
+    "line": "#9BB8B4",
+    "muted": "#456161",
+    "radius": 10,
+    "cardRadius": 16,
+    "onAccent": "#FAFCFB",
+    "sidebarButton": "#226665"
+  },
+  "dark": {
+    "colors": [
+      "#101D20",
+      "#E9F5F4",
+      "#7DC9C1"
+    ],
+    "preview": {
+      "surface": "#19282B",
+      "layer": "#142124",
+      "line": "#406166",
+      "muted": "#A6C5C7",
+      "onAccent": "#091A1C",
+      "sidebarButton": "#21464A"
+    }
+  },
+  "artwork": "hero.webp",
+  "sidebarArtwork": "sidebar.webp",
+  "featured": false,
+  "designPattern": "celadon-rain-illustration"
+}

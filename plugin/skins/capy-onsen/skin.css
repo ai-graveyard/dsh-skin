@@ -1,0 +1,268 @@
+/* Capy Onsen · 卡皮巴拉温泉 */
+body[data-dsh-skin="capy-onsen"] {
+  --skin-bg: #F2F6F1;
+  --skin-ink: #162A29;
+  --skin-accent: #1B736C;
+  --skin-surface: #FCFEFD;
+  --skin-settings-surface: #F4F8F4;
+  --skin-popup: #F7FAF7;
+  --skin-scrim: #162A2970;
+  --skin-layer: #E3ECE6;
+  --skin-line: #A4BEB8;
+  --skin-muted: #46615E;
+  --skin-action: #1B736C;
+  --skin-on-action: #FCFEFD;
+  --skin-focus: #1B736C;
+  --fw-sidebar-top: #E8DCC7;
+  --fw-sidebar-mid: #E6E7DC;
+  --fw-sidebar-bottom: #E5E9DF;
+  --fw-new: #1B736C;
+  --fw-new-hover: #145B55;
+  --fw-new-ink: #FCFEFD;
+  --fw-shortcut: #CEF0EA;
+  --fw-dock-top: #EDE6D8;
+  --fw-dock-bottom: #DCECE7;
+  --fw-dock-wave: #5BB5A238;
+  --fw-dock-edge: #A4BEB888;
+  --skin-switch-off: #DCEAE4;
+  --skin-switch-off-hover: #CBE0D7;
+  --skin-switch-off-edge: #6D9C94;
+  --skin-switch-off-thumb: #235751;
+  --skin-switch-disabled: #ECF3F0;
+  --skin-switch-disabled-edge: #B2CAC4;
+  --skin-switch-disabled-thumb: #8FAEA8;
+  --skin-switch-disabled-on: #74ABA5;
+  --skin-switch-disabled-on-thumb: #F6FCFA;
+  --skin-command-surface: #ECF3EE;
+  --skin-selected-surface: #D4E6DF;
+  --skin-code-header: #E1ECE7;
+  --skin-selection-mark: inset 2px 0 var(--skin-accent);
+  --skin-popup-shadow: 0 0 0 1px var(--skin-line), 0 8px 22px #162A2924;
+  --skin-radius: 14px;
+  --skin-card-radius: 20px;
+  --skin-shadow: 0 10px 28px #162A2914;
+  --fw-canvas-bg: radial-gradient(circle 220px at 50% 42%, rgba(76,192,184,0.20), transparent 68%), radial-gradient(ellipse 64% 38% at 84% 14%, rgba(242,183,63,0.18), transparent 62%), radial-gradient(ellipse 70% 34% at 18% 92%, rgba(196,158,108,0.14), transparent 62%), linear-gradient(180deg, #F3F6F1 0%, #EEF4F0 100%);
+  --fw-canvas-size: auto;
+  --dsw-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  color-scheme: light;
+  background: var(--skin-bg);
+  color: var(--skin-ink);
+  font-family: var(--dsw-font-family);
+}
+body[data-dsh-skin="capy-onsen"][data-ds-dark-theme] {
+  --skin-bg: var(--dsw-alias-bg-base);
+  --skin-ink: var(--dsw-alias-label-primary);
+  --skin-accent: var(--dsw-alias-brand-primary);
+  --skin-surface: var(--dsw-alias-bg-layer-1);
+  --skin-settings-surface: #192624;
+  --skin-popup: var(--dsw-alias-bg-overlay);
+  --skin-scrim: #03060CA6;
+  --skin-layer: var(--dsw-alias-bg-layer-2);
+  --skin-line: var(--dsw-alias-border-l2);
+  --skin-muted: var(--dsw-alias-label-secondary);
+  --skin-action: var(--dsw-alias-button-primary-fill);
+  --skin-on-action: var(--dsw-alias-label-primary-foreground);
+  --skin-focus: #7AD9D1;
+  --skin-shadow: 0 12px 32px #02040A75;
+  --fw-sidebar-top: #211D18;
+  --fw-sidebar-mid: #1A211F;
+  --fw-sidebar-bottom: #152120;
+  --fw-new: #244A46;
+  --fw-new-hover: #2E5E59;
+  --fw-new-ink: #EAF6F4;
+  --fw-shortcut: #B8E6E1;
+  --fw-dock-top: #242824;
+  --fw-dock-bottom: #172624;
+  --fw-dock-wave: #7AD9D138;
+  --fw-dock-edge: #52787399;
+  --skin-switch-off: #243835;
+  --skin-switch-off-hover: #2E4743;
+  --skin-switch-off-edge: #628C86;
+  --skin-switch-off-thumb: #BFE0DC;
+  --skin-switch-disabled: #1D2B29;
+  --skin-switch-disabled-edge: #425E5A;
+  --skin-switch-disabled-thumb: #7E9C98;
+  --skin-switch-disabled-on: #4A8A84;
+  --skin-switch-disabled-on-thumb: #EBFBF9;
+  --skin-command-surface: #1E2D2B;
+  --skin-selected-surface: #2A403D;
+  --skin-code-header: #233634;
+  --skin-popup-shadow: 0 0 0 1px var(--skin-line), 0 8px 22px #02040A7A;
+  --fw-canvas-bg: radial-gradient(circle 230px at 50% 42%, rgba(96,204,196,0.18), transparent 68%), radial-gradient(ellipse 62% 38% at 84% 12%, rgba(242,183,63,0.16), transparent 60%), radial-gradient(ellipse 68% 36% at 16% 94%, rgba(186,142,88,0.13), transparent 62%), #121B1A;
+  --fw-canvas-size: auto;
+  color-scheme: dark;
+}
+body[data-dsh-skin="capy-onsen"] :where(button, input, textarea, select, [role="button"], [role="tab"]) {
+  font-family: inherit;
+  border-radius: var(--skin-radius);
+}
+body[data-dsh-skin="capy-onsen"] :where(code, pre, kbd, samp) {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+body[data-dsh-skin="capy-onsen"] :where(button, a, input, textarea, select, [role="button"], [role="tab"], [contenteditable="true"]):focus-visible {
+  outline: 2px solid var(--skin-focus) !important;
+  outline-offset: 3px;
+}
+body[data-dsh-skin="capy-onsen"] :where(button[type="submit"]:not(:disabled)) {
+  background: var(--skin-action) !important;
+  color: var(--skin-on-action) !important;
+}
+body[data-dsh-skin="capy-onsen"] :where([class*="_sidebarCol"]) {
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--fw-sidebar-top) 78%, transparent) 0%,
+      color-mix(in srgb, var(--fw-sidebar-mid) 48%, transparent) 54%,
+      color-mix(in srgb, var(--fw-sidebar-bottom) 38%, transparent) 100%
+    ),
+    var(--skin-sidebar-artwork, none) center bottom 84px / min(82%, 184px) auto no-repeat,
+    linear-gradient(175deg, var(--fw-sidebar-top), var(--fw-sidebar-mid) 48%, var(--fw-sidebar-bottom)) !important;
+  border-right: 1px solid var(--skin-line);
+}
+body[data-dsh-skin="capy-onsen"] :where([class*="_sidebarCol"] [class*="_footArea"]) {
+  background: transparent !important;
+}
+body[data-dsh-skin="capy-onsen"] :where([class*="_sidebarCol"] button[class*="_newSession"]) {
+  min-height: 40px;
+  border: 1px solid var(--fw-new) !important;
+  background: var(--fw-new) !important;
+  color: var(--fw-new-ink) !important;
+  font-weight: 600;
+}
+body[data-dsh-skin="capy-onsen"] [class*="_sidebarCol"] [class*="_newSessionShortcut"] {
+  color: var(--fw-shortcut);
+}
+body[data-dsh-skin="capy-onsen"] :where([class*="_sidebarCol"] [class*="_sectionHeader"]) {
+  color: var(--skin-muted) !important;
+}
+body[data-dsh-skin="capy-onsen"] :where([class*="_sidebarCol"] [role="treeitem"][aria-selected="true"]) {
+  border-radius: var(--skin-radius);
+  box-shadow: inset 3px 0 var(--skin-action);
+}
+body[data-dsh-skin="capy-onsen"] :where([class*="_heroGlow"]) {
+  display: none !important;
+}
+body[data-dsh-skin="capy-onsen"] :where([class*="_composerStack"] [class*="_root"][class*="_hero"]) {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+body[data-dsh-skin="capy-onsen"] :where([class*="_composerStack"] [class$="_card"], [class*="_composerStack"] [class*="_card "]) {
+  border: 1px solid var(--skin-line) !important;
+  border-radius: var(--skin-card-radius) !important;
+  background: var(--skin-surface) !important;
+  box-shadow: var(--skin-shadow) !important;
+}
+body[data-dsh-skin="capy-onsen"] [class*="_composerStack"] :is([class$="_card"], [class*="_card "]):focus-within {
+  border-color: var(--skin-focus) !important;
+  box-shadow: 0 0 0 1px var(--skin-focus), var(--skin-shadow) !important;
+}
+body[data-dsh-skin="capy-onsen"] [class*="_composerStack"] :is([class$="_card"], [class*="_card "])::after {
+  content: "";
+  position: absolute;
+  inset-block-start: -8px;
+  inset-inline-end: 18px;
+  width: 18px;
+  height: 18px;
+  box-sizing: border-box;
+  border: 1px solid #13524D;
+  border-radius: 50%;
+  background: #1E746D url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><circle cx='10' cy='11' r='5.5' fill='%23F2B73F'/><path d='M10 5.5c1-2 3-2.5 4-2-.5 1.5-1.8 2.3-4 2Z' fill='%23D6F5EB'/></svg>") center / 12px no-repeat;
+  box-shadow: 0 0 0 2px var(--skin-bg);
+  pointer-events: none;
+}
+body[data-dsh-skin="capy-onsen"] :where([class*="_composerStack"] [contenteditable="true"], [class*="_composerStack"] textarea) {
+  font-family: var(--dsw-font-family);
+  caret-color: var(--skin-focus);
+}
+body[data-dsh-skin="capy-onsen"] :where([class*="_composerStack"] button[class*="_add"]) {
+  background: var(--skin-layer) !important;
+  border: 1px solid var(--skin-line) !important;
+}
+body[data-dsh-skin="capy-onsen"] :where([class*="_composerStack"] button[class*="_primary"]:not(:disabled)) {
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--skin-action) !important;
+  border-radius: var(--skin-radius) !important;
+  background: var(--skin-action) !important;
+  color: var(--skin-on-action) !important;
+}
+body[data-dsh-skin="capy-onsen"] :where([class*="_composerStack"] button[class*="_primary"]:disabled) {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--skin-radius) !important;
+  background: var(--skin-layer) !important;
+  border: 1px solid var(--skin-line) !important;
+  color: var(--skin-muted) !important;
+  box-shadow: none !important;
+}
+body[data-dsh-skin="capy-onsen"] :where([role="dialog"]) {
+  border: 1px solid var(--skin-line);
+  border-radius: var(--skin-card-radius) !important;
+  background: var(--skin-surface) !important;
+  box-shadow: var(--skin-shadow);
+}
+body[data-dsh-skin="capy-onsen"] :where([role="menu"], [role="listbox"]) {
+  border: 1px solid var(--skin-line);
+  border-radius: var(--skin-radius);
+  background: var(--skin-surface);
+}
+body[data-dsh-skin="capy-onsen"] :where(pre) {
+  border: 1px solid var(--skin-line);
+  border-radius: var(--skin-radius);
+  background: var(--dsw-alias-markdown-code-block, var(--skin-surface)) !important;
+}
+body[data-dsh-skin="capy-onsen"] :where(blockquote) {
+  border-inline-start: 3px solid var(--skin-accent);
+  padding-inline-start: 14px;
+}
+body[data-dsh-skin="capy-onsen"] ::selection {
+  background: var(--skin-action);
+  color: var(--skin-on-action);
+}
+body[data-dsh-skin="capy-onsen"] [class*="_composerHero"] [class*="_headline"]:has(> [class*="_titleGroup"]) {
+  --fw-hero-size: clamp(120px, 23vh, 184px);
+  position: relative;
+  margin-block-start: calc(var(--fw-hero-size) + 14px);
+}
+body[data-dsh-skin="capy-onsen"] [class*="_composerHero"] [class*="_headline"]:has(> [class*="_titleGroup"])::before {
+  content: "";
+  position: absolute;
+  inset-block-end: calc(100% + 12px);
+  inset-inline-start: calc(50% - var(--fw-hero-size) / 2);
+  width: var(--fw-hero-size);
+  aspect-ratio: 1;
+  background: var(--skin-artwork, none) center / contain no-repeat;
+  pointer-events: none;
+}
+body[data-dsh-skin="capy-onsen"][data-ds-dark-theme] [class*="_composerHero"] [class*="_headline"]:has(> [class*="_titleGroup"])::before {
+  filter: drop-shadow(0 6px 16px #7AD9D138);
+}
+body[data-dsh-skin="capy-onsen"] [data-text-interaction-source] [data-code-wrap] {
+  border-radius: 12px;
+}
+body[data-dsh-skin="capy-onsen"] [class*="_centerCol"] {
+  background-color: var(--skin-bg) !important;
+  background-image: var(--fw-canvas-bg) !important;
+  background-size: var(--fw-canvas-size, auto) !important;
+}
+@media (max-width: 640px), (max-height: 600px) {
+  body[data-dsh-skin="capy-onsen"] [class*="_composerHero"] [class*="_headline"]:has(> [class*="_titleGroup"]) {
+    --fw-hero-size: clamp(86px, 18vh, 124px);
+  }
+}
+@media (hover: hover) {
+  body[data-dsh-skin="capy-onsen"] :where([class*="_sidebarCol"] button[class*="_newSession"]:hover) {
+    background: var(--fw-new-hover) !important;
+  }
+  body[data-dsh-skin="capy-onsen"] :where([class*="_composerStack"] button[class*="_primary"]:not(:disabled):hover) {
+    background: var(--dsw-alias-button-primary-hover) !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  body[data-dsh-skin="capy-onsen"] *, body[data-dsh-skin="capy-onsen"] *::before, body[data-dsh-skin="capy-onsen"] *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

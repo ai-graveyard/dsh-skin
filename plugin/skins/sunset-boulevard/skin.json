@@ -1,0 +1,61 @@
+{
+  "slug": "sunset-boulevard",
+  "order": 12,
+  "category": "featured",
+  "name": "Sunset Boulevard",
+  "nameZh": "落日大道",
+  "tagline": "Palm silhouettes and coral twilight along the coast.",
+  "description": "Miami sunset coral, twilight violet, a classic convertible in the welcome stage, and neon horizon louvers.",
+  "author": {
+    "name": "Skin Collection",
+    "url": "https://github.com/ai-graveyard/dsh-skin"
+  },
+  "license": "MIT",
+  "compatibility": "DeepSeek Harness Desktop 0.2.2-rc.5",
+  "verifiedAt": "2026-11-25",
+  "verifiedStates": [
+    "Bundle lifecycle",
+    "Text and focus contrast",
+    "Package validation",
+    "Offline transparent WebP hero and sidebar art"
+  ],
+  "style": [
+    "Retro coastal",
+    "Dark"
+  ],
+  "colors": [
+    "#FFF4EE",
+    "#2B142C",
+    "#B82262"
+  ],
+  "preview": {
+    "label": "SUNSET BOULEVARD",
+    "surface": "#FFFBF8",
+    "layer": "#FBE5DC",
+    "line": "#CFA6B4",
+    "muted": "#6B475C",
+    "radius": 12,
+    "cardRadius": 18,
+    "onAccent": "#FFFBF8",
+    "sidebarButton": "#B82262"
+  },
+  "dark": {
+    "colors": [
+      "#140B21",
+      "#FCEFF7",
+      "#FF72A6"
+    ],
+    "preview": {
+      "surface": "#1F1233",
+      "layer": "#190E2A",
+      "line": "#5A3A73",
+      "muted": "#C9ADC9",
+      "onAccent": "#1A0817",
+      "sidebarButton": "#44225E"
+    }
+  },
+  "artwork": "hero.webp",
+  "sidebarArtwork": "sidebar.webp",
+  "featured": false,
+  "designPattern": "retro-coastal-illustration"
+}

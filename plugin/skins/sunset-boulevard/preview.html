@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>落日大道 · Sunset Boulevard — DSH Skin #12</title>
+<link rel="stylesheet" href="./skin.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { min-height: 100vh; display: grid; grid-template-columns: 240px 1fr; background: #140B21; color: #FCEFF7; }
+  .demo_sidebarCol { padding: 18px 14px; display: flex; flex-direction: column; gap: 12px; }
+  .demo_centerCol { padding: 28px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 18px; }
+  .demo_card { width: min(560px, 100%); padding: 18px; position: relative; }
+  .demo_swatch { display: inline-flex; gap: 8px; margin-top: 8px; font-size: 12px; }
+  .demo_dot { width: 14px; height: 14px; border-radius: 50%; display: inline-block; border: 1px solid #5A3A73; }
+</style>
+</head>
+<body data-dsh-skin="sunset-boulevard" data-ds-dark-theme="true">
+  <aside class="demo_sidebarCol">
+    <div style="font-weight:700;font-size:13px;">#12 · 落日大道</div>
+    <button class="demo_newSession" type="button">+ 新建会话</button>
+    <div style="font-size:12px;color:#C9ADC9;">Sunset Boulevard</div>
+  </aside>
+  <main class="demo_centerCol">
+    <div style="font-size:20px;font-weight:700;">落日大道 · Sunset Boulevard</div>
+    <p style="font-size:13px;color:#C9ADC9;max-width:460px;text-align:center;">迈阿密落日珊瑚粉、暮色紫与青蓝海风反光，敞篷跑车插画点亮你的新会话。</p>
+    <div class="demo_composerStack" style="width:min(560px,100%);">
+      <div class="demo_card">
+        <div style="font-size:13px;color:#C9ADC9;">从一个新想法开始…</div>
+        <div class="demo_swatch">
+          <span><i class="demo_dot" style="background:#140B21"></i> #140B21</span>
+          <span><i class="demo_dot" style="background:#FCEFF7"></i> #FCEFF7</span>
+          <span><i class="demo_dot" style="background:#FF72A6"></i> #FF72A6</span>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

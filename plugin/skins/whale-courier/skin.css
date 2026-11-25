@@ -93,8 +93,19 @@ body[data-dsh-skin="whale-courier"] :where(button[type="submit"]:not(:disabled))
   color: var(--skin-on-action) !important;
 }
 body[data-dsh-skin="whale-courier"] :where([class*="_sidebarCol"]) {
-  background: linear-gradient(175deg, var(--courier-sidebar-top), var(--skin-layer) 44%, var(--courier-sidebar-bottom)) !important;
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--courier-sidebar-top) 78%, transparent) 0%,
+      color-mix(in srgb, var(--skin-layer) 48%, transparent) 54%,
+      color-mix(in srgb, var(--courier-sidebar-bottom) 38%, transparent) 100%
+    ),
+    var(--skin-sidebar-artwork, none) center bottom 84px / min(82%, 184px) auto no-repeat,
+    linear-gradient(175deg, var(--courier-sidebar-top), var(--skin-layer) 44%, var(--courier-sidebar-bottom)) !important;
   border-right: 1px solid var(--skin-line);
+}
+body[data-dsh-skin="whale-courier"] :where([class*="_sidebarCol"] [class*="_footArea"]) {
+  background: transparent !important;
 }
 body[data-dsh-skin="whale-courier"] :where([class*="_sidebarCol"] button[class*="_newSession"]) {
   min-height: 40px;
@@ -112,23 +123,6 @@ body[data-dsh-skin="whale-courier"] :where([class*="_sidebarCol"] [class*="_sect
 body[data-dsh-skin="whale-courier"] :where([class*="_sidebarCol"] [role="treeitem"][aria-selected="true"]) {
   border-radius: var(--skin-radius);
   box-shadow: inset 3px 0 var(--skin-action);
-}
-/* The footer sits outside the session scroller, so the portrait never overlays its contents. */
-@media (min-width: 680px) and (min-height: 600px) {
-  body[data-dsh-skin="whale-courier"] [class*="_sidebarCol"] [class*="_footArea"]::before {
-    content: "";
-    display: block;
-    flex: 0 0 auto;
-    height: clamp(82px, 13vh, 110px);
-    margin: 4px 3px 8px;
-    border: 1px solid var(--courier-dock-edge);
-    border-radius: 14px;
-    background:
-      var(--skin-sidebar-artwork, none) right 13px bottom 2px / auto 96% no-repeat,
-      radial-gradient(ellipse at 20% 120%, transparent 53%, var(--courier-dock-wave) 54% 55%, transparent 56%),
-      linear-gradient(115deg, var(--courier-dock-top), var(--courier-dock-bottom));
-    pointer-events: none;
-  }
 }
 body[data-dsh-skin="whale-courier"] :where([class*="_heroGlow"]) {
   display: none !important;
@@ -228,11 +222,15 @@ body[data-dsh-skin="whale-courier"][data-ds-dark-theme] [class*="_composerHero"]
   filter: drop-shadow(0 0 1px #A7CCFF85);
 }
 body[data-dsh-skin="whale-courier"] {
+  --skin-command-surface: #EDF5FD;
+  --skin-selected-surface: #D4E6F9;
   --skin-code-header: #E4F1FB;
   --skin-selection-mark: inset 2px 0 var(--skin-accent);
   --skin-popup-shadow: 0 0 0 1px var(--skin-line), 0 8px 22px #122E4824;
 }
 body[data-dsh-skin="whale-courier"][data-ds-dark-theme] {
+  --skin-command-surface: #16273C;
+  --skin-selected-surface: #223B58;
   --skin-code-header: #21374F;
   --skin-popup-shadow: 0 0 0 1px var(--skin-line), 0 8px 22px #03091275;
 }
@@ -252,6 +250,18 @@ body[data-dsh-skin="whale-courier"] [data-text-interaction-source] [data-code-wr
     background: var(--dsw-alias-button-primary-hover) !important;
   }
 }
+/* === Fine-grained polish === */
+body[data-dsh-skin="whale-courier"] [class*="_centerCol"] {
+  background-color: var(--skin-bg) !important;
+  background-image:
+    radial-gradient(ellipse 75% 42% at 50% 0%, color-mix(in srgb, var(--skin-accent) 8%, transparent), transparent 64%) !important;
+}
+body[data-dsh-skin="whale-courier"] :where(blockquote) {
+  border-inline-start: 3px solid var(--skin-accent);
+  padding-inline-start: 14px;
+}
+/* === End fine-grained polish === */
+
 @media (prefers-reduced-motion: reduce) {
   body[data-dsh-skin="whale-courier"] *, body[data-dsh-skin="whale-courier"] *::before, body[data-dsh-skin="whale-courier"] *::after {
     animation: none !important;

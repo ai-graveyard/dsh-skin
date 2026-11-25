@@ -1,0 +1,61 @@
+{
+  "slug": "dunhuang-melody",
+  "order": 19,
+  "category": "featured",
+  "name": "Dunhuang Melody",
+  "nameZh": "敦煌飞天",
+  "tagline": "Mineral cinnabar, malachite teal, and gold-leaf silk.",
+  "description": "Mogao grotto parchment, mineral gold and malachite washes, a flying Apsaras with a Tang pipa, and a lotus seal.",
+  "author": {
+    "name": "Skin Collection",
+    "url": "https://github.com/ai-graveyard/dsh-skin"
+  },
+  "license": "MIT",
+  "compatibility": "DeepSeek Harness Desktop 0.2.2-rc.5",
+  "verifiedAt": "2026-11-25",
+  "verifiedStates": [
+    "Bundle lifecycle",
+    "Text and focus contrast",
+    "Package validation",
+    "Offline transparent WebP hero and sidebar art"
+  ],
+  "style": [
+    "Dunhuang mural",
+    "Light"
+  ],
+  "colors": [
+    "#FAF2E2",
+    "#2C1B14",
+    "#AD2E20"
+  ],
+  "preview": {
+    "label": "DUNHUANG MELODY",
+    "surface": "#FFFBF2",
+    "layer": "#EFE2CA",
+    "line": "#CBB594",
+    "muted": "#6B503F",
+    "radius": 10,
+    "cardRadius": 16,
+    "onAccent": "#FFFBF2",
+    "sidebarButton": "#AD2E20"
+  },
+  "dark": {
+    "colors": [
+      "#18110E",
+      "#FBF0DE",
+      "#F0BD60"
+    ],
+    "preview": {
+      "surface": "#261C17",
+      "layer": "#1E1612",
+      "line": "#614A3B",
+      "muted": "#D1BCA4",
+      "onAccent": "#1D1306",
+      "sidebarButton": "#5A2C22"
+    }
+  },
+  "artwork": "hero.webp",
+  "sidebarArtwork": "sidebar.webp",
+  "featured": false,
+  "designPattern": "dunhuang-mural-illustration"
+}

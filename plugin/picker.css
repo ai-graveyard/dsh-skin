@@ -1,17 +1,47 @@
 .dsh-skin-picker {
   --picker-ink: var(--dsw-alias-label-primary, CanvasText);
+  --picker-muted: var(--dsw-alias-label-secondary, GrayText);
   --picker-surface: var(--dsw-alias-bg-layer-1, Canvas);
   --picker-line: var(--dsw-alias-border-l2, GrayText);
   --picker-active: var(--skin-focus, var(--dsw-alias-brand-text, Highlight));
+  display: grid;
+  gap: 18px;
   width: 100%;
   min-width: 0;
   color: var(--picker-ink);
 }
 
+.dsh-skin-picker-group {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
+.dsh-skin-picker-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .dsh-skin-picker h3 {
-  margin: 0 0 10px;
+  margin: 0;
   font-size: .875rem;
   font-weight: 600;
+}
+
+.dsh-skin-picker-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 18px;
+  padding: 0 6px;
+  border: 1px solid var(--picker-line);
+  border-radius: 999px;
+  color: var(--picker-muted);
+  font-size: .75rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
 }
 
 .dsh-skin-picker-grid {
@@ -193,6 +223,19 @@
   background: var(--mini-accent);
 }
 
+.dsh-skin-picker-grid > [data-theme="alpine-light"] .dsh-skin-thumbnail-composer > i {
+  border-radius: 50%;
+}
+
+.dsh-skin-picker-grid > [data-theme="night-signal"] .dsh-skin-thumbnail-title {
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+}
+
+.dsh-skin-picker-grid > [data-theme="night-signal"] .dsh-skin-thumbnail-sidebar > i:first-of-type {
+  border-color: var(--mini-accent);
+  background: transparent;
+}
+
 .dsh-skin-picker-grid > [data-theme="braun-control"] .dsh-skin-thumbnail-sidebar > i:first-of-type {
   border-color: var(--mini-ink);
   border-inline-start: 2px solid var(--mini-accent);
@@ -226,22 +269,73 @@
   font-family: Georgia, serif;
 }
 
-.dsh-skin-picker-grid > [data-theme="studio-block"] .dsh-skin-thumbnail-composer {
-  box-shadow: 2px 2px var(--mini-ink);
-}
-
 .dsh-skin-picker-grid > [data-theme="frosted-tide"] .dsh-skin-thumbnail {
   background-image: radial-gradient(ellipse at 72% 38%, color-mix(in srgb, var(--mini-layer) 78%, var(--mini-accent)), transparent 68%);
 }
 
-.dsh-skin-picker-grid > [data-theme="whale-courier"] .dsh-skin-thumbnail-title {
+.dsh-skin-thumbnail[data-has-artwork="true"] .dsh-skin-thumbnail-title {
   width: 100%;
 }
 
-.dsh-skin-picker-grid > [data-theme="whale-courier"] .dsh-skin-thumbnail-title::after {
+.dsh-skin-thumbnail[data-has-artwork="true"] .dsh-skin-thumbnail-title::after {
   width: min(62%, 56px);
   height: auto;
   aspect-ratio: 1;
   margin: 0 auto;
   background: var(--mini-artwork) center / contain no-repeat;
+}
+
+.dsh-skin-picker-grid > [data-theme="liquid-glass"] .dsh-skin-thumbnail {
+  background-image:
+    radial-gradient(circle at 78% 24%, color-mix(in srgb, var(--mini-accent) 34%, transparent), transparent 52%),
+    radial-gradient(circle at 28% 82%, #A58BFF3D, transparent 54%),
+    radial-gradient(circle at 86% 84%, #4DE3E838, transparent 48%);
+}
+
+.dsh-skin-picker-grid > [data-theme="liquid-glass"] .dsh-skin-thumbnail-composer {
+  background: color-mix(in srgb, var(--mini-surface) 74%, transparent);
+  border-color: color-mix(in srgb, var(--mini-line) 75%, #FFFFFF);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--mini-surface) 80%, #FFFFFF), 0 4px 10px color-mix(in srgb, var(--mini-accent) 18%, transparent);
+}
+
+.dsh-skin-picker-grid > [data-theme="liquid-glass"] .dsh-skin-thumbnail-composer > i {
+  border-radius: 50%;
+  box-shadow: inset 0 1px 0 #FFFFFF99;
+}
+
+.dsh-skin-picker-grid > [data-theme="sunset-boulevard"] .dsh-skin-thumbnail {
+  background-image: radial-gradient(circle at 66% 36%, #FF6B9D38, transparent 62%), radial-gradient(circle at 88% 92%, #24E8EC28, transparent 58%);
+}
+
+.dsh-skin-picker-grid > [data-theme="night-circuit"] .dsh-skin-thumbnail {
+  background-image: radial-gradient(circle at 64% 38%, #00F0FF2E, transparent 60%), linear-gradient(#00F0FF0F 1px, transparent 1px), linear-gradient(90deg, #00F0FF0F 1px, transparent 1px);
+  background-size: auto, 12px 12px, 12px 12px;
+}
+
+.dsh-skin-picker-grid > [data-theme="taiji-ink"] .dsh-skin-thumbnail {
+  background-image: radial-gradient(circle at 66% 38%, color-mix(in srgb, var(--mini-ink) 14%, transparent), transparent 58%), radial-gradient(circle at 86% 18%, #C83E2B24, transparent 48%);
+}
+
+.dsh-skin-picker-grid > [data-theme="starlight-conductor"] .dsh-skin-thumbnail {
+  background-image: radial-gradient(circle at 66% 36%, #F4C95D36, transparent 58%), linear-gradient(128deg, transparent 30%, #5C82FF26 52%, transparent 74%);
+}
+
+.dsh-skin-picker-grid > [data-theme="midnight-roaster"] .dsh-skin-thumbnail {
+  background-image: radial-gradient(ellipse at 64% 0%, #E8A46438, transparent 66%);
+}
+
+.dsh-skin-picker-grid > [data-theme="tabby-desk"] .dsh-skin-thumbnail {
+  background-image: radial-gradient(circle at 86% 18%, #669E682B, transparent 56%), repeating-linear-gradient(125deg, #FFC4661F 0 10px, transparent 10px 24px);
+}
+
+.dsh-skin-picker-grid > [data-theme="capy-onsen"] .dsh-skin-thumbnail {
+  background-image: radial-gradient(circle at 64% 46%, #5BB5A230, transparent 60%), radial-gradient(circle at 86% 16%, #F2B73F2E, transparent 54%);
+}
+
+.dsh-skin-picker-grid > [data-theme="dunhuang-melody"] .dsh-skin-thumbnail {
+  background-image: radial-gradient(circle at 64% 34%, #E8AE4A38, transparent 58%), radial-gradient(circle at 88% 88%, #22948830, transparent 56%);
+}
+
+.dsh-skin-picker-grid > [data-theme="jiangnan-rain"] .dsh-skin-thumbnail {
+  background-image: repeating-linear-gradient(112deg, #5E9E9818 0 1px, transparent 1px 10px), radial-gradient(circle at 86% 18%, #D97F8C26, transparent 52%);
 }

@@ -1,7 +1,7 @@
 {
   "name": "dsh-skin",
-  "version": "0.4.6",
-  "description": "Eleven switchable themes for DeepSeek Harness Desktop.",
+  "version": "0.5.0",
+  "description": "Classic and featured switchable themes for DeepSeek Harness Desktop.",
   "type": "module",
   "main": "./index.js",
   "exports": {

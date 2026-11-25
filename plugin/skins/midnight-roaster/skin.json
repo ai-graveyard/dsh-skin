@@ -1,0 +1,61 @@
+{
+  "slug": "midnight-roaster",
+  "order": 16,
+  "category": "featured",
+  "name": "Midnight Roaster",
+  "nameZh": "深夜烘焙师",
+  "tagline": "Warm pour-over amber and late-night jazz calm.",
+  "description": "Espresso mahogany, warm Edison pendant light, a pour-over barista with her sleepy tuxedo cat, and brass coffee tones.",
+  "author": {
+    "name": "Skin Collection",
+    "url": "https://github.com/ai-graveyard/dsh-skin"
+  },
+  "license": "MIT",
+  "compatibility": "DeepSeek Harness Desktop 0.2.2-rc.5",
+  "verifiedAt": "2026-11-25",
+  "verifiedStates": [
+    "Bundle lifecycle",
+    "Text and focus contrast",
+    "Package validation",
+    "Offline transparent WebP hero and sidebar art"
+  ],
+  "style": [
+    "Jazz cafe",
+    "Dark"
+  ],
+  "colors": [
+    "#F8F2E9",
+    "#291A12",
+    "#94471A"
+  ],
+  "preview": {
+    "label": "MIDNIGHT ROASTER",
+    "surface": "#FFFDF8",
+    "layer": "#EDE1D1",
+    "line": "#C7B29A",
+    "muted": "#665041",
+    "radius": 10,
+    "cardRadius": 16,
+    "onAccent": "#FFFDF8",
+    "sidebarButton": "#94471A"
+  },
+  "dark": {
+    "colors": [
+      "#160F0B",
+      "#F6EDE2",
+      "#E8A464"
+    ],
+    "preview": {
+      "surface": "#241A14",
+      "layer": "#1E1510",
+      "line": "#5C4537",
+      "muted": "#C9B3A1",
+      "onAccent": "#1D1007",
+      "sidebarButton": "#4D311E"
+    }
+  },
+  "artwork": "hero.webp",
+  "sidebarArtwork": "sidebar.webp",
+  "featured": false,
+  "designPattern": "jazz-cafe-illustration"
+}

@@ -13,6 +13,20 @@ export function SkinGallery({ skins }: { skins: Skin[] }) {
       filter === "all" ||
       (filter === "dark" ? isDarkSkin(skin) : !isDarkSkin(skin)),
   );
+  const groups = [
+    {
+      key: "classic" as const,
+      title: t("经典风格"),
+      subtitle: t("耐看克制的经典设计语言，适合日常专注工作。"),
+      items: visible.filter((skin) => skin.category !== "featured"),
+    },
+    {
+      key: "featured" as const,
+      title: t("特色形象"),
+      subtitle: t("自带原创角色插画与独特世界观的沉浸主题。"),
+      items: visible.filter((skin) => skin.category === "featured"),
+    },
+  ].filter((group) => group.items.length > 0);
   return (
     <>
       <div className="collection-toolbar">
@@ -50,51 +64,66 @@ export function SkinGallery({ skins }: { skins: Skin[] }) {
           {t("款皮肤 · 免费开源")}
         </p>
       </div>
-      <div className="skin-grid">
-        {visible.map((skin) => (
-          <Link
-            className="skin-card glass"
-            key={skin.slug}
-            href={`/skins/${skin.slug}`}
-            aria-label={`${t("查看并安装")} ${skinName(skin)}`}
-          >
-            <div
-              className={`card-preview ${isDarkSkin(skin) ? "card-preview-dark" : ""}`}
-              style={{ "--card-tint": defaultPreviewPalette(skin).colors[2] } as React.CSSProperties}
-            >
-              <SkinPreview skin={skin} compact />
-              <span className="style-tag">
-                {skinDisplay(skin, locale).style}
-              </span>
-            </div>
-            <div className="card-copy">
-              <div className="card-title">
-                <h3>
-                  {skinName(skin)}
-                  <span>
-                    {locale === "zh"
-                      ? skin.name
-                      : skinDisplay(skin, locale).style}
-                  </span>
+      <div className="skin-groups">
+        {groups.map((group) => (
+          <section className="skin-group" key={group.key} aria-labelledby={`group-${group.key}`}>
+            <header className="skin-group-header">
+              <div>
+                <h3 id={`group-${group.key}`}>
+                  {group.title}
+                  <span>{group.items.length}</span>
                 </h3>
-                <span className="card-arrow" aria-hidden="true">
-                  ↗
-                </span>
+                <p>{group.subtitle}</p>
               </div>
-              <p>{skinDisplay(skin, locale).description}</p>
-              <div className="card-bottom">
-                <span className="skin-colors" aria-label={t("皮肤配色")}>
-                  {defaultPreviewPalette(skin).colors.map((c) => (
-                    <i key={c} style={{ background: c }} />
-                  ))}
-                </span>
-                <span>
-                  {t("查看与安装")}
-                  <span aria-hidden="true">→</span>
-                </span>
-              </div>
+            </header>
+            <div className="skin-grid">
+              {group.items.map((skin) => (
+                <Link
+                  className="skin-card glass"
+                  key={skin.slug}
+                  href={`/skins/${skin.slug}`}
+                  aria-label={`${t("查看并安装")} ${skinName(skin)}`}
+                >
+                  <div
+                    className={`card-preview ${isDarkSkin(skin) ? "card-preview-dark" : ""}`}
+                    style={{ "--card-tint": defaultPreviewPalette(skin).colors[2] } as React.CSSProperties}
+                  >
+                    <SkinPreview skin={skin} compact />
+                    <span className="style-tag">
+                      {skinDisplay(skin, locale).style}
+                    </span>
+                  </div>
+                  <div className="card-copy">
+                    <div className="card-title">
+                      <h3>
+                        {skinName(skin)}
+                        <span>
+                          {locale === "zh"
+                            ? skin.name
+                            : skinDisplay(skin, locale).style}
+                        </span>
+                      </h3>
+                      <span className="card-arrow" aria-hidden="true">
+                        ↗
+                      </span>
+                    </div>
+                    <p>{skinDisplay(skin, locale).description}</p>
+                    <div className="card-bottom">
+                      <span className="skin-colors" aria-label={t("皮肤配色")}>
+                        {defaultPreviewPalette(skin).colors.map((c) => (
+                          <i key={c} style={{ background: c }} />
+                        ))}
+                      </span>
+                      <span>
+                        {t("查看与安装")}
+                        <span aria-hidden="true">→</span>
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
             </div>
-          </Link>
+          </section>
         ))}
       </div>
     </>

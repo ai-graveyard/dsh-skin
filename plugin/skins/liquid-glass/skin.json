@@ -1,0 +1,57 @@
+{
+  "slug": "liquid-glass",
+  "order": 10,
+  "name": "Liquid Glass",
+  "nameZh": "液态玻璃",
+  "tagline": "Light bent into focus.",
+  "description": "Translucent specular glass, cool porcelain highlights and crisp Apple-blue controls.",
+  "author": {
+    "name": "DSH Skin",
+    "url": "https://github.com/ai-graveyard/dsh-skin"
+  },
+  "license": "MIT",
+  "compatibility": "DeepSeek Harness Desktop 0.2.2-rc.5",
+  "verifiedAt": "2026-11-21",
+  "verifiedStates": [
+    "Bundle lifecycle",
+    "Text and focus contrast",
+    "Package validation"
+  ],
+  "style": [
+    "liquid-glass",
+    "Light"
+  ],
+  "colors": [
+    "#F4F7FC",
+    "#182230",
+    "#0E5FD8"
+  ],
+  "preview": {
+    "label": "LIQUID GLASS",
+    "surface": "#FFFFFF",
+    "layer": "#E7EEF8",
+    "line": "#B5C3D8",
+    "muted": "#4A596D",
+    "radius": 14,
+    "cardRadius": 24,
+    "onAccent": "#FFFFFF"
+  },
+  "official": true,
+  "featured": false,
+  "designPattern": "liquid-glass",
+  "dark": {
+    "colors": [
+      "#0F141D",
+      "#EFF4FC",
+      "#7AB8FF"
+    ],
+    "preview": {
+      "surface": "#192231",
+      "layer": "#141C29",
+      "line": "#4C5E78",
+      "muted": "#AEBFD6",
+      "onAccent": "#0A1A2E"
+    }
+  },
+  "category": "classic"
+}

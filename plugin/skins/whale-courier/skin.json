@@ -19,8 +19,15 @@
     "Native macOS new conversation art and 530 px viewport",
     "Native desktop theme switching and restart persistence"
   ],
-  "style": ["Maritime illustration", "Light"],
-  "colors": ["#F3F8FD", "#132B46", "#2A5CBF"],
+  "style": [
+    "Maritime illustration",
+    "Light"
+  ],
+  "colors": [
+    "#F3F8FD",
+    "#132B46",
+    "#2A5CBF"
+  ],
   "preview": {
     "label": "WHALE COURIER",
     "surface": "#FFFDF8",
@@ -33,7 +40,11 @@
     "sidebarButton": "#23467B"
   },
   "dark": {
-    "colors": ["#0D1929", "#EBF3FF", "#8CB9F4"],
+    "colors": [
+      "#0D1929",
+      "#EBF3FF",
+      "#8CB9F4"
+    ],
     "preview": {
       "surface": "#182A40",
       "layer": "#132339",
@@ -46,5 +57,6 @@
   "artwork": "courier.webp",
   "sidebarArtwork": "courier-sidebar.webp",
   "featured": false,
-  "designPattern": "maritime-illustration"
+  "designPattern": "maritime-illustration",
+  "category": "featured"
 }

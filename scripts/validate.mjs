@@ -59,6 +59,7 @@ for (const directory of directories) {
   assert.ok(Buffer.byteLength(icon) < 262144)
 
   assert.ok(Number.isInteger(listing.order) && listing.order > 0, `${directoryName}: order must be a positive integer`)
+  assert.ok(['classic', 'featured'].includes(listing.category), `${directoryName}: category must be "classic" or "featured"`)
   assert.match(listing.verifiedAt, /^\d{4}-\d{2}-\d{2}$/)
   assert.ok(Array.isArray(listing.verifiedStates) && listing.verifiedStates.length > 0, `${directoryName}: verifiedStates are required`)
   assert.ok(listing.verifiedStates.every((state) => typeof state === 'string' && state.length > 0), `${directoryName}: verifiedStates must be non-empty strings`)

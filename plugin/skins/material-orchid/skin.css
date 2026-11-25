@@ -83,7 +83,8 @@ body[data-dsh-skin="material-orchid"] ::selection { background: var(--skin-actio
 
 /* Signature details: material */
 body[data-dsh-skin="material-orchid"] [class*="_sidebarCol"] button[class*="_newSession"] { background: var(--orchid-tonal-button) !important; color: var(--orchid-tonal-ink) !important; border-color: transparent !important; border-radius: 16px !important; }
-body[data-dsh-skin="material-orchid"] [class*="_composerStack"] button[class*="_primary"] { border-radius: 50% !important; box-shadow: 0 1px 3px #00000033; }
+body[data-dsh-skin="material-orchid"] [class*="_composerStack"] button[class*="_primary"] { border-radius: 50% !important; }
+body[data-dsh-skin="material-orchid"] [class*="_composerStack"] button[class*="_primary"]:not(:disabled) { box-shadow: 0 1px 3px #00000033; }
 body[data-dsh-skin="material-orchid"] :where(button, [role="tab"]) { transition: background-color 160ms ease, box-shadow 160ms ease; }
 body[data-dsh-skin="material-orchid"] :where(button:active:not(:disabled)) { box-shadow: inset 0 0 0 100px color-mix(in srgb, var(--skin-accent) 9%, transparent); }
 
@@ -115,6 +116,29 @@ body[data-dsh-skin="material-orchid"] [data-menu-material]:not([data-trigger-men
 body[data-dsh-skin="material-orchid"] [data-text-interaction-source] [data-code-wrap] {
   border-radius: 18px;
 }
+
+/* === Fine-grained polish === */
+body[data-dsh-skin="material-orchid"] [class*="_centerCol"] {
+  background-color: var(--skin-bg) !important;
+  background-image:
+    radial-gradient(ellipse 70% 45% at 85% 6%, color-mix(in srgb, var(--skin-accent) 9%, transparent), transparent 62%),
+    radial-gradient(ellipse 60% 40% at 12% 92%, color-mix(in srgb, var(--skin-accent) 6%, transparent), transparent 60%) !important;
+}
+body[data-dsh-skin="material-orchid"] [class*="_sidebarCol"] [role="treeitem"][aria-selected="true"] {
+  border-radius: 999px !important;
+  background: color-mix(in srgb, var(--skin-accent) 16%, transparent) !important;
+  box-shadow: none !important;
+}
+body[data-dsh-skin="material-orchid"] [class*="_composerStack"] :is([class$="_card"], [class*="_card "]) {
+  border-radius: 28px !important;
+  box-shadow: 0 8px 26px color-mix(in srgb, var(--skin-accent) 12%, transparent), 0 1px 3px rgba(0, 0, 0, 0.06) !important;
+}
+@media (hover: hover) {
+  body[data-dsh-skin="material-orchid"] [class*="_sidebarCol"] button[class*="_newSession"]:hover {
+    background: color-mix(in srgb, var(--skin-accent) 14%, var(--orchid-tonal-button)) !important;
+  }
+}
+/* === End fine-grained polish === */
 
 @media (prefers-reduced-motion: reduce) {
   body[data-dsh-skin="material-orchid"] *, body[data-dsh-skin="material-orchid"] *::before, body[data-dsh-skin="material-orchid"] *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }

@@ -70,13 +70,15 @@ function activate(locale = 'zh-CN') {
       },
     },
   })
-  const cards = () => {
-    const grid = picker().children[2]
+  const groups = () => picker().children.slice(1)
+  const cards = () => groups().flatMap((group) => {
+    const grid = group.children[1]
     assert.equal(grid.props.role, 'group')
     assert.ok(grid.children.every((card) => card.type === 'button'))
     return grid.children
-  }
+  })
   return {
+    groupTitles() { return groups().map((group) => group.children[0].children[0].children[0]) },
     names() { return cards().map((card) => card.children[1].children[0].children[0]) },
     setAppearance(scheme) { colorScheme = scheme },
     previewBackground(id) {
@@ -114,9 +116,14 @@ let active = activate()
 checkOriginal()
 assert.equal(active.selected(), '')
 assert.equal(active.previewBackground(''), '#FFFFFF')
+assert.deepEqual(active.groupTitles(), ['经典风格', '特色形象'])
 assert.deepEqual(
   active.names(),
-  ['原生外观', ...catalog.map(({ listing }) => listing.nameZh)],
+  [
+    '原生外观',
+    ...catalog.filter(({ listing }) => listing.category !== 'featured').map(({ listing }) => listing.nameZh),
+    ...catalog.filter(({ listing }) => listing.category === 'featured').map(({ listing }) => listing.nameZh),
+  ],
 )
 
 for (const theme of catalog) {
@@ -144,9 +151,14 @@ assert.equal(storageListeners.size, 0)
 active = activate('en')
 checkTheme(catalog.at(-1))
 assert.equal(active.selected(), catalog.at(-1).listing.slug)
+assert.deepEqual(active.groupTitles(), ['Classic Styles', 'Featured Worlds'])
 assert.deepEqual(
   active.names(),
-  ['Original appearance', ...catalog.map(({ listing }) => listing.name)],
+  [
+    'Original appearance',
+    ...catalog.filter(({ listing }) => listing.category !== 'featured').map(({ listing }) => listing.name),
+    ...catalog.filter(({ listing }) => listing.category === 'featured').map(({ listing }) => listing.name),
+  ],
 )
 
 storage.set('dsh-skin.theme', catalog[0].listing.slug)

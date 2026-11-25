@@ -1,0 +1,268 @@
+/* Night Circuit · 夜城骇客 */
+body[data-dsh-skin="night-circuit"] {
+  --skin-bg: #EEF6FB;
+  --skin-ink: #0C1E2E;
+  --skin-accent: #006982;
+  --skin-surface: #FFFFFF;
+  --skin-settings-surface: #F2F8FC;
+  --skin-popup: #F4FAFE;
+  --skin-scrim: #0C1E2E70;
+  --skin-layer: #DCECF6;
+  --skin-line: #8EB3C9;
+  --skin-muted: #3F5E73;
+  --skin-action: #006982;
+  --skin-on-action: #F4FCFF;
+  --skin-focus: #006982;
+  --fw-sidebar-top: #D8EAF6;
+  --fw-sidebar-mid: #DCECF6;
+  --fw-sidebar-bottom: #E8F2F9;
+  --fw-new: #006982;
+  --fw-new-hover: #005368;
+  --fw-new-ink: #F4FCFF;
+  --fw-shortcut: #C7EFF7;
+  --fw-dock-top: #E2F1FA;
+  --fw-dock-bottom: #D2E8F5;
+  --fw-dock-wave: #00B4D838;
+  --fw-dock-edge: #8EB3C988;
+  --skin-switch-off: #D5EAF6;
+  --skin-switch-off-hover: #C2E0F2;
+  --skin-switch-off-edge: #5C91AE;
+  --skin-switch-off-thumb: #1B526E;
+  --skin-switch-disabled: #E8F3F9;
+  --skin-switch-disabled-edge: #A3C2D4;
+  --skin-switch-disabled-thumb: #84A7BC;
+  --skin-switch-disabled-on: #74B0C2;
+  --skin-switch-disabled-on-thumb: #F2FAFD;
+  --skin-command-surface: #E9F4FB;
+  --skin-selected-surface: #CDE5F4;
+  --skin-code-header: #DCECF6;
+  --skin-selection-mark: inset 2px 0 var(--skin-accent);
+  --skin-popup-shadow: 0 0 0 1px var(--skin-line), 0 8px 22px #0C1E2E24;
+  --skin-radius: 8px;
+  --skin-card-radius: 14px;
+  --skin-shadow: 0 10px 28px #0C1E2E14;
+  --fw-canvas-bg: radial-gradient(circle 220px at 50% 34%, rgba(0,198,224,0.16), transparent 70%), radial-gradient(ellipse 52% 36% at 88% 10%, rgba(226,46,138,0.08), transparent 60%), linear-gradient(rgba(0,118,148,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,118,148,0.05) 1px, transparent 1px), #EEF6FB;
+  --fw-canvas-size: auto, auto, 26px 26px, 26px 26px, auto;
+  --dsw-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  color-scheme: light;
+  background: var(--skin-bg);
+  color: var(--skin-ink);
+  font-family: var(--dsw-font-family);
+}
+body[data-dsh-skin="night-circuit"][data-ds-dark-theme] {
+  --skin-bg: var(--dsw-alias-bg-base);
+  --skin-ink: var(--dsw-alias-label-primary);
+  --skin-accent: var(--dsw-alias-brand-primary);
+  --skin-surface: var(--dsw-alias-bg-layer-1);
+  --skin-settings-surface: #0E1624;
+  --skin-popup: var(--dsw-alias-bg-overlay);
+  --skin-scrim: #03060CA6;
+  --skin-layer: var(--dsw-alias-bg-layer-2);
+  --skin-line: var(--dsw-alias-border-l2);
+  --skin-muted: var(--dsw-alias-label-secondary);
+  --skin-action: var(--dsw-alias-button-primary-fill);
+  --skin-on-action: var(--dsw-alias-label-primary-foreground);
+  --skin-focus: #3CEEEE;
+  --skin-shadow: 0 12px 32px #02040A75;
+  --fw-sidebar-top: #0D1628;
+  --fw-sidebar-mid: #0B1220;
+  --fw-sidebar-bottom: #080D18;
+  --fw-new: #14374A;
+  --fw-new-hover: #1B4861;
+  --fw-new-ink: #E6F4FF;
+  --fw-shortcut: #8AE4EC;
+  --fw-dock-top: #112238;
+  --fw-dock-bottom: #0B1626;
+  --fw-dock-wave: #00F0FF38;
+  --fw-dock-edge: #2F668099;
+  --skin-switch-off: #172A40;
+  --skin-switch-off-hover: #203956;
+  --skin-switch-off-edge: #447C9C;
+  --skin-switch-off-thumb: #A8DCED;
+  --skin-switch-disabled: #152233;
+  --skin-switch-disabled-edge: #304C66;
+  --skin-switch-disabled-thumb: #6F90AB;
+  --skin-switch-disabled-on: #2C7D87;
+  --skin-switch-disabled-on-thumb: #DFFBFF;
+  --skin-command-surface: #121C2E;
+  --skin-selected-surface: #1A3248;
+  --skin-code-header: #15243A;
+  --skin-popup-shadow: 0 0 0 1px var(--skin-line), 0 8px 22px #02040A7A;
+  --fw-canvas-bg: radial-gradient(circle 240px at 50% 34%, rgba(0,240,255,0.18), rgba(0,180,255,0.06) 52%, transparent 74%), radial-gradient(ellipse 54% 38% at 90% 14%, rgba(255,42,133,0.12), transparent 58%), linear-gradient(rgba(0,240,255,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(0,240,255,0.045) 1px, transparent 1px), #070B12;
+  --fw-canvas-size: auto, auto, 26px 26px, 26px 26px, auto;
+  color-scheme: dark;
+}
+body[data-dsh-skin="night-circuit"] :where(button, input, textarea, select, [role="button"], [role="tab"]) {
+  font-family: inherit;
+  border-radius: var(--skin-radius);
+}
+body[data-dsh-skin="night-circuit"] :where(code, pre, kbd, samp) {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+body[data-dsh-skin="night-circuit"] :where(button, a, input, textarea, select, [role="button"], [role="tab"], [contenteditable="true"]):focus-visible {
+  outline: 2px solid var(--skin-focus) !important;
+  outline-offset: 3px;
+}
+body[data-dsh-skin="night-circuit"] :where(button[type="submit"]:not(:disabled)) {
+  background: var(--skin-action) !important;
+  color: var(--skin-on-action) !important;
+}
+body[data-dsh-skin="night-circuit"] :where([class*="_sidebarCol"]) {
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--fw-sidebar-top) 78%, transparent) 0%,
+      color-mix(in srgb, var(--fw-sidebar-mid) 48%, transparent) 54%,
+      color-mix(in srgb, var(--fw-sidebar-bottom) 38%, transparent) 100%
+    ),
+    var(--skin-sidebar-artwork, none) center bottom 84px / min(82%, 184px) auto no-repeat,
+    linear-gradient(175deg, var(--fw-sidebar-top), var(--fw-sidebar-mid) 48%, var(--fw-sidebar-bottom)) !important;
+  border-right: 1px solid var(--skin-line);
+}
+body[data-dsh-skin="night-circuit"] :where([class*="_sidebarCol"] [class*="_footArea"]) {
+  background: transparent !important;
+}
+body[data-dsh-skin="night-circuit"] :where([class*="_sidebarCol"] button[class*="_newSession"]) {
+  min-height: 40px;
+  border: 1px solid var(--fw-new) !important;
+  background: var(--fw-new) !important;
+  color: var(--fw-new-ink) !important;
+  font-weight: 600;
+}
+body[data-dsh-skin="night-circuit"] [class*="_sidebarCol"] [class*="_newSessionShortcut"] {
+  color: var(--fw-shortcut);
+}
+body[data-dsh-skin="night-circuit"] :where([class*="_sidebarCol"] [class*="_sectionHeader"]) {
+  color: var(--skin-muted) !important;
+}
+body[data-dsh-skin="night-circuit"] :where([class*="_sidebarCol"] [role="treeitem"][aria-selected="true"]) {
+  border-radius: var(--skin-radius);
+  box-shadow: inset 3px 0 var(--skin-action);
+}
+body[data-dsh-skin="night-circuit"] :where([class*="_heroGlow"]) {
+  display: none !important;
+}
+body[data-dsh-skin="night-circuit"] :where([class*="_composerStack"] [class*="_root"][class*="_hero"]) {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+body[data-dsh-skin="night-circuit"] :where([class*="_composerStack"] [class$="_card"], [class*="_composerStack"] [class*="_card "]) {
+  border: 1px solid var(--skin-line) !important;
+  border-radius: var(--skin-card-radius) !important;
+  background: var(--skin-surface) !important;
+  box-shadow: var(--skin-shadow) !important;
+}
+body[data-dsh-skin="night-circuit"] [class*="_composerStack"] :is([class$="_card"], [class*="_card "]):focus-within {
+  border-color: var(--skin-focus) !important;
+  box-shadow: 0 0 0 1px var(--skin-focus), var(--skin-shadow) !important;
+}
+body[data-dsh-skin="night-circuit"] [class*="_composerStack"] :is([class$="_card"], [class*="_card "])::after {
+  content: "";
+  position: absolute;
+  inset-block-start: -8px;
+  inset-inline-end: 18px;
+  width: 18px;
+  height: 18px;
+  box-sizing: border-box;
+  border: 1px solid #004F61;
+  border-radius: 50%;
+  background: #00748E url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='none' stroke='%23E8FCFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' d='M5 7l4 3-4 3m6 0h4'/></svg>") center / 12px no-repeat;
+  box-shadow: 0 0 0 2px var(--skin-bg);
+  pointer-events: none;
+}
+body[data-dsh-skin="night-circuit"] :where([class*="_composerStack"] [contenteditable="true"], [class*="_composerStack"] textarea) {
+  font-family: var(--dsw-font-family);
+  caret-color: var(--skin-focus);
+}
+body[data-dsh-skin="night-circuit"] :where([class*="_composerStack"] button[class*="_add"]) {
+  background: var(--skin-layer) !important;
+  border: 1px solid var(--skin-line) !important;
+}
+body[data-dsh-skin="night-circuit"] :where([class*="_composerStack"] button[class*="_primary"]:not(:disabled)) {
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--skin-action) !important;
+  border-radius: var(--skin-radius) !important;
+  background: var(--skin-action) !important;
+  color: var(--skin-on-action) !important;
+}
+body[data-dsh-skin="night-circuit"] :where([class*="_composerStack"] button[class*="_primary"]:disabled) {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--skin-radius) !important;
+  background: var(--skin-layer) !important;
+  border: 1px solid var(--skin-line) !important;
+  color: var(--skin-muted) !important;
+  box-shadow: none !important;
+}
+body[data-dsh-skin="night-circuit"] :where([role="dialog"]) {
+  border: 1px solid var(--skin-line);
+  border-radius: var(--skin-card-radius) !important;
+  background: var(--skin-surface) !important;
+  box-shadow: var(--skin-shadow);
+}
+body[data-dsh-skin="night-circuit"] :where([role="menu"], [role="listbox"]) {
+  border: 1px solid var(--skin-line);
+  border-radius: var(--skin-radius);
+  background: var(--skin-surface);
+}
+body[data-dsh-skin="night-circuit"] :where(pre) {
+  border: 1px solid var(--skin-line);
+  border-radius: var(--skin-radius);
+  background: var(--dsw-alias-markdown-code-block, var(--skin-surface)) !important;
+}
+body[data-dsh-skin="night-circuit"] :where(blockquote) {
+  border-inline-start: 3px solid var(--skin-accent);
+  padding-inline-start: 14px;
+}
+body[data-dsh-skin="night-circuit"] ::selection {
+  background: var(--skin-action);
+  color: var(--skin-on-action);
+}
+body[data-dsh-skin="night-circuit"] [class*="_composerHero"] [class*="_headline"]:has(> [class*="_titleGroup"]) {
+  --fw-hero-size: clamp(120px, 23vh, 184px);
+  position: relative;
+  margin-block-start: calc(var(--fw-hero-size) + 14px);
+}
+body[data-dsh-skin="night-circuit"] [class*="_composerHero"] [class*="_headline"]:has(> [class*="_titleGroup"])::before {
+  content: "";
+  position: absolute;
+  inset-block-end: calc(100% + 12px);
+  inset-inline-start: calc(50% - var(--fw-hero-size) / 2);
+  width: var(--fw-hero-size);
+  aspect-ratio: 1;
+  background: var(--skin-artwork, none) center / contain no-repeat;
+  pointer-events: none;
+}
+body[data-dsh-skin="night-circuit"][data-ds-dark-theme] [class*="_composerHero"] [class*="_headline"]:has(> [class*="_titleGroup"])::before {
+  filter: drop-shadow(0 0 14px #00F0FF44);
+}
+body[data-dsh-skin="night-circuit"] [data-text-interaction-source] [data-code-wrap] {
+  border-radius: 12px;
+}
+body[data-dsh-skin="night-circuit"] [class*="_centerCol"] {
+  background-color: var(--skin-bg) !important;
+  background-image: var(--fw-canvas-bg) !important;
+  background-size: var(--fw-canvas-size, auto) !important;
+}
+@media (max-width: 640px), (max-height: 600px) {
+  body[data-dsh-skin="night-circuit"] [class*="_composerHero"] [class*="_headline"]:has(> [class*="_titleGroup"]) {
+    --fw-hero-size: clamp(86px, 18vh, 124px);
+  }
+}
+@media (hover: hover) {
+  body[data-dsh-skin="night-circuit"] :where([class*="_sidebarCol"] button[class*="_newSession"]:hover) {
+    background: var(--fw-new-hover) !important;
+  }
+  body[data-dsh-skin="night-circuit"] :where([class*="_composerStack"] button[class*="_primary"]:not(:disabled):hover) {
+    background: var(--dsw-alias-button-primary-hover) !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  body[data-dsh-skin="night-circuit"] *, body[data-dsh-skin="night-circuit"] *::before, body[data-dsh-skin="night-circuit"] *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

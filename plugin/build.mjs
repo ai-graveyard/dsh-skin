@@ -34,6 +34,7 @@ const themes = await Promise.all(directories.map(async (directory) => {
   }
   return {
     id: listing.slug,
+    category: listing.category ?? 'classic',
     name: listing.name,
     nameZh: listing.nameZh,
     colors: listing.colors,

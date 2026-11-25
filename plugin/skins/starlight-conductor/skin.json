@@ -1,0 +1,61 @@
+{
+  "slug": "starlight-conductor",
+  "order": 15,
+  "category": "featured",
+  "name": "Starlight Conductor",
+  "nameZh": "星穹列车长",
+  "tagline": "Midnight indigo rails and champagne gold starlight.",
+  "description": "Astral indigo cosmos, champagne gold starlight tracks, an express conductor with a celestial astrolabe, and starry accents.",
+  "author": {
+    "name": "Skin Collection",
+    "url": "https://github.com/ai-graveyard/dsh-skin"
+  },
+  "license": "MIT",
+  "compatibility": "DeepSeek Harness Desktop 0.2.2-rc.5",
+  "verifiedAt": "2026-11-25",
+  "verifiedStates": [
+    "Bundle lifecycle",
+    "Text and focus contrast",
+    "Package validation",
+    "Offline transparent WebP hero and sidebar art"
+  ],
+  "style": [
+    "Astral express",
+    "Dark"
+  ],
+  "colors": [
+    "#F2F5FC",
+    "#182042",
+    "#344AA6"
+  ],
+  "preview": {
+    "label": "STARLIGHT CONDUCTOR",
+    "surface": "#FCFDFE",
+    "layer": "#E3E9F8",
+    "line": "#A5B3D6",
+    "muted": "#4B587E",
+    "radius": 10,
+    "cardRadius": 16,
+    "onAccent": "#FCFDFE",
+    "sidebarButton": "#344AA6"
+  },
+  "dark": {
+    "colors": [
+      "#0A0E22",
+      "#EEF2FF",
+      "#F4C95D"
+    ],
+    "preview": {
+      "surface": "#161E3D",
+      "layer": "#111731",
+      "line": "#42528A",
+      "muted": "#B0BDE0",
+      "onAccent": "#161206",
+      "sidebarButton": "#2A366B"
+    }
+  },
+  "artwork": "hero.webp",
+  "sidebarArtwork": "sidebar.webp",
+  "featured": false,
+  "designPattern": "astral-express-illustration"
+}

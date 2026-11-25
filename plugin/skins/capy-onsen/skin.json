@@ -1,0 +1,61 @@
+{
+  "slug": "capy-onsen",
+  "order": 18,
+  "category": "featured",
+  "name": "Capy Onsen",
+  "nameZh": "卡皮巴拉温泉",
+  "tagline": "Hinoki cypress wood, yuzu citrus, and unbothered calm.",
+  "description": "Warm hinoki wood sidebar, mineral-spring mist, a zen capybara soaking with a yuzu on its head, and a citrus seal.",
+  "author": {
+    "name": "Skin Collection",
+    "url": "https://github.com/ai-graveyard/dsh-skin"
+  },
+  "license": "MIT",
+  "compatibility": "DeepSeek Harness Desktop 0.2.2-rc.5",
+  "verifiedAt": "2026-11-25",
+  "verifiedStates": [
+    "Bundle lifecycle",
+    "Text and focus contrast",
+    "Package validation",
+    "Offline transparent WebP hero and sidebar art"
+  ],
+  "style": [
+    "Healing onsen",
+    "Light"
+  ],
+  "colors": [
+    "#F2F6F1",
+    "#162A29",
+    "#1B736C"
+  ],
+  "preview": {
+    "label": "CAPY ONSEN",
+    "surface": "#FCFEFD",
+    "layer": "#E3ECE6",
+    "line": "#A4BEB8",
+    "muted": "#46615E",
+    "radius": 14,
+    "cardRadius": 20,
+    "onAccent": "#FCFEFD",
+    "sidebarButton": "#1B736C"
+  },
+  "dark": {
+    "colors": [
+      "#121B1A",
+      "#EAF6F4",
+      "#7AD9D1"
+    ],
+    "preview": {
+      "surface": "#1C2A28",
+      "layer": "#172322",
+      "line": "#43635E",
+      "muted": "#A9C7C3",
+      "onAccent": "#091C1B",
+      "sidebarButton": "#244A46"
+    }
+  },
+  "artwork": "hero.webp",
+  "sidebarArtwork": "sidebar.webp",
+  "featured": false,
+  "designPattern": "healing-onsen-illustration"
+}

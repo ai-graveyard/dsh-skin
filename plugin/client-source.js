@@ -26,6 +26,7 @@ function ThemeThumbnail({ theme, dark }) {
   const { layer, surface, line, muted, radius = 3, cardRadius = 4 } = { ...theme.preview, ...palette.preview }
   return createElement('span', {
     className: 'dsh-skin-thumbnail',
+    'data-has-artwork': theme.artwork ? 'true' : undefined,
     'aria-hidden': true,
     style: {
       '--mini-bg': background,
@@ -137,25 +138,51 @@ function apply(ctx) {
     const value = useSyncExternalStore(subscribe, getSelected)
     const chinese = useSyncExternalStore(subscribeLocale, getLocale).toLowerCase().startsWith('zh')
     const dark = useSyncExternalStore(subscribeAppearance, getAppearance) === 'dark'
-    const choices = [dark ? ORIGINAL_DARK : ORIGINAL_LIGHT, ...THEMES]
-    const label = chinese ? '主题' : 'Themes'
+    const original = dark ? ORIGINAL_DARK : ORIGINAL_LIGHT
+    const classicThemes = THEMES.filter((theme) => theme.category !== 'featured')
+    const featuredThemes = THEMES.filter((theme) => theme.category === 'featured')
+    const groups = [
+      {
+        key: 'classic',
+        title: chinese ? '经典风格' : 'Classic Styles',
+        count: classicThemes.length,
+        choices: [original, ...classicThemes],
+      },
+      ...(featuredThemes.length > 0
+        ? [{
+            key: 'featured',
+            title: chinese ? '特色形象' : 'Featured Worlds',
+            count: featuredThemes.length,
+            choices: featuredThemes,
+          }]
+        : []),
+    ]
+    const renderCard = (theme) => createElement('button', {
+      key: theme.id,
+      type: 'button',
+      'data-theme': theme.id,
+      'aria-pressed': theme.id === value,
+      onClick: () => selectTheme(theme.id),
+    },
+    createElement(ThemeThumbnail, { theme, dark }),
+    createElement('span', { className: 'dsh-skin-picker-caption' },
+      createElement('span', null, chinese ? theme.nameZh : theme.name),
+      createElement('span', { className: 'dsh-skin-picker-check', 'aria-hidden': true }),
+    ))
     return createElement('section', { className: 'dsh-skin-picker' },
       createElement('style', null, PICKER_CSS),
-      createElement('h3', null, label),
-      createElement('div', { className: 'dsh-skin-picker-grid', role: 'group', 'aria-label': label },
-        ...choices.map((theme) => createElement('button', {
-          key: theme.id,
-          type: 'button',
-          'data-theme': theme.id,
-          'aria-pressed': theme.id === value,
-          onClick: () => selectTheme(theme.id),
-        },
-        createElement(ThemeThumbnail, { theme, dark }),
-        createElement('span', { className: 'dsh-skin-picker-caption' },
-          createElement('span', null, chinese ? theme.nameZh : theme.name),
-          createElement('span', { className: 'dsh-skin-picker-check', 'aria-hidden': true }),
-        ))),
+      ...groups.map((group) => createElement('div', {
+        key: group.key,
+        className: 'dsh-skin-picker-group',
+        'data-group': group.key,
+      },
+      createElement('div', { className: 'dsh-skin-picker-heading' },
+        createElement('h3', null, group.title),
+        createElement('span', { className: 'dsh-skin-picker-count' }, String(group.count)),
       ),
+      createElement('div', { className: 'dsh-skin-picker-grid', role: 'group', 'aria-label': group.title },
+        ...group.choices.map(renderCard),
+      ))),
     )
   }
 

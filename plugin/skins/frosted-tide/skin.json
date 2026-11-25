@@ -1,6 +1,6 @@
 {
   "slug": "frosted-tide",
-  "order": 10,
+  "order": 9,
   "name": "Frosted Tide",
   "nameZh": "雾潮",
   "tagline": "Depth without distraction.",
@@ -58,5 +58,6 @@
       "muted": "#B4BDD9",
       "onAccent": "#0D0F26"
     }
-  }
+  },
+  "category": "classic"
 }

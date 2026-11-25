@@ -73,7 +73,7 @@ body[data-dsh-skin="frosted-tide"] ::selection { background: var(--skin-action);
 
 /* Signature details: glassmorphism */
 body[data-dsh-skin="frosted-tide"] [class*="_sidebarCol"] { background: linear-gradient(155deg, #667eea25, color-mix(in srgb, var(--skin-layer) 88%, transparent) 55%, var(--glass-glow)) !important; }
-body[data-dsh-skin="frosted-tide"] [class*="_composerStack"] [class$="_card"] { background: linear-gradient(120deg, #667eea26, color-mix(in srgb, var(--skin-surface) 87%, transparent) 65%, var(--glass-glow)) !important; border-color: var(--glass-edge) !important; -webkit-backdrop-filter: blur(20px) saturate(150%); backdrop-filter: blur(20px) saturate(150%); box-shadow: inset 0 1px 0 var(--glass-edge), var(--skin-shadow) !important; }
+body[data-dsh-skin="frosted-tide"] [class*="_composerStack"] :is([class$="_card"], [class*="_card "]) { background: linear-gradient(120deg, #667eea26, color-mix(in srgb, var(--skin-surface) 87%, transparent) 65%, var(--glass-glow)) !important; border-color: var(--glass-edge) !important; -webkit-backdrop-filter: blur(20px) saturate(150%); backdrop-filter: blur(20px) saturate(150%); box-shadow: inset 0 1px 0 var(--glass-edge), var(--skin-shadow) !important; }
 body[data-dsh-skin="frosted-tide"] [class*="_sidebarCol"] button[class*="_newSession"] { background: var(--glass-button) !important; border-color: var(--glass-edge) !important; }
 body[data-dsh-skin="frosted-tide"] [role="dialog"] { background: var(--skin-surface) !important; }
 
@@ -110,6 +110,25 @@ body[data-dsh-skin="frosted-tide"] [data-text-interaction-source] [data-code-wra
   border-radius: 14px;
   box-shadow: inset 0 1px var(--glass-edge);
 }
+
+/* === Fine-grained polish === */
+body[data-dsh-skin="frosted-tide"] [class*="_centerCol"] {
+  background-color: var(--skin-bg) !important;
+  background-image:
+    radial-gradient(50vw 42vh at 20% 8%, color-mix(in srgb, var(--indigo, #667EEA) 16%, transparent), transparent 62%),
+    radial-gradient(48vw 38vh at 84% 86%, color-mix(in srgb, var(--skin-accent) 14%, transparent), transparent 64%) !important;
+}
+body[data-dsh-skin="frosted-tide"] [class*="_sidebarCol"] [role="treeitem"][aria-selected="true"] {
+  background: color-mix(in srgb, var(--skin-accent) 16%, transparent) !important;
+  box-shadow: inset 3px 0 var(--skin-accent), inset 0 1px 0 var(--glass-edge) !important;
+}
+@media (hover: hover) {
+  body[data-dsh-skin="frosted-tide"] [class*="_sidebarCol"] button[class*="_newSession"]:hover {
+    background: color-mix(in srgb, var(--skin-accent) 14%, var(--glass-button)) !important;
+    border-color: var(--skin-action) !important;
+  }
+}
+/* === End fine-grained polish === */
 
 @media (prefers-reduced-motion: reduce) {
   body[data-dsh-skin="frosted-tide"] *, body[data-dsh-skin="frosted-tide"] *::before, body[data-dsh-skin="frosted-tide"] *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }

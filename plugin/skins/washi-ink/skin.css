@@ -67,6 +67,39 @@ body[data-dsh-skin="washi-ink"] :where(h1,h2,h3) { font-family: var(--serif); fo
 body[data-dsh-skin="washi-ink"] [class*="_sectionHeader"] { letter-spacing: .08em; }
 body[data-dsh-skin="washi-ink"] [class*="_composerStack"] button[class*="_primary"] { border-radius: 2px !important; }
 
+/* === Fine-grained polish === */
+body[data-dsh-skin="washi-ink"] [class*="_centerCol"] {
+  background-color: var(--skin-bg) !important;
+  background-image:
+    repeating-linear-gradient(0deg, color-mix(in srgb, var(--skin-ink) 2.2%, transparent) 0 1px, transparent 1px 6px),
+    radial-gradient(ellipse 75% 50% at 50% 0%, color-mix(in srgb, var(--skin-accent) 5.5%, transparent), transparent 64%) !important;
+}
+body[data-dsh-skin="washi-ink"] [class*="_composerStack"] :is([class$="_card"], [class*="_card "]) {
+  position: relative;
+}
+body[data-dsh-skin="washi-ink"] [class*="_composerStack"] :is([class$="_card"], [class*="_card "])::after {
+  content: "";
+  position: absolute;
+  inset-block-start: 10px;
+  inset-inline-end: 10px;
+  width: 6px;
+  height: 14px;
+  border-radius: 1px;
+  background: var(--skin-accent);
+  opacity: 0.85;
+  pointer-events: none;
+}
+body[data-dsh-skin="washi-ink"] [class*="_sidebarCol"] [role="treeitem"][aria-selected="true"] {
+  box-shadow: inset 2px 0 var(--skin-accent) !important;
+  background: color-mix(in srgb, var(--skin-accent) 8%, transparent) !important;
+}
+@media (hover: hover) {
+  body[data-dsh-skin="washi-ink"] [class*="_sidebarCol"] button[class*="_newSession"]:hover {
+    background: color-mix(in srgb, var(--skin-action) 10%, transparent) !important;
+  }
+}
+/* === End fine-grained polish === */
+
 @media (prefers-reduced-motion: reduce) {
   body[data-dsh-skin="washi-ink"] *, body[data-dsh-skin="washi-ink"] *::before, body[data-dsh-skin="washi-ink"] *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }

@@ -95,8 +95,48 @@ body[data-dsh-skin="braun-control"] [role="dialog"][data-shortcut-modal="setting
 }
 body[data-dsh-skin="braun-control"] [data-text-interaction-source] [data-code-wrap] {
   border-radius: 4px;
+  border-top: 2px solid var(--skin-ink);
   border-inline-start: 3px solid var(--skin-accent);
 }
+
+/* === Fine-grained polish === */
+body[data-dsh-skin="braun-control"] [class*="_centerCol"] {
+  background-color: var(--skin-bg) !important;
+  background-image:
+    linear-gradient(180deg, color-mix(in srgb, var(--skin-line) 24%, transparent) 0, transparent 48px),
+    radial-gradient(color-mix(in srgb, var(--skin-ink) 5%, transparent) 1px, transparent 1px) !important;
+  background-size: 100% 48px, 24px 24px !important;
+  background-repeat: no-repeat, repeat !important;
+}
+body[data-dsh-skin="braun-control"] [class*="_composerStack"] :is([class$="_card"], [class*="_card "]) {
+  position: relative;
+  border-top: 2px solid var(--skin-ink) !important;
+}
+body[data-dsh-skin="braun-control"] [class*="_composerStack"] :is([class$="_card"], [class*="_card "])::after {
+  content: "";
+  position: absolute;
+  inset-block-start: 10px;
+  inset-inline-end: 12px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--skin-accent);
+  pointer-events: none;
+}
+body[data-dsh-skin="braun-control"] :where(blockquote) {
+  border-inline-start: 3px solid var(--skin-accent);
+  padding-inline-start: 14px;
+}
+@media (hover: hover) {
+  body[data-dsh-skin="braun-control"] [class*="_sidebarCol"] button[class*="_newSession"]:hover {
+    background: #2C2C2C !important;
+  }
+  body[data-dsh-skin="braun-control"][data-ds-dark-theme] [class*="_sidebarCol"] button[class*="_newSession"]:hover {
+    background: #34393D !important;
+    border-color: var(--skin-accent) !important;
+  }
+}
+/* === End fine-grained polish === */
 
 @media (prefers-reduced-motion: reduce) {
   body[data-dsh-skin="braun-control"] *, body[data-dsh-skin="braun-control"] *::before, body[data-dsh-skin="braun-control"] *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }

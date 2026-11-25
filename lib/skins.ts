@@ -4,6 +4,7 @@ import path from "node:path";
 export type Skin = {
   slug: string;
   order: number;
+  category: "classic" | "featured";
   name: string;
   nameZh?: string;
   official?: boolean;
